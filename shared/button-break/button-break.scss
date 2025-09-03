@@ -1,0 +1,17 @@
+@import '../../app/scss/mixins';
+@import '../../app/scss/colors';
+
+.button-break {
+  @include caption-lg;
+  @include link-white-full;
+  background-color: $Logo-1;
+  transition: background-color 0.3s ease; /* Добавляем плавный переход */
+
+  &:hover {
+    background-color: $black; /* Задаем желаемый цвет фона при наведении */
+  }
+
+  width: 120px;
+  height: 30px;
+  border: $black 1px solid;
+}

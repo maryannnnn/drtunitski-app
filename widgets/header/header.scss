@@ -1,0 +1,46 @@
+@import '../../app/scss/mixins';
+@import '../../app/scss/colors';
+
+.header {
+  background-color: $white-full;
+  width: 100vw;
+  height: 70px;
+
+  &__inner {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    &-logo {
+      width: 250px;
+      padding-left: 15px;
+    }
+
+    &-menu {
+
+    }
+
+    &-mobile {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      padding-right: 15px;
+      padding-left: 15px;
+
+      &__image {
+        width: 16px;
+      }
+
+      &__number {
+        @include title-h3;
+
+        &-link {
+          @include link-red;
+        }
+      }
+    }
+  }
+}

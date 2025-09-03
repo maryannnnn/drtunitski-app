@@ -1,0 +1,65 @@
+@import '../../app/scss/mixins';
+@import '../../app/scss/colors';
+
+.main-company {
+  background-color: $white-full;
+  border-bottom: 1px solid $black;
+  padding-bottom: 25px;
+
+  &__block {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__title {
+    @include title-h2;
+    color: $brown-7;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    &-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      &-options {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-bottom: 15px;
+
+        &__link {
+          //display: flex;
+          //justify-content: center;
+          //flex-direction: row;
+          @include title-h5;
+          @include link-brown;
+        }
+      }
+    }
+
+    &-video {
+      position: relative;
+      width: 50%; /* Половина ширины экрана, если нужно обтекание */
+      max-width: 100%;
+      float: right; /* Обтекание текста справа */
+      margin-right: 20px; /* Отступ от текста */
+
+      iframe {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        display: block;
+      }
+    }
+  }
+
+}
+

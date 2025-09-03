@@ -1,0 +1,10 @@
+@import '../../app/scss/mixins';
+@import '../../app/scss/colors';
+
+.header-buttons {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}

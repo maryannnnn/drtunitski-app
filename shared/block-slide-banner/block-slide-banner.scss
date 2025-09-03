@@ -1,0 +1,21 @@
+@import '../../app/scss/mixins';
+@import '../../app/scss/colors';
+
+.slide-info {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding-top: 60px;
+}
+
+.swiper-slide .title {
+  @include title-banner;
+  color: $black;
+  @include link-black-white;
+}
+
+.swiper-slide .subtitle {
+  @include title-h2;
+  color: $black;
+
+}

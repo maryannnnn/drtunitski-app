@@ -1,0 +1,45 @@
+@import '../../app/scss/mixins';
+@import '../../app/scss/colors';
+
+@media screen and (max-width: 767px) {
+  .massage {
+    &__anons {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    &__description {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 20px;
+    }
+  }
+
+  .block-massages {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+    padding-bottom: 40px;
+  }
+
+  .massage__video {
+    display: block; /* Стандартное поведение для мобильных устройств */
+    padding-bottom: 20px;
+
+    &-content {
+      width: 100%; /* Видео будет занимать всю ширину на мобильных */
+      max-width: 100%;
+      margin-bottom: 20px; /* Отступ снизу */
+      float: none; /* Убираем обтекание на мобильных */
+    }
+
+    &-text {
+      //width: 100%; /* Текст также будет занимать всю ширину */
+      margin-top: 20px; /* Отступ сверху от видео */
+    }
+  }
+
+}

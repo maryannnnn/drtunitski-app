@@ -1,0 +1,18 @@
+@import '../../app/scss/mixins';
+@import '../../app/scss/colors';
+
+@media screen and (max-width: 767px) {
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 1218px) {
+  .icon-button-hide {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1218px) {
+  .icon-button-hide {
+    display: none;
+  }
+}

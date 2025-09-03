@@ -1,0 +1,12 @@
+@import '../../app/scss/mixins';
+
+.menu-soc {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 15px;
+  &__item {
+    @include link-white;
+  }
+}

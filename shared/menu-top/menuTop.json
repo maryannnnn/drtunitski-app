@@ -1,0 +1,35 @@
+{
+  "data": {
+    "menuItems": {
+      "edges": [
+        {
+          "node": {
+            "id": "cG9zdDozNjc3",
+            "path": "/bonus",
+            "parentId": null,
+            "order": 1,
+            "label": "Акции"
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDozNjc1",
+            "path": "/testimonial",
+            "parentId": null,
+            "order": 3,
+            "label": "Отзывы"
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDoxNDY3",
+            "path": "/salon/contact",
+            "parentId": null,
+            "order": 6,
+            "label": "Контакты"
+          }
+        }
+      ]
+    }
+  }
+}

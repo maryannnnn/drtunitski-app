@@ -1,0 +1,13 @@
+@import '../../app/scss/mixins';
+@import '../../app/scss/colors';
+
+.footer-menu-soc {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+    &__item {
+      @include link-white;
+    }
+}

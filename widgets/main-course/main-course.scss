@@ -1,0 +1,9 @@
+@import '../../app/scss/mixins';
+@import '../../app/scss/colors';
+
+.main-course {
+  background-color: $brown-4;
+  color: $white-full;
+  border-bottom: 1px solid $black;
+}
+

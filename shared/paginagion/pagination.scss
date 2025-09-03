@@ -1,0 +1,30 @@
+@import '../../app/scss/mixins';
+@import '../../app/scss/colors';
+
+.pagination {
+  display: flex;
+  gap: 10px;
+  margin: 20px;
+  &__item {
+    border: 0;
+
+    &-arrow {
+     background-color: $white-full;
+    }
+    &-active {
+      @include button-2__active;
+    }
+    @include button-2;
+
+    &:disabled{
+      background-color: $brown-7;
+      color: $brown-8;
+      cursor: initial;
+    }
+  }
+}
+
+ul, ol {
+  list-style-type: none;
+  padding: 0;
+}

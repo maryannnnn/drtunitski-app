@@ -1,0 +1,35 @@
+@import '../../app/scss/mixins';
+@import '../../app/scss/colors';
+
+.main-template {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+
+  &__link {
+    align-self: center;
+    position: relative;
+    @include title-h6;
+    @include link-black;
+    width: 100%;
+    align-content: center;
+    margin-top: 30px;
+    text-align: center;
+    padding-bottom: 20px;
+    padding-top: 15px;
+
+    &-white {
+      align-self: center;
+      position: relative;
+      @include title-h6;
+      @include link-white-full;
+      width: 100%;
+      align-content: center;
+      margin-top: 30px;
+      text-align: center;
+      padding-bottom: 20px;
+      padding-top: 15px;
+    }
+  }
+}

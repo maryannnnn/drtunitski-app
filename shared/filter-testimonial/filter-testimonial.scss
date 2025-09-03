@@ -1,0 +1,14 @@
+@import '../../app/scss/mixins';
+@import '../../app/scss/colors';
+
+.filter {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding-left: 20px;
+  padding-bottom: 30px;
+  padding-top: 30px;
+
+}

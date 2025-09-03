@@ -1,0 +1,59 @@
+@import '../../app/scss/mixins';
+@import '../../app/scss/colors';
+
+.block-item-post {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 353px;
+  height: 503px;
+  border: 1px solid $black;
+  box-shadow: 7px 7px 5px rgba(0, 0, 0, 0.15);
+  padding: 12px;
+  background-color: $white-full;
+
+  &__img {
+    width: 329px;
+    height: 237px;
+    border: 1px solid $black;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 5px;
+
+    &-date {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      @include body-md;
+      width: 40%;
+    }
+
+    &-category {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 5px;
+      width: 60%;
+
+      &-link {
+        @include body-md;
+        @include link-brown;
+      }
+    }
+  }
+
+  &__title {
+    @include title-h4;
+    @include link-brown;
+  }
+
+  &__anons {
+    @include body-lg;
+  }
+
+}

@@ -1,0 +1,14 @@
+@import '../../app/scss/mixins';
+@import '../../app/scss/colors';
+
+.menu-main-mobile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  &__item {
+    padding-left: 20px;
+    @include title-h4;
+    @include link-black;
+  }
+}

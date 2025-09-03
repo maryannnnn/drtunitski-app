@@ -1,0 +1,65 @@
+@import '../../app/scss/mixins';
+@import '../../app/scss/colors';
+
+.block-item-bonus {
+
+
+  &__image {
+    position: relative;
+    display: inline-block;
+
+
+    &-title {
+      position: relative;
+      @include title-h4;
+      color: $black;
+      margin-top: -85px;
+      padding-left: 15px;
+      z-index: 2;
+      transition: color 0.3s ease;
+    }
+
+    &-short {
+      position: relative;
+      @include body-md;
+      color: $black;
+      padding-left: 15px;
+      z-index: 2;
+      transition: color 0.3s ease;
+    }
+
+    &:hover {
+      .block-item-bonus__image-title,
+      .block-item-bonus__image-short {
+        color: $white-full;
+      }
+    }
+
+    &-img {
+      display: block;
+      width: 250px;
+      height: 130px;
+    }
+
+    &-overlay {
+      border: 1px solid $black;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 250px;
+      height: 130px;
+      background-color: rgba(255, 255, 255, 0.6);
+      transition: opacity 0.3s ease;
+    }
+
+    &:hover .block-item-bonus__image-overlay {
+      opacity: 0;
+    }
+  }
+}
+
+
+
+
+
+

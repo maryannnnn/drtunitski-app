@@ -1,0 +1,20 @@
+@import '../../app/scss/mixins';
+@import '../../app/scss/colors';
+
+.main-title {
+  background-color: $white-full;
+
+  &__title {
+    @include title-h1;
+    color: $black;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  &__description {
+    @include body-lg;
+    color: $black;
+    padding-bottom: 15px;
+  }
+}
+

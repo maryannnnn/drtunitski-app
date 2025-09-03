@@ -1,0 +1,41 @@
+@import '../../app/scss/mixins';
+@import '../../app/scss/colors';
+
+.attributes__price  {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 100px;
+  padding-bottom: 40px;
+
+  &-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 10px;
+
+    &__element {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      gap: 5px;
+
+      &-title {
+        @include title-h4;
+        color: $black;
+      }
+
+      &-text {
+        @include title-h4;
+        color: $Logo-1;
+      }
+    }
+  }
+
+  &-title {
+    @include title-h2;
+    color: $brown-7;
+    padding-bottom: 15px;
+  }
+}

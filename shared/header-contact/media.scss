@@ -1,0 +1,31 @@
+@import '../../app/scss/mixins';
+@import '../../app/scss/colors';
+
+@media screen and (max-width: 767px) {
+
+  .header-contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Центрирование по вертикали */
+    align-items: center; /* Центрирование по горизонтали */
+    height: 90px;
+
+    &__mobile {
+      @include title-h1;
+    }
+
+    &__email {
+      display: none;
+    }
+
+    &__address {
+      display: flex;
+      flex-direction: row;
+      justify-content: center; /* Центрирование содержимого */
+      @include title-h4;
+    }
+  }
+
+}
+
+

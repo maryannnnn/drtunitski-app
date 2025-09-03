@@ -1,0 +1,31 @@
+@import '../../app/scss/mixins';
+@import '../../app/scss/colors';
+
+@media screen and (max-width: 767px) {
+  .block-header {
+
+    &__content {
+
+      overflow: hidden; /* Скрывает содержимое, выходящее за пределы */
+      text-overflow: ellipsis; /* Добавляет троеточие в конце */
+      display: -webkit-box; /* Используется для многострочного текста */
+      -webkit-line-clamp: 2; /* Ограничивает количество строк */
+      -webkit-box-orient: vertical; /* Задает ориентацию блока */
+      max-height: 3em; /* Дополнительно, чтобы задать высоту для 2 строк */
+      line-height: 1.5em; /* Высота строки для расчета строк */
+
+      &-white {
+        overflow: hidden; /* Скрывает содержимое, выходящее за пределы */
+        text-overflow: ellipsis; /* Добавляет троеточие в конце */
+        display: -webkit-box; /* Используется для многострочного текста */
+        -webkit-line-clamp: 2; /* Ограничивает количество строк */
+        -webkit-box-orient: vertical; /* Задает ориентацию блока */
+        max-height: 3em; /* Дополнительно, чтобы задать высоту для 2 строк */
+        line-height: 1.5em; /* Высота строки для расчета строк */
+      }
+    }
+
+  }
+
+
+}

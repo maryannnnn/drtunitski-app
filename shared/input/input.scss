@@ -1,0 +1,15 @@
+@import '../../app/scss/mixins';
+@import '../../app/scss/colors';
+
+input {
+  border: 1px solid $black;
+  background-color: transparent;
+  height: 30px;
+  width: 100%;
+  padding: 3px;
+  &:focus {
+    outline: none;
+    background-color: $white-full;
+  }
+}
+

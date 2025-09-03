@@ -1,0 +1,57 @@
+@import '../../app/scss/mixins';
+@import '../../app/scss/colors';
+
+.block-testimonial {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 10px;
+  width: 100%;
+  border: none; /* Убираем жесткий бордюр */
+  padding: 20px;
+  border-radius: 10px; /* Добавляем скругленные углы */
+  background: linear-gradient(
+                  to bottom,
+                  rgba(255, 255, 255, 0.7), /* Полупрозрачный белый */
+                  #efefef /* Светло-бежевый */
+  ); /* Легкий градиент */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Мягкая тень */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Анимация при наведении */
+
+  &:hover {
+    transform: translateY(-5px); /* Небольшой подъем при наведении */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Усиление тени */
+  }
+
+  &__title {
+    @include title-h4;
+    color: $brown-7;
+  }
+
+  &__author {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+
+    &-name {
+      @include title-h5;
+      color: $black;
+    }
+  }
+
+  &__text {
+    width: 100%;
+    color: $black;
+    }
+}
+
+
+
+
+
+
+
+
+

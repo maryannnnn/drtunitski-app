@@ -1,0 +1,11 @@
+@import '../../app/scss/mixins';
+@import '../../app/scss/colors';
+
+.footer-copyright {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 7px;
+  @include body-xs;
+}

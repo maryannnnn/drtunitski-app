@@ -1,0 +1,65 @@
+{
+  "data": {
+    "menuItems": {
+      "edges": [
+        {
+          "node": {
+            "id": "cG9zdDozNjg2",
+            "path": "/category/blog/news/",
+            "parentId": null,
+            "order": 1,
+            "label": "Новости"
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDozNjg3",
+            "path": "/category/testimonios/",
+            "parentId": null,
+            "order": 2,
+            "label": "Отзывы"
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDozNjg1",
+            "path": "/category/blog/faq/",
+            "parentId": null,
+            "order": 3,
+            "label": "Ответы на Вопросы"
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDozNjg5",
+            "path": "/category/blog/experts/",
+            "parentId": null,
+            "order": 4,
+            "label": "Эксперты"
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDozNjg4",
+            "path": "/category/blog/article/",
+            "parentId": null,
+            "order": 5,
+            "label": "Статьи"
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDozNjkw",
+            "path": "/category/blog/video/",
+            "parentId": null,
+            "order": 6,
+            "label": "Видео"
+          }
+        }
+      ]
+    },
+    "menu": {
+      "name": "Блог"
+    }
+  }
+}

@@ -1,0 +1,45 @@
+@import '../../app/scss/mixins';
+@import '../../app/scss/colors';
+
+.main-testimonial {
+  width: 100%;
+  height: 520px;
+ // border-bottom: 1px solid $black;
+  background-color: $white-full;
+  margin-bottom: 200px;
+
+  &__block {
+    width: 100%;
+    text-align: center;
+
+    &-link {
+      @include title-h6;
+      @include link-black;
+    }
+  }
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+  background-color: $white-full;
+}
+
+.swiper-slide {
+  font-size: 18px;
+  color: #fff;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 40px 60px;
+}
+
+.mySwiper {
+  font-size: 18px;
+  color: #fff;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 40px 60px;
+  background-color: $white-full;
+}
+
+

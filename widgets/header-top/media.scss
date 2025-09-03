@@ -1,0 +1,12 @@
+@import '../../app/scss/mixins';
+@import '../../app/scss/colors';
+
+@media screen and (max-width: 767px) {
+  .header-top {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1218px) {
+
+}

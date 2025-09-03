@@ -1,0 +1,28 @@
+@import '../../app/scss/mixins';
+@import '../../app/scss/colors';
+
+.block-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 25px;
+  padding-top: 25px;
+
+  &__title {
+    @include title-h2;
+    color: $brown-7;
+
+    &-white {
+      @include title-h2;
+      color: $white-full;
+    }
+  }
+
+  &__content {
+
+    &-white {
+      color: $white-full;
+    }
+  }
+
+}

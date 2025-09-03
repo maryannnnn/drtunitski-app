@@ -1,0 +1,49 @@
+@import '../../app/scss/mixins';
+@import '../../app/scss/colors';
+
+@media screen and (max-width: 767px) {
+  .header-middle {
+    //display: flex; /* Обеспечиваем гибкость */
+    //flex-direction: column; /* Упорядочиваем содержимое вертикально */
+    //align-items: center; /* Центрируем по горизонтали */
+    //justify-content: center; /* Центрируем по вертикали */
+    //width: 100%; /* Устанавливаем ширину в 100% экрана */
+    height: 200px;
+
+    &__inner {
+      display: flex;
+      flex-direction: column;
+      justify-content: center; /* Центрируем содержимое внутреннего блока */
+      align-items: center; /* Центрируем элементы по горизонтали */
+      gap: 5px;
+      width: 100%; /* Устанавливаем ширину в 100% экрана */
+      height: 100%; /* Растягиваем на всю высоту родителя */
+
+      &-logo {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center; /* Центрируем элементы по вертикали */
+        width: 100%; /* Устанавливаем ширину в 100% */
+
+        &-link {
+          width: 70%;
+        }
+      }
+
+      &-buttons {
+        width: 100%;
+        text-align: center;
+      }
+
+      &-contact {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1218px) {
+
+}

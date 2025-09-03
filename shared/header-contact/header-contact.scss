@@ -1,0 +1,29 @@
+@import '../../app/scss/mixins';
+@import '../../app/scss/colors';
+
+.header-contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: end;
+  height: 90px;
+
+  &__mobile {
+    @include title-h4;
+    &-link {
+      @include  link-red;
+    }
+  }
+
+  &__email {
+    @include body-sm;
+    &-link {
+      @include  link-black;
+    }
+  }
+
+  &__address {
+    @include body-sm;
+    color: $black;
+  }
+}

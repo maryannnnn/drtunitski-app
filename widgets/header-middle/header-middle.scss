@@ -1,0 +1,36 @@
+@import '../../app/scss/mixins';
+@import '../../app/scss/colors';
+
+.header-middle {
+  background-color: $white;
+  width: 100%;
+  height: 90px;
+
+  &__inner {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 90px;
+
+    &-logo {
+      width: 25%;
+      text-align: left;
+
+      &-img {
+        width: 343px;
+        height: 60px;
+      }
+    }
+
+    &-buttons {
+      width: 50%;
+      text-align: right;
+    }
+
+    &-contact {
+      width: 25%;
+    }
+  }
+}

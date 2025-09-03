@@ -1,0 +1,75 @@
+
+{
+  "data": {
+    "menuItems": {
+      "edges": [
+        {
+          "node": {
+            "id": "cG9zdDoxNTgz",
+            "path": "/",
+            "parentId": null,
+            "order": 1,
+            "label": "Home"
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDoxNTgz",
+            "path": "/",
+            "parentId": null,
+            "order": 2,
+            "label": "About"
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDozNjc4",
+            "path": "/massage",
+            "parentId": null,
+            "order": 3,
+            "label": "Gynecology"
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDozNjc5",
+            "path": "/course",
+            "parentId": null,
+            "order": 11,
+            "label": "Surgery"
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDozNjYy",
+            "path": "/salon/",
+            "parentId": null,
+            "order": 16,
+            "label": "Stories"
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDozNjYy",
+            "path": "/salon/contact",
+            "parentId": null,
+            "order": 23,
+            "label": "Media"
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDozNjYy",
+            "path": "/salon/contact",
+            "parentId": null,
+            "order": 23,
+            "label": "Contact"
+          }
+        }
+      ]
+    },
+    "menu": {
+      "name": "Service"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+@import '../../app/scss/mixins';
+@import '../../app/scss/colors';
+
+.button-brown {
+  @include caption-lg;
+  @include link-white-full;
+  background-color: $brown-7;
+  border: none; /* Убираем обводку */
+  border-radius: 8px; /* Закругляем углы */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Добавляем плавный переход для цвета и эффекта */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Лёгкая тень для нежного эффекта */
+
+  &:hover {
+    background-color: $brown-4; /* Цвет фона при наведении */
+    transform: scale(1.05); /* Лёгкое увеличение при наведении */
+  }
+
+  width: 136px;
+  height: 35px;
+  display: flex; /* Для центрирования текста */
+  justify-content: center;
+  align-items: center;
+}
+

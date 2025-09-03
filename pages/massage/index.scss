@@ -1,0 +1,144 @@
+@import '../../app/scss/mixins';
+@import '../../app/scss/colors';
+
+.block-massages {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding-bottom: 40px;
+}
+
+.massage {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+
+  &__title {
+    @include title-h1;
+    color: $black;
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+    &-main {
+      @include title-h2;
+      color: $brown-7;
+      padding-bottom: 15px;
+    }
+
+    &-video {
+      @include title-h2;
+      color: $brown-7;
+      padding-bottom: 15px;
+    }
+    &-faq {
+      @include title-h2;
+      color: $brown-7;
+      padding-bottom: 15px;
+    }
+  }
+
+  &__anons {
+    display: block;
+    padding-bottom: 20px;
+    padding-top: 10px;
+
+    &-img {
+      float: left;
+      margin-right: 20px;
+    }
+
+    &-text {
+      text-align: justify;
+    }
+  }
+
+  &__description {
+    display: block;
+    padding-bottom: 20px;
+
+    &-img {
+      float: right;
+      margin-left: 20px;
+    }
+
+    &-text {
+      text-align: justify;
+    }
+  }
+
+  &__video {
+    display: block;
+    padding-bottom: 20px;
+
+    &-content {
+      position: relative;
+      width: 50%; /* Половина ширины экрана, если нужно обтекание */
+      max-width: 100%;
+      float: left; /* Обтекание текста справа */
+      margin-right: 20px; /* Отступ от текста */
+
+      iframe {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        display: block;
+      }
+    }
+
+    &-text {
+      text-align: justify;
+    }
+  }
+
+  &__gallery {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    gap: 10px;
+  }
+
+  &-block-center {
+    width: 100%;
+    padding: 20px;
+   // border-bottom: 1px solid $brown-7;
+   // border-top: 1px solid $brown-7;
+    background-color: $white-full;
+    margin-bottom: 30px;
+  }
+
+  &-block-gallery {
+    width: 100%;
+    padding: 20px;
+    border-bottom: 1px solid $brown-7;
+    background-color: $grey-7;
+    margin-bottom: 30px;
+  }
+
+  &-block-bottom {
+    width: 100%;
+    //border-bottom: 1px solid $brown-7;
+    //border-top: 1px solid $brown-7;
+    background-color: $grey-7;
+    padding: 20px;
+    margin-bottom: 50px;
+  }
+
+  &-block-video {
+    padding-top: 20px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid $brown-7;
+  }
+
+  &-block-top {
+    padding-top: 20px;
+    margin-bottom: 30px;
+  }
+
+}
+
+
+
+
+

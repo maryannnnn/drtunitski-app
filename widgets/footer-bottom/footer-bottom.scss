@@ -1,0 +1,13 @@
+@import '../../app/scss/mixins';
+@import '../../app/scss/colors';
+
+.footer-bottom {
+  width: 100vw;
+  height: 30px;
+  align-content: center;
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}

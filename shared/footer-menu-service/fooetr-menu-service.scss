@@ -1,0 +1,27 @@
+@import '../../app/scss/mixins';
+@import '../../app/scss/colors';
+
+.footer-service {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 5px;
+  width: 265px;
+
+  &__title {
+    @include title-h3;
+  }
+
+  &__menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    gap: 5px;
+
+    &-item {
+      @include caption-lg;
+      @include link-white;
+    }
+  }
+}

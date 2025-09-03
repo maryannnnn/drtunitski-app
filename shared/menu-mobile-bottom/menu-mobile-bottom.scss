@@ -1,0 +1,15 @@
+@import '../../app/scss/mixins';
+
+.menu-mobile-bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 15px;
+  padding-top: 20px;
+  &__item {
+    @include title-h4;
+    @include link-black;
+    padding-left: 20px;
+  }
+}

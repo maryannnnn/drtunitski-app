@@ -1,0 +1,51 @@
+@import '../../app/scss/mixins';
+@import '../../app/scss/colors';
+
+.block-item-massage {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 380px;
+  height: 194px;
+  border: 1px solid $black;
+  background-color: $brown-8;
+  padding: 12px;
+  box-shadow: 7px 7px 5px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.3s ease;
+
+  &__title {
+    @include title-h4;
+    color: $black;
+    transition: color 0.3s ease;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+    @include body-md;
+    color: $black;
+    transition: color 0.3s ease;
+
+    &-img {
+      width: 350px;
+      height: 350px;
+    }
+  }
+
+  &:hover {
+    .block-item-massage__title,
+    .block-item-massage__info {
+      color: $white-full;
+    }
+    background-color: $brown-7;
+  }
+
+}
+
+
+
+
+
+

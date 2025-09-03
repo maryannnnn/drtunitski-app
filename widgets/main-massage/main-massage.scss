@@ -1,0 +1,9 @@
+@import '../../app/scss/mixins';
+@import '../../app/scss/colors';
+
+.main-massage {
+  background-color: $white-full;
+  border-bottom: 1px solid $black;
+  padding-bottom: 20px;
+}
+

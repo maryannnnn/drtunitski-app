@@ -1,0 +1,101 @@
+@import '../../app/scss/mixins';
+@import '../../app/scss/colors';
+
+@media screen and (max-width: 767px) {
+  .block__testimonial {
+
+    &-title {
+      padding-bottom: 15px;
+    }
+  }
+
+  .block-slide-testimonial {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+
+    &__img-wrapper {
+      display: none;
+    }
+
+    &__author {
+      flex-direction: row;
+      @include title-h5;
+
+      &-name {
+        @include title-h5;
+      }
+    }
+
+    &__icon {
+      display: none;
+    }
+
+    &__text {
+      width: 100%;
+
+      &-row {
+        display: none;
+
+        &-taste {
+          display: none;
+        }
+
+        &-title {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1218px) {
+
+  .block__testimonial {
+
+    &-title {
+      padding-bottom: 15px;
+    }
+  }
+
+  .block-slide-testimonial {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+
+    &__img-wrapper {
+      display: none;
+    }
+
+    &__author {
+      flex-direction: row;
+      @include title-h5;
+
+      &-name {
+        @include title-h5;
+      }
+    }
+
+    &__icon {
+      display: none;
+    }
+
+    &__text {
+      width: 100%;
+
+      &-row {
+        display: none;
+
+        &-taste {
+          display: none;
+        }
+
+        &-title {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}

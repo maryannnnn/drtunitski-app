@@ -1,0 +1,29 @@
+@import '../../app/scss/mixins';
+@import '../../app/scss/colors';
+
+@media screen and (max-width: 767px) {
+  .header {
+
+    &__inner {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      &-logo {
+        width: 243px;
+      }
+
+      &-mobile {
+
+        &__image {
+          width: 17px;
+        }
+
+        &__number {
+          display: none;
+        }
+      }
+    }
+  }
+}

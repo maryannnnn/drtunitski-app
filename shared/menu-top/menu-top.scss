@@ -1,0 +1,13 @@
+@import '../../app/scss/mixins';
+
+.menu-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px;
+  &__item {
+    @include caption-lg;
+    @include link-white;
+  }
+}

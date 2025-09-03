@@ -1,0 +1,101 @@
+{
+  "data": {
+    "menuItems": {
+      "edges": [
+        {
+          "node": {
+            "id": "cG9zdDozNjYy",
+            "path": "/clinic/",
+            "parentId": "cG9zdDozNjYy",
+            "order": 16,
+            "label": "About"
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDozNjYy",
+            "path": "/clinic/obo-mne",
+            "parentId": "cG9zdDozNjYy",
+            "order": 16,
+            "label": "Biography"
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDozNjYy",
+            "path": "/clinic/professionalizm",
+            "parentId": "cG9zdDozNjYy",
+            "order": 17,
+            "label": "Certificates"
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDozNjYy",
+            "path": "/clinic/komfort",
+            "parentId": "cG9zdDozNjYy",
+            "order": 18,
+            "label": "Experience"
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDozNjYy",
+            "path": "/salon/bezopasnost",
+            "parentId": "cG9zdDozNjYy",
+            "order": 20,
+            "label": "Science"
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDozNjYy",
+            "path": "/salon/sertificate",
+            "parentId": "cG9zdDozNjYy",
+            "order": 21,
+            "label": "Specialization"
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDozNjYy",
+            "path": "/salon/my-dayom-vam-vybor",
+            "parentId": "cG9zdDozNjYy",
+            "order": 19,
+            "label": "Awards"
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDozNjYy",
+            "path": "/salon/oplata",
+            "parentId": "cG9zdDozNjYy",
+            "order": 22,
+            "label": "Clinic of Dr. Serge Tunitsky"
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDozNjYy",
+            "path": "salon/contact",
+            "parentId": "cG9zdDozNjYy",
+            "order": 22,
+            "label": "КFor Patients"
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDozNjYy",
+            "path": "salon/contact",
+            "parentId": "cG9zdDozNjYy",
+            "order": 22,
+            "label": "Contact"
+          }
+        }
+      ]
+    },
+    "menu": {
+      "name": "Clinic"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+@import '../../app/scss/mixins';
+@import '../../app/scss/colors';
+
+.footer {
+  width: 100vw;
+  color: $white;
+  background-color: $black;
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
