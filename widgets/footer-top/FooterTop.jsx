@@ -14,7 +14,7 @@ const FooterTop= () => {
                     <FooterContact/>
                     <FooterMenuService/>
                     <FooterMenuCompany/>
-                    <FooterMenuBlog/>
+                    {/*<FooterMenuBlog/>*/}
                 </div>
             </div>
         </div>
