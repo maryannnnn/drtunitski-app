@@ -1,0 +1,38 @@
+@import '../../app/scss/mixins';
+@import '../../app/scss/colors';
+
+@media screen and (max-width: 768px) {
+  .footer-copyright {
+    padding-top: 20px;
+    max-width: 500px;
+    
+    &-row {
+      gap: 10px;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .footer-copyright {
+    padding-top: 15px;
+    max-width: 400px;
+    gap: 8px;
+    
+    &-row {
+      gap: 8px;
+      
+      // Первая строка (с копирайтом и иконкой) всегда горизонтальная
+      &:first-child {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      
+      // Остальные строки могут быть вертикальными
+      &:not(:first-child) {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  }
+}

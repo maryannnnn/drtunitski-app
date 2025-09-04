@@ -4,10 +4,11 @@
 .footer-menu-soc {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     gap: 15px;
+    
     &__item {
-      @include link-red;
+        @include social-button;
     }
 }

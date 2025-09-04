@@ -4,31 +4,83 @@
 .footer-contact {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  gap: 10px;
-  width: 300px;
+  gap: 15px;
 
   &__title {
     @include title-h3;
     color: $black;
+    margin-bottom: 10px;
+    position: relative;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 30px;
+      height: 2px;
+      background: $brown-7;
+    }
   }
 
   &__mobile {
-    @include title-h4;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    @include title-h5;
+    
+    &::before {
+      content: '📞';
+      font-size: 16px;
+    }
+    
     &-link {
-      @include  link-red;
+      @include link-red;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        color: $brown-7;
+        transform: translateX(2px);
+      }
     }
   }
 
   &__email {
+    display: flex;
+    align-items: center;
+    gap: 8px;
     @include title-h5;
+    
+    &::before {
+      content: '✉️';
+      font-size: 16px;
+    }
+    
     &-link {
-      @include  link-red;
+      @include link-red;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        color: $brown-7;
+        transform: translateX(2px);
+      }
     }
   }
 
   &__address {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
     @include title-h5;
     color: $primary;
+    line-height: 1.4;
+    
+    &::before {
+      content: '📍';
+      font-size: 16px;
+      margin-top: 2px;
+    }
   }
 }

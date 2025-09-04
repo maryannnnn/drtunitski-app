@@ -1,0 +1,35 @@
+@import '../../app/scss/mixins';
+@import '../../app/scss/colors';
+
+@media screen and (max-width: 768px) {
+  .footer-contact {
+    text-align: center;
+    
+    &__title {
+      &::after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+    
+    &__mobile,
+    &__email,
+    &__address {
+      justify-content: center;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .footer-contact {
+    &__title {
+      font-size: 18px;
+    }
+    
+    &__mobile,
+    &__email,
+    &__address {
+      font-size: 14px;
+    }
+  }
+}

@@ -1,0 +1,30 @@
+@import '../../app/scss/mixins';
+@import '../../app/scss/colors';
+
+@media screen and (max-width: 768px) {
+  .footer-menu-soc {
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+    &__item {
+      width: 30px;
+      height: 30px;
+      font-size: 14px;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .footer-menu-soc {
+    gap: 6px;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+    &__item {
+      width: 28px;
+      height: 28px;
+      font-size: 12px;
+    }
+  }
+}

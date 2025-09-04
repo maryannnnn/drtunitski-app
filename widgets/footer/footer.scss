@@ -3,23 +3,27 @@
 
 .footer {
   width: 100%;
-  background-color: $rose;
+  background: $rose;
   color: $primary;
-  padding: 20px;
+  padding: 40px 0 20px;
+  margin-top: auto;
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: $brown-2;
+  }
 
   &__inner {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 100px;
-
-    &-colomn {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      gap: 40px;
-      width: 100%;
-    }
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
   }
 }
 

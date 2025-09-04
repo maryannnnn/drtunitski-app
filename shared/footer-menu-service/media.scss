@@ -1,0 +1,29 @@
+@import '../../app/scss/mixins';
+@import '../../app/scss/colors';
+
+@media screen and (max-width: 768px) {
+  .footer-service {
+    text-align: center;
+    
+    &__title {
+      &::after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+    
+    &__menu {
+      &-item {
+        padding-left: 0;
+        
+        &::before {
+          display: none;
+        }
+        
+        &:hover {
+          transform: none;
+        }
+      }
+    }
+  }
+}
