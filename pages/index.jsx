@@ -46,9 +46,9 @@ const Index = ({initialData}) => {
                 </Stack>
             ) : (
                 <>
-                    {/*{displayData.bonuses?.edges?.length > 0 && (*/}
+                   {/* {displayData.bonuses?.edges?.length > 0 && (*/}
                     {/*    <MainBanner data={displayData}/>*/}
-                    {/*)}*/}
+                    {/*)} */}
 
                     {/*{mainTitle?.title && (*/}
                     {/*    <MainTitle/>*/}

@@ -24,7 +24,7 @@
         {
           "node": {
             "id": "cG9zdDozNjc4",
-            "path": "/massage",
+            "path": "/",
             "parentId": null,
             "order": 3,
             "label": "Gynecology"
@@ -32,8 +32,17 @@
         },
         {
           "node": {
+            "id": "cG9zdDozNjc4",
+            "path": "/",
+            "parentId": null,
+            "order": 3,
+            "label": "Cancer"
+          }
+        },
+        {
+          "node": {
             "id": "cG9zdDozNjc5",
-            "path": "/course",
+            "path": "/",
             "parentId": null,
             "order": 11,
             "label": "Surgery"
@@ -42,7 +51,7 @@
         {
           "node": {
             "id": "cG9zdDozNjYy",
-            "path": "/salon/",
+            "path": "/",
             "parentId": null,
             "order": 16,
             "label": "Stories"
@@ -51,7 +60,7 @@
         {
           "node": {
             "id": "cG9zdDozNjYy",
-            "path": "/salon/contact",
+            "path": "/",
             "parentId": null,
             "order": 23,
             "label": "Media"
@@ -60,7 +69,7 @@
         {
           "node": {
             "id": "cG9zdDozNjYy",
-            "path": "/salon/contact",
+            "path": "/",
             "parentId": null,
             "order": 23,
             "label": "Contact"

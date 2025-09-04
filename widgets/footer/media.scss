@@ -1,2 +1,15 @@
 @import '../../app/scss/mixins';
 @import '../../app/scss/colors';
+
+@media screen and (max-width: 767px) {
+
+  .footer {
+
+    &__inner {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 30px;
+    }
+  }
+}

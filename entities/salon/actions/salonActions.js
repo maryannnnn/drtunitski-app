@@ -1,5 +1,3 @@
-import axios from "axios";
-import {WP_URL} from "../../../app/config/config";
 import {gql} from '@apollo/client';
 
 export const GET_SALON_BY_SLUG = gql`

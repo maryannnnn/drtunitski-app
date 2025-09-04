@@ -3,7 +3,7 @@ export const contactSalon = {
     title: 'Contact',
     mobile: '0507377870',
     email: 'drtunitski@gmail.com',
-    address_1: '',
+    address_1: 'st. Eli Landau 7, Herzliya, Israel',
     address_2: '',
     map: '',
     video: '<iframe width="560" height="315" src="https://www.youtube.com/embed/PY2Lf5WWI4U?si=B94JWsgKpzcpXpl1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'

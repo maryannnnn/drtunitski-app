@@ -5,29 +5,30 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  gap: 5px;
-  width: 265px;
+  gap: 10px;
+  width: 300px;
 
   &__title {
     @include title-h3;
+    color: $black;
   }
 
   &__mobile {
     @include title-h4;
     &-link {
-      @include  link-white;
+      @include  link-red;
     }
   }
 
   &__email {
-    @include body-sm;
+    @include title-h5;
     &-link {
-      @include  link-white;
+      @include  link-red;
     }
   }
 
   &__address {
-    @include body-sm;
-    color: $white;
+    @include title-h5;
+    color: $primary;
   }
 }

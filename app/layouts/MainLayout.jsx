@@ -1,9 +1,9 @@
 import React from 'react';
-import '../scss/app.scss'
+import '../scss/app.scss';
 import Head from "next/head";
 import Header from "../../widgets/header/Header";
 import Footer from "../../widgets/footer/Footer";
-import {BASIS_URL} from "../config/config.js";
+import { BASIS_URL } from "../config/config.js";
 
 const MainLayout = ({
                         children,
@@ -30,51 +30,61 @@ const MainLayout = ({
                 <meta name="twitter:title" content={title} />
                 <meta name="twitter:description" content={description} />
                 <meta name="twitter:url" content={canonicalUrl} />
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "Article",
-                        "headline": title,
-                        "description": description,
-                        "url": canonicalUrl,
-                    })}
-                </script>
+
+                <script type="application/ld+json"
+                        dangerouslySetInnerHTML={{
+                            __html: JSON.stringify({
+                                "@context": "https://schema.org",
+                                "@type": "Article",
+                                "headline": title,
+                                "description": description,
+                                "url": canonicalUrl,
+                            })
+                        }}
+                />
+
                 {/* Скрипт для Accessibility от EqualWeb */}
-                <script>
-                    {`
-          window.interdeal = {
-              "sitekey": "fcac143859674f824f930ee314d8e2b7",
-              "Position": "left",
-              "domains": {
-                  "js": "https://cdn.equalweb.com/",
-                  "acc": "https://access.equalweb.com/"
-              },
-              "Menulang": "RU",
-              "btnStyle": {
-                  "vPosition": ["80%", "20%"],
-                  "scale": ["0.5", "0.5"],
-                  "color": {
-                      "main": "#6e7577",
-                      "second": "#ffffff"
-                  },
-                  "icon": {
-                      "outline": false,
-                      "type": 1,
-                      "shape": "circle"
-                  }
-              }
-          };
-          (function(doc, head, body){
-              var coreCall = doc.createElement('script');
-              coreCall.src = interdeal.domains.js + 'core/5.0.13/accessibility.js';
-              coreCall.defer = true;
-              coreCall.integrity = 'sha512-pk3CeR0KGJu+GfK2x2ybTSZ1o1qfua6XW2PRAxMWOhC85M3+CanPYmvRp6BOiW0/riZjWGerRN7+JH4wEF0wJQ==';
-              coreCall.crossOrigin = 'anonymous';
-              coreCall.setAttribute('data-cfasync', true );
-              body ? body.appendChild(coreCall) : head.appendChild(coreCall);
-          })(document, document.head, document.body);
-          `}
-                </script>
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html: `
+                            window.interdeal = {
+                                sitekey: "58a9a5486ebd5e4080d0a10c51b76796",
+                                domains: {
+                                    js: "https://cdn.equalweb.com/",
+                                    acc: "https://access.equalweb.com/"
+                                },
+                                Position: "left",
+                                Menulang: "EN",
+                                draggable: true,
+                                btnStyle: {
+                                    vPosition: ["80%", "80%"],
+                                    margin: ["0", "0"],
+                                    scale: ["0.5", "0.5"],
+                                    color: {
+                                        main: "#002680",
+                                        second: "#ffffff"
+                                    },
+                                    icon: {
+                                        outline: false,
+                                        outlineColor: "#ffffff",
+                                        type: 2,
+                                        shape: "circle"
+                                    }
+                                }
+                            };
+
+                            (function(doc, head, body){
+                                var coreCall = doc.createElement('script');
+                                coreCall.src = interdeal.domains.js + 'core/5.2.0/accessibility.js';
+                                coreCall.defer = true;
+                                coreCall.integrity = 'sha512-fHF4rKIzByr1XeM6stpnVdiHrJUOZsKN2/Pm0jikdTQ9uZddgq15F92kUptMnyYmjIVNKeMIa67HRFnBNTOXsQ==';
+                                coreCall.crossOrigin = 'anonymous';
+                                coreCall.setAttribute('data-cfasync', true );
+                                body ? body.appendChild(coreCall) : head.appendChild(coreCall);
+                            })(document, document.head, document.body);
+                        `
+                    }}
+                />
             </Head>
             <Header />
             <div className="main">
@@ -86,5 +96,6 @@ const MainLayout = ({
 };
 
 export default MainLayout;
+
 
 

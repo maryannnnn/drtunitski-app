@@ -2,12 +2,24 @@
 @import '../../app/scss/colors';
 
 .footer {
-  width: 100vw;
-  color: $white;
-  background-color: $black;
+  width: 100%;
+  background-color: $rose;
+  color: $primary;
+  padding: 20px;
+
   &__inner {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
+    gap: 100px;
+
+    &-colomn {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 40px;
+      width: 100%;
+    }
   }
 }
+

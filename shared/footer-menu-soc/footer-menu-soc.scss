@@ -8,6 +8,6 @@
     align-items: center;
     gap: 15px;
     &__item {
-      @include link-white;
+      @include link-red;
     }
 }

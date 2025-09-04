@@ -3,9 +3,16 @@
 
 .footer-copyright {
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 7px;
-  @include body-xs;
+  flex-direction: column;
+  gap: 10px;
+  @include title-h6;
+
+  &-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    @include title-h6;
+  }
 }
