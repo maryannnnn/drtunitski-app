@@ -60,6 +60,8 @@ const MenuMain = ({initialData}) => {
                                 sx={{
                                     color: theme.palette.primary.dark,
                                     textDecoration: 'none',
+                                    fontSize: '14px',
+                                    fontWeight: 500,
                                     '&:hover': {
                                         textDecoration: 'none',
                                         color: theme.palette.primary.light,
@@ -69,6 +71,8 @@ const MenuMain = ({initialData}) => {
                                 <MuiLink component={Link} href={link.node.path} sx={{
                                     color: theme.palette.primary.dark,
                                     textDecoration: 'none',
+                                    fontSize: '14px',
+                                    fontWeight: 500,
                                     '&:hover': {
                                         textDecoration: 'none',
                                         color: theme.palette.primary.light,

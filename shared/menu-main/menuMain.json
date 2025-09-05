@@ -5,7 +5,7 @@
       "edges": [
         {
           "node": {
-            "id": "cG9zdDoxNTgz",
+            "id": "cG9zdDoxNTgz1",
             "path": "/",
             "parentId": null,
             "order": 1,
@@ -14,7 +14,7 @@
         },
         {
           "node": {
-            "id": "cG9zdDoxNTgz",
+            "id": "cG9zdDoxNTgz2",
             "path": "/",
             "parentId": null,
             "order": 2,
@@ -23,7 +23,7 @@
         },
         {
           "node": {
-            "id": "cG9zdDozNjc4",
+            "id": "cG9zdDozNjc43",
             "path": "/",
             "parentId": null,
             "order": 3,
@@ -32,46 +32,64 @@
         },
         {
           "node": {
-            "id": "cG9zdDozNjc4",
+            "id": "cG9zdDozNjc44",
             "path": "/",
             "parentId": null,
-            "order": 3,
+            "order": 4,
             "label": "Cancer"
           }
         },
         {
           "node": {
-            "id": "cG9zdDozNjc5",
+            "id": "cG9zdDozNjc55",
             "path": "/",
             "parentId": null,
-            "order": 11,
+            "order": 5,
             "label": "Surgery"
           }
         },
         {
           "node": {
-            "id": "cG9zdDozNjYy",
+            "id": "cG9zdDozNjYy6",
             "path": "/",
             "parentId": null,
-            "order": 16,
+            "order": 6,
             "label": "Stories"
           }
         },
         {
           "node": {
-            "id": "cG9zdDozNjYy",
+            "id": "cG9zdDozNjYy7",
             "path": "/",
             "parentId": null,
-            "order": 23,
+            "order": 7,
+            "label": "Price"
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDozNjYy8",
+            "path": "/",
+            "parentId": null,
+            "order": 8,
+            "label": "For Patients"
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDozNjYy9",
+            "path": "/",
+            "parentId": null,
+            "order": 8,
             "label": "Media"
           }
         },
         {
           "node": {
-            "id": "cG9zdDozNjYy",
+            "id": "cG9zdDozNjYy10",
             "path": "/",
             "parentId": null,
-            "order": 23,
+            "order": 9,
             "label": "Contact"
           }
         }
