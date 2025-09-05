@@ -34,7 +34,10 @@ const IndexTestimonial = ({initialData}) => {
 
     useEffect(() => {
         if (!testimonials || testimonials.length === 0) {
-            console.log("Нет отзывов для фильтрации");
+            // eslint-disable-next-line no-console
+            if (process.env.NODE_ENV === 'development') {
+                console.log("Нет отзывов для фильтрации");
+            }
             return;
         }
 
@@ -48,20 +51,26 @@ const IndexTestimonial = ({initialData}) => {
                     const categoryName = categoryEdge?.node?.name?.toLowerCase().trim();
                     const filterCategoryId = filters?.categoryId?.toLowerCase().trim();
 
-                    console.log("Категория отзыва:", categoryName);
-                    console.log("Выбранная категория:", filterCategoryId);
+                    if (process.env.NODE_ENV === 'development') {
+                        console.log("Категория отзыва:", categoryName);
+                        console.log("Выбранная категория:", filterCategoryId);
+                    }
 
                     return categoryName === filterCategoryId;
                 }));
 
             // Логируем результаты фильтрации
-            console.log("Совпадение по названию:", titleMatches);
-            console.log("Совпадение по категории:", categoryMatches);
+            if (process.env.NODE_ENV === 'development') {
+                console.log("Совпадение по названию:", titleMatches);
+                console.log("Совпадение по категории:", categoryMatches);
+            }
 
             return titleMatches && categoryMatches;
         });
 
-        console.log("Отфильтрованные отзывы:", filtered);
+        if (process.env.NODE_ENV === 'development') {
+            console.log("Отфильтрованные отзывы:", filtered);
+        }
         setFilteredTestimonials(filtered);
     }, [filters, testimonials]);
 
@@ -132,7 +141,9 @@ export async function getStaticProps() {
         query: GET_TESTIMONIAL_ALL
     });
 
-    console.log("Fetched data:", data);
+    if (process.env.NODE_ENV === 'development') {
+        console.log("Fetched data:", data);
+    }
 
     return {
         props: {
