@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useMemo} from 'react';
 import '../../app/scss/app.scss';
 import './index.scss';
 import './media.scss';
@@ -26,7 +26,9 @@ const IndexTestimonial = ({initialData}) => {
     });
 
     const testimonial = data?.testimonial || initialData?.testimonial;
-    const testimonials = data?.testimonials?.edges || initialData?.testimonials?.edges || [];
+    const testimonials = useMemo(() => {
+        return data?.testimonials?.edges || initialData?.testimonials?.edges || [];
+    }, [data?.testimonials?.edges, initialData?.testimonials?.edges]);
 
     useEffect(() => {
         setIsClient(true);
@@ -137,20 +139,26 @@ const IndexTestimonial = ({initialData}) => {
 };
 
 export async function getStaticProps() {
-    const {data} = await apolloClient.query({
-        query: GET_TESTIMONIAL_ALL
-    });
-
-    if (process.env.NODE_ENV === 'development') {
-        console.log("Fetched data:", data);
+    try {
+        const {data} = await apolloClient.query({
+            query: GET_TESTIMONIAL_ALL
+        });
+        
+        return {
+            props: {
+                initialData: data
+            },
+            revalidate: 2592000,
+        };
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        return {
+            props: {
+                initialData: null
+            },
+            revalidate: 60, // Retry in 1 minute
+        };
     }
-
-    return {
-        props: {
-            initialData: data
-        },
-        revalidate: 2592000, // Revalidate every 30 days
-    };
 }
 
 export default IndexTestimonial;
