@@ -64,7 +64,7 @@ export const GET_TESTIMONIAL_BY_SLUG = gql`
 `;
 
 export const GET_TESTIMONIAL_ALL = gql`
-  query GetTestimonialAll($language: LanguageCodeEnum) {
+  query GetTestimonialAll {
     testimonials {
       edges {
         node {

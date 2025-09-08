@@ -228,7 +228,9 @@ export async function getStaticProps({params, locale}) {
     return {
         props: {
             initialData: data,
-            ...(await serverSideTranslations(locale, ['common'])),
+            ...(await import('next-i18next/serverSideTranslations').then(({ serverSideTranslations }) =>
+                serverSideTranslations(locale, ['common'])
+            )),
         },
         //revalidate: 2592000, // Revalidate every 30 days
     };
