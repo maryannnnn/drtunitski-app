@@ -1,0 +1,60 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "contact": "Contact"
+  },
+  "buttons": {
+    "readMore": "Read More",
+    "learnMore": "Learn More",
+    "contactUs": "Contact Us"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "language": "Language"
+  },
+  "info": {
+    "contact": {
+      "title": "Contact",
+      "address": "st. Eli Landau 7, Herzliya, Israel"
+    },
+    "mainTitle": {
+      "title": "Massage Salon offers different types of massage and massage courses at excellent prices",
+      "description": "For us, massage is about love. Massage will help improve your condition and tune your body for self-healing. Come to the Wings of Wind center, trust experienced masters who will create a unique program specifically for you, including the most effective and result-oriented procedures."
+    },
+    "attributes": {
+      "massageTitle": "Main elements of massage",
+      "courseTitle": "Main elements of the course",
+      "massagePrice": "Massage price",
+      "coursePrice": "Course price",
+      "courseParameters": "Why should you study at the Wings of Wind center?"
+    },
+    "testimonials": {
+      "massageTitle": "Reviews from our clients about massage",
+      "courseTitle": "Reviews from our clients about the massage therapist training course",
+      "types": {
+        "main": "Reviews",
+        "massage": "Massage",
+        "course": "Courses",
+        "post": "Blog"
+      },
+      "options": {
+        "reason": "Reason for choice",
+        "process": "What in the process",
+        "taste": "Aftertaste"
+      }
+    },
+    "breadcrumbs": {
+      "main": "Home",
+      "salon": "Salon",
+      "massage": "Massage",
+      "course": "Courses",
+      "blog": "Blog",
+      "testimonial": "Reviews",
+      "bonus": "Promotions"
+    }
+  }
+}

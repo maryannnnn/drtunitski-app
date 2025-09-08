@@ -15,13 +15,21 @@ import apolloClient from '../app/graphql/apollo-client';
 import {GET_HOME_DATA} from "../entities/main/actions/mainActions";
 import Stack from "@mui/material/Stack";
 import Alert from "@mui/material/Alert";
-import {mainTitle, testimonialType} from "../app/info/info";
+import {getMainTitle, getTestimonialType} from "../app/info/info";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useTranslation } from 'next-i18next';
+import { useRouter } from 'next/router';
+import { filterByLanguage } from '../shared/utils/language-filter';
 
 
 const Index = ({initialData}) => {
+    const { t } = useTranslation();
+    const router = useRouter();
+    const { locale } = router;
+    
     const PageProps = {
-        title: 'Главная',
-        description: 'Главная'
+        title: t('common:navigation.home'),
+        description: t('common:navigation.home')
     };
 
     const {loading, error, data} = useQuery(GET_HOME_DATA, {
@@ -29,7 +37,36 @@ const Index = ({initialData}) => {
         nextFetchPolicy: "cache-and-network"
     });
 
-    const displayData = data || initialData;
+    const rawData = data || initialData;
+    
+    // Filter data by current language
+    const displayData = rawData ? {
+        ...rawData,
+        salons: {
+            ...rawData.salons,
+            edges: filterByLanguage(rawData.salons?.edges || [], locale)
+        },
+        bonuses: {
+            ...rawData.bonuses,
+            edges: filterByLanguage(rawData.bonuses?.edges || [], locale)
+        },
+        massages: {
+            ...rawData.massages,
+            edges: filterByLanguage(rawData.massages?.edges || [], locale)
+        },
+        courses: {
+            ...rawData.courses,
+            edges: filterByLanguage(rawData.courses?.edges || [], locale)
+        },
+        testimonials: {
+            ...rawData.testimonials,
+            edges: filterByLanguage(rawData.testimonials?.edges || [], locale)
+        },
+        posts: {
+            ...rawData.posts,
+            edges: filterByLanguage(rawData.posts?.edges || [], locale)
+        }
+    } : null;
 
     return (
         <MainLayout title={PageProps.title} description={PageProps.description}>
@@ -46,37 +83,35 @@ const Index = ({initialData}) => {
                 </Stack>
             ) : (
                 <>
-                   {/* {displayData.bonuses?.edges?.length > 0 && (*/}
-                    {/*    <MainBanner data={displayData}/>*/}
-                    {/*)} */}
+                    {displayData.bonuses?.edges?.length > 0 && (
+                        <MainBanner data={displayData}/>
+                    )}
 
-                    {/*{mainTitle?.title && (*/}
-                    {/*    <MainTitle/>*/}
-                    {/*)}*/}
+                    <MainTitle/>
 
-                    {/*{displayData.salons?.edges?.length > 0 && (*/}
-                    {/*    <MainCompany data={displayData}/>*/}
-                    {/*)}*/}
+                    {displayData.salons?.edges?.length > 0 && (
+                        <MainCompany data={displayData}/>
+                    )}
 
-                    {/*{displayData.bonuses?.edges?.length > 0 && (*/}
-                    {/*    <MainBonus data={displayData}/>*/}
-                    {/*)}*/}
+                    {displayData.bonuses?.edges?.length > 0 && (
+                        <MainBonus data={displayData}/>
+                    )}
 
-{/*                    {displayData.massages?.edges?.length > 0 && (
+                    {displayData.massages?.edges?.length > 0 && (
                         <MainMassage data={displayData}/>
-                    )}*/}
+                    )}
 
-{/*                    {displayData.courses?.edges?.length > 0 && (
+                    {displayData.courses?.edges?.length > 0 && (
                         <MainCourse data={displayData}/>
-                    )}*/}
+                    )}
 
-{/*                    {displayData.testimonials?.edges?.length > 0 && (
-                        <MainTestimonial data={displayData} type={testimonialType.main}/>
-                    )}*/}
+                    {displayData.testimonials?.edges?.length > 0 && (
+                        <MainTestimonial data={displayData} type={getTestimonialType(t).main}/>
+                    )}
 
-                    {/*{displayData.posts?.edges?.length > 0 && (*/}
-                    {/*    <MainPost data={displayData}/>*/}
-                    {/*)}*/}
+                    {displayData.posts?.edges?.length > 0 && (
+                        <MainPost data={displayData}/>
+                    )}
                 </>
             )}
             <SpeedInsights/>
@@ -84,7 +119,7 @@ const Index = ({initialData}) => {
     );
 };
 
-export async function getStaticProps() {
+export async function getStaticProps({ locale }) {
     const {data} = await apolloClient.query({
         query: GET_HOME_DATA
     });
@@ -93,7 +128,8 @@ export async function getStaticProps() {
 
     return {
         props: {
-            initialData: data
+            initialData: data,
+            ...(await serverSideTranslations(locale, ['common'])),
         },
        // revalidate: 2592000, // Revalidate every 30 days
     };

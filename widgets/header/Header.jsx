@@ -6,6 +6,7 @@ import DrawerMenu from "../../shared/drawer-menu/DrawerMenu";
 import MenuMain from "../../shared/menu-main/MenuMain";
 import Link from "next/link";
 import {contactSalon} from "@/app/info/info";
+import LanguageSwitcher from "../../shared/language-switcher/LanguageSwitcher";
 
 const Header = () => {
     return (
@@ -26,6 +27,9 @@ const Header = () => {
                 </div>
                 <div className='header__inner-menu'>
                     <MenuMain/>
+                </div>
+                <div className='header__inner-language'>
+                    <LanguageSwitcher variant="dropdown" showLabel={false} />
                 </div>
                 <div className='header__inner-mobile'>
                     <div className='header__inner-mobile__image'>

@@ -14,8 +14,10 @@ import {cleanHtml, cleanHtmlFull, trimTextFullCleanedHTML} from "../../shared/ut
 import BlockSlideTestimonial from "../../shared/block-slide-testimonial/BlockSlideTestimonial";
 import Pagination from "../../shared/paginagion/Pagination";
 import FilterTestimonial from "../../shared/filter-testimonial/FilterTestimonial";
+import { useTranslation } from 'next-i18next';
 
 const IndexTestimonial = ({initialData}) => {
+    const { t } = useTranslation();
     const [isClient, setIsClient] = useState(false);
     const [filters, setFilters] = useState({title: '', categoryId: 'All', itemsPerPage: 5})
     const [filteredTestimonials, setFilteredTestimonials] = useState([])
@@ -61,7 +63,7 @@ const IndexTestimonial = ({initialData}) => {
                     return categoryName === filterCategoryId;
                 }));
 
-            // Логируем результаты фильтрации
+            // Логируем результаты фильтрации 
             if (process.env.NODE_ENV === 'development') {
                 console.log("Совпадение по названию:", titleMatches);
                 console.log("Совпадение по категории:", categoryMatches);
@@ -138,7 +140,7 @@ const IndexTestimonial = ({initialData}) => {
     );
 };
 
-export async function getStaticProps() {
+export async function getStaticProps({ locale }) {
     try {
         const {data} = await apolloClient.query({
             query: GET_TESTIMONIAL_ALL
@@ -146,7 +148,8 @@ export async function getStaticProps() {
         
         return {
             props: {
-                initialData: data
+                initialData: data,
+                ...(await serverSideTranslations(locale, ['common'])),
             },
             revalidate: 2592000,
         };
@@ -154,7 +157,8 @@ export async function getStaticProps() {
         console.error('Error fetching data:', error);
         return {
             props: {
-                initialData: null
+                initialData: null,
+                ...(await serverSideTranslations(locale, ['common'])),
             },
             revalidate: 60, // Retry in 1 minute
         };

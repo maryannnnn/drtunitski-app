@@ -1,0 +1,60 @@
+{
+  "navigation": {
+    "home": "Startseite",
+    "about": "Über uns",
+    "services": "Dienstleistungen",
+    "contact": "Kontakt"
+  },
+  "buttons": {
+    "readMore": "Weiterlesen",
+    "learnMore": "Mehr erfahren",
+    "contactUs": "Kontaktieren Sie uns"
+  },
+  "common": {
+    "loading": "Laden...",
+    "error": "Fehler",
+    "success": "Erfolg",
+    "language": "Sprache"
+  },
+  "info": {
+    "contact": {
+      "title": "Kontakt",
+      "address": "Eli Landau Str. 7, Herzliya, Israel"
+    },
+    "mainTitle": {
+      "title": "Massage-Salon bietet verschiedene Arten von Massagen und Massagekursen zu ausgezeichneten Preisen",
+      "description": "Für uns ist Massage eine Frage der Liebe. Massage wird helfen, Ihren Zustand zu verbessern und Ihren Körper auf Selbstheilung einzustellen. Kommen Sie zum Wings of Wind Zentrum, vertrauen Sie erfahrenen Meistern, die ein einzigartiges Programm speziell für Sie erstellen, einschließlich der effektivsten und ergebnisorientiertesten Verfahren."
+    },
+    "attributes": {
+      "massageTitle": "Hauptelemente der Massage",
+      "courseTitle": "Hauptelemente des Kurses",
+      "massagePrice": "Massagepreis",
+      "coursePrice": "Kurspreis",
+      "courseParameters": "Warum sollten Sie im Wings of Wind Zentrum studieren?"
+    },
+    "testimonials": {
+      "massageTitle": "Bewertungen unserer Kunden über Massage",
+      "courseTitle": "Bewertungen unserer Kunden über den Massagetherapeuten-Ausbildungskurs",
+      "types": {
+        "main": "Bewertungen",
+        "massage": "Massage",
+        "course": "Kurse",
+        "post": "Blog"
+      },
+      "options": {
+        "reason": "Grund der Wahl",
+        "process": "Was im Prozess",
+        "taste": "Nachgeschmack"
+      }
+    },
+    "breadcrumbs": {
+      "main": "Startseite",
+      "salon": "Salon",
+      "massage": "Massage",
+      "course": "Kurse",
+      "blog": "Blog",
+      "testimonial": "Bewertungen",
+      "bonus": "Aktionen"
+    }
+  }
+}

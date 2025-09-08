@@ -13,6 +13,8 @@ import Link from "next/link";
 import Image from "next/image";
 import Breadcrumbs from "../../shared/breadcrumbs-page/BreadcrumbsPage";
 import {testimonialOptions} from "../../app/info/info";
+import { useTranslation } from 'next-i18next';
+import { filterByLanguage } from '../../shared/utils/language-filter';
 
 import lgZoom from "lightgallery/plugins/zoom";
 import lgShare from "lightgallery/plugins/share";
@@ -25,6 +27,7 @@ import "lightgallery/css/lg-zoom.css";
 import "lightgallery/css/lg-share.css";
 
 const TestimonialPage = ({initialData}) => {
+    const { t } = useTranslation();
     const [isClient, setIsClient] = useState(false);
 
     useEffect(() => {
@@ -32,7 +35,7 @@ const TestimonialPage = ({initialData}) => {
     }, []);
 
     const router = useRouter();
-    const {slug} = router.query;
+    const {slug, locale} = router.query;
 
     console.log("Slug data: ", slug);
 
@@ -59,8 +62,8 @@ const TestimonialPage = ({initialData}) => {
     const typeMaterial = "testimonial"
 
     const PageProps = {
-        title: testimonial?.seo?.title || 'Компания',
-        description: testimonial?.seo?.metaDesc || 'Компания'
+        title: testimonial?.seo?.title || t('common:navigation.home'),
+        description: testimonial?.seo?.metaDesc || t('common:navigation.home')
     };
 
     return (
@@ -191,23 +194,32 @@ const TestimonialPage = ({initialData}) => {
     );
 };
 
-export async function getStaticPaths() {
+export async function getStaticPaths({ locales }) {
     const {data} = await apolloClient.query({
         query: GET_TESTIMONIAL_ALL,
     });
 
     console.log("Fetched testimonials data: ", data);
 
-    const paths = data.testimonials.edges.map(item => ({
-        params: {slug: item.node.slug},
-    }));
+    const paths = [];
+    
+    // Generate paths for each locale
+    locales.forEach(locale => {
+        const filteredTestimonials = filterByLanguage(data.testimonials.edges, locale);
+        filteredTestimonials.forEach(item => {
+            paths.push({
+                params: { slug: item.node.slug },
+                locale: locale
+            });
+        });
+    });
 
     console.log("Generated paths: ", paths);
 
     return {paths, fallback: true};
 }
 
-export async function getStaticProps({params}) {
+export async function getStaticProps({params, locale}) {
     const {data} = await apolloClient.query({
         query: GET_TESTIMONIAL_BY_SLUG,
         variables: {slug: params.slug},
@@ -216,6 +228,7 @@ export async function getStaticProps({params}) {
     return {
         props: {
             initialData: data,
+            ...(await serverSideTranslations(locale, ['common'])),
         },
         //revalidate: 2592000, // Revalidate every 30 days
     };

@@ -5,6 +5,8 @@
   background-color: $white-full;
   width: 100vw;
   height: 70px;
+  position: relative;
+  z-index: 100;
 
   &__inner {
     display: flex;
@@ -19,6 +21,14 @@
 
     &-menu {
 
+    }
+
+    &-language {
+      display: flex;
+      align-items: center;
+      margin: 0 15px;
+      position: relative;
+      z-index: 1000;
     }
 
     &-mobile {

@@ -1,5 +1,25 @@
 @import 'mixins';
 
+// RTL Support
+[dir="rtl"] {
+  .container {
+    direction: rtl;
+  }
+  
+  // Flip common directional properties
+  .text-left { text-align: right !important; }
+  .text-right { text-align: left !important; }
+  .float-left { float: right !important; }
+  .float-right { float: left !important; }
+  .ml-auto { margin-left: 0 !important; margin-right: auto !important; }
+  .mr-auto { margin-right: 0 !important; margin-left: auto !important; }
+  
+  // Flexbox RTL adjustments
+  .flex-row { flex-direction: row-reverse !important; }
+  .justify-start { justify-content: flex-end !important; }
+  .justify-end { justify-content: flex-start !important; }
+}
+
 .wrapper {
   display: flex;
   flex-direction: column;

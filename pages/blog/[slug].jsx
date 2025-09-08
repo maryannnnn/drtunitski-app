@@ -1,6 +1,8 @@
 import './index.scss';
 import './media.scss';
 import {useRouter} from 'next/router';
+import { useTranslation } from 'next-i18next';
+import { filterByLanguage } from '../../shared/utils/language-filter';
 import {useQuery} from "@apollo/client";
 import {GET_SALON_BY_SLUG, GET_SALON_ALL} from "../../entities/salon/actions/salonActions";
 import apolloClient from "../../app/graphql/apollo-client";
@@ -125,7 +127,7 @@ const SalonPage = ({initialData}) => {
     );
 };
 
-export async function getStaticPaths() {
+export async function getStaticPaths({ locales }) {
     const {data} = await apolloClient.query({
         query: GET_SALON_ALL,
     });
@@ -141,7 +143,7 @@ export async function getStaticPaths() {
     return {paths, fallback: true};
 }
 
-export async function getStaticProps({params}) {
+export async function getStaticProps({params, locale}) {
     const {data} = await apolloClient.query({
         query: GET_SALON_BY_SLUG,
         variables: {slug: params.slug},
@@ -150,6 +152,9 @@ export async function getStaticProps({params}) {
     return {
         props: {
             initialData: data,
+            ...(await import('next-i18next/serverSideTranslations').then(({ serverSideTranslations }) => 
+                serverSideTranslations(locale, ['common'])
+            )),
         },
         //revalidate: 2592000, // Revalidate every 30 days
     };

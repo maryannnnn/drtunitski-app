@@ -1,11 +1,13 @@
 import './attributes-massage.scss'
 import './madia.scss'
-import {attributePriceMassage, contentType, testimonialTitleMassage} from "../../app/info/info";
+import {getAttributePriceMassage, contentType, getTestimonialTitleMassage} from "../../app/info/info";
 import React from "react";
 import AttributesContent from "../../shared/attributes-content/AttributesContent";
 import AttributesPrice from "../../shared/attributes-price/AttributesPrice";
+import { useTranslation } from 'next-i18next';
 
 const AttributesMassage = ({massage}) => {
+    const { t } = useTranslation();
 
     const attributesArray = [
         {
@@ -98,7 +100,7 @@ const AttributesMassage = ({massage}) => {
         <div className="attributes">
             <div className="container">
                 <AttributesContent attributesArray={attributesArray}/>
-                <h2 className="attributes__price-title">{attributePriceMassage}</h2>
+                <h2 className="attributes__price-title">{getAttributePriceMassage(t)}</h2>
                 <AttributesPrice attributesArrayPrice={attributesArrayPrice} contentType={contentType.massages}/>
             </div>
         </div>

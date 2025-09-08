@@ -1,0 +1,60 @@
+{
+  "navigation": {
+    "home": "Accueil",
+    "about": "À propos",
+    "services": "Services",
+    "contact": "Contact"
+  },
+  "buttons": {
+    "readMore": "Lire la suite",
+    "learnMore": "En savoir plus",
+    "contactUs": "Contactez-nous"
+  },
+  "common": {
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "success": "Succès",
+    "language": "Langue"
+  },
+  "info": {
+    "contact": {
+      "title": "Contact",
+      "address": "rue Eli Landau 7, Herzliya, Israël"
+    },
+    "mainTitle": {
+      "title": "Salon de massage propose différents types de massage et cours de massage à d'excellents prix",
+      "description": "Pour nous, le massage c'est l'amour. Le massage vous aidera à améliorer votre état et à régler votre corps pour l'auto-guérison. Venez au centre Wings of Wind, faites confiance aux maîtres expérimentés qui créeront un programme unique spécialement pour vous, incluant les procédures les plus efficaces et orientées résultats."
+    },
+    "attributes": {
+      "massageTitle": "Éléments principaux du massage",
+      "courseTitle": "Éléments principaux du cours",
+      "massagePrice": "Prix du massage",
+      "coursePrice": "Prix du cours",
+      "courseParameters": "Pourquoi étudier au centre Wings of Wind ?"
+    },
+    "testimonials": {
+      "massageTitle": "Avis de nos clients sur le massage",
+      "courseTitle": "Avis de nos clients sur le cours de formation de massothérapeute",
+      "types": {
+        "main": "Avis",
+        "massage": "Massage",
+        "course": "Cours",
+        "post": "Blog"
+      },
+      "options": {
+        "reason": "Raison du choix",
+        "process": "Ce qui se passe",
+        "taste": "Arrière-goût"
+      }
+    },
+    "breadcrumbs": {
+      "main": "Accueil",
+      "salon": "Salon",
+      "massage": "Massage",
+      "course": "Cours",
+      "blog": "Blog",
+      "testimonial": "Avis",
+      "bonus": "Promotions"
+    }
+  }
+}

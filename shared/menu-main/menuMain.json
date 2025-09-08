@@ -1,4 +1,3 @@
-
 {
   "data": {
     "menuItems": {
@@ -19,6 +18,78 @@
             "parentId": null,
             "order": 2,
             "label": "About"
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDoxNTgz2-1",
+            "path": "/",
+            "parentId": "cG9zdDoxNTgz2",
+            "order": 1,
+            "label": "Biography"
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDoxNTgz2-2",
+            "path": "/",
+            "parentId": "cG9zdDoxNTgz2",
+            "order": 2,
+            "label": "Certificates"
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDoxNTgz2-3",
+            "path": "/",
+            "parentId": "cG9zdDoxNTgz2",
+            "order": 3,
+            "label": "Experience"
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDoxNTgz2-4",
+            "path": "/",
+            "parentId": "cG9zdDoxNTgz2",
+            "order": 4,
+            "label": "Science"
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDoxNTgz2-5",
+            "path": "/",
+            "parentId": "cG9zdDoxNTgz2",
+            "order": 5,
+            "label": "Specialization"
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDoxNTgz2-6",
+            "path": "/",
+            "parentId": "cG9zdDoxNTgz2",
+            "order": 6,
+            "label": "Awards"
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDoxNTgz2-7",
+            "path": "/",
+            "parentId": "cG9zdDoxNTgz2",
+            "order": 7,
+            "label": "Clinic"
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDoxNTgz2-8",
+            "path": "/",
+            "parentId": "cG9zdDoxNTgz2",
+            "order": 8,
+            "label": "Contacts"
           }
         },
         {

@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from 'next/image';
 import React, {useEffect, useState} from "react";
 import {trimText, trimTextFullCleanedHTML} from "../utils/utils-content";
-import {sizeText, testimonialOptions} from "../../app/info/info";
+import {sizeText} from "../../app/info/info";
 
 const BlockSlideTestimonial = ({item}) => {
 

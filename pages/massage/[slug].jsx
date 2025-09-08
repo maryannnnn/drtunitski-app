@@ -1,6 +1,8 @@
 import './index.scss';
 import './media.scss';
 import {useRouter} from 'next/router';
+import { useTranslation } from 'next-i18next';
+import { filterByLanguage } from '../../shared/utils/language-filter';
 import {useQuery} from "@apollo/client";
 import apolloClient from "../../app/graphql/apollo-client";
 import React, {useEffect, useState} from "react";
@@ -190,23 +192,32 @@ const MassagePage = ({initialData}) => {
     );
 };
 
-export async function getStaticPaths() {
+export async function getStaticPaths({ locales }) {
     const {data} = await apolloClient.query({
         query: GET_MASSAGE_ALL,
     });
 
     console.log("Fetched massages data: ", data);
 
-    const paths = data.massages.edges.map(item => ({
-        params: {slug: item.node.slug},
-    }));
+    const paths = [];
+    
+    // Generate paths for each locale
+    locales.forEach(locale => {
+        const filteredItems = filterByLanguage(data.massages.edges, locale);
+        filteredItems.forEach(item => {
+            paths.push({
+                params: { slug: item.node.slug },
+                locale: locale
+            });
+        });
+    });
 
     console.log("Generated paths: ", paths);
 
     return {paths, fallback: true};
 }
 
-export async function getStaticProps({params}) {
+export async function getStaticProps({params, locale}) {
     const {data} = await apolloClient.query({
         query: GET_MASSAGE_BY_SLUG,
         variables: {slug: params.slug},
@@ -215,6 +226,9 @@ export async function getStaticProps({params}) {
     return {
         props: {
             initialData: data,
+            ...(await import('next-i18next/serverSideTranslations').then(({ serverSideTranslations }) => 
+                serverSideTranslations(locale, ['common'])
+            )),
         },
         revalidate: 2592000, // Revalidate every 30 days
     };

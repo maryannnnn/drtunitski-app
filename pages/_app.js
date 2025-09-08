@@ -3,6 +3,7 @@ import client from '../app/graphql/apollo-client'; // Путь к вашему �
 import '../app/scss/app.scss'; // Подключите здесь ваши глобальные стили
 import {ThemeProvider} from '@mui/material/styles';
 import theme from '../material.config'; // Импортируйте ваш theme
+import { appWithTranslation } from 'next-i18next';
 
 function MyApp({Component, pageProps}) {
     return (
@@ -14,4 +15,4 @@ function MyApp({Component, pageProps}) {
     );
 }
 
-export default MyApp;
+export default appWithTranslation(MyApp);

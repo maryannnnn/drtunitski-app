@@ -1,0 +1,25 @@
+module.exports = {
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'ru', 'he', 'de', 'fr', 'es', 'ar'],
+    localeDetection: false,
+  },
+  fallbackLng: {
+    default: ['en'],
+    he: ['en'],
+    ar: ['en'],
+  },
+  // RTL languages
+  rtl: ['he', 'ar'],
+  // Namespaces
+  ns: ['common'],
+  defaultNS: 'common',
+  // Interpolation
+  interpolation: {
+    escapeValue: false,
+  },
+  // React
+  react: {
+    useSuspense: false,
+  },
+};

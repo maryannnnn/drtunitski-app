@@ -1,10 +1,12 @@
 import React from 'react';
 import '../scss/app.scss'
 import Head from "next/head";
+import { useRouter } from 'next/router';
 import Header from "../../widgets/header/Header";
 import Footer from "../../widgets/footer/Footer";
 import {BASIS_URL} from "../config/config.js";
 import DrawerLeft from "../../shared/drawer-left/DrawerLeft";
+import { isRTL } from "../../shared/utils/rtl-utils";
 
 const LeftLayout
     = ({
@@ -12,10 +14,13 @@ const LeftLayout
            title,
            description
        }) => {
+    const router = useRouter();
+    const { locale } = router;
     const canonicalUrl = `${BASIS_URL}`;
+    const isRTLDirection = isRTL(locale);
 
     return (
-        <div className="wrapper">
+        <div className="wrapper" dir={isRTLDirection ? 'rtl' : 'ltr'}>
             <Head>
                 <title>{title + ` | запись по хорошей стоимости в Израиле`}</title>
                 <meta name="description" content={description}/>

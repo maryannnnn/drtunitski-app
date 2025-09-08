@@ -1,0 +1,60 @@
+{
+  "navigation": {
+    "home": "Inicio",
+    "about": "Acerca de",
+    "services": "Servicios",
+    "contact": "Contacto"
+  },
+  "buttons": {
+    "readMore": "Leer más",
+    "learnMore": "Saber más",
+    "contactUs": "Contáctanos"
+  },
+  "common": {
+    "loading": "Cargando...",
+    "error": "Error",
+    "success": "Éxito",
+    "language": "Idioma"
+  },
+  "info": {
+    "contact": {
+      "title": "Contacto",
+      "address": "calle Eli Landau 7, Herzliya, Israel"
+    },
+    "mainTitle": {
+      "title": "Salón de masajes ofrece diferentes tipos de masajes y cursos de masajes a precios excelentes",
+      "description": "Para nosotros, el masaje es sobre amor. El masaje te ayudará a mejorar tu condición y sintonizar tu cuerpo para la autocuración. Ven al centro Alas de Viento, confía en maestros experimentados que crearán un programa único específicamente para ti, incluyendo los procedimientos más efectivos y orientados a resultados."
+    },
+    "attributes": {
+      "massageTitle": "Elementos principales del masaje",
+      "courseTitle": "Elementos principales del curso",
+      "massagePrice": "Precio del masaje",
+      "coursePrice": "Precio del curso",
+      "courseParameters": "¿Por qué estudiar en el centro Alas de Viento?"
+    },
+    "testimonials": {
+      "massageTitle": "Reseñas de nuestros clientes sobre masajes",
+      "courseTitle": "Reseñas de nuestros clientes sobre el curso de formación de masajista",
+      "types": {
+        "main": "Reseñas",
+        "massage": "Masaje",
+        "course": "Cursos",
+        "post": "Blog"
+      },
+      "options": {
+        "reason": "Razón de la elección",
+        "process": "Qué en el proceso",
+        "taste": "Regusto"
+      }
+    },
+    "breadcrumbs": {
+      "main": "Inicio",
+      "salon": "Salón",
+      "massage": "Masaje",
+      "course": "Cursos",
+      "blog": "Blog",
+      "testimonial": "Reseñas",
+      "bonus": "Promociones"
+    }
+  }
+}

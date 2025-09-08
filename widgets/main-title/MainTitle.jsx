@@ -1,8 +1,12 @@
 import './media.scss'
 import './main-title.scss'
-import {mainTitle} from "../../app/info/info";
+import {getMainTitle} from "../../app/info/info";
+import { useTranslation } from 'next-i18next';
 
 const MainTitle = () => {
+    const { t } = useTranslation();
+    const mainTitle = getMainTitle(t);
+    
     return (
         <div className='main-title'>
             <div className="container">

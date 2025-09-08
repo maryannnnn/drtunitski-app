@@ -1,34 +1,32 @@
 
+// Контактная информация - статичные данные, не требующие перевода
 export const contactSalon = {
-    title: 'Contact',
     mobile: '0507377870',
     email: 'drtunitski@gmail.com',
-    address_1: 'st. Eli Landau 7, Herzliya, Israel',
     address_2: '',
     map: '',
     video: '<iframe width="560" height="315" src="https://www.youtube.com/embed/PY2Lf5WWI4U?si=B94JWsgKpzcpXpl1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
 }
 
-export const mainTitle = {
-    title: 'Салон Массажа предлагает разные виды массажа и курсы массажа по отличным ценам',
-    description: 'Для нас массаж - это про любовь Массаж поможет улучшить ваше состояние и настроить организм на ' +
-        'самовосстановление. Приходите в центр Крылья Ветра,  доверьтесь опытным мастерам, которые составят специально ' +
-        'для вас уникальную программу,  куда включат наиболее эффективные и результативные процедуры.'
-}
+// Функции для получения переводов
+export const getMainTitle = (t) => ({
+    title: t('common:info.mainTitle.title'),
+    description: t('common:info.mainTitle.description')
+})
 
-export const attributeTitleMassage = 'Основные элементы массажа'
+export const getAttributeTitleMassage = (t) => t('common:info.attributes.massageTitle')
 
-export const attributeTitleCourse = 'Основные элементы курса'
+export const getAttributeTitleCourse = (t) => t('common:info.attributes.courseTitle')
 
-export const attributePriceMassage = 'Цена массажа'
+export const getAttributePriceMassage = (t) => t('common:info.attributes.massagePrice')
 
-export const attributePriceCourse = 'Цена курса'
+export const getAttributePriceCourse = (t) => t('common:info.attributes.coursePrice')
 
-export const attributeParametersCourse = 'Почему стоит учиться в центре Крыльях Ветра?'
+export const getAttributeParametersCourse = (t) => t('common:info.attributes.courseParameters')
 
-export const testimonialTitleMassage = 'Отзывы наших клиентов о массаже'
+export const getTestimonialTitleMassage = (t) => t('common:info.testimonials.massageTitle')
 
-export const testimonialTitleCourse = 'Отзывы наших клиентов о курсе обучения на массажиста'
+export const getTestimonialTitleCourse = (t) => t('common:info.testimonials.courseTitle')
 
 export const sizeText = {
     xa: 10,
@@ -71,53 +69,53 @@ export const contentType = {
     procedure: 'procedure'
 }
 
-export const testimonialType = {
-    main: 'Отзывы',
-    massage: 'Массаж',
-    course: 'Курсы',
-    post: 'Блог',
-}
+export const getTestimonialType = (t) => ({
+    main: t('common:info.testimonials.types.main'),
+    massage: t('common:info.testimonials.types.massage'),
+    course: t('common:info.testimonials.types.course'),
+    post: t('common:info.testimonials.types.post'),
+})
 
-export const testimonialOptions = {
-    reason: 'Причина выбора',
-    process: 'Что в процессе',
-    taste: 'Послевкусие'
-}
+export const getTestimonialOptions = (t) => ({
+    reason: t('common:info.testimonials.options.reason'),
+    process: t('common:info.testimonials.options.process'),
+    taste: t('common:info.testimonials.options.taste')
+})
 
-export const breadcrumbType = [
+export const getBreadcrumbType = (t) => [
     {
         id: 'main',
-        title: 'Главная',
+        title: t('common:info.breadcrumbs.main'),
         url: '/'
     },
     {
         id: 'salon',
-        title: 'Салон',
+        title: t('common:info.breadcrumbs.salon'),
         url: '/salon'
     },
     {
         id: 'massage',
-        title: 'Массаж',
+        title: t('common:info.breadcrumbs.massage'),
         url: '/massage'
     },
     {
         id: 'course',
-        title: 'Курсы',
+        title: t('common:info.breadcrumbs.course'),
         url: '/course'
     },
     {
         id: 'blog',
-        title: 'Блог',
+        title: t('common:info.breadcrumbs.blog'),
         url: '/blog'
     },
     {
         id: 'testimonial',
-        title: 'Отзывы',
+        title: t('common:info.breadcrumbs.testimonial'),
         url: '/testimonial'
     },
     {
         id: 'bonus',
-        title: 'Акции',
+        title: t('common:info.breadcrumbs.bonus'),
         url: '/bonus'
     },
 ]

@@ -31,6 +31,14 @@ export const GET_HOME_DATA = gql`
         node {
           id
           menuOrder
+          language {
+            code
+            homeUrl
+            id
+            locale
+            name
+            slug
+          }
           AcfSalon{
             titleLong
             titleShort
@@ -51,6 +59,14 @@ export const GET_HOME_DATA = gql`
         node {
           id
           menuOrder
+          language {
+            code
+            homeUrl
+            id
+            locale
+            name
+            slug
+          }
           AcfBonus {
             titleLong
             titleShort
@@ -81,6 +97,14 @@ export const GET_HOME_DATA = gql`
         node {
           id
           menuOrder
+          language {
+            code
+            homeUrl
+            id
+            locale
+            name
+            slug
+          }
           AcfMassage {
             titleLong
             descriptionAnons
@@ -110,6 +134,14 @@ export const GET_HOME_DATA = gql`
         node {
           id
           menuOrder
+          language {
+            code
+            homeUrl
+            id
+            locale
+            name
+            slug
+          }
           AcfCourse {
             titleLong
             descriptionAnons
@@ -139,6 +171,14 @@ export const GET_HOME_DATA = gql`
         node {
           id
           menuOrder
+          language {
+            code
+            homeUrl
+            id
+            locale
+            name
+            slug
+          }
           AcfTestimonial {
             descriptionAnons
             front
@@ -172,6 +212,14 @@ export const GET_HOME_DATA = gql`
         node {
           id
           menuOrder
+          language {
+            code
+            homeUrl
+            id
+            locale
+            name
+            slug
+          }
           AcfPost {
             titleLong
             descriptionAnons

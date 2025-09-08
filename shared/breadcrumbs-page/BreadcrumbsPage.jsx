@@ -1,10 +1,13 @@
 import './breadcrumbs-page.scss'
 import Breadcrumbs from '@mui/material/Breadcrumbs';
-import {breadcrumbType} from "../../app/info/info";
+import {getBreadcrumbType} from "../../app/info/info";
 import React from "react";
 import Link from "next/link";
+import { useTranslation } from 'next-i18next';
 
 const BreadcrumbsPage = ({material, typeMaterial}) => {
+    const { t } = useTranslation();
+    const breadcrumbType = getBreadcrumbType(t);
 
     function handleClick(event) {
         event.preventDefault();

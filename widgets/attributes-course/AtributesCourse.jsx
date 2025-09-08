@@ -1,15 +1,17 @@
 import './attributes-course.scss'
 import './madia.scss'
 import {
-    attributeParametersCourse,
-    attributePriceCourse,
+    getAttributeParametersCourse,
+    getAttributePriceCourse,
     contentType,
 } from "../../app/info/info";
 import React from "react";
 import AttributesContent from "../../shared/attributes-content/AttributesContent";
 import AttributesPrice from "../../shared/attributes-price/AttributesPrice";
+import { useTranslation } from 'next-i18next';
 
 const AttributesCourse = ({course}) => {
+    const { t } = useTranslation();
 
     const attributesArray = [
         {
@@ -140,9 +142,9 @@ const AttributesCourse = ({course}) => {
         <div className="attributes">
             <div className="container">
                 <AttributesContent attributesArray={attributesArray}/>
-                <h2 className="attributes__price-title">{attributePriceCourse}</h2>
+                <h2 className="attributes__price-title">{getAttributePriceCourse(t)}</h2>
                 <AttributesPrice attributesArrayPrice={attributesArrayPrice} contentType={contentType.courses}/>
-                <h2 className="attributes__price-title">{attributeParametersCourse}</h2>
+                <h2 className="attributes__price-title">{getAttributeParametersCourse(t)}</h2>
                 <AttributesContent attributesArray={attributesArrayParameters}/>
             </div>
         </div>

@@ -1,8 +1,8 @@
 import {gql} from '@apollo/client';
 
 export const GET_BONUS_BY_SLUG = gql`
-  query GetBonusBySlug($slug: String!) {
-    bonusBy(slug: $slug) {
+  query GetBonusBySlug($slug: String!, $language: LanguageCodeEnum) {
+    bonusBy(slug: $2) {
       id
       menuOrder
       title

@@ -1,0 +1,212 @@
+@import '../../app/scss/mixins';
+
+.language-switcher {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  &__label {
+    font-size: 14px;
+    color: #666;
+    white-space: nowrap;
+  }
+
+  &__form {
+    min-width: 120px;
+  }
+
+  &__select {
+    .MuiSelect-select {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+    }
+  }
+
+  &__icon {
+    font-size: 18px;
+    color: #666;
+  }
+
+  &__option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 0;
+  }
+
+  &__flag {
+    font-size: 16px;
+    line-height: 1;
+  }
+
+  &__name {
+    font-size: 14px;
+    color: #333;
+  }
+
+  // Простой вариант с буквами
+  &--simple {
+    @include language-switcher;
+  }
+
+  // Dropdown variant - компактный
+  &--dropdown {
+    position: relative;
+    display: inline-block;
+
+    .language-switcher__current {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 8px;
+      border: 1px solid $lang-border;
+      border-radius: 3px;
+      cursor: pointer;
+      background: $lang-bg;
+      transition: all 0.2s ease;
+      min-width: 32px;
+      @include body-sm;
+
+      &:hover {
+        border-color: $lang-text-active;
+        background: $lang-hover;
+      }
+    }
+
+    .language-switcher__dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: $white-full;
+      border: 1px solid $lang-border;
+      border-radius: 3px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      z-index: 99999;
+      margin-top: 2px;
+      overflow: hidden;
+      min-width: 100%;
+    }
+
+    .language-switcher__option {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px 8px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+      border-bottom: 1px solid $lang-border;
+      @include body-sm;
+      background: $white-full;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      &:hover {
+        background: $lang-hover;
+      }
+
+      &--active {
+        background: $lang-active;
+        color: $lang-text-active;
+        font-weight: 600;
+      }
+    }
+
+    .language-switcher__short {
+      font-size: 12px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+  }
+
+  // RTL Support
+  [dir="rtl"] & {
+    &__dropdown {
+      left: auto;
+      right: 0;
+    }
+  }
+}
+
+// Mobile responsive
+@media (max-width: 768px) {
+  .language-switcher {
+    &__label {
+      display: none;
+    }
+
+    &__form {
+      min-width: 100px;
+    }
+
+    &__name {
+      display: none;
+    }
+
+    &--dropdown {
+      .language-switcher__current {
+        padding: 3px 6px;
+        min-width: 28px;
+      }
+
+      .language-switcher__option {
+        padding: 4px 6px;
+      }
+
+      .language-switcher__short {
+        font-size: 11px;
+      }
+    }
+
+    // Мобильные стили для флагов
+    &--flags {
+      .language-switcher__flags-container {
+        gap: 2px;
+        padding: 3px;
+      }
+
+      .language-switcher__flag-button {
+        padding: 6px 8px;
+        min-width: 40px;
+      }
+
+      .language-switcher__flag {
+        font-size: 18px;
+      }
+
+      .language-switcher__short {
+        font-size: 9px;
+      }
+    }
+  }
+}
+
+// Очень маленькие экраны
+@media (max-width: 480px) {
+  .language-switcher {
+    &--flags {
+      .language-switcher__flags-container {
+        gap: 1px;
+        padding: 2px;
+      }
+
+      .language-switcher__flag-button {
+        padding: 4px 6px;
+        min-width: 35px;
+      }
+
+      .language-switcher__flag {
+        font-size: 16px;
+      }
+
+      .language-switcher__short {
+        font-size: 8px;
+      }
+    }
+  }
+}

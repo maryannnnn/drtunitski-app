@@ -19,8 +19,6 @@ import {buttonOptions} from "../../shared/button-options/button-options";
 
 const MainTestimonial = ({data, type}) => {
 
-    console.log("MainTestimonial data: ", data);
-
     const typeCategory = 'category4';
 
     const testimonials = data?.testimonials?.edges?.length ? data.testimonials.edges : [];
@@ -29,7 +27,7 @@ const MainTestimonial = ({data, type}) => {
         <>
             <div className='main-testimonial'>
                 <div className='container'>
-                    {type === 'Отзывы' && (
+                    {(type === 'Отзывы' || type === 'Reviews') && (
                         <BlockHeader
                             title={data[typeCategory]?.AcfCategory?.categoryTitleLong1 || ''}
                             content={data[typeCategory]?.AcfCategory?.categoryDescriptionAnons || ''}
@@ -57,10 +55,14 @@ const MainTestimonial = ({data, type}) => {
                             className="mySwiper"
                         >
                             {testimonials.length > 0 && testimonials
-                                .filter(el =>
-                                    el?.node?.categories?.edges &&
-                                    el.node.categories.edges.some(category => category?.node?.name === type)
-                                )
+                                .filter(el => {
+                                    const hasCategories = el?.node?.categories?.edges;
+                                    // Фильтруем по категории "Отзывы" (русский) независимо от языка интерфейса
+                                    const matchesType = hasCategories && el.node.categories.edges.some(category => 
+                                        category?.node?.name === "Отзывы" || category?.node?.name === "Reviews"
+                                    );
+                                    return matchesType;
+                                })
                                 .slice(0, 7)
                                 .map(el => (
                                     <SwiperSlide key={el?.node?.id}>
@@ -82,7 +84,7 @@ const MainTestimonial = ({data, type}) => {
             </div>
             <div className='main-testimonial-mobile'>
                 <div className='container'>
-                    {type === 'Отзывы' && (
+                    {(type === 'Отзывы' || type === 'Reviews') && (
                         <BlockHeader
                             title={data[typeCategory]?.AcfCategory?.categoryTitleLong1 || ''}
                             content={data[typeCategory]?.AcfCategory?.categoryDescriptionAnons || ''}
@@ -90,10 +92,14 @@ const MainTestimonial = ({data, type}) => {
                         />
                     )}
                     {testimonials.length > 0 && testimonials
-                        .filter(el =>
-                            el?.node?.categories?.edges &&
-                            el.node.categories.edges.some(category => category?.node?.name === type)
-                        )
+                        .filter(el => {
+                            const hasCategories = el?.node?.categories?.edges;
+                            // Фильтруем по категории "Отзывы" (русский) независимо от языка интерфейса
+                            const matchesType = hasCategories && el.node.categories.edges.some(category => 
+                                category?.node?.name === "Отзывы" || category?.node?.name === "Reviews"
+                            );
+                            return matchesType;
+                        })
                         .slice(0, 7)
                         .map(el => (
                             <SwiperSlide key={el?.node?.id}>
