@@ -4,6 +4,14 @@ export const GET_SALON_BY_SLUG = gql`
   query GetSalonBySlug($slug: String!, $language: LanguageCodeEnum) {
     salonBy(slug: $slug) {
       id
+      language {
+        code
+        homeUrl
+        id
+        locale
+        name
+        slug
+      }
       title
       content
       featuredImage {
@@ -42,6 +50,14 @@ query  GetSalonAll {
         node {
           id
           menuOrder
+          language {
+            code
+            homeUrl
+            id
+            locale
+            name
+            slug
+          }
           AcfSalon{
             titleLong
             titleShort

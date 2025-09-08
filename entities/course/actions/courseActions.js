@@ -5,6 +5,14 @@ export const GET_COURSE_BY_SLUG = gql`
     courseBy(slug: $slug) {
       id
       menuOrder
+      language {
+        code
+        homeUrl
+        id
+        locale
+        name
+        slug
+      }
       title
       content
       galleryImages {
@@ -148,6 +156,14 @@ query  GetCourseAll {
         node {
           id
           menuOrder
+          language {
+            code
+            homeUrl
+            id
+            locale
+            name
+            slug
+          }
           AcfCourse {
             titleLong
             titleShort

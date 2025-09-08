@@ -5,6 +5,14 @@ export const GET_POST_BY_SLUG = gql`
     postBy(slug: $slug) {
       id
       menuOrder
+      language {
+        code
+        homeUrl
+        id
+        locale
+        name
+        slug
+      }
       title
       content
       date
@@ -53,6 +61,14 @@ export const GET_POST_ALL = gql`
         node {
           id
           menuOrder
+          language {
+            code
+            homeUrl
+            id
+            locale
+            name
+            slug
+          }
           title
           uri
           slug

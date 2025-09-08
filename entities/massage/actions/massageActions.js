@@ -5,6 +5,14 @@ export const GET_MASSAGE_BY_SLUG = gql`
     massageBy(slug: $slug) {
       id
       menuOrder
+      language {
+        code
+        homeUrl
+        id
+        locale
+        name
+        slug
+      }
       title
       content
       galleryImages {
@@ -140,6 +148,14 @@ query  GetMassageAll {
         node {
           id
           menuOrder
+          language {
+            code
+            homeUrl
+            id
+            locale
+            name
+            slug
+          }
           AcfMassage {
             titleLong
             titleShort

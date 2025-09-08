@@ -5,6 +5,14 @@ export const GET_BONUS_BY_SLUG = gql`
     bonusBy(slug: $slug) {
       id
       menuOrder
+      language {
+        code
+        homeUrl
+        id
+        locale
+        name
+        slug
+      }
       title
       content
       featuredImage {
@@ -47,6 +55,14 @@ query  GetBonusAll {
         node {
           id
           menuOrder
+          language {
+            code
+            homeUrl
+            id
+            locale
+            name
+            slug
+          }
           AcfBonus{
             titleLong
             titleShort

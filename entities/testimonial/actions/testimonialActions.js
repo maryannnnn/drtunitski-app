@@ -4,6 +4,14 @@ export const GET_TESTIMONIAL_BY_SLUG = gql`
   query GetTestimonialBySlug($slug: String!, $language: LanguageCodeEnum) {
     testimonialBy(slug: $slug) {
       id
+      language {
+        code
+        homeUrl
+        id
+        locale
+        name
+        slug
+      }
       title
       content
       uri
@@ -61,6 +69,14 @@ export const GET_TESTIMONIAL_ALL = gql`
       edges {
         node {
           id
+          language {
+            code
+            homeUrl
+            id
+            locale
+            name
+            slug
+          }
           title
           content
           uri
