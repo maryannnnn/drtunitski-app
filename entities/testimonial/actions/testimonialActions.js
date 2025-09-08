@@ -2,7 +2,7 @@ import {gql} from '@apollo/client';
 
 export const GET_TESTIMONIAL_BY_SLUG = gql`
   query GetTestimonialBySlug($slug: String!, $language: LanguageCodeEnum) {
-    testimonialBy(slug: $2) {
+    testimonialBy(slug: $slug) {
       id
       title
       content

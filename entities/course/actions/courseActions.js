@@ -2,7 +2,7 @@ import {gql} from '@apollo/client';
 
 export const GET_COURSE_BY_SLUG = gql`
   query GetCourseBySlug($slug: String!, $language: LanguageCodeEnum) {
-    courseBy(slug: $2) {
+    courseBy(slug: $slug) {
       id
       menuOrder
       title

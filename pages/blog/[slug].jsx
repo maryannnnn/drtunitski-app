@@ -4,7 +4,7 @@ import {useRouter} from 'next/router';
 import { useTranslation } from 'next-i18next';
 import { filterByLanguage } from '../../shared/utils/language-filter';
 import {useQuery} from "@apollo/client";
-import {GET_SALON_BY_SLUG, GET_SALON_ALL} from "../../entities/salon/actions/salonActions";
+import {GET_POST_BY_SLUG, GET_POST_ALL} from "../../entities/post/actions/postActions";
 import apolloClient from "../../app/graphql/apollo-client";
 import MainLayout from "../../app/layouts/MainLayout";
 import React from "react";
@@ -15,13 +15,13 @@ import {cleanHtmlFull} from "../../shared/utils/utils-content";
 import Link from "next/link";
 import Image from "next/image";
 
-const SalonPage = ({initialData}) => {
+const BlogPage = ({initialData}) => {
     const router = useRouter();
     const {slug} = router.query;
 
     console.log("Slug data: ", slug);
 
-    const {loading, error, data} = useQuery(GET_SALON_BY_SLUG, {
+    const {loading, error, data} = useQuery(GET_POST_BY_SLUG, {
         variables: {slug},
         skip: !slug,
         fetchPolicy: 'cache-and-network',
@@ -35,16 +35,16 @@ const SalonPage = ({initialData}) => {
         return <div>Error: {error.message}</div>;
     }
 
-    const salon = data?.salonBy || initialData?.salonBy;
+    const post = data?.postBy || initialData?.postBy;
 
     const PageProps = {
-        title: salon?.seo?.title || 'Компания',
-        description: salon?.seo?.metaDesc || 'Компания'
+        title: post?.seo?.title || 'Блог',
+        description: post?.seo?.metaDesc || 'Блог'
     };
 
     return (
         <LeftLayout title={PageProps.title} description={PageProps.description}>
-            <div className="salon">
+            <div className="blog">
                 <div className="container">
                     {error ? (
                         <Stack sx={{width: '100%'}} spacing={2}>
@@ -56,14 +56,14 @@ const SalonPage = ({initialData}) => {
                         </Stack>
                     ) : (
                         <>
-                            <h1 className="salon__title">{cleanHtmlFull(salon?.AcfSalon?.titleLong)}</h1>
-                            <div className="salon__anons">
-                                <div className="salon__anons-img">
-                                    {salon?.AcfSalon?.imageAnons && (
-                                        <Link href={salon?.AcfSalon?.imageAnons?.sourceUrl}>
+                            <h1 className="blog__title">{cleanHtmlFull(post?.AcfPost?.titleLong)}</h1>
+                            <div className="blog__anons">
+                                <div className="blog__anons-img">
+                                    {post?.AcfPost?.imageAnons && (
+                                        <Link href={post?.AcfPost?.imageAnons?.sourceUrl}>
                                             <Image
-                                                src={salon?.AcfSalon?.imageAnons?.sourceUrl}
-                                                alt={salon?.AcfSalon?.imageAnons?.altText}
+                                                src={post?.AcfPost?.imageAnons?.sourceUrl}
+                                                alt={post?.AcfPost?.imageAnons?.altText}
                                                 width={500}
                                                 height={400}
                                                 layout="intrinsic"
@@ -71,19 +71,19 @@ const SalonPage = ({initialData}) => {
                                         </Link>
                                     )}
                                 </div>
-                                <div className="salon__anons-text"
-                                     dangerouslySetInnerHTML={{__html: salon?.AcfSalon?.descriptionAnons}}>
+                                <div className="blog__anons-text"
+                                     dangerouslySetInnerHTML={{__html: post?.AcfPost?.descriptionAnons}}>
                                 </div>
                             </div>
-                            <div className="salon-block-center">
-                                <h2 className="salon__title-main">{cleanHtmlFull(salon?.AcfSalon?.titleCenter)}</h2>
-                                <div className="salon__description">
-                                    {salon?.AcfSalon?.imageAnons && (
-                                        <div className="salon__description-img">
-                                            <Link href={salon?.featuredImage?.node?.sourceUrl}>
+                            <div className="blog-block-center">
+                                <h2 className="blog__title-main">{cleanHtmlFull(post?.AcfPost?.titleCenter)}</h2>
+                                <div className="blog__description">
+                                    {post?.featuredImage?.node && (
+                                        <div className="blog__description-img">
+                                            <Link href={post?.featuredImage?.node?.sourceUrl}>
                                                 <Image
-                                                    src={salon?.featuredImage?.node?.sourceUrl}
-                                                    alt={salon?.featuredImage?.node?.altText}
+                                                    src={post?.featuredImage?.node?.sourceUrl}
+                                                    alt={post?.featuredImage?.node?.altText}
                                                     width={500}
                                                     height={400}
                                                     layout="intrinsic"
@@ -91,31 +91,30 @@ const SalonPage = ({initialData}) => {
                                             </Link>
                                         </div>
                                     )}
-                                    <div className="salon__description-text"
-                                         dangerouslySetInnerHTML={{__html: salon?.content}}>
+                                    <div className="blog__description-text"
+                                         dangerouslySetInnerHTML={{__html: post?.content}}>
                                     </div>
                                 </div>
                             </div>
-                            {salon?.AcfSalon?.video && (
-                                <div className="salon-block-video">
+                            {post?.AcfPost?.video && (
+                                <div className="blog-block-video">
                                     <h2
-                                        className="salon__title-video">{cleanHtmlFull(salon?.AcfSalon?.videoTitle)}</h2>
-                                    <div className="salon__video">
-                                        <div className="salon__video-content"
-                                             dangerouslySetInnerHTML={{__html: salon?.AcfSalon?.video}}>
+                                        className="blog__title-video">{cleanHtmlFull(post?.AcfPost?.videoTitle)}</h2>
+                                    <div className="blog__video">
+                                        <div className="blog__video-content"
+                                             dangerouslySetInnerHTML={{__html: post?.AcfPost?.video}}>
                                         </div>
-                                        <div className="salon__video-text"
-                                             dangerouslySetInnerHTML={{__html: salon?.AcfSalon?.videoDescription}}>
+                                        <div className="blog__video-text"
+                                             dangerouslySetInnerHTML={{__html: post?.AcfPost?.videoDescription}}>
                                         </div>
                                     </div>
                                 </div>
                             )}
-                            <div className="salon-block-bottom">
-                                <h2 className="salon__title-faq">{cleanHtmlFull(salon?.AcfSalon?.faqTitle)}</h2>
-                                <div className="salon__faq">
-
-                                    <div className="salon__faq-content"
-                                         dangerouslySetInnerHTML={{__html: salon?.AcfSalon?.faqContent}}>
+                            <div className="blog-block-bottom">
+                                <h2 className="blog__title-faq">{cleanHtmlFull(post?.AcfPost?.faqTitle)}</h2>
+                                <div className="blog__faq">
+                                    <div className="blog__faq-content"
+                                         dangerouslySetInnerHTML={{__html: post?.AcfPost?.faqContent}}>
                                     </div>
                                 </div>
                             </div>
@@ -129,12 +128,12 @@ const SalonPage = ({initialData}) => {
 
 export async function getStaticPaths({ locales }) {
     const {data} = await apolloClient.query({
-        query: GET_SALON_ALL,
+        query: GET_POST_ALL,
     });
 
-    console.log("Fetched salons data: ", data);
+    console.log("Fetched posts data: ", data);
 
-    const paths = data.salons.edges.map(item => ({
+    const paths = data.posts.edges.map(item => ({
         params: {slug: item.node.slug},
     }));
 
@@ -145,7 +144,7 @@ export async function getStaticPaths({ locales }) {
 
 export async function getStaticProps({params, locale}) {
     const {data} = await apolloClient.query({
-        query: GET_SALON_BY_SLUG,
+        query: GET_POST_BY_SLUG,
         variables: {slug: params.slug},
     });
 
@@ -160,7 +159,7 @@ export async function getStaticProps({params, locale}) {
     };
 }
 
-export default SalonPage;
+export default BlogPage;
 
 
 
