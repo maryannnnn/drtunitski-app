@@ -2,7 +2,7 @@ import {gql} from '@apollo/client';
 
 export const GET_SALON_BY_SLUG = gql`
   query GetSalonBySlug($slug: String!, $language: LanguageCodeEnum) {
-    salonBy(slug: $2) {
+    salonBy(slug: $slug) {
       id
       title
       content

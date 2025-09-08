@@ -120,3 +120,10 @@ export const getBreadcrumbType = (t) => [
     },
 ]
 
+// Алиасы для обратной совместимости (старые имена экспортов)
+export const attributeTitleCourse = getAttributeTitleCourse
+export const testimonialTitleCourse = getTestimonialTitleCourse
+export const testimonialType = getTestimonialType
+export const attributeTitleMassage = getAttributeTitleMassage
+export const testimonialTitleMassage = getTestimonialTitleMassage
+
