@@ -38,8 +38,8 @@ const BlogPage = ({initialData}) => {
     const post = data?.postBy || initialData?.postBy;
 
     const PageProps = {
-        title: post?.seo?.title || 'Блог',
-        description: post?.seo?.metaDesc || 'Блог'
+        title: post?.title || 'Блог',
+        description: 'Блог'
     };
 
     return (
@@ -56,68 +56,26 @@ const BlogPage = ({initialData}) => {
                         </Stack>
                     ) : (
                         <>
-                            <h1 className="blog__title">{cleanHtmlFull(post?.AcfPost?.titleLong)}</h1>
-                            <div className="blog__anons">
-                                <div className="blog__anons-img">
-                                    {post?.AcfPost?.imageAnons && (
-                                        <Link href={post?.AcfPost?.imageAnons?.sourceUrl}>
-                                            <Image
-                                                src={post?.AcfPost?.imageAnons?.sourceUrl}
-                                                alt={post?.AcfPost?.imageAnons?.altText}
-                                                width={500}
-                                                height={400}
-                                                layout="intrinsic"
-                                            />
-                                        </Link>
-                                    )}
-                                </div>
-                                <div className="blog__anons-text"
-                                     dangerouslySetInnerHTML={{__html: post?.AcfPost?.descriptionAnons}}>
-                                </div>
-                            </div>
-                            <div className="blog-block-center">
-                                <h2 className="blog__title-main">{cleanHtmlFull(post?.AcfPost?.titleCenter)}</h2>
-                                <div className="blog__description">
-                                    {post?.featuredImage?.node && (
-                                        <div className="blog__description-img">
-                                            <Link href={post?.featuredImage?.node?.sourceUrl}>
-                                                <Image
-                                                    src={post?.featuredImage?.node?.sourceUrl}
-                                                    alt={post?.featuredImage?.node?.altText}
-                                                    width={500}
-                                                    height={400}
-                                                    layout="intrinsic"
-                                                />
-                                            </Link>
-                                        </div>
-                                    )}
-                                    <div className="blog__description-text"
-                                         dangerouslySetInnerHTML={{__html: post?.content}}>
-                                    </div>
-                                </div>
-                            </div>
-                            {post?.AcfPost?.video && (
-                                <div className="blog-block-video">
-                                    <h2
-                                        className="blog__title-video">{cleanHtmlFull(post?.AcfPost?.videoTitle)}</h2>
-                                    <div className="blog__video">
-                                        <div className="blog__video-content"
-                                             dangerouslySetInnerHTML={{__html: post?.AcfPost?.video}}>
-                                        </div>
-                                        <div className="blog__video-text"
-                                             dangerouslySetInnerHTML={{__html: post?.AcfPost?.videoDescription}}>
-                                        </div>
+                            <h1 className="blog__title">{cleanHtmlFull(post?.AcfPost?.titleLong || post?.title || 'Без названия')}</h1>
+                            {post?.AcfPost?.descriptionAnons && (
+                                <div className="blog__anons">
+                                    <div className="blog__anons-text"
+                                         dangerouslySetInnerHTML={{__html: post.AcfPost.descriptionAnons}}>
                                     </div>
                                 </div>
                             )}
-                            <div className="blog-block-bottom">
-                                <h2 className="blog__title-faq">{cleanHtmlFull(post?.AcfPost?.faqTitle)}</h2>
-                                <div className="blog__faq">
-                                    <div className="blog__faq-content"
-                                         dangerouslySetInnerHTML={{__html: post?.AcfPost?.faqContent}}>
+                            {post?.AcfPost?.titleCenter && (
+                                <div className="blog-block-center">
+                                    <h2 className="blog__title-main">{cleanHtmlFull(post.AcfPost.titleCenter)}</h2>
+                                </div>
+                            )}
+                            {post?.content && (
+                                <div className="blog__description">
+                                    <div className="blog__description-text"
+                                         dangerouslySetInnerHTML={{__html: post.content}}>
                                     </div>
                                 </div>
-                            </div>
+                            )}
                         </>
                     )}
                 </div>
@@ -143,20 +101,32 @@ export async function getStaticPaths({ locales }) {
 }
 
 export async function getStaticProps({params, locale}) {
-    const {data} = await apolloClient.query({
-        query: GET_POST_BY_SLUG,
-        variables: {slug: params.slug},
-    });
+    try {
+        const {data} = await apolloClient.query({
+            query: GET_POST_BY_SLUG,
+            variables: {slug: params.slug},
+        });
 
-    return {
-        props: {
-            initialData: data,
-            ...(await import('next-i18next/serverSideTranslations').then(({ serverSideTranslations }) => 
-                serverSideTranslations(locale, ['common'])
-            )),
-        },
-        //revalidate: 2592000, // Revalidate every 30 days
-    };
+        return {
+            props: {
+                initialData: data,
+                ...(await import('next-i18next/serverSideTranslations').then(({ serverSideTranslations }) => 
+                    serverSideTranslations(locale, ['common'])
+                )),
+            },
+            //revalidate: 2592000, // Revalidate every 30 days
+        };
+    } catch (error) {
+        console.error("Error fetching post:", error);
+        return {
+            props: {
+                initialData: { postBy: null },
+                ...(await import('next-i18next/serverSideTranslations').then(({ serverSideTranslations }) => 
+                    serverSideTranslations(locale, ['common'])
+                )),
+            },
+        };
+    }
 }
 
 export default BlogPage;

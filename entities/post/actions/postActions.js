@@ -3,52 +3,22 @@ import {gql} from '@apollo/client';
 export const GET_POST_BY_SLUG = gql`
   query GetPostBySlug($slug: String!) {
     postBy(slug: $slug) {
-      id
-      menuOrder
-      language {
-        code
-        homeUrl
-        id
-        locale
-        name
-        slug
-      }
-      title
-      content
-      date
-      featuredImage {
-        node {
-          altText
-          sourceUrl
-        }
-      }
-      seo {
-        metaDesc
-        title
-      }
       AcfPost {
-        faqContent
-        faqTitle
-        videoTitle
-        videoDescription
-        video
+        titleCenter
         titleLong
         titleShort
         descriptionAnons
-        titleCenter
-        imageAnons {
-          altText
-          sourceUrl
-        }
       }
-      categories {
-        edges {
-          node {
-            id
-            uri
-            name
-          }
-        }
+      content
+      title
+      slug
+      language {
+        slug
+        name
+        locale
+        id
+        homeUrl
+        code
       }
     }
   }
@@ -59,83 +29,23 @@ export const GET_POST_ALL = gql`
     posts {
       edges {
         node {
-          id
-          menuOrder
-          language {
-            code
-            homeUrl
-            id
-            locale
-            name
-            slug
-          }
-          title
-          uri
-          slug
-          date
           AcfPost {
+            titleCenter
             titleLong
             titleShort
             descriptionAnons
-            imageAnons {
-              uri
-              title
-              altText
-              sourceUrl
-            }
           }
-          categories {
-            edges {
-              node {
-                id
-                uri
-                name
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`;
-
-export const GET_BONUS = gql`
-  query GetBonus {
-    category(id: "dGVybToxMzQx") {
-      id
-      name
-      uri
-      AcfCategory {
-        categoryTitleLong1
-        categoryDescriptionAnons
-      }
-      seo {
-        title
-        metaKeywords
-        metaDesc
-      }
-    }   
-  }
-`;
-
-export const GET_BONUS_ALL = gql`
-  query GetBonusAll {
-    bonuses {
-      edges {
-        node {
-          id
-          AcfBonus {
-            titleLong
-            titleShort
-            imageAnons {
-              uri
-              title
-              altText
-            }
-            banner
-          }
-          uri
+          content
           title
+          slug
+          language {
+            slug
+            name
+            locale
+            id
+            homeUrl
+            code
+          }
         }
       }
     }

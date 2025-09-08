@@ -83,7 +83,7 @@ const Index = ({initialData}) => {
                 </Stack>
             ) : (
                 <>
-                   {/* {displayData.bonuses?.edges?.length > 0 && (
+{/*                    {displayData.bonuses?.edges?.length > 0 && (
                         <MainBanner data={displayData}/>
                     )}
 
@@ -108,9 +108,9 @@ const Index = ({initialData}) => {
 
                     {displayData.testimonials?.edges?.length > 0 && (
                         <MainTestimonial data={displayData} type={getTestimonialType(t).main}/>
-                    )}
+                    )}*/}
 
-
+{/*
                     {displayData.posts?.edges?.length > 0 && (
                         <MainPost data={displayData}/>
                     )}*/}
