@@ -1,7 +1,7 @@
 import {gql} from '@apollo/client';
 
 export const GET_MASSAGE_BY_SLUG = gql`
-  query GetMassageBySlug($slug: String!, $language: LanguageCodeEnum) {
+  query GetMassageBySlug($slug: String!) {
     massageBy(slug: $slug) {
       id
       menuOrder
