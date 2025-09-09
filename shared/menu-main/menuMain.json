@@ -14,7 +14,7 @@
         {
           "node": {
             "id": "cG9zdDoxNTgz2",
-            "path": "/",
+            "path": "/about",
             "parentId": null,
             "order": 2,
             "label": "About"
@@ -22,17 +22,26 @@
         },
         {
           "node": {
-            "id": "cG9zdDoxNTgz2-1",
-            "path": "/",
+            "id": "cG9zdDoxNTgz2a",
+            "path": "/about/dr-serge-tunitski",
             "parentId": "cG9zdDoxNTgz2",
-            "order": 1,
-            "label": "Biography"
+            "order": 0,
+            "label": "Dr. Serge Tunitski"
           }
         },
         {
           "node": {
-            "id": "cG9zdDoxNTgz2-2",
-            "path": "/",
+            "id": "cG9zdDoxNTgz2b",
+            "path": "/about/clinic",
+            "parentId": "cG9zdDoxNTgz2",
+            "order": 1,
+            "label": "Clinic"
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDoxNTgz2c",
+            "path": "/about/certificates",
             "parentId": "cG9zdDoxNTgz2",
             "order": 2,
             "label": "Certificates"
@@ -40,8 +49,8 @@
         },
         {
           "node": {
-            "id": "cG9zdDoxNTgz2-3",
-            "path": "/",
+            "id": "cG9zdDoxNTgz2d",
+            "path": "/about/experience",
             "parentId": "cG9zdDoxNTgz2",
             "order": 3,
             "label": "Experience"
@@ -49,8 +58,8 @@
         },
         {
           "node": {
-            "id": "cG9zdDoxNTgz2-4",
-            "path": "/",
+            "id": "cG9zdDoxNTgz2e",
+            "path": "/about/science",
             "parentId": "cG9zdDoxNTgz2",
             "order": 4,
             "label": "Science"
@@ -58,8 +67,8 @@
         },
         {
           "node": {
-            "id": "cG9zdDoxNTgz2-5",
-            "path": "/",
+            "id": "cG9zdDoxNTgz2f",
+            "path": "/about/specialization",
             "parentId": "cG9zdDoxNTgz2",
             "order": 5,
             "label": "Specialization"
@@ -67,8 +76,8 @@
         },
         {
           "node": {
-            "id": "cG9zdDoxNTgz2-6",
-            "path": "/",
+            "id": "cG9zdDoxNTgz2g",
+            "path": "/about/awards",
             "parentId": "cG9zdDoxNTgz2",
             "order": 6,
             "label": "Awards"
@@ -76,26 +85,8 @@
         },
         {
           "node": {
-            "id": "cG9zdDoxNTgz2-7",
-            "path": "/",
-            "parentId": "cG9zdDoxNTgz2",
-            "order": 7,
-            "label": "Clinic"
-          }
-        },
-        {
-          "node": {
-            "id": "cG9zdDoxNTgz2-8",
-            "path": "/",
-            "parentId": "cG9zdDoxNTgz2",
-            "order": 8,
-            "label": "Contacts"
-          }
-        },
-        {
-          "node": {
             "id": "cG9zdDozNjc43",
-            "path": "/",
+            "path": "/gynecology",
             "parentId": null,
             "order": 3,
             "label": "Gynecology"
@@ -103,8 +94,35 @@
         },
         {
           "node": {
+            "id": "cG9zdDozNjc43a",
+            "path": "/gynecology/dr-serge-tunitski",
+            "parentId": "cG9zdDozNjc43",
+            "order": 0,
+            "label": "Dr. Serge Tunitski"
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDozNjc43b",
+            "path": "/gynecology/clinic",
+            "parentId": "cG9zdDozNjc43",
+            "order": 1,
+            "label": "Clinic"
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDozNjc43c",
+            "path": "/gynecology/certificates",
+            "parentId": "cG9zdDozNjc43",
+            "order": 2,
+            "label": "Certificates"
+          }
+        },
+        {
+          "node": {
             "id": "cG9zdDozNjc44",
-            "path": "/",
+            "path": "/cancer",
             "parentId": null,
             "order": 4,
             "label": "Cancer"
@@ -112,8 +130,35 @@
         },
         {
           "node": {
+            "id": "cG9zdDozNjc44a",
+            "path": "/cancer/dr-serge-tunitski",
+            "parentId": "cG9zdDozNjc44",
+            "order": 0,
+            "label": "Dr. Serge Tunitski"
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDozNjc44b",
+            "path": "/cancer/clinic",
+            "parentId": "cG9zdDozNjc44",
+            "order": 1,
+            "label": "Clinic"
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDozNjc44c",
+            "path": "/cancer/certificates",
+            "parentId": "cG9zdDozNjc44",
+            "order": 2,
+            "label": "Certificates"
+          }
+        },
+        {
+          "node": {
             "id": "cG9zdDozNjc55",
-            "path": "/",
+            "path": "/surgery",
             "parentId": null,
             "order": 5,
             "label": "Surgery"
@@ -121,8 +166,35 @@
         },
         {
           "node": {
+            "id": "cG9zdDozNjc55a",
+            "path": "/surgery/dr-serge-tunitski",
+            "parentId": "cG9zdDozNjc55",
+            "order": 0,
+            "label": "Dr. Serge Tunitski"
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDozNjc55b",
+            "path": "/surgery/clinic",
+            "parentId": "cG9zdDozNjc55",
+            "order": 1,
+            "label": "Clinic"
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDozNjc55c",
+            "path": "/surgery/certificates",
+            "parentId": "cG9zdDozNjc55",
+            "order": 2,
+            "label": "Certificates"
+          }
+        },
+        {
+          "node": {
             "id": "cG9zdDozNjYy6",
-            "path": "/",
+            "path": "/stories",
             "parentId": null,
             "order": 6,
             "label": "Stories"
@@ -130,26 +202,8 @@
         },
         {
           "node": {
-            "id": "cG9zdDozNjYy7",
-            "path": "/",
-            "parentId": null,
-            "order": 7,
-            "label": "Price"
-          }
-        },
-        {
-          "node": {
-            "id": "cG9zdDozNjYy8",
-            "path": "/",
-            "parentId": null,
-            "order": 8,
-            "label": "For Patients"
-          }
-        },
-        {
-          "node": {
             "id": "cG9zdDozNjYy9",
-            "path": "/",
+            "path": "/media",
             "parentId": null,
             "order": 8,
             "label": "Media"
@@ -158,7 +212,7 @@
         {
           "node": {
             "id": "cG9zdDozNjYy10",
-            "path": "/",
+            "path": "/contact",
             "parentId": null,
             "order": 9,
             "label": "Contact"

@@ -1,41 +1,210 @@
-@import '../../app/scss/mixins';
-@import '../../app/scss/colors';
+@import '../../app/scss/_mixins';
+@import '../../app/scss/_colors';
 
-.menu-main {
+// Radix UI Navigation Menu стили
+.navigation-menu {
+  position: relative;
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
+  justify-content: center;
+  width: 100%;
+  z-index: 1;
+  isolation: isolate; // Создает новый stacking context
+  contain: layout; // Предотвращает влияние на layout других элементов
+}
+
+.navigation-menu-list {
+  display: flex;
+  justify-content: center;
+  background-color: transparent;
+  padding: 4px;
+  border-radius: 6px;
+  list-style: none;
+  margin: 0;
   gap: 12px;
-
+  position: relative; // Важно для правильного позиционирования
 }
-/*
 
-.menu-main {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  gap: 20px;
-!*  margin: 0;
-  padding: 0;*!
-
-  li {
-    position: relative;
-    display: flex;
-    align-items: center;
+.navigation-menu-item {
+  position: relative;
+  
+  // Убеждаемся, что выпадающее меню не влияет на layout
+  &:has(.navigation-menu-content) {
+    isolation: isolate;
   }
 }
 
-// Анимации для popover
-.MuiPopover-paper {
-  opacity: 0;
-  transform: translateY(-10px);
-  transition: all 0.3s ease;
-  visibility: hidden;
+.navigation-menu-trigger,
+.navigation-menu-link {
+  @include body-lg;
+  display: block;
+  outline: none;
+  user-select: none;
+  border-radius: 4px;
+  padding: 8px 12px;
+  text-decoration: none;
+  color: $primary;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: none;
+  background: transparent;
 
-  &.MuiPopover-paper {
+  &:hover {
+    color: $brown-7;
+    text-decoration: none;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 2px rgba($primary, 0.2);
+  }
+  
+  &[data-active] {
+    color: $brown-7;
+    background-color: $grey-3;
+  }
+}
+
+.navigation-menu-trigger {
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid currentColor;
+    transition: transform 0.2s ease;
+  }
+}
+
+.navigation-menu-content {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  background-color: $white-full; // Белый фон
+  border-radius: 6px;
+  box-shadow: 0 4px 6px -1px rgba($grey-1, 0.1), 0 2px 4px -1px rgba($grey-1, 0.06);
+  border: 1px solid $grey-7; // Светлая граница
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+.navigation-menu-content-list {
+  display: grid;
+  padding: 6px;
+  margin: 0; // Убираем центрирование
+  column-gap: 10px;
+  list-style: none;
+  background-color: $white-full; // Белый фон
+  border-radius: 6px;
+  min-width: 120px; // Компактная ширина
+  max-width: 160px; // Компактная ширина
+  width: fit-content; // Подстраивается под содержимое
+  position: relative; // Для правильного позиционирования
+}
+
+.navigation-menu-content-item {
+  display: block;
+  
+  .navigation-menu-link {
+    @include body-md;
+    display: block;
+    padding: 8px 12px;
+    color: $primary; // Темный текст на светлом фоне
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    
+    &:hover {
+      color: $brown-7; // Оранжевый при наведении
+      background-color: $grey-3; // Светло-серый фон при наведении
+      text-decoration: none;
+    }
+    
+    &:focus {
+      box-shadow: 0 0 0 2px rgba($primary, 0.3);
+    }
+  }
+}
+
+// Двухколоночное меню для Gynecology и Surgery
+.navigation-menu-content-list--two-column {
+  display: grid;
+  grid-template-columns: 1fr 1fr; // Два равных столбца
+  gap: 0; // Убираем gap между столбцами
+  min-width: 250px; // Уменьшаем ширину для двух столбцов
+  max-width: 300px; // Максимальная ширина для двух столбцов
+  width: fit-content; // Подстраивается под содержимое
+  
+  .navigation-menu-content-item {
+    border-right: 1px solid $grey-7; // Светлый разделитель между столбцами
+    
+    &:nth-child(even) {
+      border-right: none; // Убираем границу у четных элементов (правый столбец)
+    }
+    
+    // Добавляем границу снизу для всех элементов кроме последних в каждом столбце
+    &:not(:nth-last-child(-n+2)) {
+      border-bottom: 1px solid $grey-7; // Светлая граница
+    }
+  }
+}
+
+// Убираем viewport стили, так как теперь используем простое CSS меню
+
+// Простая анимация появления
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-10px);
+  }
+  to {
     opacity: 1;
-    transform: translateY(0);
-    visibility: visible;
+    transform: translateX(-50%) translateY(0);
   }
 }
-*/
+
+// Мобильные стили
+@media (max-width: 768px) {
+  .navigation-menu-list {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .navigation-menu-trigger,
+  .navigation-menu-link {
+    @include body-sm;
+    padding: 6px 10px;
+  }
+  
+  .navigation-menu-content-list {
+    min-width: 180px;
+    padding: 4px;
+    
+    // На мобильных устройствах двухколоночное меню становится одноколоночным
+    &.navigation-menu-content-list--two-column {
+      grid-template-columns: 1fr;
+      min-width: 180px;
+      max-width: 200px;
+      
+      .navigation-menu-content-item {
+        border-right: none;
+        border-bottom: 1px solid $grey-7; // Светлая граница
+        
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+  
+  .navigation-menu-content-item .navigation-menu-link {
+    @include body-sm;
+    padding: 6px 10px;
+  }
+}
