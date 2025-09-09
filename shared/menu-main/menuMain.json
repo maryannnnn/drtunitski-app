@@ -103,36 +103,41 @@
             "columnItems": [
               {
                 "id": "cG9zdDozNjc43a1",
+                "path": "/gynecology/gynecological-diseases",
+                "label": "Gynecological diseases"
+              },
+              {
+                "id": "cG9zdDozNjc43a2",
                 "path": "/gynecology/uterine-fibroids",
                 "label": "Uterine fibroids"
               },
               {
-                "id": "cG9zdDozNjc43a2",
+                "id": "cG9zdDozNjc43a3",
                 "path": "/gynecology/endometriosis",
                 "label": "Endometriosis"
               },
               {
-                "id": "cG9zdDozNjc43a3",
+                "id": "cG9zdDozNjc43a4",
                 "path": "/gynecology/ovarian-diseases",
                 "label": "Ovarian diseases"
               },
               {
-                "id": "cG9zdDozNjc43a4",
+                "id": "cG9zdDozNjc43a5",
                 "path": "/gynecology/rectocele-cystocele",
                 "label": "Rectocele and cystocele grade III"
               },
               {
-                "id": "cG9zdDozNjc43a5",
+                "id": "cG9zdDozNjc43a6",
                 "path": "/gynecology/cin-iii",
                 "label": "CIN III (severe cervical dysplasia)"
               },
               {
-                "id": "cG9zdDozNjc43a6",
+                "id": "cG9zdDozNjc43a7",
                 "path": "/gynecology/uterine-prolapse",
                 "label": "Complete uterine prolapse"
               },
               {
-                "id": "cG9zdDozNjc43a7",
+                "id": "cG9zdDozNjc43a8",
                 "path": "/gynecology/genital-prolapse",
                 "label": "Genital prolapse (severe forms)"
               }
@@ -327,51 +332,56 @@
             "columnItems": [
               {
                 "id": "cG9zdDozNjc55a1",
+                "path": "/surgery/gynecological-surgery",
+                "label": "Gynecological Surgery"
+              },
+              {
+                "id": "cG9zdDozNjc55a2",
                 "path": "/surgery/laparoscopic-ovarian-cystectomy",
                 "label": "Laparoscopic ovarian cystectomy"
               },
               {
-                "id": "cG9zdDozNjc55a2",
+                "id": "cG9zdDozNjc55a3",
                 "path": "/surgery/hysteroscopy-polyp-removal",
                 "label": "Hysteroscopy with endometrial polyp removal"
               },
               {
-                "id": "cG9zdDozNjc55a3",
+                "id": "cG9zdDozNjc55a4",
                 "path": "/surgery/laparoscopic-myomectomy",
                 "label": "Laparoscopic myomectomy"
               },
               {
-                "id": "cG9zdDozNjc55a4",
+                "id": "cG9zdDozNjc55a5",
                 "path": "/surgery/hysteroscopic-resection",
                 "label": "Hysteroscopic resection of submucous myoma"
               },
               {
-                "id": "cG9zdDozNjc55a5",
+                "id": "cG9zdDozNjc55a6",
                 "path": "/surgery/laparoscopic-salpingectomy",
                 "label": "Laparoscopic salpingectomy for ectopic pregnancy"
               },
               {
-                "id": "cG9zdDozNjc55a6",
+                "id": "cG9zdDozNjc55a7",
                 "path": "/surgery/laparoscopic-adhesiolysis",
                 "label": "Laparoscopic adhesiolysis"
               },
               {
-                "id": "cG9zdDozNjc55a7",
+                "id": "cG9zdDozNjc55a8",
                 "path": "/surgery/diagnostic-laparoscopy",
                 "label": "Diagnostic laparoscopy"
               },
               {
-                "id": "cG9zdDozNjc55a8",
+                "id": "cG9zdDozNjc55a9",
                 "path": "/surgery/vacuum-aspiration",
                 "label": "Vacuum aspiration of the uterine cavity"
               },
               {
-                "id": "cG9zdDozNjc55a9",
+                "id": "cG9zdDozNjc55a10",
                 "path": "/surgery/medical-termination",
                 "label": "Medical termination of pregnancy"
               },
               {
-                "id": "cG9zdDozNjc55a10",
+                "id": "cG9zdDozNjc55a11",
                 "path": "/surgery/cervical-conization",
                 "label": "Cervical conization"
               }
@@ -468,6 +478,33 @@
                 "id": "cG9zdDozNjc55c7",
                 "path": "/surgery/radical-vulvectomy",
                 "label": "Radical vulvectomy"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDozNjc55d",
+            "path": null,
+            "parentId": "cG9zdDozNjc55",
+            "order": 3,
+            "label": "Plastic Surgery",
+            "isColumnHeader": true,
+            "columnItems": [
+              {
+                "id": "cG9zdDozNjc55d1",
+                "path": "/surgery/plastic-surgery",
+                "label": "Plastic Surgery"
+              },
+              {
+                "id": "cG9zdDozNjc55d2",
+                "path": "/surgery/labiaplasty-surgery",
+                "label": "Labiaplasty (surgery of the labia minora)"
+              },
+              {
+                "id": "cG9zdDozNjc55d3",
+                "path": "/surgery/hymenoplasty-restoration",
+                "label": "Hymenoplasty (restoration of the hymen)"
               }
             ]
           }

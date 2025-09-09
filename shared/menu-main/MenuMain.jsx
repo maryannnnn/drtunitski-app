@@ -36,8 +36,9 @@ const MenuMain = () => {
                         const isActive = activeMenu === link.node.id;
 
                         // Определяем, нужно ли многоколоночное меню
-                        const isThreeColumnMenu = link.node.label === "Gynecology" || link.node.label === "Surgery";
-                        const isTwoColumnMenu = false; // Убираем двухколоночное меню, так как Surgery теперь трехколоночное
+                        const isThreeColumnMenu = link.node.label === "Gynecology";
+                        const isFourColumnMenu = link.node.label === "Surgery";
+                        const isTwoColumnMenu = false; // Убираем двухколоночное меню
                         
                         return (
                             <li 
@@ -52,8 +53,8 @@ const MenuMain = () => {
                                             {link.node.label}
                                         </button>
                                         {isActive && (
-                                            <div className={`navigation-menu-content ${isThreeColumnMenu ? 'navigation-menu-content--three-column' : ''}`}>
-                                                {isThreeColumnMenu ? (
+                                            <div className={`navigation-menu-content ${isThreeColumnMenu ? 'navigation-menu-content--three-column' : isFourColumnMenu ? 'navigation-menu-content--four-column' : ''}`}>
+                                                {(isThreeColumnMenu || isFourColumnMenu) ? (
                                                     // Новая структура для Gynecology с заголовками колонок
                                                     <div className="navigation-menu-columns">
                                                         {childItems.map((column) => (
