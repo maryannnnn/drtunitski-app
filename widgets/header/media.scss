@@ -14,6 +14,10 @@
         width: 243px;
       }
 
+      &-menu {
+        display: none; // Скрываем основное меню на мобильных
+      }
+
       &-mobile {
 
         &__image {

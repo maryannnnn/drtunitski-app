@@ -1,5 +1,6 @@
 import React from 'react';
 import './header-button.scss'
+import './media.scss'
 import MenuMain from "../../shared/menu-main/MenuMain";
 import DrawerMenu from "../../shared/drawer-menu/DrawerMenu";
 

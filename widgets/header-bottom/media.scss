@@ -1,0 +1,8 @@
+@import '../../app/scss/mixins';
+@import '../../app/scss/colors';
+
+@media screen and (max-width: 767px) {
+  .header-bottom {
+    display: none; // Скрываем весь header-bottom на мобильных устройствах
+  }
+}

@@ -87,7 +87,7 @@
   left: 50%;
   transform: translateX(-50%);
   z-index: 1000;
-  background-color: $white-full; // Белый фон
+  background-color: $white; // Белый фон
   border-radius: 6px;
   box-shadow: 0 4px 6px -1px rgba($grey-1, 0.1), 0 2px 4px -1px rgba($grey-1, 0.06);
   border: 1px solid $grey-7; // Светлая граница
@@ -100,7 +100,7 @@
   margin: 0; // Убираем центрирование
   column-gap: 10px;
   list-style: none;
-  background-color: $white-full; // Белый фон
+  background-color: $white; // Белый фон
   border-radius: 6px;
   min-width: 120px; // Компактная ширина
   max-width: 160px; // Компактная ширина

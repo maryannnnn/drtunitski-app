@@ -36,8 +36,7 @@ export const getMenuItems = (linkId, menuMain) => {
     )
 };
 
-export const getMenuItemsMobile = (linkId, menuMain) => {
-
+export const getMenuItemsMobile = (linkId, menuMain, isRTL = false, textAlign = 'left') => {
     return (
         <>
             {menuMain.filter(item => item.node.parentId === linkId)
@@ -53,11 +52,15 @@ export const getMenuItemsMobile = (linkId, menuMain) => {
                                 display: 'block',
                                 color: theme.palette.primary.dark,
                                 textDecoration: 'none',
+                                direction: isRTL ? 'rtl' : 'ltr', // Направление текста
                                 '&:hover': {
                                     textDecoration: 'none',
                                     color: theme.palette.primary.light,
                                 },
                                 padding: '1px 16px',
+                                '& .MuiListItemText-primary': {
+                                    textAlign: textAlign, // Выравнивание текста
+                                },
                             }}
                         >
                             <ListItemText primary={submenu.node.label} />

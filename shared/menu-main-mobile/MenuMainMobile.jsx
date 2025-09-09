@@ -14,9 +14,11 @@ import Collapse from "@mui/material/Collapse";
 import ListItemText from "@mui/material/ListItemText";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
+import { useI18n } from "../hooks/useI18n";
 
 const MenuMainMobile = ({ initialData }) => {
     const { data } = menuMainMobile;
+    const { isRTL, textAlign } = useI18n();
 
     const [openSubmenus, setOpenSubmenus] = useState({}); // Состояние для подменю
 
@@ -36,10 +38,10 @@ const MenuMainMobile = ({ initialData }) => {
                     .filter((link) => link.node.parentId === null)
                     .sort((a, b) => a.node.order - b.node.order)
                     .map((link) => {
-                        // Проверяем, если это "Главная"
-                        const isHomePage = link.node.id === "cG9zdDoxNTgz";
+                        // Проверяем, есть ли у пункта подменю
+                        const hasSubmenu = checkMenuItem(link.node.id, data.menuItems.edges);
 
-                        return isHomePage ? (
+                        return !hasSubmenu ? (
                                 <ListItem
                                     key={link.node.id}
                                     button
@@ -49,11 +51,15 @@ const MenuMainMobile = ({ initialData }) => {
                                         display: 'block',
                                         color: theme.palette.primary.dark,
                                         textDecoration: 'none',
+                                        direction: isRTL ? 'rtl' : 'ltr', // Направление текста
                                         '&:hover': {
                                             textDecoration: 'none',
                                             color: theme.palette.primary.light,
                                         },
-                                        padding: '1x 16px',
+                                        padding: '1px 16px',
+                                        '& .MuiListItemText-primary': {
+                                            textAlign: textAlign, // Выравнивание текста
+                                        },
                                     }}
                                 >
                                     <ListItemText primary={link.node.label} />
@@ -67,11 +73,15 @@ const MenuMainMobile = ({ initialData }) => {
                                 sx={{
                                     color: theme.palette.primary.dark,
                                     textDecoration: 'none',
+                                    direction: isRTL ? 'rtl' : 'ltr', // Направление текста
                                     '&:hover': {
                                         textDecoration: 'none',
                                         color: theme.palette.primary.light,
                                     },
                                     padding: '1px 16px',
+                                    '& .MuiAccordionSummary-content': {
+                                        textAlign: textAlign, // Выравнивание текста
+                                    },
                                 }}
                             >
                                 <AccordionSummary
@@ -89,7 +99,7 @@ const MenuMainMobile = ({ initialData }) => {
                                             unmountOnExit
                                         >
                                             {/* Рендеринг подменю */}
-                                            {getMenuItemsMobile(link.node.id, data.menuItems.edges)}
+                                            {getMenuItemsMobile(link.node.id, data.menuItems.edges, isRTL, textAlign)}
                                         </Collapse>
                                     ) : (
                                         <Typography>Нет подменю</Typography>

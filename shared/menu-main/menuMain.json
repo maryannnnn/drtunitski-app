@@ -32,55 +32,55 @@
         {
           "node": {
             "id": "cG9zdDoxNTgz2b",
-            "path": "/about/clinic",
+            "path": "/about/clinic-team",
             "parentId": "cG9zdDoxNTgz2",
             "order": 1,
-            "label": "Clinic"
+            "label": "Clinic & Our Team"
           }
         },
         {
           "node": {
             "id": "cG9zdDoxNTgz2c",
-            "path": "/about/certificates",
+            "path": "/about/request-appointment",
             "parentId": "cG9zdDoxNTgz2",
             "order": 2,
-            "label": "Certificates"
+            "label": "Request Appointment"
           }
         },
         {
           "node": {
             "id": "cG9zdDoxNTgz2d",
-            "path": "/about/experience",
+            "path": "/about/preparation",
             "parentId": "cG9zdDoxNTgz2",
             "order": 3,
-            "label": "Experience"
+            "label": "Preparation"
           }
         },
         {
           "node": {
             "id": "cG9zdDoxNTgz2e",
-            "path": "/about/science",
+            "path": "/about/prices-payment",
             "parentId": "cG9zdDoxNTgz2",
             "order": 4,
-            "label": "Science"
+            "label": "Prices & Payment"
           }
         },
         {
           "node": {
             "id": "cG9zdDoxNTgz2f",
-            "path": "/about/specialization",
+            "path": "/about/medical-tourism",
             "parentId": "cG9zdDoxNTgz2",
             "order": 5,
-            "label": "Specialization"
+            "label": "Medical tourism"
           }
         },
         {
           "node": {
             "id": "cG9zdDoxNTgz2g",
-            "path": "/about/awards",
+            "path": "/about/reviews-testimonials",
             "parentId": "cG9zdDoxNTgz2",
             "order": 6,
-            "label": "Awards"
+            "label": "Reviews & Testimonials"
           }
         },
         {
@@ -197,7 +197,7 @@
             "path": "/stories",
             "parentId": null,
             "order": 6,
-            "label": "Stories"
+            "label": "Success Stories"
           }
         },
         {
