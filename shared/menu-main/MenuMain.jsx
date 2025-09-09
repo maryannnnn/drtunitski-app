@@ -36,8 +36,8 @@ const MenuMain = () => {
                         const isActive = activeMenu === link.node.id;
 
                         // Определяем, нужно ли многоколоночное меню
-                        const isThreeColumnMenu = link.node.label === "Gynecology";
-                        const isTwoColumnMenu = link.node.label === "Surgery";
+                        const isThreeColumnMenu = link.node.label === "Gynecology" || link.node.label === "Surgery";
+                        const isTwoColumnMenu = false; // Убираем двухколоночное меню, так как Surgery теперь трехколоночное
                         
                         return (
                             <li 

@@ -319,28 +319,157 @@
         {
           "node": {
             "id": "cG9zdDozNjc55a",
-            "path": "/surgery/dr-serge-tunitski",
+            "path": null,
             "parentId": "cG9zdDozNjc55",
             "order": 0,
-            "label": "Dr. Serge Tunitski"
+            "label": "Important Surgeries",
+            "isColumnHeader": true,
+            "columnItems": [
+              {
+                "id": "cG9zdDozNjc55a1",
+                "path": "/surgery/laparoscopic-ovarian-cystectomy",
+                "label": "Laparoscopic ovarian cystectomy"
+              },
+              {
+                "id": "cG9zdDozNjc55a2",
+                "path": "/surgery/hysteroscopy-polyp-removal",
+                "label": "Hysteroscopy with endometrial polyp removal"
+              },
+              {
+                "id": "cG9zdDozNjc55a3",
+                "path": "/surgery/laparoscopic-myomectomy",
+                "label": "Laparoscopic myomectomy"
+              },
+              {
+                "id": "cG9zdDozNjc55a4",
+                "path": "/surgery/hysteroscopic-resection",
+                "label": "Hysteroscopic resection of submucous myoma"
+              },
+              {
+                "id": "cG9zdDozNjc55a5",
+                "path": "/surgery/laparoscopic-salpingectomy",
+                "label": "Laparoscopic salpingectomy for ectopic pregnancy"
+              },
+              {
+                "id": "cG9zdDozNjc55a6",
+                "path": "/surgery/laparoscopic-adhesiolysis",
+                "label": "Laparoscopic adhesiolysis"
+              },
+              {
+                "id": "cG9zdDozNjc55a7",
+                "path": "/surgery/diagnostic-laparoscopy",
+                "label": "Diagnostic laparoscopy"
+              },
+              {
+                "id": "cG9zdDozNjc55a8",
+                "path": "/surgery/vacuum-aspiration",
+                "label": "Vacuum aspiration of the uterine cavity"
+              },
+              {
+                "id": "cG9zdDozNjc55a9",
+                "path": "/surgery/medical-termination",
+                "label": "Medical termination of pregnancy"
+              },
+              {
+                "id": "cG9zdDozNjc55a10",
+                "path": "/surgery/cervical-conization",
+                "label": "Cervical conization"
+              }
+            ]
           }
         },
         {
           "node": {
             "id": "cG9zdDozNjc55b",
-            "path": "/surgery/clinic",
+            "path": null,
             "parentId": "cG9zdDozNjc55",
             "order": 1,
-            "label": "Clinic"
+            "label": "Complex Surgeries",
+            "isColumnHeader": true,
+            "columnItems": [
+              {
+                "id": "cG9zdDozNjc55b1",
+                "path": "/surgery/hysterectomy",
+                "label": "Hysterectomy"
+              },
+              {
+                "id": "cG9zdDozNjc55b2",
+                "path": "/surgery/ovarian-resection-pcos",
+                "label": "Ovarian resection for PCOS"
+              },
+              {
+                "id": "cG9zdDozNjc55b3",
+                "path": "/surgery/laparoscopic-endometriosis",
+                "label": "Laparoscopic excision of endometriosis foci"
+              },
+              {
+                "id": "cG9zdDozNjc55b4",
+                "path": "/surgery/sacrocolpopexy",
+                "label": "Sacrocolpopexy"
+              },
+              {
+                "id": "cG9zdDozNjc55b5",
+                "path": "/surgery/colporrhaphy",
+                "label": "Anterior/posterior colporrhaphy"
+              },
+              {
+                "id": "cG9zdDozNjc55b6",
+                "path": "/surgery/tvt-o-procedure",
+                "label": "TVT-O procedure"
+              },
+              {
+                "id": "cG9zdDozNjc55b7",
+                "path": "/surgery/cervical-laser-vaporization",
+                "label": "Cervical laser vaporization"
+              }
+            ]
           }
         },
         {
           "node": {
             "id": "cG9zdDozNjc55c",
-            "path": "/surgery/certificates",
+            "path": null,
             "parentId": "cG9zdDozNjc55",
             "order": 2,
-            "label": "Certificates"
+            "label": "Specialized Surgeries",
+            "isColumnHeader": true,
+            "columnItems": [
+              {
+                "id": "cG9zdDozNjc55c1",
+                "path": "/surgery/radical-hysterectomy",
+                "label": "Radical hysterectomy"
+              },
+              {
+                "id": "cG9zdDozNjc55c2",
+                "path": "/surgery/lymphadenectomy",
+                "label": "Lymphadenectomy"
+              },
+              {
+                "id": "cG9zdDozNjc55c3",
+                "path": "/surgery/labiaplasty",
+                "label": "Labiaplasty"
+              },
+              {
+                "id": "cG9zdDozNjc55c4",
+                "path": "/surgery/endometriotic-cysts",
+                "label": "Removal of large endometriotic cysts (>5 cm)"
+              },
+              {
+                "id": "cG9zdDozNjc55c5",
+                "path": "/surgery/hymenoplasty",
+                "label": "Hymenoplasty (restoration of the hymen)"
+              },
+              {
+                "id": "cG9zdDozNjc55c6",
+                "path": "/surgery/vaginal-scar-strictures",
+                "label": "Excision of vaginal scar strictures"
+              },
+              {
+                "id": "cG9zdDozNjc55c7",
+                "path": "/surgery/radical-vulvectomy",
+                "label": "Radical vulvectomy"
+              }
+            ]
           }
         },
         {

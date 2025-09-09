@@ -95,10 +95,12 @@
   
   // Для трехколоночного меню расширяем фон на всю ширину
   &.navigation-menu-content--three-column {
-    width: 480px; // Ширина для трех столбцов
+    width: 750px !important; // Еще больше увеличиваем ширину для длинных названий
     background: $white; // Единый фон на всю ширину
     border-radius: 8px; // Скругленные углы
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); // Тень
+    min-width: 750px; // Минимальная ширина
+    max-width: 750px; // Максимальная ширина
   }
 }
 
@@ -144,12 +146,18 @@
   gap: 0; // Убираем gap между столбцами
   width: 100%; // Занимаем всю ширину родительского контейнера
   padding: 0; // Убираем padding, чтобы фон был сплошным
+  min-width: 750px; // Минимальная ширина для длинных названий
+  background: $white; // Добавляем фон для всего контейнера колонок
+  border-radius: 8px; // Скругленные углы
 }
 
 .navigation-menu-column {
   display: flex;
   flex-direction: column;
   border-right: 1px solid $grey-7; // Светлый разделитель между столбцами
+  min-width: 250px; // Увеличиваем минимальную ширину для каждой колонки
+  background: transparent; // Прозрачный фон, чтобы не перекрывать общий фон
+  overflow: hidden; // Предотвращаем переполнение
   
   // Убираем границу у последнего столбца
   &:last-child {
@@ -199,6 +207,9 @@
   font-size: 14px;
   line-height: 1.4;
   transition: color 0.2s ease;
+  white-space: nowrap; // Запрещаем перенос текста на новую строку
+  overflow: hidden; // Скрываем переполнение
+  text-overflow: ellipsis; // Добавляем многоточие при переполнении
   
   &:hover {
     color: $primary; // Цвет при наведении
