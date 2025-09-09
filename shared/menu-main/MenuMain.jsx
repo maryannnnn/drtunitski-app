@@ -35,8 +35,9 @@ const MenuMain = () => {
                         const childItems = hasChildren ? getChildItems(link.node.id) : [];
                         const isActive = activeMenu === link.node.id;
 
-                        // Определяем, нужно ли двухколоночное меню
-                        const isTwoColumnMenu = link.node.label === "Gynecology" || link.node.label === "Surgery";
+                        // Определяем, нужно ли многоколоночное меню
+                        const isThreeColumnMenu = link.node.label === "Gynecology";
+                        const isTwoColumnMenu = link.node.label === "Surgery";
                         
                         return (
                             <li 
@@ -51,19 +52,45 @@ const MenuMain = () => {
                                             {link.node.label}
                                         </button>
                                         {isActive && (
-                                            <div className="navigation-menu-content">
-                                                <ul className={`navigation-menu-content-list ${isTwoColumnMenu ? 'navigation-menu-content-list--two-column' : ''}`}>
-                                                    {childItems.map((child) => (
-                                                        <li key={child.node.id} className="navigation-menu-content-item">
-                                                            <Link 
-                                                                href={child.node.path} 
-                                                                className="navigation-menu-link"
-                                                            >
-                                                                {child.node.label}
-                                                            </Link>
-                                                        </li>
-                                                    ))}
-                                                </ul>
+                                            <div className={`navigation-menu-content ${isThreeColumnMenu ? 'navigation-menu-content--three-column' : ''}`}>
+                                                {isThreeColumnMenu ? (
+                                                    // Новая структура для Gynecology с заголовками колонок
+                                                    <div className="navigation-menu-columns">
+                                                        {childItems.map((column) => (
+                                                            <div key={column.node.id} className="navigation-menu-column">
+                                                                <h3 className="navigation-menu-column-header">
+                                                                    {column.node.label}
+                                                                </h3>
+                                                                <ul className="navigation-menu-column-list">
+                                                                    {column.node.columnItems.map((item) => (
+                                                                        <li key={item.id} className="navigation-menu-column-item">
+                                                                            <Link 
+                                                                                href={item.path} 
+                                                                                className="navigation-menu-link"
+                                                                            >
+                                                                                {item.label}
+                                                                            </Link>
+                                                                        </li>
+                                                                    ))}
+                                                                </ul>
+                                                            </div>
+                                                        ))}
+                                                    </div>
+                                                ) : (
+                                                    // Стандартная структура для других меню
+                                                    <ul className={`navigation-menu-content-list ${isTwoColumnMenu ? 'navigation-menu-content-list--two-column' : ''}`}>
+                                                        {childItems.map((child) => (
+                                                            <li key={child.node.id} className="navigation-menu-content-item">
+                                                                <Link 
+                                                                    href={child.node.path} 
+                                                                    className="navigation-menu-link"
+                                                                >
+                                                                    {child.node.label}
+                                                                </Link>
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+                                                )}
                                             </div>
                                         )}
                                     </>

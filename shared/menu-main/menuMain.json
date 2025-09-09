@@ -95,28 +95,117 @@
         {
           "node": {
             "id": "cG9zdDozNjc43a",
-            "path": "/gynecology/dr-serge-tunitski",
+            "path": null,
             "parentId": "cG9zdDozNjc43",
             "order": 0,
-            "label": "Dr. Serge Tunitski"
+            "label": "Planned surgeries",
+            "isColumnHeader": true,
+            "columnItems": [
+              {
+                "id": "cG9zdDozNjc43a1",
+                "path": "/gynecology/uterine-fibroids",
+                "label": "Uterine fibroids"
+              },
+              {
+                "id": "cG9zdDozNjc43a2",
+                "path": "/gynecology/endometriosis",
+                "label": "Endometriosis"
+              },
+              {
+                "id": "cG9zdDozNjc43a3",
+                "path": "/gynecology/ovarian-diseases",
+                "label": "Ovarian diseases"
+              },
+              {
+                "id": "cG9zdDozNjc43a4",
+                "path": "/gynecology/rectocele-cystocele",
+                "label": "Rectocele and cystocele grade III"
+              },
+              {
+                "id": "cG9zdDozNjc43a5",
+                "path": "/gynecology/cin-iii",
+                "label": "CIN III (severe cervical dysplasia)"
+              },
+              {
+                "id": "cG9zdDozNjc43a6",
+                "path": "/gynecology/uterine-prolapse",
+                "label": "Complete uterine prolapse"
+              },
+              {
+                "id": "cG9zdDozNjc43a7",
+                "path": "/gynecology/genital-prolapse",
+                "label": "Genital prolapse (severe forms)"
+              }
+            ]
           }
         },
         {
           "node": {
             "id": "cG9zdDozNjc43b",
-            "path": "/gynecology/clinic",
+            "path": null,
             "parentId": "cG9zdDozNjc43",
             "order": 1,
-            "label": "Clinic"
+            "label": "Moderate-risk surgeries",
+            "isColumnHeader": true,
+            "columnItems": [
+              {
+                "id": "cG9zdDozNjc43b1",
+                "path": "/gynecology/chronic-hydrosalpinx",
+                "label": "Chronic hydrosalpinx in infertility"
+              },
+              {
+                "id": "cG9zdDozNjc43b2",
+                "path": "/gynecology/adhesive-disease",
+                "label": "Adhesive disease of the pelvic organs with infertility"
+              },
+              {
+                "id": "cG9zdDozNjc43b3",
+                "path": "/gynecology/vaginal-septum",
+                "label": "Vaginal septum (excision)"
+              },
+              {
+                "id": "cG9zdDozNjc43b4",
+                "path": "/gynecology/polyps",
+                "label": "Polyps"
+              }
+            ]
           }
         },
         {
           "node": {
             "id": "cG9zdDozNjc43c",
-            "path": "/gynecology/certificates",
+            "path": null,
             "parentId": "cG9zdDozNjc43",
             "order": 2,
-            "label": "Certificates"
+            "label": "Emergency surgeries",
+            "isColumnHeader": true,
+            "columnItems": [
+              {
+                "id": "cG9zdDozNjc43c1",
+                "path": "/gynecology/ovarian-cyst",
+                "label": "Ovarian cyst"
+              },
+              {
+                "id": "cG9zdDozNjc43c2",
+                "path": "/gynecology/uterine-perforation",
+                "label": "Uterine perforation"
+              },
+              {
+                "id": "cG9zdDozNjc43c3",
+                "path": "/gynecology/pyosalpinx",
+                "label": "Pyosalpinx"
+              },
+              {
+                "id": "cG9zdDozNjc43c4",
+                "path": "/gynecology/tubo-ovarian-abscess",
+                "label": "Tubo-ovarian abscess"
+              },
+              {
+                "id": "cG9zdDozNjc43c5",
+                "path": "/gynecology/ectopic-pregnancy",
+                "label": "Ectopic pregnancy"
+              }
+            ]
           }
         },
         {
@@ -131,28 +220,91 @@
         {
           "node": {
             "id": "cG9zdDozNjc44a",
-            "path": "/cancer/dr-serge-tunitski",
+            "path": "/cancer/ovarian-cancer",
             "parentId": "cG9zdDozNjc44",
             "order": 0,
-            "label": "Dr. Serge Tunitski"
+            "label": "Ovarian cancer"
           }
         },
         {
           "node": {
             "id": "cG9zdDozNjc44b",
-            "path": "/cancer/clinic",
+            "path": "/cancer/endometrial-cancer",
             "parentId": "cG9zdDozNjc44",
             "order": 1,
-            "label": "Clinic"
+            "label": "Endometrial cancer"
           }
         },
         {
           "node": {
             "id": "cG9zdDozNjc44c",
-            "path": "/cancer/certificates",
+            "path": "/cancer/cervical-cancer",
             "parentId": "cG9zdDozNjc44",
             "order": 2,
-            "label": "Certificates"
+            "label": "Cervical cancer"
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDozNjc44d",
+            "path": "/cancer/uterine-sarcoma",
+            "parentId": "cG9zdDozNjc44",
+            "order": 3,
+            "label": "Uterine sarcoma"
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDozNjc44e",
+            "path": "/cancer/fallopian-tube-cancer",
+            "parentId": "cG9zdDozNjc44",
+            "order": 4,
+            "label": "Fallopian tube cancer"
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDozNjc44f",
+            "path": "/cancer/vaginal-cancer",
+            "parentId": "cG9zdDozNjc44",
+            "order": 5,
+            "label": "Vaginal cancer"
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDozNjc44g",
+            "path": "/cancer/vulvar-cancer",
+            "parentId": "cG9zdDozNjc44",
+            "order": 6,
+            "label": "Vulvar cancer"
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDozNjc44h",
+            "path": "/cancer/choriocarcinoma",
+            "parentId": "cG9zdDozNjc44",
+            "order": 7,
+            "label": "Choriocarcinoma"
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDozNjc44i",
+            "path": "/cancer/metastatic-tumors",
+            "parentId": "cG9zdDozNjc44",
+            "order": 8,
+            "label": "Metastatic tumors"
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDozNjc44j",
+            "path": "/cancer/molar-pregnancy",
+            "parentId": "cG9zdDozNjc44",
+            "order": 9,
+            "label": "Molar pregnancy"
           }
         },
         {

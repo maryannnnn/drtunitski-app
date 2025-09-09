@@ -92,19 +92,23 @@
   box-shadow: 0 4px 6px -1px rgba($grey-1, 0.1), 0 2px 4px -1px rgba($grey-1, 0.06);
   border: 1px solid $grey-7; // Светлая граница
   animation: fadeIn 0.2s ease-in-out;
+  
+  // Для трехколоночного меню расширяем фон на всю ширину
+  &.navigation-menu-content--three-column {
+    width: 480px; // Ширина для трех столбцов
+    background: $white; // Единый фон на всю ширину
+    border-radius: 8px; // Скругленные углы
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); // Тень
+  }
 }
 
 .navigation-menu-content-list {
   display: grid;
-  padding: 6px;
+  padding: 12px; // Увеличиваем padding контейнера
   margin: 0; // Убираем центрирование
   column-gap: 10px;
   list-style: none;
-  background-color: $white; // Белый фон
-  border-radius: 6px;
-  min-width: 120px; // Компактная ширина
-  max-width: 160px; // Компактная ширина
-  width: fit-content; // Подстраивается под содержимое
+  width: 280px; // Фиксированная ширина для длинных названий
   position: relative; // Для правильного позиционирования
 }
 
@@ -114,11 +118,12 @@
   .navigation-menu-link {
     @include body-md;
     display: block;
-    padding: 8px 12px;
+    padding: 10px 16px; // Увеличиваем padding для лучшего отображения
     color: $primary; // Темный текст на светлом фоне
     text-decoration: none;
     border-radius: 4px;
     transition: all 0.2s ease;
+    white-space: nowrap; // Предотвращаем перенос текста
     
     &:hover {
       color: $brown-7; // Оранжевый при наведении
@@ -132,7 +137,75 @@
   }
 }
 
-// Двухколоночное меню для Gynecology и Surgery
+// Новая структура для трехколоночного меню с заголовками (как в Radix UI)
+.navigation-menu-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; // Три равных столбца
+  gap: 0; // Убираем gap между столбцами
+  width: 100%; // Занимаем всю ширину родительского контейнера
+  padding: 0; // Убираем padding, чтобы фон был сплошным
+}
+
+.navigation-menu-column {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid $grey-7; // Светлый разделитель между столбцами
+  
+  // Убираем границу у последнего столбца
+  &:last-child {
+    border-right: none;
+  }
+}
+
+.navigation-menu-column-header {
+  margin: 0;
+  padding: 16px 20px 12px 20px; // Больше padding для заголовка
+  font-size: 14px;
+  font-weight: 600;
+  color: $primary; // Цвет заголовка
+  background: rgba($primary, 0.05); // Легкий фон для заголовка
+  border-bottom: 1px solid $grey-7; // Разделитель под заголовком
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.navigation-menu-column-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex: 1; // Занимаем оставшееся пространство
+}
+
+.navigation-menu-column-item {
+  border-bottom: 1px solid rgba($grey-7, 0.5); // Тонкая граница между элементами
+  transition: background-color 0.2s ease; // Плавный переход при наведении
+  
+  // Убираем границу у последнего элемента
+  &:last-child {
+    border-bottom: none;
+  }
+  
+  // Hover эффект для элементов
+  &:hover {
+    background-color: rgba($grey-3, 0.05); // Легкий серый фон при наведении
+  }
+}
+
+.navigation-menu-column-item .navigation-menu-link {
+  display: block;
+  padding: 12px 20px; // Больше padding для лучшей читаемости
+  color: $grey-1; // Используем существующую переменную
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 1.4;
+  transition: color 0.2s ease;
+  
+  &:hover {
+    color: $primary; // Цвет при наведении
+  }
+}
+
+// Двухколоночное меню для Surgery
 .navigation-menu-content-list--two-column {
   display: grid;
   grid-template-columns: 1fr 1fr; // Два равных столбца
