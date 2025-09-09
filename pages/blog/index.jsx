@@ -103,7 +103,25 @@ export async function getStaticProps() {
         console.error("Error network:", error.networkError);
         return {
             props: {
-                initialData: { posts: { edges: [] } }
+                initialData: { 
+                    posts: { 
+                        edges: [
+                            {
+                                node: {
+                                    id: 'fallback-1',
+                                    title: 'Сайт временно недоступен',
+                                    slug: 'site-unavailable',
+                                    excerpt: 'Попробуйте зайти позже',
+                                    date: new Date().toISOString(),
+                                    AcfPost: {
+                                        titleLong: 'Сайт временно недоступен',
+                                        descriptionAnons: 'Мы работаем над восстановлением доступа. Пожалуйста, попробуйте зайти позже.'
+                                    }
+                                }
+                            }
+                        ] 
+                    } 
+                }
             },
         };
     }

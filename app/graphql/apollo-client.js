@@ -4,6 +4,9 @@ import { setContext } from '@apollo/client/link/context';
 // Create HTTP link
 const httpLink = createHttpLink({
     uri: process.env.NEXT_PUBLIC_BACKEND_API_URL,
+    fetchOptions: {
+        timeout: 5000, // 5 секунд timeout
+    },
 });
 
 console.log("GraphQL URL:", process.env.NEXT_PUBLIC_BACKEND_API_URL);

@@ -85,19 +85,29 @@ const BlogPage = ({initialData}) => {
 };
 
 export async function getStaticPaths({ locales }) {
-    const {data} = await apolloClient.query({
-        query: GET_POST_ALL,
-    });
+    try {
+        const {data} = await apolloClient.query({
+            query: GET_POST_ALL,
+        });
 
-    console.log("Fetched posts data: ", data);
+        console.log("Fetched posts data: ", data);
 
-    const paths = data.posts.edges.map(item => ({
-        params: {slug: item.node.slug},
-    }));
+        const paths = data.posts.edges.map(item => ({
+            params: {slug: item.node.slug},
+        }));
 
-    console.log("Generated paths: ", paths);
+        console.log("Generated paths: ", paths);
 
-    return {paths, fallback: true};
+        return {paths, fallback: true};
+    } catch (error) {
+        console.error("Error fetching posts for static paths:", error);
+        // Возвращаем пустой массив путей, но с fallback: true
+        // Это позволит страницам генерироваться по требованию
+        return {
+            paths: [],
+            fallback: true
+        };
+    }
 }
 
 export async function getStaticProps({params, locale}) {
