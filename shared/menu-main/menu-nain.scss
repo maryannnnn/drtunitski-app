@@ -212,10 +212,10 @@
     border-bottom: none;
   }
   
-  // Hover эффект для элементов
-  &:hover {
-    background-color: rgba($grey-3, 0.05); // Легкий серый фон при наведении
-  }
+  // Убираем hover эффект для контейнера, так как теперь он применяется к ссылке
+  // &:hover {
+  //   background-color: rgba($grey-3, 0.05); // Легкий серый фон при наведении
+  // }
 }
 
 .navigation-menu-column-item .navigation-menu-link {
@@ -225,12 +225,19 @@
   text-decoration: none;
   font-size: 14px;
   line-height: 1.4;
-  transition: color 0.2s ease;
+  transition: all 0.2s ease; // Изменяем на all для плавного перехода цвета и фона
   word-wrap: break-word; // Разрешаем перенос длинных слов
   hyphens: auto; // Автоматическая расстановка переносов
+  border-radius: 4px; // Добавляем скругленные углы как в About
   
   &:hover {
-    color: $primary; // Цвет при наведении
+    color: $brown-7; // Оранжевый цвет при наведении (как в About)
+    background-color: $grey-3; // Светло-серый фон при наведении (как в About)
+    text-decoration: none;
+  }
+  
+  &:focus {
+    box-shadow: 0 0 0 2px rgba($primary, 0.3);
   }
 }
 

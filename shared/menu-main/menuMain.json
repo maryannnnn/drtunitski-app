@@ -32,7 +32,7 @@
         {
           "node": {
             "id": "cG9zdDoxNTgz2b",
-            "path": "/about/clinic-team",
+            "path": "/about",
             "parentId": "cG9zdDoxNTgz2",
             "order": 1,
             "label": "Clinic & Our Team"
@@ -103,7 +103,7 @@
             "columnItems": [
               {
                 "id": "cG9zdDozNjc43a1",
-                "path": "/gynecology/gynecological-diseases",
+                "path": "/gynecology",
                 "label": "Gynecological diseases"
               },
               {
@@ -225,10 +225,10 @@
         {
           "node": {
             "id": "cG9zdDozNjc44a",
-            "path": "/cancer/ovarian-cancer",
+            "path": "/cancer",
             "parentId": "cG9zdDozNjc44",
             "order": 0,
-            "label": "Ovarian cancer"
+            "label": "Oncological surgeries"
           }
         },
         {
@@ -332,7 +332,7 @@
             "columnItems": [
               {
                 "id": "cG9zdDozNjc55a1",
-                "path": "/surgery/gynecological-surgery",
+                "path": "/surgery",
                 "label": "Gynecological Surgery"
               },
               {
@@ -525,6 +525,60 @@
             "parentId": null,
             "order": 8,
             "label": "Media"
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDozNjYy9a",
+            "path": "/media",
+            "parentId": "cG9zdDozNjYy9",
+            "order": 0,
+            "label": "Clinic Blog"
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDozNjYy9b",
+            "path": "/media/news",
+            "parentId": "cG9zdDozNjYy9",
+            "order": 1,
+            "label": "News"
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDozNjYy9c",
+            "path": "/media/expert-articles",
+            "parentId": "cG9zdDozNjYy9",
+            "order": 2,
+            "label": "Expert Articles"
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDozNjYy9d",
+            "path": "/media/success-stories",
+            "parentId": "cG9zdDozNjYy9",
+            "order": 3,
+            "label": "Success Stories"
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDozNjYy9e",
+            "path": "/media/reviews-testimonials",
+            "parentId": "cG9zdDozNjYy9",
+            "order": 4,
+            "label": "Reviews & Testimonials"
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDozNjYy9f",
+            "path": "/media/faq",
+            "parentId": "cG9zdDozNjYy9",
+            "order": 5,
+            "label": "FAQ"
           }
         },
         {

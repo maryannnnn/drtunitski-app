@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import './menu-nain-mobile.scss'
 import './media.scss'
-import {Box, CircularProgress, Stack, Alert, Button, Popover, Typography, Link as MuiLink} from '@mui/material';
+import {Typography} from '@mui/material';
 import Link from "next/link";
 import {checkMenuItem, getMenuItems, getMenuItemsMobile} from "../utils/utils-menu";
 import menuMainMobile from '../menu-main/menuMain.json';
@@ -10,7 +10,6 @@ import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import Collapse from "@mui/material/Collapse";
 import ListItemText from "@mui/material/ListItemText";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
@@ -20,15 +19,12 @@ const MenuMainMobile = ({ initialData }) => {
     const { data } = menuMainMobile;
     const { isRTL, textAlign } = useI18n();
 
-    const [openSubmenus, setOpenSubmenus] = useState({}); // Состояние для подменю
+    const [openSubmenu, setOpenSubmenu] = useState(null); // Состояние для подменю (только одно может быть открыто)
 
-    // Открытие/закрытие подменю
+    // Открытие/закрытие подменю (accordion поведение)
     const handleSubmenuToggle = (id) => (event) => {
         event.stopPropagation(); // Предотвращает закрытие Drawer или аккордеона
-        setOpenSubmenus((prev) => ({
-            ...prev,
-            [id]: !prev[id], // Переключение состояния
-        }));
+        setOpenSubmenu(openSubmenu === id ? null : id); // Если уже открыто - закрываем, иначе открываем
     };
 
     return (
@@ -68,7 +64,7 @@ const MenuMainMobile = ({ initialData }) => {
                         ) : (
                             <Accordion
                                 key={link.node.id}
-                                expanded={openSubmenus[link.node.id] || false} // Управление состоянием аккордеона
+                                expanded={openSubmenu === link.node.id} // Управление состоянием аккордеона (только один открыт)
                                 onChange={handleSubmenuToggle(link.node.id)} // Открытие/закрытие подменю
                                 sx={{
                                     color: theme.palette.primary.dark,
@@ -93,14 +89,10 @@ const MenuMainMobile = ({ initialData }) => {
                                 </AccordionSummary>
                                 <AccordionDetails>
                                     {checkMenuItem(link.node.id, data.menuItems.edges) ? (
-                                        <Collapse
-                                            in={openSubmenus[link.node.id]}
-                                            timeout="auto"
-                                            unmountOnExit
-                                        >
+                                        <div>
                                             {/* Рендеринг подменю */}
                                             {getMenuItemsMobile(link.node.id, data.menuItems.edges, isRTL, textAlign)}
-                                        </Collapse>
+                                        </div>
                                     ) : (
                                         <Typography>Нет подменю</Typography>
                                     )}
