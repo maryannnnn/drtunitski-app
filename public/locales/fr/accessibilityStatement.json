@@ -1,0 +1,23 @@
+{
+    "title": "Déclaration d'accessibilité",
+    "description": "Notre engagement envers l'accessibilité web",
+    "lastUpdated": "Dernière mise à jour : décembre 2024",
+    "sections": {
+        "commitment": {
+            "title": "Notre engagement",
+            "content": "La pratique médicale du Dr Serge Tunitski s'engage à assurer l'accessibilité numérique pour tous les utilisateurs, y compris les personnes handicapées. Nous nous efforçons de fournir une expérience accessible et inclusive pour tous ceux qui visitent notre site web."
+        },
+        "standards": {
+            "title": "Normes d'accessibilité",
+            "content": "Nous visons à nous conformer aux normes Web Content Accessibility Guidelines (WCAG) 2.1 Niveau AA. Notre site web est conçu pour être accessible aux utilisateurs avec divers handicaps, y compris visuels, auditifs, physiques, de la parole, cognitifs et neurologiques."
+        },
+        "features": {
+            "title": "Fonctionnalités d'accessibilité",
+            "content": "Notre site web comprend des fonctionnalités telles que la navigation au clavier, la compatibilité avec les lecteurs d'écran, les options de contraste élevé, le texte redimensionnable et le texte alternatif pour les images. Nous proposons également des options multilingues pour servir notre communauté de patients diversifiée."
+        },
+        "feedback": {
+            "title": "Commentaires et contact",
+            "content": "Si vous rencontrez des obstacles d'accessibilité ou avez des suggestions d'amélioration, veuillez nous contacter. Nous accueillons vos commentaires et nous nous engageons à résoudre rapidement les problèmes d'accessibilité."
+        }
+    }
+}

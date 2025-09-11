@@ -1,0 +1,27 @@
+{
+    "title": "Politique de confidentialité",
+    "description": "Notre politique de confidentialité et pratiques de protection des données",
+    "lastUpdated": "Dernière mise à jour : décembre 2024",
+    "sections": {
+        "introduction": {
+            "title": "Introduction",
+            "content": "Cette Politique de confidentialité décrit comment la pratique médicale du Dr Serge Tunitski collecte, utilise et protège vos informations personnelles lorsque vous visitez notre site web ou utilisez nos services. Nous nous engageons à protéger votre vie privée et à assurer la sécurité de vos données personnelles."
+        },
+        "dataCollection": {
+            "title": "Informations que nous collectons",
+            "content": "Nous collectons les informations que vous nous fournissez directement, par exemple lorsque vous demandez un rendez-vous, nous contactez ou vous abonnez à notre newsletter. Cela peut inclure votre nom, adresse e-mail, numéro de téléphone, informations médicales et toute autre information que vous choisissez de fournir."
+        },
+        "dataUsage": {
+            "title": "Comment nous utilisons vos informations",
+            "content": "Nous utilisons les informations collectées pour fournir des services médicaux, planifier des rendez-vous, communiquer avec vous sur vos soins, vous envoyer des mises à jour importantes sur nos services, et améliorer notre site web et nos services. Nous ne vendons ni ne partageons vos informations personnelles avec des tiers sans votre consentement."
+        },
+        "dataProtection": {
+            "title": "Protection des données",
+            "content": "Nous mettons en place des mesures de sécurité appropriées pour protéger vos informations personnelles contre l'accès non autorisé, la modification, la divulgation ou la destruction. Vos informations médicales sont protégées conformément aux lois et réglementations applicables sur la confidentialité médicale."
+        },
+        "contact": {
+            "title": "Contactez-nous",
+            "content": "Si vous avez des questions sur cette Politique de confidentialité ou nos pratiques de données, veuillez nous contacter à l'adresse de notre clinique ou via notre formulaire de contact sur le site web."
+        }
+    }
+}

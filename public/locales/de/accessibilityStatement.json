@@ -1,0 +1,23 @@
+{
+    "title": "Barrierefreiheitserklärung",
+    "description": "Unser Engagement für Web-Barrierefreiheit",
+    "lastUpdated": "Zuletzt aktualisiert: Dezember 2024",
+    "sections": {
+        "commitment": {
+            "title": "Unser Engagement",
+            "content": "Die medizinische Praxis von Dr. Serge Tunitski verpflichtet sich, digitale Barrierefreiheit für alle Nutzer, einschließlich Menschen mit Behinderungen, zu gewährleisten. Wir streben danach, eine zugängliche und inklusive Erfahrung für alle zu bieten, die unsere Website besuchen."
+        },
+        "standards": {
+            "title": "Barrierefreiheitsstandards",
+            "content": "Wir streben danach, den Web Content Accessibility Guidelines (WCAG) 2.1 Level AA Standards zu entsprechen. Unsere Website ist so gestaltet, dass sie für Nutzer mit verschiedenen Behinderungen zugänglich ist, einschließlich visueller, auditiver, körperlicher, sprachlicher, kognitiver und neurologischer Behinderungen."
+        },
+        "features": {
+            "title": "Barrierefreiheitsfunktionen",
+            "content": "Unsere Website umfasst Funktionen wie Tastaturnavigation, Screenreader-Kompatibilität, Hochkontrast-Optionen, vergrößerbare Schrift und Alternativtext für Bilder. Wir bieten auch mehrsprachige Optionen, um unsere vielfältige Patientengemeinschaft zu bedienen."
+        },
+        "feedback": {
+            "title": "Feedback und Kontakt",
+            "content": "Wenn Sie auf Barrierefreiheitshindernisse stoßen oder Verbesserungsvorschläge haben, kontaktieren Sie uns bitte. Wir freuen uns über Ihr Feedback und verpflichten uns, Barrierefreiheitsprobleme schnell zu beheben."
+        }
+    }
+}

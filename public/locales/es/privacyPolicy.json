@@ -1,0 +1,27 @@
+{
+    "title": "Política de privacidad",
+    "description": "Nuestra política de privacidad y prácticas de protección de datos",
+    "lastUpdated": "Última actualización: diciembre 2024",
+    "sections": {
+        "introduction": {
+            "title": "Introducción",
+            "content": "Esta Política de Privacidad describe cómo la práctica médica del Dr. Serge Tunitski recopila, usa y protege su información personal cuando visita nuestro sitio web o utiliza nuestros servicios. Nos comprometemos a proteger su privacidad y garantizar la seguridad de sus datos personales."
+        },
+        "dataCollection": {
+            "title": "Información que recopilamos",
+            "content": "Recopilamos información que usted nos proporciona directamente, como cuando solicita una cita, nos contacta o se suscribe a nuestro boletín. Esto puede incluir su nombre, dirección de correo electrónico, número de teléfono, información médica y cualquier otra información que elija proporcionar."
+        },
+        "dataUsage": {
+            "title": "Cómo utilizamos su información",
+            "content": "Utilizamos la información recopilada para proporcionar servicios médicos, programar citas, comunicarnos con usted sobre su atención, enviarle actualizaciones importantes sobre nuestros servicios y mejorar nuestro sitio web y servicios. No vendemos ni compartimos su información personal con terceros sin su consentimiento."
+        },
+        "dataProtection": {
+            "title": "Protección de datos",
+            "content": "Implementamos medidas de seguridad apropiadas para proteger su información personal contra acceso no autorizado, alteración, divulgación o destrucción. Su información médica está protegida de acuerdo con las leyes y regulaciones aplicables de privacidad médica."
+        },
+        "contact": {
+            "title": "Contáctanos",
+            "content": "Si tiene preguntas sobre esta Política de Privacidad o nuestras prácticas de datos, por favor contáctenos en la dirección de nuestra clínica o a través de nuestro formulario de contacto en el sitio web."
+        }
+    }
+}

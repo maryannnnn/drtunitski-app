@@ -27,6 +27,17 @@
       text-decoration: none;
     }
     
+    .footer-link {
+      color: $grey-2;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      
+      &:hover {
+        color: $primary;
+        text-decoration: underline;
+      }
+    }
+    
     div {
       color: $grey-2;
       transition: color 0.3s ease;

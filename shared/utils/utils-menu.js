@@ -36,7 +36,7 @@ export const getMenuItems = (linkId, menuMain) => {
     )
 };
 
-export const getMenuItemsMobile = (linkId, menuMain, isRTL = false, textAlign = 'left') => {
+export const getMenuItemsMobile = (linkId, menuMain, isRTL = false, textAlign = 'left', getTranslatedLabel = null) => {
     return (
         <>
             {menuMain.filter(item => item.node.parentId === linkId)
@@ -62,7 +62,7 @@ export const getMenuItemsMobile = (linkId, menuMain, isRTL = false, textAlign = 
                                             },
                                         }}
                                     >
-                                        <ListItemText primary={submenu.node.label} />
+                                        <ListItemText primary={getTranslatedLabel ? getTranslatedLabel(submenu.node.label, submenu.node.id) : submenu.node.label} />
                                     </ListItem>
                                     {/* Элементы колонки */}
                                     {submenu.node.columnItems.map((columnItem) => (
@@ -98,7 +98,7 @@ export const getMenuItemsMobile = (linkId, menuMain, isRTL = false, textAlign = 
                                                 },
                                             }}
                                         >
-                                            <ListItemText primary={columnItem.label} />
+                                            <ListItemText primary={getTranslatedLabel ? getTranslatedLabel(columnItem.label, columnItem.id) : columnItem.label} />
                                         </ListItem>
                                     ))}
                                 </div>
@@ -138,7 +138,7 @@ export const getMenuItemsMobile = (linkId, menuMain, isRTL = false, textAlign = 
                                     },
                                 }}
                             >
-                                <ListItemText primary={submenu.node.label} />
+                                <ListItemText primary={getTranslatedLabel ? getTranslatedLabel(submenu.node.label, submenu.node.id) : submenu.node.label} />
                             </ListItem>
                         );
                     }

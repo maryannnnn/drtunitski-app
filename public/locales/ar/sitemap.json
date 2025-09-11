@@ -1,0 +1,152 @@
+{
+    "title": "خريطة الموقع",
+    "description": "قائمة كاملة بصفحات موقعنا الإلكتروني",
+    "sections": {
+        "main": {
+            "title": "الصفحات الرئيسية",
+            "items": {
+                "home": "الرئيسية",
+                "about": "حول",
+                "gynecology": "أمراض النساء",
+                "cancer": "السرطان",
+                "surgery": "الجراحة",
+                "stories": "قصص النجاح",
+                "media": "الوسائط",
+                "contact": "اتصل بنا"
+            }
+        },
+        "about": {
+            "title": "قسم حول",
+            "items": {
+                "drSergeTunitski": "د. سيرجي تونيتسكي",
+                "clinicTeam": "العيادة وفريقنا",
+                "requestAppointment": "طلب موعد",
+                "preparation": "التحضير",
+                "pricesPayment": "الأسعار والدفع",
+                "medicalTourism": "السياحة الطبية",
+                "reviewsTestimonials": "المراجعات والشهادات"
+            }
+        },
+        "gynecology": {
+            "title": "أمراض النساء",
+            "subsections": {
+                "plannedSurgeries": {
+                    "title": "العمليات المخططة",
+                    "items": {
+                        "gynecologicalDiseases": "أمراض النساء",
+                        "uterineFibroids": "أورام الرحم الليفية",
+                        "endometriosis": "بطانة الرحم المهاجرة",
+                        "ovarianDiseases": "أمراض المبيض",
+                        "rectoceleCystocele": "تدلي المستقيم والمثانة من الدرجة الثالثة",
+                        "cinIII": "CIN III (خلل التنسج الشديد في عنق الرحم)",
+                        "uterineProlapse": "تدلي الرحم الكامل",
+                        "genitalProlapse": "تدلي الأعضاء التناسلية (الأشكال الشديدة)"
+                    }
+                },
+                "moderateRiskSurgeries": {
+                    "title": "العمليات متوسطة المخاطر",
+                    "items": {
+                        "chronicHydrosalpinx": "الاستسقاء المزمن في قناة فالوب مع العقم",
+                        "adhesiveDisease": "مرض الالتصاقات في أعضاء الحوض مع العقم",
+                        "vaginalSeptum": "الحاجز المهبلي (الاستئصال)",
+                        "polyps": "الزوائد اللحمية"
+                    }
+                },
+                "emergencySurgeries": {
+                    "title": "عمليات الطوارئ",
+                    "items": {
+                        "ovarianCyst": "كيس المبيض",
+                        "uterinePerforation": "ثقب الرحم",
+                        "pyosalpinx": "قيح قناة فالوب",
+                        "tuboOvarianAbscess": "خراج قناة فالوب والمبيض",
+                        "ectopicPregnancy": "الحمل خارج الرحم"
+                    }
+                }
+            }
+        },
+        "cancer": {
+            "title": "السرطان",
+            "items": {
+                "oncologicalSurgeries": "العمليات الأورام",
+                "endometrialCancer": "سرطان بطانة الرحم",
+                "cervicalCancer": "سرطان عنق الرحم",
+                "uterineSarcoma": "ساركوما الرحم",
+                "fallopianTubeCancer": "سرطان قناة فالوب",
+                "vaginalCancer": "سرطان المهبل",
+                "vulvarCancer": "سرطان الفرج",
+                "choriocarcinoma": "سرطان المشيمة",
+                "metastaticTumors": "الأورام النقيلية",
+                "molarPregnancy": "الحمل العنقودي"
+            }
+        },
+        "surgery": {
+            "title": "الجراحة",
+            "subsections": {
+                "importantSurgeries": {
+                    "title": "العمليات المهمة",
+                    "items": {
+                        "gynecologicalSurgery": "جراحة أمراض النساء",
+                        "laparoscopicOvarianCystectomy": "استئصال كيس المبيض بالمنظار",
+                        "hysteroscopyPolypRemoval": "تنظير الرحم مع إزالة زوائد بطانة الرحم",
+                        "laparoscopicMyomectomy": "استئصال الورم الليفي بالمنظار",
+                        "hysteroscopicResection": "استئصال الورم الليفي تحت المخاطي بالمنظار",
+                        "laparoscopicSalpingectomy": "استئصال قناة فالوب بالمنظار للحمل خارج الرحم",
+                        "laparoscopicAdhesiolysis": "فصل الالتصاقات بالمنظار",
+                        "diagnosticLaparoscopy": "تنظير البطن التشخيصي",
+                        "vacuumAspiration": "شفط الرحم بالتفريغ",
+                        "medicalTermination": "الإجهاض الدوائي",
+                        "cervicalConization": "استئصال مخروطي لعنق الرحم"
+                    }
+                },
+                "complexSurgeries": {
+                    "title": "العمليات المعقدة",
+                    "items": {
+                        "hysterectomy": "استئصال الرحم",
+                        "ovarianResectionPCOS": "استئصال المبيض لمتلازمة تكيس المبايض",
+                        "laparoscopicEndometriosis": "استئصال بؤر بطانة الرحم المهاجرة بالمنظار",
+                        "sacrocolpopexy": "رفع المهبل بالربط للعجز",
+                        "colporrhaphy": "ترميم الجدار الأمامي/الخلفي للمهبل",
+                        "tvtOProcedure": "إجراء TVT-O",
+                        "cervicalLaserVaporization": "تبخير عنق الرحم بالليزر"
+                    }
+                },
+                "specializedSurgeries": {
+                    "title": "العمليات المتخصصة",
+                    "items": {
+                        "radicalHysterectomy": "استئصال الرحم الجذري",
+                        "lymphadenectomy": "استئصال العقد الليمفاوية",
+                        "endometrioticCysts": "إزالة أكياس بطانة الرحم المهاجرة الكبيرة (>5 سم)",
+                        "vaginalScarStrictures": "استئصال التضيقات الندبية المهبلية",
+                        "radicalVulvectomy": "استئصال الفرج الجذري"
+                    }
+                },
+                "plasticSurgery": {
+                    "title": "الجراحة التجميلية",
+                    "items": {
+                        "plasticSurgery": "الجراحة التجميلية",
+                        "labiaplasty": "جراحة الشفرين الصغيرين",
+                        "hymenoplasty": "ترميم غشاء البكارة"
+                    }
+                }
+            }
+        },
+        "media": {
+            "title": "الوسائط",
+            "items": {
+                "clinicBlog": "مدونة العيادة",
+                "news": "الأخبار",
+                "expertArticles": "المقالات المتخصصة",
+                "successStories": "قصص النجاح",
+                "reviewsTestimonials": "المراجعات والشهادات",
+                "faq": "الأسئلة الشائعة"
+            }
+        },
+        "legal": {
+            "title": "الصفحات القانونية",
+            "items": {
+                "privacyPolicy": "سياسة الخصوصية",
+                "accessibilityStatement": "بيان إمكانية الوصول"
+            }
+        }
+    }
+}

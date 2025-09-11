@@ -12,7 +12,7 @@ module.exports = {
   // RTL languages
   rtl: ['he', 'ar'],
   // Namespaces
-  ns: ['common'],
+  ns: ['common', 'privacyPolicy', 'accessibilityStatement', 'sitemap'],
   defaultNS: 'common',
   // Interpolation
   interpolation: {

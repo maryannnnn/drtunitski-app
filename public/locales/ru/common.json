@@ -2,8 +2,96 @@
     "navigation": {
         "home": "Главная",
         "about": "О нас",
-        "services": "Услуги",
-        "contact": "Контакты"
+        "gynecology": "Гинекология",
+        "cancer": "Рак",
+        "surgery": "Операции",
+        "stories": "Истории успеха",
+        "media": "Медиа",
+        "contact": "Контакты",
+        "aboutItems": {
+            "drSergeTunitski": "Др. Сергей Туницкий",
+            "clinicTeam": "Клиника и наша команда",
+            "requestAppointment": "Записаться на прием",
+            "preparation": "Подготовка",
+            "pricesPayment": "Цены и оплата",
+            "medicalTourism": "Медицинский туризм",
+            "reviewsTestimonials": "Отзывы и рекомендации"
+        },
+        "gynecologyItems": {
+            "plannedSurgeries": "Плановые операции",
+            "moderateRiskSurgeries": "Операции умеренного риска",
+            "emergencySurgeries": "Экстренные операции",
+            "gynecologicalDiseases": "Гинекологические заболевания",
+            "uterineFibroids": "Миома матки",
+            "endometriosis": "Эндометриоз",
+            "ovarianDiseases": "Заболевания яичников",
+            "rectoceleCystocele": "Ректоцеле и цистоцеле III степени",
+            "cinIII": "CIN III (тяжелая дисплазия шейки матки)",
+            "uterineProlapse": "Полное выпадение матки",
+            "genitalProlapse": "Выпадение половых органов (тяжелые формы)",
+            "chronicHydrosalpinx": "Хронический гидросальпинкс при бесплодии",
+            "adhesiveDisease": "Спаечная болезнь органов малого таза с бесплодием",
+            "vaginalSeptum": "Влагалищная перегородка (иссечение)",
+            "polyps": "Полипы",
+            "ovarianCyst": "Киста яичника",
+            "uterinePerforation": "Перфорация матки",
+            "pyosalpinx": "Пиосальпинкс",
+            "tuboOvarianAbscess": "Тубоовариальный абсцесс",
+            "ectopicPregnancy": "Внематочная беременность"
+        },
+        "cancerItems": {
+            "oncologicalSurgeries": "Онкологические операции",
+            "ovarianCancer": "Рак яичников",
+            "endometrialCancer": "Рак эндометрия",
+            "cervicalCancer": "Рак шейки матки",
+            "uterineSarcoma": "Саркома матки",
+            "fallopianTubeCancer": "Рак маточных труб",
+            "vaginalCancer": "Рак влагалища",
+            "vulvarCancer": "Рак вульвы",
+            "choriocarcinoma": "Хориокарцинома",
+            "metastaticTumors": "Метастатические опухоли",
+            "molarPregnancy": "Молярная беременность"
+        },
+        "surgeryItems": {
+            "importantSurgeries": "Важные операции",
+            "complexSurgeries": "Сложные операции",
+            "specializedSurgeries": "Специализированные операции",
+            "plasticSurgery": "Пластическая хирургия",
+            "gynecologicalSurgery": "Гинекологическая хирургия",
+            "laparoscopicOvarianCystectomy": "Лапароскопическая цистэктомия яичника",
+            "hysteroscopyPolypRemoval": "Гистероскопия с удалением полипа эндометрия",
+            "laparoscopicMyomectomy": "Лапароскопическая миомэктомия",
+            "hysteroscopicResection": "Гистероскопическая резекция подслизистой миомы",
+            "laparoscopicSalpingectomy": "Лапароскопическая сальпингэктомия при внематочной беременности",
+            "laparoscopicAdhesiolysis": "Лапароскопическая адгезиолизис",
+            "diagnosticLaparoscopy": "Диагностическая лапароскопия",
+            "vacuumAspiration": "Вакуумная аспирация полости матки",
+            "medicalTermination": "Медикаментозное прерывание беременности",
+            "cervicalConization": "Конизация шейки матки",
+            "hysterectomy": "Гистерэктомия",
+            "ovarianResectionPcos": "Резекция яичников при СПКЯ",
+            "laparoscopicEndometriosis": "Лапароскопическое иссечение очагов эндометриоза",
+            "sacrocolpopexy": "Сакрокольпопексия",
+            "colporrhaphy": "Передняя/задняя кольпоррафия",
+            "tvtOProcedure": "Процедура TVT-O",
+            "cervicalLaserVaporization": "Лазерная вапоризация шейки матки",
+            "radicalHysterectomy": "Радикальная гистерэктомия",
+            "lymphadenectomy": "Лимфаденэктомия",
+            "endometrioticCysts": "Удаление больших эндометриоидных кист (>5 см)",
+            "vaginalScarStrictures": "Иссечение рубцовых стриктур влагалища",
+            "radicalVulvectomy": "Радикальная вульвэктомия",
+            "plasticSurgeryGeneral": "Пластическая хирургия",
+            "labiaplastySurgery": "Лабиопластика (хирургия малых половых губ)",
+            "hymenoplastyRestoration": "Гименопластика (восстановление девственной плевы)"
+        },
+        "mediaItems": {
+            "clinicBlog": "Блог клиники",
+            "news": "Новости",
+            "expertArticles": "Экспертные статьи",
+            "successStories": "Истории успеха",
+            "reviewsTestimonials": "Отзывы и рекомендации",
+            "faq": "Часто задаваемые вопросы"
+        }
     },
     "buttons": {
         "readMore": "Читать далее",
@@ -56,5 +144,13 @@
             "testimonial": "Отзывы",
             "bonus": "Акции"
         }
+    },
+    "footer": {
+        "copyright": "Авторские права",
+        "allRightsReserved": "Все права защищены",
+        "privacyPolicy": "Политика конфиденциальности",
+        "accessibilityStatement": "Заявление о доступности",
+        "sitemap": "Карта сайта",
+        "designBy": "Дизайн и продвижение от"
     }
 }

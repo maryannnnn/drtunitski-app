@@ -455,19 +455,9 @@
                 "label": "Lymphadenectomy"
               },
               {
-                "id": "cG9zdDozNjc55c3",
-                "path": "/surgery/labiaplasty",
-                "label": "Labiaplasty"
-              },
-              {
                 "id": "cG9zdDozNjc55c4",
                 "path": "/surgery/endometriotic-cysts",
                 "label": "Removal of large endometriotic cysts (>5 cm)"
-              },
-              {
-                "id": "cG9zdDozNjc55c5",
-                "path": "/surgery/hymenoplasty",
-                "label": "Hymenoplasty (restoration of the hymen)"
               },
               {
                 "id": "cG9zdDozNjc55c6",

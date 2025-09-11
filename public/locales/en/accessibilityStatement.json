@@ -1,0 +1,23 @@
+{
+    "title": "Accessibility Statement",
+    "description": "Our commitment to web accessibility",
+    "lastUpdated": "Last updated: December 2024",
+    "sections": {
+        "commitment": {
+            "title": "Our Commitment",
+            "content": "Dr. Serge Tunitski's medical practice is committed to ensuring digital accessibility for all users, including those with disabilities. We strive to provide an accessible and inclusive experience for everyone who visits our website."
+        },
+        "standards": {
+            "title": "Accessibility Standards",
+            "content": "We aim to conform to the Web Content Accessibility Guidelines (WCAG) 2.1 Level AA standards. Our website is designed to be accessible to users with various disabilities, including visual, auditory, physical, speech, cognitive, and neurological disabilities."
+        },
+        "features": {
+            "title": "Accessibility Features",
+            "content": "Our website includes features such as keyboard navigation, screen reader compatibility, high contrast options, resizable text, and alternative text for images. We also provide multiple language options to serve our diverse patient community."
+        },
+        "feedback": {
+            "title": "Feedback and Contact",
+            "content": "If you encounter any accessibility barriers or have suggestions for improvement, please contact us. We welcome your feedback and are committed to addressing accessibility issues promptly."
+        }
+    }
+}

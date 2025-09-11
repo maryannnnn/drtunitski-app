@@ -1,0 +1,152 @@
+{
+    "title": "מפת האתר",
+    "description": "רשימה מלאה של דפים באתר שלנו",
+    "sections": {
+        "main": {
+            "title": "דפים עיקריים",
+            "items": {
+                "home": "בית",
+                "about": "אודות",
+                "gynecology": "גינקולוגיה",
+                "cancer": "סרטן",
+                "surgery": "ניתוחים",
+                "stories": "סיפורי הצלחה",
+                "media": "מדיה",
+                "contact": "צור קשר"
+            }
+        },
+        "about": {
+            "title": "סקציית אודות",
+            "items": {
+                "drSergeTunitski": "ד\"ר סרג'י טוניצקי",
+                "clinicTeam": "קליניקה והצוות שלנו",
+                "requestAppointment": "בקש תור",
+                "preparation": "הכנה",
+                "pricesPayment": "מחירים ותשלום",
+                "medicalTourism": "תיירות רפואית",
+                "reviewsTestimonials": "ביקורות והמלצות"
+            }
+        },
+        "gynecology": {
+            "title": "גינקולוגיה",
+            "subsections": {
+                "plannedSurgeries": {
+                    "title": "ניתוחים מתוכננים",
+                    "items": {
+                        "gynecologicalDiseases": "מחלות גינקולוגיות",
+                        "uterineFibroids": "מיומות רחם",
+                        "endometriosis": "אנדומטריוזיס",
+                        "ovarianDiseases": "מחלות שחלות",
+                        "rectoceleCystocele": "רקטוצלה וציסטוצלה דרגה III",
+                        "cinIII": "CIN III (דיספלזיה חמורה של צוואר הרחם)",
+                        "uterineProlapse": "צניחת רחם מלאה",
+                        "genitalProlapse": "צניחת איברי המין (צורות חמורות)"
+                    }
+                },
+                "moderateRiskSurgeries": {
+                    "title": "ניתוחים בסיכון בינוני",
+                    "items": {
+                        "chronicHydrosalpinx": "הידרוסאלפינקס כרוני באי פוריות",
+                        "adhesiveDisease": "מחלת הידבקויות של איברי האגן עם אי פוריות",
+                        "vaginalSeptum": "מחיצה נרתיקית (כריתה)",
+                        "polyps": "פוליפים"
+                    }
+                },
+                "emergencySurgeries": {
+                    "title": "ניתוחי חירום",
+                    "items": {
+                        "ovarianCyst": "ציסטה בשחלה",
+                        "uterinePerforation": "ניקוב רחם",
+                        "pyosalpinx": "פיוסאלפינקס",
+                        "tuboOvarianAbscess": "אבצס טובו-אוברי",
+                        "ectopicPregnancy": "הריון חוץ רחמי"
+                    }
+                }
+            }
+        },
+        "cancer": {
+            "title": "סרטן",
+            "items": {
+                "oncologicalSurgeries": "ניתוחים אונקולוגיים",
+                "endometrialCancer": "סרטן רירית הרחם",
+                "cervicalCancer": "סרטן צוואר הרחם",
+                "uterineSarcoma": "סרקומה של הרחם",
+                "fallopianTubeCancer": "סרטן החצוצרה",
+                "vaginalCancer": "סרטן הנרתיק",
+                "vulvarCancer": "סרטן הפות",
+                "choriocarcinoma": "כוריוקרצינומה",
+                "metastaticTumors": "גידולים גרורתיים",
+                "molarPregnancy": "הריון מולרי"
+            }
+        },
+        "surgery": {
+            "title": "ניתוחים",
+            "subsections": {
+                "importantSurgeries": {
+                    "title": "ניתוחים חשובים",
+                    "items": {
+                        "gynecologicalSurgery": "ניתוחים גינקולוגיים",
+                        "laparoscopicOvarianCystectomy": "ציסטэктомия שחלה לפרוסקופית",
+                        "hysteroscopyPolypRemoval": "היסטרוסקופיה עם הסרת פוליפ רירית הרחם",
+                        "laparoscopicMyomectomy": "מיומקטומיה לפרוסקופית",
+                        "hysteroscopicResection": "כריתה היסטרוסקופית של מיומה תת-רירית",
+                        "laparoscopicSalpingectomy": "סלפינגэктомия לפרוסקופית להריון חוץ רחמי",
+                        "laparoscopicAdhesiolysis": "אדהזיוליזיס לפרוסקופי",
+                        "diagnosticLaparoscopy": "לפרוסקופיה אבחנתית",
+                        "vacuumAspiration": "שאיבת ואקום של חלל הרחם",
+                        "medicalTermination": "הפסקת הריון תרופתית",
+                        "cervicalConization": "קוניזציה של צוואר הרחם"
+                    }
+                },
+                "complexSurgeries": {
+                    "title": "ניתוחים מורכבים",
+                    "items": {
+                        "hysterectomy": "היסטרэктомיה",
+                        "ovarianResectionPCOS": "כריתה שחלתית ל-PCOS",
+                        "laparoscopicEndometriosis": "כריתה לפרוסקופית של מוקדי אנדומטריוזיס",
+                        "sacrocolpopexy": "סאקרו-קולפופקסיה",
+                        "colporrhaphy": "קולפורפיה קדמית/אחורית",
+                        "tvtOProcedure": "הליך TVT-O",
+                        "cervicalLaserVaporization": "אידוי לייזר של צוואר הרחם"
+                    }
+                },
+                "specializedSurgeries": {
+                    "title": "ניתוחים מיוחדים",
+                    "items": {
+                        "radicalHysterectomy": "היסטרэктомיה רדיקלית",
+                        "lymphadenectomy": "לימפאדנקטומיה",
+                        "endometrioticCysts": "הסרת ציסטות אנדומטריוטיות גדולות (>5 ס\"מ)",
+                        "vaginalScarStrictures": "כריתה של היצרויות צלקתיות נרתיקיות",
+                        "radicalVulvectomy": "וולבקטומיה רדיקלית"
+                    }
+                },
+                "plasticSurgery": {
+                    "title": "ניתוחים פלסטיים",
+                    "items": {
+                        "plasticSurgery": "ניתוחים פלסטיים",
+                        "labiaplasty": "לאביופלסטיקה (ניתוח השפתיים הקטנות)",
+                        "hymenoplasty": "הימנופלסטיקה (שחזור קרום הבתולים)"
+                    }
+                }
+            }
+        },
+        "media": {
+            "title": "מדיה",
+            "items": {
+                "clinicBlog": "בלוג הקליניקה",
+                "news": "חדשות",
+                "expertArticles": "מאמרים מקצועיים",
+                "successStories": "סיפורי הצלחה",
+                "reviewsTestimonials": "ביקורות והמלצות",
+                "faq": "שאלות נפוצות"
+            }
+        },
+        "legal": {
+            "title": "דפים משפטיים",
+            "items": {
+                "privacyPolicy": "מדיניות פרטיות",
+                "accessibilityStatement": "הצהרת נגישות"
+            }
+        }
+    }
+}

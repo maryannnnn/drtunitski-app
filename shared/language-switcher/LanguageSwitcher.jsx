@@ -14,7 +14,11 @@ import './language-switcher.scss';
 const languages = [
     { code: 'en', name: 'English', short: 'EN' },
     { code: 'ru', name: 'Русский', short: 'RU' },
+    { code: 'de', name: 'Deutsch', short: 'DE' },
+    { code: 'fr', name: 'Français', short: 'FR' },
+    { code: 'es', name: 'Español', short: 'ES' },
     { code: 'he', name: 'עברית', short: 'HE' },
+    { code: 'ar', name: 'العربية', short: 'AR' },
 ];
 
 const LanguageSwitcher = ({ variant = 'dropdown', showLabel = false }) => {

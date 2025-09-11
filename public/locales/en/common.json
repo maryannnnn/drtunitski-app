@@ -2,8 +2,96 @@
   "navigation": {
     "home": "Home",
     "about": "About",
-    "services": "Services",
-    "contact": "Contact"
+    "gynecology": "Gynecology",
+    "cancer": "Cancer",
+    "surgery": "Surgery",
+    "stories": "Success Stories",
+    "media": "Media",
+    "contact": "Contact",
+    "aboutItems": {
+      "drSergeTunitski": "Dr. Serge Tunitski",
+      "clinicTeam": "Clinic & Our Team",
+      "requestAppointment": "Request Appointment",
+      "preparation": "Preparation",
+      "pricesPayment": "Prices & Payment",
+      "medicalTourism": "Medical tourism",
+      "reviewsTestimonials": "Reviews & Testimonials"
+    },
+    "gynecologyItems": {
+      "plannedSurgeries": "Planned surgeries",
+      "moderateRiskSurgeries": "Moderate-risk surgeries",
+      "emergencySurgeries": "Emergency surgeries",
+      "gynecologicalDiseases": "Gynecological diseases",
+      "uterineFibroids": "Uterine fibroids",
+      "endometriosis": "Endometriosis",
+      "ovarianDiseases": "Ovarian diseases",
+      "rectoceleCystocele": "Rectocele and cystocele grade III",
+      "cinIII": "CIN III (severe cervical dysplasia)",
+      "uterineProlapse": "Complete uterine prolapse",
+      "genitalProlapse": "Genital prolapse (severe forms)",
+      "chronicHydrosalpinx": "Chronic hydrosalpinx in infertility",
+      "adhesiveDisease": "Adhesive disease of the pelvic organs with infertility",
+      "vaginalSeptum": "Vaginal septum (excision)",
+      "polyps": "Polyps",
+      "ovarianCyst": "Ovarian cyst",
+      "uterinePerforation": "Uterine perforation",
+      "pyosalpinx": "Pyosalpinx",
+      "tuboOvarianAbscess": "Tubo-ovarian abscess",
+      "ectopicPregnancy": "Ectopic pregnancy"
+    },
+    "cancerItems": {
+      "oncologicalSurgeries": "Oncological surgeries",
+      "ovarianCancer": "Ovarian cancer",
+      "endometrialCancer": "Endometrial cancer",
+      "cervicalCancer": "Cervical cancer",
+      "uterineSarcoma": "Uterine sarcoma",
+      "fallopianTubeCancer": "Fallopian tube cancer",
+      "vaginalCancer": "Vaginal cancer",
+      "vulvarCancer": "Vulvar cancer",
+      "choriocarcinoma": "Choriocarcinoma",
+      "metastaticTumors": "Metastatic tumors",
+      "molarPregnancy": "Molar pregnancy"
+    },
+    "surgeryItems": {
+      "importantSurgeries": "Important Surgeries",
+      "complexSurgeries": "Complex Surgeries",
+      "specializedSurgeries": "Specialized Surgeries",
+      "plasticSurgery": "Plastic Surgery",
+      "gynecologicalSurgery": "Gynecological Surgery",
+      "laparoscopicOvarianCystectomy": "Laparoscopic ovarian cystectomy",
+      "hysteroscopyPolypRemoval": "Hysteroscopy with endometrial polyp removal",
+      "laparoscopicMyomectomy": "Laparoscopic myomectomy",
+      "hysteroscopicResection": "Hysteroscopic resection of submucous myoma",
+      "laparoscopicSalpingectomy": "Laparoscopic salpingectomy for ectopic pregnancy",
+      "laparoscopicAdhesiolysis": "Laparoscopic adhesiolysis",
+      "diagnosticLaparoscopy": "Diagnostic laparoscopy",
+      "vacuumAspiration": "Vacuum aspiration of the uterine cavity",
+      "medicalTermination": "Medical termination of pregnancy",
+      "cervicalConization": "Cervical conization",
+      "hysterectomy": "Hysterectomy",
+      "ovarianResectionPcos": "Ovarian resection for PCOS",
+      "laparoscopicEndometriosis": "Laparoscopic excision of endometriosis foci",
+      "sacrocolpopexy": "Sacrocolpopexy",
+      "colporrhaphy": "Anterior/posterior colporrhaphy",
+      "tvtOProcedure": "TVT-O procedure",
+      "cervicalLaserVaporization": "Cervical laser vaporization",
+      "radicalHysterectomy": "Radical hysterectomy",
+      "lymphadenectomy": "Lymphadenectomy",
+      "endometrioticCysts": "Removal of large endometriotic cysts (>5 cm)",
+      "vaginalScarStrictures": "Excision of vaginal scar strictures",
+      "radicalVulvectomy": "Radical vulvectomy",
+      "plasticSurgeryGeneral": "Plastic Surgery",
+      "labiaplastySurgery": "Labiaplasty (surgery of the labia minora)",
+      "hymenoplastyRestoration": "Hymenoplasty (restoration of the hymen)"
+    },
+    "mediaItems": {
+      "clinicBlog": "Clinic Blog",
+      "news": "News",
+      "expertArticles": "Expert Articles",
+      "successStories": "Success Stories",
+      "reviewsTestimonials": "Reviews & Testimonials",
+      "faq": "FAQ"
+    }
   },
   "buttons": {
     "readMore": "Read More",
@@ -56,5 +144,13 @@
       "testimonial": "Reviews",
       "bonus": "Promotions"
     }
+  },
+  "footer": {
+    "copyright": "Copyright",
+    "allRightsReserved": "All Rights Reserved",
+    "privacyPolicy": "Privacy Policy",
+    "accessibilityStatement": "Accessibility Statement",
+    "sitemap": "Sitemap",
+    "designBy": "Design and Promotion by"
   }
 }

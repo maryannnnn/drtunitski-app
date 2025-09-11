@@ -1,0 +1,152 @@
+{
+    "title": "Plan du site",
+    "description": "Liste complète des pages de notre site web",
+    "sections": {
+        "main": {
+            "title": "Pages principales",
+            "items": {
+                "home": "Accueil",
+                "about": "À propos",
+                "gynecology": "Gynécologie",
+                "cancer": "Cancer",
+                "surgery": "Chirurgie",
+                "stories": "Histoires de succès",
+                "media": "Médias",
+                "contact": "Contact"
+            }
+        },
+        "about": {
+            "title": "Section À propos",
+            "items": {
+                "drSergeTunitski": "Dr Serge Tunitski",
+                "clinicTeam": "Clinique et notre équipe",
+                "requestAppointment": "Demander un rendez-vous",
+                "preparation": "Préparation",
+                "pricesPayment": "Prix et paiement",
+                "medicalTourism": "Tourisme médical",
+                "reviewsTestimonials": "Avis et témoignages"
+            }
+        },
+        "gynecology": {
+            "title": "Gynécologie",
+            "subsections": {
+                "plannedSurgeries": {
+                    "title": "Chirurgies planifiées",
+                    "items": {
+                        "gynecologicalDiseases": "Maladies gynécologiques",
+                        "uterineFibroids": "Fibromes utérins",
+                        "endometriosis": "Endométriose",
+                        "ovarianDiseases": "Maladies ovariennes",
+                        "rectoceleCystocele": "Rectocèle et cystocèle grade III",
+                        "cinIII": "CIN III (dysplasie cervicale sévère)",
+                        "uterineProlapse": "Prolapsus utérin complet",
+                        "genitalProlapse": "Prolapsus génital (formes sévères)"
+                    }
+                },
+                "moderateRiskSurgeries": {
+                    "title": "Chirurgies à risque modéré",
+                    "items": {
+                        "chronicHydrosalpinx": "Hydrosalpinx chronique dans l'infertilité",
+                        "adhesiveDisease": "Maladie adhésive des organes pelviens avec infertilité",
+                        "vaginalSeptum": "Septum vaginal (excision)",
+                        "polyps": "Polypes"
+                    }
+                },
+                "emergencySurgeries": {
+                    "title": "Chirurgies d'urgence",
+                    "items": {
+                        "ovarianCyst": "Kyste ovarien",
+                        "uterinePerforation": "Perforation utérine",
+                        "pyosalpinx": "Pyosalpinx",
+                        "tuboOvarianAbscess": "Abcès tubo-ovarien",
+                        "ectopicPregnancy": "Grossesse extra-utérine"
+                    }
+                }
+            }
+        },
+        "cancer": {
+            "title": "Cancer",
+            "items": {
+                "oncologicalSurgeries": "Chirurgies oncologiques",
+                "endometrialCancer": "Cancer de l'endomètre",
+                "cervicalCancer": "Cancer du col de l'utérus",
+                "uterineSarcoma": "Sarcome utérin",
+                "fallopianTubeCancer": "Cancer de la trompe de Fallope",
+                "vaginalCancer": "Cancer vaginal",
+                "vulvarCancer": "Cancer de la vulve",
+                "choriocarcinoma": "Choriocarcinome",
+                "metastaticTumors": "Tumeurs métastatiques",
+                "molarPregnancy": "Grossesse molaire"
+            }
+        },
+        "surgery": {
+            "title": "Chirurgie",
+            "subsections": {
+                "importantSurgeries": {
+                    "title": "Chirurgies importantes",
+                    "items": {
+                        "gynecologicalSurgery": "Chirurgie gynécologique",
+                        "laparoscopicOvarianCystectomy": "Kystectomie ovarienne laparoscopique",
+                        "hysteroscopyPolypRemoval": "Hystéroscopie avec ablation de polype endométrial",
+                        "laparoscopicMyomectomy": "Myomectomie laparoscopique",
+                        "hysteroscopicResection": "Résection hystéroscopique de myome sous-muqueux",
+                        "laparoscopicSalpingectomy": "Salpingectomie laparoscopique pour grossesse extra-utérine",
+                        "laparoscopicAdhesiolysis": "Adhésiolyse laparoscopique",
+                        "diagnosticLaparoscopy": "Laparoscopie diagnostique",
+                        "vacuumAspiration": "Aspiration par vide de la cavité utérine",
+                        "medicalTermination": "Interruption médicale de grossesse",
+                        "cervicalConization": "Conisation cervicale"
+                    }
+                },
+                "complexSurgeries": {
+                    "title": "Chirurgies complexes",
+                    "items": {
+                        "hysterectomy": "Hystérectomie",
+                        "ovarianResectionPCOS": "Résection ovarienne pour SOPK",
+                        "laparoscopicEndometriosis": "Excision laparoscopique des foyers d'endométriose",
+                        "sacrocolpopexy": "Sacrocolpopexie",
+                        "colporrhaphy": "Colporraphie antérieure/postérieure",
+                        "tvtOProcedure": "Procédure TVT-O",
+                        "cervicalLaserVaporization": "Vaporisation laser cervicale"
+                    }
+                },
+                "specializedSurgeries": {
+                    "title": "Chirurgies spécialisées",
+                    "items": {
+                        "radicalHysterectomy": "Hystérectomie radicale",
+                        "lymphadenectomy": "Lymphadénectomie",
+                        "endometrioticCysts": "Ablation de gros kystes endométriosiques (>5 cm)",
+                        "vaginalScarStrictures": "Excision des sténoses cicatricielles vaginales",
+                        "radicalVulvectomy": "Vulvectomie radicale"
+                    }
+                },
+                "plasticSurgery": {
+                    "title": "Chirurgie plastique",
+                    "items": {
+                        "plasticSurgery": "Chirurgie plastique",
+                        "labiaplasty": "Labiaplastie (chirurgie des petites lèvres)",
+                        "hymenoplasty": "Hyménoplastie (restauration de l'hymen)"
+                    }
+                }
+            }
+        },
+        "media": {
+            "title": "Médias",
+            "items": {
+                "clinicBlog": "Blog de la clinique",
+                "news": "Actualités",
+                "expertArticles": "Articles d'experts",
+                "successStories": "Histoires de succès",
+                "reviewsTestimonials": "Avis et témoignages",
+                "faq": "Questions fréquentes"
+            }
+        },
+        "legal": {
+            "title": "Pages légales",
+            "items": {
+                "privacyPolicy": "Politique de confidentialité",
+                "accessibilityStatement": "Déclaration d'accessibilité"
+            }
+        }
+    }
+}

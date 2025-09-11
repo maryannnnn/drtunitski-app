@@ -2,8 +2,96 @@
   "navigation": {
     "home": "בית",
     "about": "אודות",
-    "services": "שירותים",
-    "contact": "צור קשר"
+    "gynecology": "גינקולוגיה",
+    "cancer": "סרטן",
+    "surgery": "ניתוחים",
+    "stories": "סיפורי הצלחה",
+    "media": "מדיה",
+    "contact": "צור קשר",
+    "aboutItems": {
+      "drSergeTunitski": "ד\"ר סרג'י טוניצקי",
+      "clinicTeam": "המרפאה והצוות שלנו",
+      "requestAppointment": "בקש תור",
+      "preparation": "הכנה",
+      "pricesPayment": "מחירים ותשלום",
+      "medicalTourism": "תיירות רפואית",
+      "reviewsTestimonials": "ביקורות והמלצות"
+    },
+    "gynecologyItems": {
+      "plannedSurgeries": "ניתוחים מתוכננים",
+      "moderateRiskSurgeries": "ניתוחים בסיכון בינוני",
+      "emergencySurgeries": "ניתוחי חירום",
+      "gynecologicalDiseases": "מחלות גינקולוגיות",
+      "uterineFibroids": "שרירנים ברחם",
+      "endometriosis": "אנדומטריוזיס",
+      "ovarianDiseases": "מחלות השחלות",
+      "rectoceleCystocele": "רקטוצלה וציסטוצלה דרגה III",
+      "cinIII": "CIN III (דיספלזיה צווארית חמורה)",
+      "uterineProlapse": "צניחת רחם מלאה",
+      "genitalProlapse": "צניחת איברי המין (צורות חמורות)",
+      "chronicHydrosalpinx": "הידרוסלפינקס כרוני באי פוריות",
+      "adhesiveDisease": "מחלת הידבקויות של איברי האגן עם אי פוריות",
+      "vaginalSeptum": "מחיצה נרתיקית (כריתה)",
+      "polyps": "פוליפים",
+      "ovarianCyst": "ציסטה בשחלה",
+      "uterinePerforation": "ניקוב רחם",
+      "pyosalpinx": "פיוסלפינקס",
+      "tuboOvarianAbscess": "מורסה טובו-אוברית",
+      "ectopicPregnancy": "הריון חוץ רחמי"
+    },
+    "cancerItems": {
+      "oncologicalSurgeries": "ניתוחים אונקולוגיים",
+      "ovarianCancer": "סרטן השחלה",
+      "endometrialCancer": "סרטן רירית הרחם",
+      "cervicalCancer": "סרטן צוואר הרחם",
+      "uterineSarcoma": "סרקומה של הרחם",
+      "fallopianTubeCancer": "סרטן החצוצרה",
+      "vaginalCancer": "סרטן הנרתיק",
+      "vulvarCancer": "סרטן הפות",
+      "choriocarcinoma": "כוריוקרצינומה",
+      "metastaticTumors": "גידולים גרורתיים",
+      "molarPregnancy": "הריון מולרי"
+    },
+    "surgeryItems": {
+      "importantSurgeries": "ניתוחים חשובים",
+      "complexSurgeries": "ניתוחים מורכבים",
+      "specializedSurgeries": "ניתוחים מומחים",
+      "plasticSurgery": "ניתוחים פלסטיים",
+      "gynecologicalSurgery": "ניתוחים גינקולוגיים",
+      "laparoscopicOvarianCystectomy": "כריתת ציסטה שחלתית לפרוסקופית",
+      "hysteroscopyPolypRemoval": "היסטרוסקופיה עם הסרת פוליפ רירית",
+      "laparoscopicMyomectomy": "כריתת שרירן לפרוסקופית",
+      "hysteroscopicResection": "כריתה היסטרוסקופית של שרירן תת-רירי",
+      "laparoscopicSalpingectomy": "כריתת חצוצרה לפרוסקופית להריון חוץ רחמי",
+      "laparoscopicAdhesiolysis": "פתיחת הידבקויות לפרוסקופית",
+      "diagnosticLaparoscopy": "לפרוסקופיה אבחנתית",
+      "vacuumAspiration": "שאיבת ואקום של חלל הרחם",
+      "medicalTermination": "הפסקת הריון תרופתית",
+      "cervicalConization": "קוניזציה צווארית",
+      "hysterectomy": "כריתת רחם",
+      "ovarianResectionPcos": "כריתת שחלה ב-PCOS",
+      "laparoscopicEndometriosis": "כריתה לפרוסקופית של מוקדי אנדומטריוזיס",
+      "sacrocolpopexy": "סאקרו-קולפופקסיה",
+      "colporrhaphy": "קולפורפיה קדמית/אחורית",
+      "tvtOProcedure": "הליך TVT-O",
+      "cervicalLaserVaporization": "אידוי לייזר צווארי",
+      "radicalHysterectomy": "כריתת רחם רדיקלית",
+      "lymphadenectomy": "כריתת בלוטות לימפה",
+      "endometrioticCysts": "הסרת ציסטות אנדומטריוטיות גדולות (>5 ס\"מ)",
+      "vaginalScarStrictures": "כריתה של היצרויות צלקתיות נרתיקיות",
+      "radicalVulvectomy": "כריתת פות רדיקלית",
+      "plasticSurgeryGeneral": "ניתוחים פלסטיים",
+      "labiaplastySurgery": "לאביופלסטיקה (ניתוח שפתיים קטנות)",
+      "hymenoplastyRestoration": "הימנופלסטיקה (שחזור קרום הבתולים)"
+    },
+    "mediaItems": {
+      "clinicBlog": "בלוג המרפאה",
+      "news": "חדשות",
+      "expertArticles": "מאמרי מומחים",
+      "successStories": "סיפורי הצלחה",
+      "reviewsTestimonials": "ביקורות והמלצות",
+      "faq": "שאלות נפוצות"
+    }
   },
   "buttons": {
     "readMore": "קרא עוד",
@@ -56,5 +144,13 @@
       "testimonial": "ביקורות",
       "bonus": "מבצעים"
     }
+  },
+  "footer": {
+    "copyright": "זכויות יוצרים",
+    "allRightsReserved": "כל הזכויות שמורות",
+    "privacyPolicy": "מדיניות פרטיות",
+    "accessibilityStatement": "הצהרת נגישות",
+    "sitemap": "מפת האתר",
+    "designBy": "עיצוב וקידום על ידי"
   }
 }

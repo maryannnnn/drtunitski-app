@@ -1,0 +1,27 @@
+{
+    "title": "Datenschutzrichtlinie",
+    "description": "Unsere Datenschutzrichtlinie und Datenschutzpraktiken",
+    "lastUpdated": "Zuletzt aktualisiert: Dezember 2024",
+    "sections": {
+        "introduction": {
+            "title": "Einführung",
+            "content": "Diese Datenschutzrichtlinie beschreibt, wie die medizinische Praxis von Dr. Serge Tunitski Ihre persönlichen Informationen sammelt, verwendet und schützt, wenn Sie unsere Website besuchen oder unsere Dienstleistungen nutzen. Wir verpflichten uns, Ihre Privatsphäre zu schützen und die Sicherheit Ihrer persönlichen Daten zu gewährleisten."
+        },
+        "dataCollection": {
+            "title": "Informationen, die wir sammeln",
+            "content": "Wir sammeln Informationen, die Sie uns direkt zur Verfügung stellen, z.B. wenn Sie einen Termin anfragen, uns kontaktieren oder unseren Newsletter abonnieren. Dies kann Ihren Namen, Ihre E-Mail-Adresse, Telefonnummer, medizinische Informationen und alle anderen Informationen umfassen, die Sie bereitstellen möchten."
+        },
+        "dataUsage": {
+            "title": "Wie wir Ihre Informationen verwenden",
+            "content": "Wir verwenden die gesammelten Informationen, um medizinische Dienstleistungen zu erbringen, Termine zu vereinbaren, mit Ihnen über Ihre Behandlung zu kommunizieren, Ihnen wichtige Updates über unsere Dienstleistungen zu senden und unsere Website und Dienstleistungen zu verbessern. Wir verkaufen oder teilen Ihre persönlichen Informationen nicht ohne Ihre Zustimmung mit Dritten."
+        },
+        "dataProtection": {
+            "title": "Datenschutz",
+            "content": "Wir implementieren angemessene Sicherheitsmaßnahmen, um Ihre persönlichen Informationen vor unbefugtem Zugriff, Änderung, Offenlegung oder Zerstörung zu schützen. Ihre medizinischen Informationen werden in Übereinstimmung mit den geltenden medizinischen Datenschutzgesetzen und -vorschriften geschützt."
+        },
+        "contact": {
+            "title": "Kontaktieren Sie uns",
+            "content": "Wenn Sie Fragen zu dieser Datenschutzrichtlinie oder unseren Datenpraktiken haben, kontaktieren Sie uns bitte unter unserer Klinikadresse oder über unser Website-Kontaktformular."
+        }
+    }
+}

@@ -2,8 +2,96 @@
     "navigation": {
         "home": "الرئيسية",
         "about": "حول",
-        "services": "الخدمات",
-        "contact": "اتصل بنا"
+        "gynecology": "أمراض النساء",
+        "cancer": "السرطان",
+        "surgery": "الجراحة",
+        "stories": "قصص النجاح",
+        "media": "وسائل الإعلام",
+        "contact": "اتصل بنا",
+        "aboutItems": {
+            "drSergeTunitski": "د. سيرجي تونيتسكي",
+            "clinicTeam": "العيادة وفريقنا",
+            "requestAppointment": "طلب موعد",
+            "preparation": "التحضير",
+            "pricesPayment": "الأسعار والدفع",
+            "medicalTourism": "السياحة الطبية",
+            "reviewsTestimonials": "المراجعات والشهادات"
+        },
+        "gynecologyItems": {
+            "plannedSurgeries": "العمليات المخططة",
+            "moderateRiskSurgeries": "العمليات متوسطة المخاطر",
+            "emergencySurgeries": "العمليات الطارئة",
+            "gynecologicalDiseases": "أمراض النساء",
+            "uterineFibroids": "الأورام الليفية الرحمية",
+            "endometriosis": "بطانة الرحم المهاجرة",
+            "ovarianDiseases": "أمراض المبيض",
+            "rectoceleCystocele": "هبوط المستقيم والمثانة من الدرجة الثالثة",
+            "cinIII": "CIN III (خلل التنسج العنقي الشديد)",
+            "uterineProlapse": "هبوط الرحم الكامل",
+            "genitalProlapse": "هبوط الأعضاء التناسلية (الأشكال الشديدة)",
+            "chronicHydrosalpinx": "الاستسقاء المزمن في العقم",
+            "adhesiveDisease": "مرض الالتصاقات في أعضاء الحوض مع العقم",
+            "vaginalSeptum": "الحاجز المهبلي (الاستئصال)",
+            "polyps": "الزوائد اللحمية",
+            "ovarianCyst": "كيس المبيض",
+            "uterinePerforation": "ثقب الرحم",
+            "pyosalpinx": "قيح البوق",
+            "tuboOvarianAbscess": "خراج البوق والمبيض",
+            "ectopicPregnancy": "الحمل خارج الرحم"
+        },
+        "cancerItems": {
+            "oncologicalSurgeries": "العمليات الأورام",
+            "ovarianCancer": "سرطان المبيض",
+            "endometrialCancer": "سرطان بطانة الرحم",
+            "cervicalCancer": "سرطان عنق الرحم",
+            "uterineSarcoma": "ساركوما الرحم",
+            "fallopianTubeCancer": "سرطان قناة فالوب",
+            "vaginalCancer": "سرطان المهبل",
+            "vulvarCancer": "سرطان الفرج",
+            "choriocarcinoma": "سرطان المشيمة",
+            "metastaticTumors": "الأورام النقيلية",
+            "molarPregnancy": "الحمل العنقودي"
+        },
+        "surgeryItems": {
+            "importantSurgeries": "العمليات المهمة",
+            "complexSurgeries": "العمليات المعقدة",
+            "specializedSurgeries": "العمليات المتخصصة",
+            "plasticSurgery": "الجراحة التجميلية",
+            "gynecologicalSurgery": "الجراحة النسائية",
+            "laparoscopicOvarianCystectomy": "استئصال كيس المبيض بالمنظار",
+            "hysteroscopyPolypRemoval": "تنظير الرحم مع إزالة الزوائد اللحمية",
+            "laparoscopicMyomectomy": "استئصال الورم الليفي بالمنظار",
+            "hysteroscopicResection": "استئصال الورم الليفي تحت المخاطي بالمنظار",
+            "laparoscopicSalpingectomy": "استئصال قناة فالوب بالمنظار للحمل خارج الرحم",
+            "laparoscopicAdhesiolysis": "فصل الالتصاقات بالمنظار",
+            "diagnosticLaparoscopy": "تنظير البطن التشخيصي",
+            "vacuumAspiration": "شفط الرحم بالتفريغ",
+            "medicalTermination": "إنهاء الحمل الدوائي",
+            "cervicalConization": "استئصال مخروطي لعنق الرحم",
+            "hysterectomy": "استئصال الرحم",
+            "ovarianResectionPcos": "استئصال المبيض لمتلازمة تكيس المبايض",
+            "laparoscopicEndometriosis": "استئصال بؤر بطانة الرحم المهاجرة بالمنظار",
+            "sacrocolpopexy": "رفع المهبل بالرباط العجزي",
+            "colporrhaphy": "إصلاح جدار المهبل الأمامي/الخلفي",
+            "tvtOProcedure": "إجراء TVT-O",
+            "cervicalLaserVaporization": "تبخير عنق الرحم بالليزر",
+            "radicalHysterectomy": "استئصال الرحم الجذري",
+            "lymphadenectomy": "استئصال العقد الليمفاوية",
+            "endometrioticCysts": "إزالة أكياس بطانة الرحم المهاجرة الكبيرة (>5 سم)",
+            "vaginalScarStrictures": "استئصال التضيقات الندبية المهبلية",
+            "radicalVulvectomy": "استئصال الفرج الجذري",
+            "plasticSurgeryGeneral": "الجراحة التجميلية",
+            "labiaplastySurgery": "جراحة الشفرين (جراحة الشفرين الصغيرين)",
+            "hymenoplastyRestoration": "جراحة غشاء البكارة (استعادة غشاء البكارة)"
+        },
+        "mediaItems": {
+            "clinicBlog": "مدونة العيادة",
+            "news": "الأخبار",
+            "expertArticles": "مقالات الخبراء",
+            "successStories": "قصص النجاح",
+            "reviewsTestimonials": "المراجعات والشهادات",
+            "faq": "الأسئلة الشائعة"
+        }
     },
     "buttons": {
         "readMore": "اقرأ المزيد",
@@ -56,5 +144,13 @@
             "testimonial": "الآراء",
             "bonus": "العروض"
         }
+    },
+    "footer": {
+        "copyright": "حقوق الطبع والنشر",
+        "allRightsReserved": "جميع الحقوق محفوظة",
+        "privacyPolicy": "سياسة الخصوصية",
+        "accessibilityStatement": "بيان إمكانية الوصول",
+        "sitemap": "خريطة الموقع",
+        "designBy": "التصميم والترويج بواسطة"
     }
 }

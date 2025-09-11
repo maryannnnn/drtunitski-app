@@ -1,0 +1,152 @@
+{
+    "title": "Mapa del sitio",
+    "description": "Lista completa de páginas de nuestro sitio web",
+    "sections": {
+        "main": {
+            "title": "Páginas principales",
+            "items": {
+                "home": "Inicio",
+                "about": "Acerca de",
+                "gynecology": "Ginecología",
+                "cancer": "Cáncer",
+                "surgery": "Cirugía",
+                "stories": "Historias de éxito",
+                "media": "Medios",
+                "contact": "Contacto"
+            }
+        },
+        "about": {
+            "title": "Sección Acerca de",
+            "items": {
+                "drSergeTunitski": "Dr. Serge Tunitski",
+                "clinicTeam": "Clínica y nuestro equipo",
+                "requestAppointment": "Solicitar cita",
+                "preparation": "Preparación",
+                "pricesPayment": "Precios y pago",
+                "medicalTourism": "Turismo médico",
+                "reviewsTestimonials": "Reseñas y testimonios"
+            }
+        },
+        "gynecology": {
+            "title": "Ginecología",
+            "subsections": {
+                "plannedSurgeries": {
+                    "title": "Cirugías planificadas",
+                    "items": {
+                        "gynecologicalDiseases": "Enfermedades ginecológicas",
+                        "uterineFibroids": "Miomas uterinos",
+                        "endometriosis": "Endometriosis",
+                        "ovarianDiseases": "Enfermedades ováricas",
+                        "rectoceleCystocele": "Rectocele y cistocele grado III",
+                        "cinIII": "CIN III (displasia cervical severa)",
+                        "uterineProlapse": "Prolapso uterino completo",
+                        "genitalProlapse": "Prolapso genital (formas severas)"
+                    }
+                },
+                "moderateRiskSurgeries": {
+                    "title": "Cirugías de riesgo moderado",
+                    "items": {
+                        "chronicHydrosalpinx": "Hidrosalpinx crónico en infertilidad",
+                        "adhesiveDisease": "Enfermedad adhesiva de órganos pélvicos con infertilidad",
+                        "vaginalSeptum": "Tabique vaginal (escisión)",
+                        "polyps": "Pólipos"
+                    }
+                },
+                "emergencySurgeries": {
+                    "title": "Cirugías de emergencia",
+                    "items": {
+                        "ovarianCyst": "Quiste ovárico",
+                        "uterinePerforation": "Perforación uterina",
+                        "pyosalpinx": "Piosalpinx",
+                        "tuboOvarianAbscess": "Absceso tubo-ovárico",
+                        "ectopicPregnancy": "Embarazo ectópico"
+                    }
+                }
+            }
+        },
+        "cancer": {
+            "title": "Cáncer",
+            "items": {
+                "oncologicalSurgeries": "Cirugías oncológicas",
+                "endometrialCancer": "Cáncer endometrial",
+                "cervicalCancer": "Cáncer cervical",
+                "uterineSarcoma": "Sarcoma uterino",
+                "fallopianTubeCancer": "Cáncer de trompa de Falopio",
+                "vaginalCancer": "Cáncer vaginal",
+                "vulvarCancer": "Cáncer vulvar",
+                "choriocarcinoma": "Coriocarcinoma",
+                "metastaticTumors": "Tumores metastásicos",
+                "molarPregnancy": "Embarazo molar"
+            }
+        },
+        "surgery": {
+            "title": "Cirugía",
+            "subsections": {
+                "importantSurgeries": {
+                    "title": "Cirugías importantes",
+                    "items": {
+                        "gynecologicalSurgery": "Cirugía ginecológica",
+                        "laparoscopicOvarianCystectomy": "Cistectomía ovárica laparoscópica",
+                        "hysteroscopyPolypRemoval": "Histeroscopia con extracción de pólipo endometrial",
+                        "laparoscopicMyomectomy": "Miomectomía laparoscópica",
+                        "hysteroscopicResection": "Resección histeroscópica de mioma submucoso",
+                        "laparoscopicSalpingectomy": "Salpingectomía laparoscópica para embarazo ectópico",
+                        "laparoscopicAdhesiolysis": "Adhesiolisis laparoscópica",
+                        "diagnosticLaparoscopy": "Laparoscopia diagnóstica",
+                        "vacuumAspiration": "Aspiración al vacío de la cavidad uterina",
+                        "medicalTermination": "Interrupción médica del embarazo",
+                        "cervicalConization": "Conización cervical"
+                    }
+                },
+                "complexSurgeries": {
+                    "title": "Cirugías complejas",
+                    "items": {
+                        "hysterectomy": "Histerectomía",
+                        "ovarianResectionPCOS": "Resección ovárica para SOP",
+                        "laparoscopicEndometriosis": "Escisión laparoscópica de focos de endometriosis",
+                        "sacrocolpopexy": "Sacrocolpopexia",
+                        "colporrhaphy": "Colporrafia anterior/posterior",
+                        "tvtOProcedure": "Procedimiento TVT-O",
+                        "cervicalLaserVaporization": "Vaporización láser cervical"
+                    }
+                },
+                "specializedSurgeries": {
+                    "title": "Cirugías especializadas",
+                    "items": {
+                        "radicalHysterectomy": "Histerectomía radical",
+                        "lymphadenectomy": "Linfadenectomía",
+                        "endometrioticCysts": "Extracción de quistes endometriósicos grandes (>5 cm)",
+                        "vaginalScarStrictures": "Escisión de estenosis cicatriciales vaginales",
+                        "radicalVulvectomy": "Vulvectomía radical"
+                    }
+                },
+                "plasticSurgery": {
+                    "title": "Cirugía plástica",
+                    "items": {
+                        "plasticSurgery": "Cirugía plástica",
+                        "labiaplasty": "Labiaplastia (cirugía de los labios menores)",
+                        "hymenoplasty": "Himenoplastia (restauración del himen)"
+                    }
+                }
+            }
+        },
+        "media": {
+            "title": "Medios",
+            "items": {
+                "clinicBlog": "Blog de la clínica",
+                "news": "Noticias",
+                "expertArticles": "Artículos de expertos",
+                "successStories": "Historias de éxito",
+                "reviewsTestimonials": "Reseñas y testimonios",
+                "faq": "Preguntas frecuentes"
+            }
+        },
+        "legal": {
+            "title": "Páginas legales",
+            "items": {
+                "privacyPolicy": "Política de privacidad",
+                "accessibilityStatement": "Declaración de accesibilidad"
+            }
+        }
+    }
+}

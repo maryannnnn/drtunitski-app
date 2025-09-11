@@ -1,0 +1,27 @@
+{
+    "title": "Privacy Policy",
+    "description": "Our privacy policy and data protection practices",
+    "lastUpdated": "Last updated: December 2024",
+    "sections": {
+        "introduction": {
+            "title": "Introduction",
+            "content": "This Privacy Policy describes how Dr. Serge Tunitski's medical practice collects, uses, and protects your personal information when you visit our website or use our services. We are committed to protecting your privacy and ensuring the security of your personal data."
+        },
+        "dataCollection": {
+            "title": "Information We Collect",
+            "content": "We collect information you provide directly to us, such as when you request an appointment, contact us, or subscribe to our newsletter. This may include your name, email address, phone number, medical information, and any other information you choose to provide."
+        },
+        "dataUsage": {
+            "title": "How We Use Your Information",
+            "content": "We use the information we collect to provide medical services, schedule appointments, communicate with you about your care, send you important updates about our services, and improve our website and services. We do not sell or share your personal information with third parties without your consent."
+        },
+        "dataProtection": {
+            "title": "Data Protection",
+            "content": "We implement appropriate security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. Your medical information is protected in accordance with applicable medical privacy laws and regulations."
+        },
+        "contact": {
+            "title": "Contact Us",
+            "content": "If you have any questions about this Privacy Policy or our data practices, please contact us at our clinic address or through our website contact form."
+        }
+    }
+}

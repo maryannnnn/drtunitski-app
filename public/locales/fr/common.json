@@ -2,8 +2,96 @@
   "navigation": {
     "home": "Accueil",
     "about": "À propos",
-    "services": "Services",
-    "contact": "Contact"
+    "gynecology": "Gynécologie",
+    "cancer": "Cancer",
+    "surgery": "Chirurgie",
+    "stories": "Histoires de succès",
+    "media": "Médias",
+    "contact": "Contact",
+    "aboutItems": {
+      "drSergeTunitski": "Dr. Serge Tunitski",
+      "clinicTeam": "Clinique et notre équipe",
+      "requestAppointment": "Demander un rendez-vous",
+      "preparation": "Préparation",
+      "pricesPayment": "Prix et paiement",
+      "medicalTourism": "Tourisme médical",
+      "reviewsTestimonials": "Avis et témoignages"
+    },
+    "gynecologyItems": {
+      "plannedSurgeries": "Chirurgies planifiées",
+      "moderateRiskSurgeries": "Chirurgies à risque modéré",
+      "emergencySurgeries": "Chirurgies d'urgence",
+      "gynecologicalDiseases": "Maladies gynécologiques",
+      "uterineFibroids": "Fibromes utérins",
+      "endometriosis": "Endométriose",
+      "ovarianDiseases": "Maladies ovariennes",
+      "rectoceleCystocele": "Rectocèle et cystocèle grade III",
+      "cinIII": "CIN III (dysplasie cervicale sévère)",
+      "uterineProlapse": "Prolapsus utérin complet",
+      "genitalProlapse": "Prolapsus génital (formes sévères)",
+      "chronicHydrosalpinx": "Hydrosalpinx chronique dans l'infertilité",
+      "adhesiveDisease": "Maladie adhésive des organes pelviens avec infertilité",
+      "vaginalSeptum": "Septum vaginal (excision)",
+      "polyps": "Polypes",
+      "ovarianCyst": "Kyste ovarien",
+      "uterinePerforation": "Perforation utérine",
+      "pyosalpinx": "Pyosalpinx",
+      "tuboOvarianAbscess": "Abcès tubo-ovarien",
+      "ectopicPregnancy": "Grossesse extra-utérine"
+    },
+    "cancerItems": {
+      "oncologicalSurgeries": "Chirurgies oncologiques",
+      "ovarianCancer": "Cancer de l'ovaire",
+      "endometrialCancer": "Cancer de l'endomètre",
+      "cervicalCancer": "Cancer du col de l'utérus",
+      "uterineSarcoma": "Sarcome utérin",
+      "fallopianTubeCancer": "Cancer de la trompe de Fallope",
+      "vaginalCancer": "Cancer du vagin",
+      "vulvarCancer": "Cancer de la vulve",
+      "choriocarcinoma": "Choriocarcinome",
+      "metastaticTumors": "Tumeurs métastatiques",
+      "molarPregnancy": "Grossesse molaire"
+    },
+    "surgeryItems": {
+      "importantSurgeries": "Chirurgies importantes",
+      "complexSurgeries": "Chirurgies complexes",
+      "specializedSurgeries": "Chirurgies spécialisées",
+      "plasticSurgery": "Chirurgie plastique",
+      "gynecologicalSurgery": "Chirurgie gynécologique",
+      "laparoscopicOvarianCystectomy": "Kystectomie ovarienne laparoscopique",
+      "hysteroscopyPolypRemoval": "Hystéroscopie avec ablation de polype endométrial",
+      "laparoscopicMyomectomy": "Myomectomie laparoscopique",
+      "hysteroscopicResection": "Résection hystéroscopique de myome sous-muqueux",
+      "laparoscopicSalpingectomy": "Salpingectomie laparoscopique pour grossesse extra-utérine",
+      "laparoscopicAdhesiolysis": "Adhésiolyse laparoscopique",
+      "diagnosticLaparoscopy": "Laparoscopie diagnostique",
+      "vacuumAspiration": "Aspiration sous vide de la cavité utérine",
+      "medicalTermination": "Interruption médicale de grossesse",
+      "cervicalConization": "Conisation cervicale",
+      "hysterectomy": "Hystérectomie",
+      "ovarianResectionPcos": "Résection ovarienne pour SOPK",
+      "laparoscopicEndometriosis": "Excision laparoscopique des foyers d'endométriose",
+      "sacrocolpopexy": "Sacrocolpopexie",
+      "colporrhaphy": "Colporraphie antérieure/postérieure",
+      "tvtOProcedure": "Procédure TVT-O",
+      "cervicalLaserVaporization": "Vaporisation laser cervicale",
+      "radicalHysterectomy": "Hystérectomie radicale",
+      "lymphadenectomy": "Lymphadénectomie",
+      "endometrioticCysts": "Ablation de gros kystes endométriosiques (>5 cm)",
+      "vaginalScarStrictures": "Excision des sténoses cicatricielles vaginales",
+      "radicalVulvectomy": "Vulvectomie radicale",
+      "plasticSurgeryGeneral": "Chirurgie plastique",
+      "labiaplastySurgery": "Labioplastie (chirurgie des petites lèvres)",
+      "hymenoplastyRestoration": "Hyménoplastie (restauration de l'hymen)"
+    },
+    "mediaItems": {
+      "clinicBlog": "Blog de la clinique",
+      "news": "Actualités",
+      "expertArticles": "Articles d'experts",
+      "successStories": "Histoires de succès",
+      "reviewsTestimonials": "Avis et témoignages",
+      "faq": "FAQ"
+    }
   },
   "buttons": {
     "readMore": "Lire la suite",
@@ -56,5 +144,13 @@
       "testimonial": "Avis",
       "bonus": "Promotions"
     }
+  },
+  "footer": {
+    "copyright": "Droits d'auteur",
+    "allRightsReserved": "Tous droits réservés",
+    "privacyPolicy": "Politique de confidentialité",
+    "accessibilityStatement": "Déclaration d'accessibilité",
+    "sitemap": "Plan du site",
+    "designBy": "Design et promotion par"
   }
 }
