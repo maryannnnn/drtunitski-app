@@ -152,5 +152,12 @@
     "accessibilityStatement": "Accessibility Statement",
     "sitemap": "Sitemap",
     "designBy": "Design and Promotion by"
+  },
+  "error": {
+    "title": "Something went wrong",
+    "description": "We apologize for the inconvenience. The page you are looking for is temporarily unavailable.",
+    "details": "Error details:",
+    "retry": "Try Again",
+    "goHome": "Go Home"
   }
 }

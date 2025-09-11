@@ -157,36 +157,56 @@ const SalonPage = ({initialData}) => {
 };
 
 export async function getStaticPaths({ locales }) {
-    const {data} = await apolloClient.query({
-        query: GET_SALON_ALL,
-    });
+    try {
+        const {data} = await apolloClient.query({
+            query: GET_SALON_ALL,
+        });
 
-    console.log("Fetched salons data: ", data);
+        console.log("Fetched salons data: ", data);
 
-    const paths = data.salons.edges.map(item => ({
-        params: {slug: item.node.slug},
-    }));
+        const paths = data.salons.edges.map(item => ({
+            params: {slug: item.node.slug},
+        }));
 
-    console.log("Generated paths: ", paths);
+        console.log("Generated paths: ", paths);
 
-    return {paths, fallback: true};
+        return {paths, fallback: true};
+    } catch (error) {
+        console.error("Error fetching salons for static paths:", error);
+        return {
+            paths: [],
+            fallback: true
+        };
+    }
 }
 
 export async function getStaticProps({params, locale}) {
-    const {data} = await apolloClient.query({
-        query: GET_SALON_BY_SLUG,
-        variables: {slug: params.slug},
-    });
+    try {
+        const {data} = await apolloClient.query({
+            query: GET_SALON_BY_SLUG,
+            variables: {slug: params.slug},
+        });
 
-    return {
-        props: {
-            initialData: data,
-            ...(await import('next-i18next/serverSideTranslations').then(({ serverSideTranslations }) => 
-                serverSideTranslations(locale, ['common'])
-            )),
-        },
-        revalidate: 2592000, // Revalidate every 30 days
-    };
+        return {
+            props: {
+                initialData: data,
+                ...(await import('next-i18next/serverSideTranslations').then(({ serverSideTranslations }) => 
+                    serverSideTranslations(locale, ['common'])
+                )),
+            },
+            revalidate: 2592000, // Revalidate every 30 days
+        };
+    } catch (error) {
+        console.error("Error fetching salon:", error);
+        return {
+            props: {
+                initialData: { salonBy: null },
+                ...(await import('next-i18next/serverSideTranslations').then(({ serverSideTranslations }) => 
+                    serverSideTranslations(locale, ['common'])
+                )),
+            },
+        };
+    }
 }
 
 

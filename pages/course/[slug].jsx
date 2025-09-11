@@ -193,36 +193,56 @@ const CoursePage = ({initialData}) => {
 };
 
 export async function getStaticPaths({ locales }) {
-    const {data} = await apolloClient.query({
-        query: GET_COURSE_ALL,
-    });
+    try {
+        const {data} = await apolloClient.query({
+            query: GET_COURSE_ALL,
+        });
 
-    console.log("Fetched courses data: ", data);
+        console.log("Fetched courses data: ", data);
 
-    const paths = data.courses.edges.map(item => ({
-        params: {slug: item.node.slug},
-    }));
+        const paths = data.courses.edges.map(item => ({
+            params: {slug: item.node.slug},
+        }));
 
-    console.log("Generated paths: ", paths);
+        console.log("Generated paths: ", paths);
 
-    return {paths, fallback: true};
+        return {paths, fallback: true};
+    } catch (error) {
+        console.error("Error fetching courses for static paths:", error);
+        return {
+            paths: [],
+            fallback: true
+        };
+    }
 }
 
 export async function getStaticProps({params, locale}) {
-    const {data} = await apolloClient.query({
-        query: GET_COURSE_BY_SLUG,
-        variables: {slug: params.slug},
-    });
+    try {
+        const {data} = await apolloClient.query({
+            query: GET_COURSE_BY_SLUG,
+            variables: {slug: params.slug},
+        });
 
-    return {
-        props: {
-            initialData: data,
-            ...(await import('next-i18next/serverSideTranslations').then(({ serverSideTranslations }) => 
-                serverSideTranslations(locale, ['common'])
-            )),
-        },
-        //revalidate: 2592000, // Revalidate every 30 days
-    };
+        return {
+            props: {
+                initialData: data,
+                ...(await import('next-i18next/serverSideTranslations').then(({ serverSideTranslations }) => 
+                    serverSideTranslations(locale, ['common'])
+                )),
+            },
+            //revalidate: 2592000, // Revalidate every 30 days
+        };
+    } catch (error) {
+        console.error("Error fetching course:", error);
+        return {
+            props: {
+                initialData: { courseBy: null },
+                ...(await import('next-i18next/serverSideTranslations').then(({ serverSideTranslations }) => 
+                    serverSideTranslations(locale, ['common'])
+                )),
+            },
+        };
+    }
 }
 
 export default CoursePage;

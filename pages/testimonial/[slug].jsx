@@ -195,45 +195,65 @@ const TestimonialPage = ({initialData}) => {
 };
 
 export async function getStaticPaths({ locales }) {
-    const {data} = await apolloClient.query({
-        query: GET_TESTIMONIAL_ALL,
-    });
+    try {
+        const {data} = await apolloClient.query({
+            query: GET_TESTIMONIAL_ALL,
+        });
 
-    console.log("Fetched testimonials data: ", data);
+        console.log("Fetched testimonials data: ", data);
 
-    const paths = [];
-    
-    // Generate paths for each locale
-    locales.forEach(locale => {
-        const filteredTestimonials = filterByLanguage(data.testimonials.edges, locale);
-        filteredTestimonials.forEach(item => {
-            paths.push({
-                params: { slug: item.node.slug },
-                locale: locale
+        const paths = [];
+        
+        // Generate paths for each locale
+        locales.forEach(locale => {
+            const filteredTestimonials = filterByLanguage(data.testimonials.edges, locale);
+            filteredTestimonials.forEach(item => {
+                paths.push({
+                    params: { slug: item.node.slug },
+                    locale: locale
+                });
             });
         });
-    });
 
-    console.log("Generated paths: ", paths);
+        console.log("Generated paths: ", paths);
 
-    return {paths, fallback: true};
+        return {paths, fallback: true};
+    } catch (error) {
+        console.error("Error fetching testimonials for static paths:", error);
+        return {
+            paths: [],
+            fallback: true
+        };
+    }
 }
 
 export async function getStaticProps({params, locale}) {
-    const {data} = await apolloClient.query({
-        query: GET_TESTIMONIAL_BY_SLUG,
-        variables: {slug: params.slug},
-    });
+    try {
+        const {data} = await apolloClient.query({
+            query: GET_TESTIMONIAL_BY_SLUG,
+            variables: {slug: params.slug},
+        });
 
-    return {
-        props: {
-            initialData: data,
-            ...(await import('next-i18next/serverSideTranslations').then(({ serverSideTranslations }) =>
-                serverSideTranslations(locale, ['common'])
-            )),
-        },
-        //revalidate: 2592000, // Revalidate every 30 days
-    };
+        return {
+            props: {
+                initialData: data,
+                ...(await import('next-i18next/serverSideTranslations').then(({ serverSideTranslations }) =>
+                    serverSideTranslations(locale, ['common'])
+                )),
+            },
+            //revalidate: 2592000, // Revalidate every 30 days
+        };
+    } catch (error) {
+        console.error("Error fetching testimonial:", error);
+        return {
+            props: {
+                initialData: { testimonialBy: null },
+                ...(await import('next-i18next/serverSideTranslations').then(({ serverSideTranslations }) =>
+                    serverSideTranslations(locale, ['common'])
+                )),
+            },
+        };
+    }
 }
 
 export default TestimonialPage;

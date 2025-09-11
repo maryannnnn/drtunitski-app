@@ -193,45 +193,65 @@ const MassagePage = ({initialData}) => {
 };
 
 export async function getStaticPaths({ locales }) {
-    const {data} = await apolloClient.query({
-        query: GET_MASSAGE_ALL,
-    });
+    try {
+        const {data} = await apolloClient.query({
+            query: GET_MASSAGE_ALL,
+        });
 
-    console.log("Fetched massages data: ", data);
+        console.log("Fetched massages data: ", data);
 
-    const paths = [];
-    
-    // Generate paths for each locale
-    locales.forEach(locale => {
-        const filteredItems = filterByLanguage(data.massages.edges, locale);
-        filteredItems.forEach(item => {
-            paths.push({
-                params: { slug: item.node.slug },
-                locale: locale
+        const paths = [];
+        
+        // Generate paths for each locale
+        locales.forEach(locale => {
+            const filteredItems = filterByLanguage(data.massages.edges, locale);
+            filteredItems.forEach(item => {
+                paths.push({
+                    params: { slug: item.node.slug },
+                    locale: locale
+                });
             });
         });
-    });
 
-    console.log("Generated paths: ", paths);
+        console.log("Generated paths: ", paths);
 
-    return {paths, fallback: true};
+        return {paths, fallback: true};
+    } catch (error) {
+        console.error("Error fetching massages for static paths:", error);
+        return {
+            paths: [],
+            fallback: true
+        };
+    }
 }
 
 export async function getStaticProps({params, locale}) {
-    const {data} = await apolloClient.query({
-        query: GET_MASSAGE_BY_SLUG,
-        variables: {slug: params.slug},
-    });
+    try {
+        const {data} = await apolloClient.query({
+            query: GET_MASSAGE_BY_SLUG,
+            variables: {slug: params.slug},
+        });
 
-    return {
-        props: {
-            initialData: data,
-            ...(await import('next-i18next/serverSideTranslations').then(({ serverSideTranslations }) => 
-                serverSideTranslations(locale, ['common'])
-            )),
-        },
-        revalidate: 2592000, // Revalidate every 30 days
-    };
+        return {
+            props: {
+                initialData: data,
+                ...(await import('next-i18next/serverSideTranslations').then(({ serverSideTranslations }) => 
+                    serverSideTranslations(locale, ['common'])
+                )),
+            },
+            revalidate: 2592000, // Revalidate every 30 days
+        };
+    } catch (error) {
+        console.error("Error fetching massage:", error);
+        return {
+            props: {
+                initialData: { massageBy: null },
+                ...(await import('next-i18next/serverSideTranslations').then(({ serverSideTranslations }) => 
+                    serverSideTranslations(locale, ['common'])
+                )),
+            },
+        };
+    }
 }
 
 export default MassagePage;
