@@ -140,8 +140,8 @@
       "salon": "Salon",
       "massage": "Massage",
       "course": "Courses",
-      "blog": "Blog",
-      "testimonial": "Reviews",
+      "media": "Media",
+      "stories": "Stories",
       "bonus": "Promotions"
     }
   },
@@ -159,5 +159,8 @@
     "details": "Error details:",
     "retry": "Try Again",
     "goHome": "Go Home"
+  },
+  "trustCareBanner": {
+    "title": "Trust and care — your source of peace and health"
   }
 }

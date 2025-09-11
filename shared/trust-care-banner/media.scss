@@ -1,0 +1,71 @@
+@import '../../app/scss/media';
+
+// Trust Care Banner Media Queries
+@media screen and (max-width: 767px) {
+    .trust-care-banner {
+        padding: 40px 0;
+
+        &__content {
+            flex-direction: column;
+            gap: 40px;
+            text-align: center;
+        }
+
+        &__left {
+            order: 2;
+        }
+
+        &__right {
+            order: 1;
+        }
+
+        &__logo {
+            justify-content: center;
+            
+            img {
+                max-width: 300px;
+            }
+        }
+
+        &__title {
+            max-width: 100%;
+            text-align: center;
+        }
+
+        &__associations {
+            grid-template-columns: repeat(2, 1fr);
+            max-width: 100%;
+            justify-content: center;
+        }
+
+        &__doctor-image {
+            max-width: 300px;
+            margin: 0 auto;
+        }
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1218px) {
+    .trust-care-banner {
+        &__content {
+            gap: 40px;
+        }
+
+        &__associations {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}
+
+// RTL Support for mobile
+[dir="rtl"] .trust-care-banner {
+    @media screen and (max-width: 767px) {
+        &__logo {
+            justify-content: center;
+        }
+
+        &__title {
+            text-align: center;
+        }
+    }
+}

@@ -140,8 +140,8 @@
       "salon": "סלון",
       "massage": "עיסוי",
       "course": "קורסים",
-      "blog": "בלוג",
-      "testimonial": "ביקורות",
+      "media": "מדיה",
+      "stories": "סיפורים",
       "bonus": "מבצעים"
     }
   },
@@ -152,5 +152,8 @@
     "accessibilityStatement": "הצהרת נגישות",
     "sitemap": "מפת האתר",
     "designBy": "עיצוב וקידום על ידי"
+  },
+  "trustCareBanner": {
+    "title": "אמון וטיפול — מקור השלום והבריאות שלך"
   }
 }

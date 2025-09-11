@@ -17,8 +17,12 @@ const BlockSlideTestimonial = ({item}) => {
     if (!isMounted) return null;
 
 
+    // Используем uri из GraphQL, но заменяем /testimonial/ на /stories/
+    const uri = item?.node?.uri;
+    const href = uri ? uri.replace('/testimonial/', '/stories/') : '#';
+
     return (
-        <Link className="block-testimonial" href={item?.node?.uri}>
+        <Link className="block-testimonial" href={href}>
             <h3 className="block-testimonial__title">{item?.node?.title}</h3>
             <div className="block-testimonial__author">
                 <div className="block-testimonial__author-name">

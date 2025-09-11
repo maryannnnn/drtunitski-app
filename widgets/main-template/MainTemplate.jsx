@@ -19,7 +19,7 @@ const MainTemplate = ({data, number, typeContent}) => {
     const typeLinkIndex = (typeContent === contentType.bonuses ? 'bonus'
         : typeContent === contentType.massages ? 'massage'
             : typeContent === contentType.courses ? 'course'
-                : typeContent === contentType.posts ? 'blog'
+                : typeContent === contentType.posts ? 'media'
                     : '')
 
     return (

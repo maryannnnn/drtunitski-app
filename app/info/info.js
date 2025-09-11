@@ -104,14 +104,14 @@ export const getBreadcrumbType = (t) => [
         url: '/course'
     },
     {
-        id: 'blog',
-        title: t('common:info.breadcrumbs.blog'),
-        url: '/blog'
+        id: 'media',
+        title: t('common:info.breadcrumbs.media'),
+        url: '/media'
     },
     {
-        id: 'testimonial',
-        title: t('common:info.breadcrumbs.testimonial'),
-        url: '/testimonial'
+        id: 'stories',
+        title: t('common:info.breadcrumbs.stories'),
+        url: '/stories'
     },
     {
         id: 'bonus',

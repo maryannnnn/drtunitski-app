@@ -140,8 +140,8 @@
       "salon": "Salón",
       "massage": "Masaje",
       "course": "Cursos",
-      "blog": "Blog",
-      "testimonial": "Reseñas",
+      "media": "Medios",
+      "stories": "Historias",
       "bonus": "Promociones"
     }
   },
@@ -152,5 +152,8 @@
     "accessibilityStatement": "Declaración de accesibilidad",
     "sitemap": "Mapa del sitio",
     "designBy": "Diseño y promoción por"
+  },
+  "trustCareBanner": {
+    "title": "Confianza y cuidado — tu fuente de paz y salud"
   }
 }

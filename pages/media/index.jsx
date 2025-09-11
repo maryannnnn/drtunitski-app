@@ -55,7 +55,7 @@ const IndexBlog = ({initialData}) => {
                                     if (!item?.node) return null;
                                     return (
                                         <div key={item.node.slug || index} className="blog__item">
-                                            <Link href={`/blog/${item.node.slug}`}>
+                                            <Link href={`/media/${item.node.slug}`}>
                                                 <div className="blog__item-content">
                                                     <div className="blog__item-text">
                                                         <h3 className="blog__item-title">

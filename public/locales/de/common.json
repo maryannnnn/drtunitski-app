@@ -140,8 +140,8 @@
       "salon": "Salon",
       "massage": "Massage",
       "course": "Kurse",
-      "blog": "Blog",
-      "testimonial": "Bewertungen",
+      "media": "Medien",
+      "stories": "Geschichten",
       "bonus": "Aktionen"
     }
   },
@@ -152,5 +152,8 @@
     "accessibilityStatement": "Barrierefreiheitserklärung",
     "sitemap": "Sitemap",
     "designBy": "Design und Promotion von"
+  },
+  "trustCareBanner": {
+    "title": "Vertrauen und Fürsorge — Ihre Quelle des Friedens und der Gesundheit"
   }
 }
