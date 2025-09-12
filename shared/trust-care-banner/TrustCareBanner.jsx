@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { useTranslation } from 'next-i18next';
+import ButtonBrown from '../button-brown/ButtonBrown';
+import Modal from '../modal/Modal';
 import './trust-care-banner.scss';
 
 const TrustCareBanner = () => {
     const { t } = useTranslation();
+    const [isModalActive, setIsModalActive] = useState(false);
 
     const associationImages = [
         {
@@ -63,14 +66,19 @@ const TrustCareBanner = () => {
                                 </div>
                             ))}
                         </div>
+                        <div className="trust-care-banner__button">
+                            <ButtonBrown 
+                                onClick={() => setIsModalActive(true)}
+                            />
+                        </div>
                     </div>
                     <div className="trust-care-banner__right">
                         <div className="trust-care-banner__doctor-image">
                             <Image
                                 src="/images/doctor/dr_serge_tunitski_top.png"
                                 alt="Dr. Serge Tunitski"
-                                width={400}
-                                height={500}
+                                width={518}
+                                height={700}
                                 style={{ objectFit: 'cover' }}
                                 priority
                             />
@@ -78,6 +86,11 @@ const TrustCareBanner = () => {
                     </div>
                 </div>
             </div>
+            <Modal 
+                active={isModalActive} 
+                setActive={setIsModalActive}
+                title={t('common:buttons.bookAppointment')}
+            />
         </div>
     );
 };

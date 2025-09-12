@@ -4,7 +4,7 @@
 .modal {
   height: 100vh;
   width: 100vw;
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgba(0, 0, 0, 0.6);
   position: fixed;
   top: 0;
   left: 0;
@@ -13,22 +13,73 @@
   justify-content: center;
   opacity: 0;
   pointer-events: none;
+  z-index: 1000;
+  transition: opacity 0.3s ease;
+  
   &.active {
     opacity: 1;
     pointer-events: all;
   }
+  
   &__content {
-    padding: 20px;
-    border-radius: 12px;
-    border: 1px solid $dark-1;
-    background-color: $light-3;
+    padding: 40px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, $white-full 0%, $white 100%);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     height: auto;
-    width: 600px;
-    transform: scale(0);
-    &.active {
-      transform: scale(1);
-      transition: 0.4s all;
+    max-width: 500px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    transform: scale(0.7) translateY(50px);
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, $black 0%, $brown-7 50%, $black 100%);
+      border-radius: 20px 20px 0 0;
     }
+    
+    &.active {
+      transform: scale(1) translateY(0);
+    }
+  }
+  
+  &__close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: $grey-2;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    
+    &:hover {
+      color: $black;
+    }
+  }
+  
+  &__title {
+    @include title-h2;
+    color: $black;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  &__text {
+    @include body-lg;
+    color: $grey-2;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    text-align: center;
   }
 }
 

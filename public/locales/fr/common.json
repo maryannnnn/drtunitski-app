@@ -153,6 +153,15 @@
     "sitemap": "Plan du site",
     "designBy": "Design et promotion par"
   },
+  "buttons": {
+    "bookAppointment": "Prendre rendez-vous"
+  },
+  "info": {
+    "mainTitle": {
+      "title": "Docteur Sergey Tunitsky - Gynécologie moderne et traitement chirurgical",
+      "description": "Dr. Sergey Tonitsky is a specialist in women's medicine and a specialist in gynecological surgery. He has extensive experience in various gynecological surgeries, including therapeutic excisions and terminations of pregnancy. He performs surgeries in the private hospitals Herzliya Medical Center, Rafael and Assuta Ramat HaChayal. Dr. Sergey Tonitsky is a specialist in women's medicine and a specialist in gynecological surgery. He has extensive experience in various gynecological surgeries, including therapeutic excisions and terminations of pregnancy. He performs surgeries in the private hospitals Herzliya Medical Center, Rafael and Assuta Ramat HaChayal."
+    }
+  },
   "trustCareBanner": {
     "title": "Confiance et soins — votre source de paix et de santé"
   }

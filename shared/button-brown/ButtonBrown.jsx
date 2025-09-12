@@ -1,13 +1,17 @@
 import './button-brown.scss'
 import './media.scss'
-const ButtonBrown = ({type, name, onClick}) => {
+import { useTranslation } from 'next-i18next';
+
+const ButtonBrown = ({type, onClick, children}) => {
+    const { t } = useTranslation();
+    
     return (
         <button
             className="button-brown"
             type={type}
             onClick={onClick}
         >
-            {name}
+            {children || t('common:buttons.bookAppointment')}
         </button>
     )
 }

@@ -88,16 +88,16 @@ const Index = ({initialData}) => {
                 
 {/*                    {displayData.bonuses?.edges?.length > 0 && (
                         <MainBanner data={displayData}/>
-                    )}
+                    )}*/}
 
                     <MainTitle/>
 
 
-                    {displayData.salons?.edges?.length > 0 && (
+{/*                    {displayData.salons?.edges?.length > 0 && (
                         <MainCompany data={displayData}/>
-                    )}
+                    )}*/}
 
-                    {displayData.bonuses?.edges?.length > 0 && (
+{/*                    {displayData.bonuses?.edges?.length > 0 && (
                         <MainBonus data={displayData}/>
                     )}
 

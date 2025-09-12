@@ -3,16 +3,24 @@
 // Trust Care Banner Media Queries
 @media screen and (max-width: 767px) {
     .trust-care-banner {
-        padding: 40px 0;
+        padding: 40px 0 100px 0;
+        height: auto;
+        margin-bottom: 50px;
+        position: relative;
+        clear: both;
+        display: block;
+        float: none;
 
         &__content {
             flex-direction: column;
             gap: 40px;
             text-align: center;
+            height: auto;
         }
 
         &__left {
             order: 2;
+            margin-bottom: 30px;
         }
 
         &__right {
@@ -42,13 +50,28 @@
             max-width: 300px;
             margin: 0 auto;
         }
+
+        &__button {
+            justify-content: center;
+        }
+    }
+
+    // Fix for next block (MainTitle) to prevent overlap
+    .main-title {
+        margin-top: 50px !important;
+        clear: both;
+        position: relative;
+        z-index: 1;
     }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1218px) {
     .trust-care-banner {
+        height: auto;
+        
         &__content {
             gap: 40px;
+            height: auto;
         }
 
         &__associations {
@@ -60,12 +83,20 @@
 // RTL Support for mobile
 [dir="rtl"] .trust-care-banner {
     @media screen and (max-width: 767px) {
+        &__left {
+            align-items: center;
+        }
+
         &__logo {
             justify-content: center;
         }
 
         &__title {
             text-align: center;
+        }
+
+        &__button {
+            justify-content: center;
         }
     }
 }

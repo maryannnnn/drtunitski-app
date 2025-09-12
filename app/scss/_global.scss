@@ -1,4 +1,10 @@
 @import 'mixins';
+@import 'colors';
+
+// Global text color
+body, html {
+  color: $grey-1;
+}
 
 // RTL Support
 [dir="rtl"] {
