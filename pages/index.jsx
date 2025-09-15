@@ -127,19 +127,48 @@ const Index = ({initialData}) => {
 };
 
 export async function getStaticProps({ locale }) {
-    const {data} = await apolloClient.query({
-        query: GET_HOME_DATA
-    });
+    try {
+        console.log("GraphQL URL in getStaticProps:", process.env.NEXT_PUBLIC_BACKEND_API_URL);
+        
+        const {data} = await apolloClient.query({
+            query: GET_HOME_DATA
+        });
 
-    console.log("Fetched data:", data);
+        console.log("Fetched data:", data);
 
-    return {
-        props: {
-            initialData: data,
-            ...(await serverSideTranslations(locale, ['common'])),
-        },
-       // revalidate: 2592000, // Revalidate every 30 days
-    };
+        return {
+            props: {
+                initialData: data,
+                ...(await serverSideTranslations(locale, ['common'])),
+            },
+           // revalidate: 2592000, // Revalidate every 30 days
+        };
+    } catch (error) {
+        console.error("Error fetching home data:", error);
+        console.error("Error details:", error.message);
+        console.error("Error network:", error.networkError);
+        
+        // Return fallback data when GraphQL is unavailable
+        return {
+            props: {
+                initialData: { 
+                    category1: null,
+                    category2: null,
+                    category3: null,
+                    category4: null,
+                    category5: null,
+                    salon: null,
+                    salons: { edges: [] },
+                    bonuses: { edges: [] },
+                    massages: { edges: [] },
+                    courses: { edges: [] },
+                    testimonials: { edges: [] },
+                    posts: { edges: [] }
+                },
+                ...(await serverSideTranslations(locale, ['common'])),
+            },
+        };
+    }
 }
 
 export default Index;

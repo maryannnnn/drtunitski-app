@@ -156,16 +156,29 @@ const IndexBonus = ({initialData}) => {
 };
 
 export async function getStaticProps() {
-    const {data} = await apolloClient.query({
-        query: GET_BONUS_ALL
-    });
+    try {
+        const {data} = await apolloClient.query({
+            query: GET_BONUS_ALL
+        });
 
-    return {
-        props: {
-            initialData: data
-        },
-        revalidate: 2592000, // Revalidate every 30 days
-    };
+        return {
+            props: {
+                initialData: data
+            },
+            revalidate: 2592000, // Revalidate every 30 days
+        };
+    } catch (error) {
+        console.error("Error fetching bonus data:", error);
+        return {
+            props: {
+                initialData: { 
+                    bonus: null,
+                    bonuses: { edges: [] }
+                }
+            },
+            revalidate: 60, // Retry in 1 minute
+        };
+    }
 }
 
 

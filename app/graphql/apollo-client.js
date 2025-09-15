@@ -5,7 +5,7 @@ import { setContext } from '@apollo/client/link/context';
 const httpLink = createHttpLink({
     uri: process.env.NEXT_PUBLIC_BACKEND_API_URL,
     fetchOptions: {
-        timeout: 5000, // 5 секунд timeout
+        timeout: 15000, // 15 секунд timeout для Vercel build
     },
 });
 

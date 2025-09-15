@@ -155,16 +155,29 @@ const IndexSalon = ({initialData}) => {
 };
 
 export async function getStaticProps() {
-    const {data} = await apolloClient.query({
-        query: GET_SALON_ALL
-    });
+    try {
+        const {data} = await apolloClient.query({
+            query: GET_SALON_ALL
+        });
 
-    return {
-        props: {
-            initialData: data
-        },
-        revalidate: 2592000, // Revalidate every 30 days
-    };
+        return {
+            props: {
+                initialData: data
+            },
+            revalidate: 2592000, // Revalidate every 30 days
+        };
+    } catch (error) {
+        console.error("Error fetching salon data:", error);
+        return {
+            props: {
+                initialData: { 
+                    salon: null,
+                    salons: { edges: [] }
+                }
+            },
+            revalidate: 60, // Retry in 1 minute
+        };
+    }
 }
 
 export default IndexSalon;
