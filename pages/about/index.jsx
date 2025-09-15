@@ -83,8 +83,8 @@ const IndexAbout = ({initialData}) => {
                                 </div>
                             )}
                             <div className="block-abouts">
-                                {abouts?.filter(el => el.node?.id !== about.id)
-                                    .sort((a, b) => a.node?.menuOrder - b.node?.menuOrder)
+                                {abouts?.filter(el => el?.node?.id && about?.id && el.node.id !== about.id)
+                                    .sort((a, b) => (a?.node?.menuOrder || 0) - (b?.node?.menuOrder || 0))
                                     .map(item => (
                                         <div key={item?.node?.id}>
                                             <BlockItemAbouts item={item}/>

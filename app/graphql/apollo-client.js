@@ -44,7 +44,15 @@ const apolloClient = new ApolloClient({
                 }
             }
         }
-    })
+    }),
+    defaultOptions: {
+        watchQuery: {
+            errorPolicy: 'ignore',
+        },
+        query: {
+            errorPolicy: 'ignore',
+        },
+    }
 });
 
 export default apolloClient;

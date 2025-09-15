@@ -5,9 +5,19 @@ import { useRouter } from 'next/router';
 import './main-gynecology.scss';
 
 const MainGynecology = () => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('common');
     const router = useRouter();
     const { locale } = router;
+
+    // Fallback function if translation is not available
+    const safeT = (key) => {
+        try {
+            return t(key) || key;
+        } catch (error) {
+            console.warn('Translation error:', error);
+            return key;
+        }
+    };
 
     const getLocalizedUrl = (url) => {
         return locale === 'en' ? url : `/${locale}${url}`;
@@ -15,44 +25,44 @@ const MainGynecology = () => {
 
     const gynecologyItems = [
         {
-            title: t('common:gynecology.gynecologicalDiseases.title'),
+            title: safeT('gynecology.gynecologicalDiseases.title'),
             url: getLocalizedUrl('/gynecology'),
-            description: t('common:gynecology.gynecologicalDiseases.description')
+            description: safeT('gynecology.gynecologicalDiseases.description')
         },
         {
-            title: t('common:gynecology.gynecologicalSurgery.title'),
+            title: safeT('gynecology.gynecologicalSurgery.title'),
             url: getLocalizedUrl('/surgery'),
-            description: t('common:gynecology.gynecologicalSurgery.description')
+            description: safeT('gynecology.gynecologicalSurgery.description')
         },
         {
-            title: t('common:gynecology.oncologicalSurgeries.title'),
+            title: safeT('gynecology.oncologicalSurgeries.title'),
             url: getLocalizedUrl('/surgery/cancer'),
-            description: t('common:gynecology.oncologicalSurgeries.description')
+            description: safeT('gynecology.oncologicalSurgeries.description')
         },
         {
-            title: t('common:gynecology.plasticSurgery.title'),
+            title: safeT('gynecology.plasticSurgery.title'),
             url: getLocalizedUrl('/surgery/plastic-surgery'),
-            description: t('common:gynecology.plasticSurgery.description')
+            description: safeT('gynecology.plasticSurgery.description')
         },
         {
-            title: t('common:gynecology.uterineFibroids.title'),
+            title: safeT('gynecology.uterineFibroids.title'),
             url: getLocalizedUrl('/gynecology/uterine-fibroids'),
-            description: t('common:gynecology.uterineFibroids.description')
+            description: safeT('gynecology.uterineFibroids.description')
         },
         {
-            title: t('common:gynecology.endometriosis.title'),
+            title: safeT('gynecology.endometriosis.title'),
             url: getLocalizedUrl('/gynecology/endometriosis'),
-            description: t('common:gynecology.endometriosis.description')
+            description: safeT('gynecology.endometriosis.description')
         },
         {
-            title: t('common:gynecology.ovarianDiseases.title'),
+            title: safeT('gynecology.ovarianDiseases.title'),
             url: getLocalizedUrl('/gynecology/ovarian-diseases'),
-            description: t('common:gynecology.ovarianDiseases.description')
+            description: safeT('gynecology.ovarianDiseases.description')
         },
         {
-            title: t('common:gynecology.polyps.title'),
+            title: safeT('gynecology.polyps.title'),
             url: getLocalizedUrl('/gynecology/polyps'),
-            description: t('common:gynecology.polyps.description')
+            description: safeT('gynecology.polyps.description')
         }
     ];
 
@@ -61,10 +71,10 @@ const MainGynecology = () => {
             <div className="container">
                 <div className="main-gynecology__header">
                     <h2 className="main-gynecology__title">
-                        {t('common:gynecology.title')}
+                        {safeT('gynecology.title')}
                     </h2>
                     <p className="main-gynecology__description">
-                        {t('common:gynecology.description')}
+                        {safeT('gynecology.description')}
                     </p>
                 </div>
                 

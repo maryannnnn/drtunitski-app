@@ -22,4 +22,8 @@ module.exports = {
   react: {
     useSuspense: false,
   },
+  // Server-side rendering
+  serverLanguageDetection: false,
+  // Disable strict mode for build
+  strictMode: false,
 };
