@@ -6,12 +6,12 @@ import Link from "next/link";
 import LeftLayout from "../../app/layouts/LeftLayout";
 import {useQuery} from "@apollo/client";
 import apolloClient from '../../app/graphql/apollo-client';
-import {GET_SALON_ALL} from "../../entities/salon/actions/salonActions";
+import {GET_ABOUT_ALL} from "../../entities/about/actions/aboutActions";
 import Stack from "@mui/material/Stack";
 import Alert from "@mui/material/Alert";
 import Image from "next/image";
 import {cleanHtml, cleanHtmlFull, trimTextFullCleanedHTML} from "../../shared/utils/utils-content";
-import BlockItemSalons from "../../shared/block-item-salons/BlockItemSalons";
+import BlockItemAbouts from "../../shared/block-item-abouts/BlockItemAbouts";
 
 import lgZoom from "lightgallery/plugins/zoom";
 import lgShare from "lightgallery/plugins/share";
@@ -23,25 +23,25 @@ import "lightgallery/css/lightgallery.css";
 import "lightgallery/css/lg-zoom.css";
 import "lightgallery/css/lg-share.css";
 
-const IndexSalon = ({initialData}) => {
-    const {loading, error, data} = useQuery(GET_SALON_ALL, {
+const IndexAbout = ({initialData}) => {
+    const {loading, error, data} = useQuery(GET_ABOUT_ALL, {
         fetchPolicy: "cache-first",
         nextFetchPolicy: "cache-and-network",
     });
 
-    const salon = data?.salon || initialData?.salon;
-    const salons = data?.salons?.edges || initialData?.salons?.edges;
+    const about = data?.about || initialData?.about;
+    const abouts = data?.abouts?.edges || initialData?.abouts?.edges;
 
     const PageProps = {
-        title: salon?.seo?.title || 'Компания',
-        description: salon?.seo?.metaDesc || 'Компания'
+        title: about?.seo?.title || 'Компания',
+        description: about?.seo?.metaDesc || 'Компания'
     };
 
     return (
         <LeftLayout title={PageProps.title} description={PageProps.description}>
-            <div className="salon">
+            <div className="about">
                 <div className="container">
-                    {loading && !salon ? (
+                    {loading && !about ? (
                         <div>...</div>
                     ) : error ? (
                         <Stack sx={{width: '100%'}} spacing={2}>
@@ -53,21 +53,21 @@ const IndexSalon = ({initialData}) => {
                         </Stack>
                     ) : (
                         <>
-                            {salon?.AcfSalon?.descriptionAnons && (
-                                <div className="salon-block-top">
-                                    <h1 className="salon__title">{cleanHtmlFull(salon?.AcfSalon?.titleLong || '')}</h1>
-                                    <div className="salon__anons">
-                                        {salon?.AcfSalon?.imageAnons && (
-                                            <div className="salon__anons-img">
+                            {about?.AcfAbout?.descriptionAnons && (
+                                <div className="about-block-top">
+                                    <h1 className="about__title">{cleanHtmlFull(about?.AcfAbout?.titleLong || '')}</h1>
+                                    <div className="about__anons">
+                                        {about?.AcfAbout?.imageAnons && (
+                                            <div className="about__anons-img">
                                                 <LightGallery
                                                     elementClassNames={'masonry-gallery-demo'}
                                                     plugins={[lgZoom, lgShare, lgHash]}
                                                     speed={500}
                                                 >
-                                                    <a href={salon?.AcfSalon?.imageAnons?.sourceUrl}>
-                                                        <Image
-                                                            src={salon?.AcfSalon?.imageAnons?.sourceUrl}
-                                                            alt={salon?.AcfSalon?.imageAnons?.altText}
+                                                <a href={about?.AcfAbout?.imageAnons?.sourceUrl}>
+                                                    <Image
+                                                        src={about?.AcfAbout?.imageAnons?.sourceUrl}
+                                                        alt={about?.AcfAbout?.imageAnons?.altText}
                                                             width={400}
                                                             height={400}
                                                             layout="intrinsic"
@@ -76,37 +76,37 @@ const IndexSalon = ({initialData}) => {
                                                 </LightGallery>
                                             </div>
                                         )}
-                                        <div className="salon__anons-text"
-                                             dangerouslySetInnerHTML={{__html: salon?.AcfSalon?.descriptionAnons || ''}}>
+                                        <div className="about__anons-text"
+                                             dangerouslySetInnerHTML={{__html: about?.AcfAbout?.descriptionAnons || ''}}>
                                         </div>
                                     </div>
                                 </div>
                             )}
-                            <div className="block-salons">
-                                {salons?.filter(el => el.node?.id !== salon.id)
+                            <div className="block-abouts">
+                                {abouts?.filter(el => el.node?.id !== about.id)
                                     .sort((a, b) => a.node?.menuOrder - b.node?.menuOrder)
                                     .map(item => (
                                         <div key={item?.node?.id}>
-                                            <BlockItemSalons item={item}/>
+                                            <BlockItemAbouts item={item}/>
                                         </div>
                                     ))}
                             </div>
-                            {salon?.content && (
+                            {about?.content && (
                                 <>
-                                    <div className="salon-block-center">
-                                        <h2 className="salon__title-main">{cleanHtmlFull(salon?.AcfSalon?.titleCenter || '')}</h2>
-                                        <div className="salon__description">
-                                            {salon?.featuredImage?.node?.sourceUrl && (
-                                                <div className="salon__description-img">
+                                    <div className="about-block-center">
+                                        <h2 className="about__title-main">{cleanHtmlFull(about?.AcfAbout?.titleCenter || '')}</h2>
+                                        <div className="about__description">
+                                            {about?.featuredImage?.node?.sourceUrl && (
+                                                <div className="about__description-img">
                                                     <LightGallery
                                                         elementClassNames={'masonry-gallery-demo'}
                                                         plugins={[lgZoom, lgShare, lgHash]}
                                                         speed={500}
                                                     >
-                                                        <a href={salon?.featuredImage?.node?.sourceUrl}>
+                                                        <a href={about?.featuredImage?.node?.sourceUrl}>
                                                             <Image
-                                                                src={salon?.featuredImage?.node?.sourceUrl || ''}
-                                                                alt={salon?.featuredImage?.node?.altText || ''}
+                                                                src={about?.featuredImage?.node?.sourceUrl || ''}
+                                                                alt={about?.featuredImage?.node?.altText || ''}
                                                                 width={400}
                                                                 height={600}
                                                                 layout="intrinsic"
@@ -115,33 +115,33 @@ const IndexSalon = ({initialData}) => {
                                                     </LightGallery>
                                                 </div>
                                             )}
-                                            <div className="salon__description-text"
-                                                 dangerouslySetInnerHTML={{__html: salon?.content || ''}}>
+                                            <div className="about__description-text"
+                                                 dangerouslySetInnerHTML={{__html: about?.content || ''}}>
                                             </div>
                                         </div>
                                     </div>
                                 </>
                             )}
-                            {salon?.AcfSalon?.video && (
-                                <div className="salon-block-video">
+                            {about?.AcfAbout?.video && (
+                                <div className="about-block-video">
                                     <h2
-                                        className="salon__title-video">{cleanHtmlFull(salon?.AcfSalon?.videoTitle || '')}</h2>
-                                    <div className="salon__video">
-                                        <div className="salon__video-content"
-                                             dangerouslySetInnerHTML={{__html: salon?.AcfSalon?.video || ''}}>
+                                        className="about__title-video">{cleanHtmlFull(about?.AcfAbout?.videoTitle || '')}</h2>
+                                    <div className="about__video">
+                                        <div className="about__video-content"
+                                             dangerouslySetInnerHTML={{__html: about?.AcfAbout?.video || ''}}>
                                         </div>
-                                        <div className="salon__video-text"
-                                             dangerouslySetInnerHTML={{__html: salon?.AcfSalon?.videoDescription || ''}}>
+                                        <div className="about__video-text"
+                                             dangerouslySetInnerHTML={{__html: about?.AcfAbout?.videoDescription || ''}}>
                                         </div>
                                     </div>
                                 </div>
                             )}
-                            {salon?.AcfSalon?.faqTitle && (
-                                <div className="salon-block-bottom">
-                                    <h2 className="salon__title-gallery">{cleanHtmlFull(salon?.AcfSalon?.faqTitle || '')}</h2>
-                                    <div className="salon__gallery">
-                                        <div className="salon__gallery-content"
-                                             dangerouslySetInnerHTML={{__html: salon?.AcfSalon?.faqContent || ''}}>
+                            {about?.AcfAbout?.faqTitle && (
+                                <div className="about-block-bottom">
+                                    <h2 className="about__title-gallery">{cleanHtmlFull(about?.AcfAbout?.faqTitle || '')}</h2>
+                                    <div className="about__gallery">
+                                        <div className="about__gallery-content"
+                                             dangerouslySetInnerHTML={{__html: about?.AcfAbout?.faqContent || ''}}>
                                         </div>
                                     </div>
                                 </div>
@@ -157,7 +157,7 @@ const IndexSalon = ({initialData}) => {
 export async function getStaticProps() {
     try {
         const {data} = await apolloClient.query({
-            query: GET_SALON_ALL
+            query: GET_ABOUT_ALL
         });
 
         return {
@@ -167,12 +167,12 @@ export async function getStaticProps() {
             revalidate: 2592000, // Revalidate every 30 days
         };
     } catch (error) {
-        console.error("Error fetching salon data:", error);
+        console.error("Error fetching about data:", error);
         return {
             props: {
                 initialData: { 
-                    salon: null,
-                    salons: { edges: [] }
+                    about: null,
+                    abouts: { edges: [] }
                 }
             },
             revalidate: 60, // Retry in 1 minute
@@ -180,4 +180,4 @@ export async function getStaticProps() {
     }
 }
 
-export default IndexSalon;
+export default IndexAbout;

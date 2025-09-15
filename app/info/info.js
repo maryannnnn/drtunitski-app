@@ -62,7 +62,7 @@ export const numberItems = {
 }
 
 export const contentType = {
-    salons: 'salons',
+    abouts: 'abouts',
     bonuses: 'bonuses',
     massages: 'massages',
     courses: 'courses',
@@ -93,9 +93,9 @@ export const getBreadcrumbType = (t) => [
         url: '/'
     },
     {
-        id: 'salon',
-        title: t('common:info.breadcrumbs.salon'),
-        url: '/salon'
+        id: 'about',
+        title: t('common:info.breadcrumbs.about'),
+        url: '/about'
     },
     {
         id: 'massage',

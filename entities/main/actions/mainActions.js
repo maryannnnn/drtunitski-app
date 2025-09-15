@@ -17,16 +17,16 @@ export const GET_HOME_DATA = gql`
     category5: category(id: "dGVybToxMzM1") {
       ...CategoryFields
     }
-    salon(id: "cG9zdDozNjk2") {
+    about(id: "cG9zdDozNjk2") {
       id
       title
       content(format: RENDERED)
-      AcfSalon {
+      AcfAbout {
             titleShort
             descriptionAnons
       }
     }
-    salons {
+    abouts {
       edges {
         node {
           id
@@ -39,7 +39,7 @@ export const GET_HOME_DATA = gql`
             name
             slug
           }
-          AcfSalon{
+          AcfAbout{
             titleLong
             titleShort
             imageAnons {

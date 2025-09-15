@@ -116,7 +116,7 @@
       "address": "st. Eli Landau 7, Herzliya, Israel"
     },
     "mainTitle": {
-      "title": "Massage Salon offers different types of massage and massage courses at excellent prices",
+      "title": "Massage About offers different types of massage and massage courses at excellent prices",
       "description": "For us, massage is about love. Massage will help improve your condition and tune your body for self-healing. Come to the Wings of Wind center, trust experienced masters who will create a unique program specifically for you, including the most effective and result-oriented procedures."
     },
     "attributes": {
@@ -143,7 +143,7 @@
     },
     "breadcrumbs": {
       "main": "Home",
-      "salon": "Salon",
+      "about": "About",
       "massage": "Massage",
       "course": "Courses",
       "media": "Media",
@@ -184,5 +184,41 @@
   },
   "trustCareBanner": {
     "title": "Trust and care — your source of peace and health"
+  },
+  "gynecology": {
+    "title": "Gynecological Surgery",
+    "description": "Dr. Sergey Tunitsky specializes in modern gynecological surgery, offering comprehensive treatment for various women's health conditions. With over 25 years of experience, he performs both routine and complex surgical procedures using minimally invasive techniques. Our approach combines advanced medical technology with personalized care to ensure optimal outcomes for every patient. We treat a wide range of gynecological conditions including fibroids, endometriosis, ovarian diseases, and various forms of cancer. Each treatment plan is carefully tailored to meet individual needs and health goals.",
+    "gynecologicalDiseases": {
+      "title": "Gynecology",
+      "description": "Comprehensive diagnosis and treatment of various gynecological conditions affecting women's reproductive health and overall well-being."
+    },
+    "gynecologicalSurgery": {
+      "title": "Surgery",
+      "description": "Advanced surgical procedures for treating gynecological conditions using modern minimally invasive techniques and equipment."
+    },
+    "oncologicalSurgeries": {
+      "title": "Oncology",
+      "description": "Specialized surgical treatment for gynecological cancers including ovarian, cervical, endometrial, and other reproductive system malignancies."
+    },
+    "plasticSurgery": {
+      "title": "Plastic Surgery",
+      "description": "Cosmetic and reconstructive surgical procedures for the female reproductive system, including labiaplasty and hymenoplasty."
+    },
+    "uterineFibroids": {
+      "title": "Uterine fibroids",
+      "description": "Treatment of benign uterine tumors including myomectomy, hysterectomy, and other surgical interventions for fibroid management."
+    },
+    "endometriosis": {
+      "title": "Endometriosis",
+      "description": "Surgical treatment of endometriosis including laparoscopic excision of endometrial implants and cyst removal procedures."
+    },
+    "ovarianDiseases": {
+      "title": "Ovarian diseases",
+      "description": "Diagnosis and surgical treatment of various ovarian conditions including cysts, tumors, and other pathological changes."
+    },
+    "polyps": {
+      "title": "Polyps",
+      "description": "Removal of endometrial and cervical polyps through hysteroscopic and other minimally invasive surgical techniques."
+    }
   }
 }

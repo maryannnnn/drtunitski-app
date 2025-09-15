@@ -9,7 +9,7 @@ import {trimText} from "../utils/utils-content";
 
 const BlockItemBonus = ({item}) => {
 
-    console.log("BlockItemSalons item: ", item)
+    console.log("BlockItemBonus item: ", item)
 
     return (
         <Link className='attributes__bonus-block' href={item?.node?.uri}>

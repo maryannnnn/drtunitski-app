@@ -4,7 +4,7 @@ import {useRouter} from 'next/router';
 import { useTranslation } from 'next-i18next';
 import { filterByLanguage } from '../../shared/utils/language-filter';
 import {useQuery} from "@apollo/client";
-import {GET_SALON_BY_SLUG, GET_SALON_ALL} from "../../entities/salon/actions/salonActions";
+import {GET_ABOUT_BY_SLUG, GET_ABOUT_ALL} from "../../entities/about/actions/aboutActions";
 import apolloClient from "../../app/graphql/apollo-client";
 import React from "react";
 import LeftLayout from "../../app/layouts/LeftLayout";
@@ -25,11 +25,11 @@ import "lightgallery/css/lightgallery.css";
 import "lightgallery/css/lg-zoom.css";
 import "lightgallery/css/lg-share.css";
 
-const SalonPage = ({initialData}) => {
+const AboutPage = ({initialData}) => {
     const router = useRouter();
     const {slug} = router.query;
 
-    const {loading, error, data} = useQuery(GET_SALON_BY_SLUG, {
+    const {loading, error, data} = useQuery(GET_ABOUT_BY_SLUG, {
         variables: {slug},
         skip: !slug,
         fetchPolicy: 'cache-and-network',
@@ -51,36 +51,36 @@ const SalonPage = ({initialData}) => {
         );
     }
 
-    const salon = data?.salonBy || initialData?.salonBy;
+    const about = data?.aboutBy || initialData?.aboutBy;
 
-    const typeMaterial = "salon"
+    const typeMaterial = "about"
 
     const PageProps = {
-        title: salon?.seo?.title || 'Компания',
-        description: salon?.seo?.metaDesc || 'Компания'
+        title: about?.seo?.title || 'Компания',
+        description: about?.seo?.metaDesc || 'Компания'
     };
 
     return (
         <LeftLayout title={PageProps.title} description={PageProps.description}>
-            <div className="salon">
+            <div className="about">
                 <div className="container">
                     <>
-                        {salon?.AcfSalon?.descriptionAnons && (
+                        {about?.AcfAbout?.descriptionAnons && (
                             <>
-                                <h1 className="salon__title">{cleanHtmlFull(salon?.AcfSalon?.titleLong || '')}</h1>
-                                <Breadcrumbs material={salon} typeMaterial={typeMaterial}/>
-                                <div className="salon__anons">
-                                    {salon?.AcfSalon?.imageAnons && (
-                                        <div className="salon__anons-img">
+                                <h1 className="about__title">{cleanHtmlFull(about?.AcfAbout?.titleLong || '')}</h1>
+                                <Breadcrumbs material={about} typeMaterial={typeMaterial}/>
+                                <div className="about__anons">
+                                    {about?.AcfAbout?.imageAnons && (
+                                        <div className="about__anons-img">
                                             <LightGallery
                                                 elementClassNames={'masonry-gallery-demo'}
                                                 plugins={[lgZoom, lgShare, lgHash]}
                                                 speed={500}
                                             >
-                                                <a href={salon?.AcfSalon?.imageAnons?.sourceUrl}>
+                                                <a href={about?.AcfAbout?.imageAnons?.sourceUrl}>
                                                     <Image
-                                                        src={salon?.AcfSalon?.imageAnons?.sourceUrl}
-                                                        alt={salon?.AcfSalon?.imageAnons?.altText || 'Image'}
+                                                        src={about?.AcfAbout?.imageAnons?.sourceUrl}
+                                                        alt={about?.AcfAbout?.imageAnons?.altText || 'Image'}
                                                         width={400}
                                                         height={400}
                                                         layout="intrinsic"
@@ -89,28 +89,28 @@ const SalonPage = ({initialData}) => {
                                             </LightGallery>
                                         </div>
                                     )}
-                                    <div className="salon__anons-text"
-                                         dangerouslySetInnerHTML={{__html: salon?.AcfSalon?.descriptionAnons || ''}}>
+                                    <div className="about__anons-text"
+                                         dangerouslySetInnerHTML={{__html: about?.AcfAbout?.descriptionAnons || ''}}>
                                     </div>
                                 </div>
                             </>
                         )}
-                        {salon?.content && (
+                        {about?.content && (
                             <>
-                                <div className="salon-block-center">
-                                    <h2 className="salon__title-main">{cleanHtmlFull(salon?.AcfSalon?.titleCenter || '')}</h2>
-                                    <div className="salon__description">
-                                        {salon?.featuredImage?.node?.sourceUrl && (
-                                            <div className="salon__description-img">
+                                <div className="about-block-center">
+                                    <h2 className="about__title-main">{cleanHtmlFull(about?.AcfAbout?.titleCenter || '')}</h2>
+                                    <div className="about__description">
+                                        {about?.featuredImage?.node?.sourceUrl && (
+                                            <div className="about__description-img">
                                                 <LightGallery
                                                     elementClassNames={'masonry-gallery-demo'}
                                                     plugins={[lgZoom, lgShare, lgHash]}
                                                     speed={500}
                                                 >
-                                                    <a href={salon?.featuredImage?.node?.sourceUrl}>
+                                                    <a href={about?.featuredImage?.node?.sourceUrl}>
                                                         <Image
-                                                            src={salon?.featuredImage?.node?.sourceUrl}
-                                                            alt={salon?.featuredImage?.node?.altText || 'Image'}
+                                                            src={about?.featuredImage?.node?.sourceUrl}
+                                                            alt={about?.featuredImage?.node?.altText || 'Image'}
                                                             width={400}
                                                             height={400}
                                                             layout="intrinsic"
@@ -119,32 +119,32 @@ const SalonPage = ({initialData}) => {
                                                 </LightGallery>
                                             </div>
                                         )}
-                                        <div className="salon__description-text"
-                                             dangerouslySetInnerHTML={{__html: salon?.content || ''}}>
+                                        <div className="about__description-text"
+                                             dangerouslySetInnerHTML={{__html: about?.content || ''}}>
                                         </div>
                                     </div>
                                 </div>
                             </>
                         )}
-                        {salon?.AcfSalon?.video && (
-                            <div className="salon-block-video">
-                                <h2 className="salon__title-video">{cleanHtmlFull(salon?.AcfSalon?.videoTitle || '')}</h2>
-                                <div className="salon__video">
-                                    <div className="salon__video-content"
-                                         dangerouslySetInnerHTML={{__html: salon?.AcfSalon?.video || ''}}>
+                        {about?.AcfAbout?.video && (
+                            <div className="about-block-video">
+                                <h2 className="about__title-video">{cleanHtmlFull(about?.AcfAbout?.videoTitle || '')}</h2>
+                                <div className="about__video">
+                                    <div className="about__video-content"
+                                         dangerouslySetInnerHTML={{__html: about?.AcfAbout?.video || ''}}>
                                     </div>
-                                    <div className="salon__video-text"
-                                         dangerouslySetInnerHTML={{__html: salon?.AcfSalon?.videoDescription || ''}}>
+                                    <div className="about__video-text"
+                                         dangerouslySetInnerHTML={{__html: about?.AcfAbout?.videoDescription || ''}}>
                                     </div>
                                 </div>
                             </div>
                         )}
-                        {salon?.AcfSalon?.faqContent && (
-                            <div className="salon-block-bottom">
-                                <h2 className="salon__title-faq">{cleanHtmlFull(salon?.AcfSalon?.faqTitle || '')}</h2>
-                                <div className="salon__faq">
-                                    <div className="salon__faq-content"
-                                         dangerouslySetInnerHTML={{__html: salon?.AcfSalon?.faqContent || ''}}>
+                        {about?.AcfAbout?.faqContent && (
+                            <div className="about-block-bottom">
+                                <h2 className="about__title-faq">{cleanHtmlFull(about?.AcfAbout?.faqTitle || '')}</h2>
+                                <div className="about__faq">
+                                    <div className="about__faq-content"
+                                         dangerouslySetInnerHTML={{__html: about?.AcfAbout?.faqContent || ''}}>
                                     </div>
                                 </div>
                             </div>
@@ -159,12 +159,12 @@ const SalonPage = ({initialData}) => {
 export async function getStaticPaths({ locales }) {
     try {
         const {data} = await apolloClient.query({
-            query: GET_SALON_ALL,
+            query: GET_ABOUT_ALL,
         });
 
-        console.log("Fetched salons data: ", data);
+        console.log("Fetched abouts data: ", data);
 
-        const paths = data.salons.edges.map(item => ({
+        const paths = data.abouts.edges.map(item => ({
             params: {slug: item.node.slug},
         }));
 
@@ -172,7 +172,7 @@ export async function getStaticPaths({ locales }) {
 
         return {paths, fallback: true};
     } catch (error) {
-        console.error("Error fetching salons for static paths:", error);
+        console.error("Error fetching abouts for static paths:", error);
         return {
             paths: [],
             fallback: true
@@ -183,7 +183,7 @@ export async function getStaticPaths({ locales }) {
 export async function getStaticProps({params, locale}) {
     try {
         const {data} = await apolloClient.query({
-            query: GET_SALON_BY_SLUG,
+            query: GET_ABOUT_BY_SLUG,
             variables: {slug: params.slug},
         });
 
@@ -197,10 +197,10 @@ export async function getStaticProps({params, locale}) {
             revalidate: 2592000, // Revalidate every 30 days
         };
     } catch (error) {
-        console.error("Error fetching salon:", error);
+        console.error("Error fetching about:", error);
         return {
             props: {
-                initialData: { salonBy: null },
+                initialData: { aboutBy: null },
                 ...(await import('next-i18next/serverSideTranslations').then(({ serverSideTranslations }) => 
                     serverSideTranslations(locale, ['common'])
                 )),
@@ -210,6 +210,6 @@ export async function getStaticProps({params, locale}) {
 }
 
 
-export default SalonPage;
+export default AboutPage;
 
 

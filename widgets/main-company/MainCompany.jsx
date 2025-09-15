@@ -17,21 +17,21 @@ const MainCompany = ({data}) => {
     const router = useRouter();
 
     const handleClick = () => {
-        router.push('/salon');
+        router.push('/about');
     };
 
     return (
         <div className='main-company'>
             <div className="container">
                 <div className="main-company__block">
-                    <h2 className="main-company__title">{data?.salon?.AcfSalon?.titleShort}</h2>
+                    <h2 className="main-company__title">{data?.about?.AcfAbout?.titleShort}</h2>
                     <div className="main-company__content">
                         <div className="main-company__content-info">
                             <div className="main-company__content-info-description">
-                                {trimTextFullCleanedHTML(data?.salon?.AcfSalon?.descriptionAnons, sizeText.l)}
+                                {trimTextFullCleanedHTML(data?.about?.AcfAbout?.descriptionAnons, sizeText.l)}
                             </div>
                             <ul className="main-company__content-info-options">
-                                {data?.salons?.edges.length > 0 && data?.salons?.edges
+                                {data?.abouts?.edges.length > 0 && data?.abouts?.edges
                                     .filter(el => el?.node?.id !== 'cG9zdDozNjk2')
                                     .map(item =>
                                         <li key={item?.node?.id}>

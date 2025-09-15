@@ -1,8 +1,8 @@
 import {gql} from '@apollo/client';
 
-export const GET_SALON_BY_SLUG = gql`
-  query GetSalonBySlug($slug: String!) {
-    salonBy(slug: $slug) {
+export const GET_ABOUT_BY_SLUG = gql`
+  query GetAboutBySlug($slug: String!) {
+    aboutBy(slug: $slug) {
       id
       language {
         code
@@ -24,7 +24,7 @@ export const GET_SALON_BY_SLUG = gql`
           metaDesc
           title
       }
-      AcfSalon {
+      AcfAbout {
         faqContent
         faqTitle
         videoTitle
@@ -43,9 +43,9 @@ export const GET_SALON_BY_SLUG = gql`
   }
 `;
 
-export const GET_SALON_ALL = gql`
-query  GetSalonAll {
-  salons {
+export const GET_ABOUT_ALL = gql`
+query  GetAboutAll {
+  abouts {
     edges {
         node {
           id
@@ -58,7 +58,7 @@ query  GetSalonAll {
             name
             slug
           }
-          AcfSalon{
+          AcfAbout{
             titleLong
             titleShort
             imageAnons {
@@ -74,7 +74,7 @@ query  GetSalonAll {
         }
     }
   }
-  salon(id: "cG9zdDozNjk2") {
+  about(id: "cG9zdDozNjk2") {
         id
         menuOrder
         title
@@ -89,20 +89,20 @@ query  GetSalonAll {
           metaDesc
           title
         }
-        AcfSalon {
-         faqContent
-         faqTitle
-         videoTitle
-         videoDescription
-         video
-         titleLong
-         titleShort
-         descriptionAnons
-         titleCenter
-         imageAnons {
+      AcfAbout {
+        faqContent
+        faqTitle
+        videoTitle
+        videoDescription
+        video
+        titleLong
+        titleShort
+        descriptionAnons
+        titleCenter
+        imageAnons {
           altText
           sourceUrl
-        }
+         }
       }
   }
 }

@@ -1,7 +1,7 @@
 @import '../../app/scss/mixins';
 @import '../../app/scss/colors';
 
-.block-item-salons__image {
+.block-item-abouts__image {
   padding-bottom: 15px;
   &-title {
     @include title-h4;
@@ -10,11 +10,11 @@
   }
 
   &:hover {
-    .block-item-salons__image-title {
+    .block-item-abouts__image-title {
       color: $brown-2;
     }
 
-    .block-item-salons__image-img {
+    .block-item-abouts__image-img {
       transform: scale(1.05);
       opacity: 0.9;
     }
@@ -61,8 +61,8 @@
   //  }
   //
   //  &:hover {
-  //    .block-item-salons__image-title,
-  //    .block-item-salons__image-short {
+  //    .block-item-abouts__image-title,
+  //    .block-item-abouts__image-short {
   //      color: $white-full;
   //    }
   //  }
@@ -84,13 +84,10 @@
   //    transition: opacity 0.3s ease;
   //  }
   //
-  //  &:hover .block-item-salons__image-overlay {
+  //  &:hover .block-item-abouts__image-overlay {
   //    opacity: 0;
   //  }
   //}
-
-
-
 
 
 

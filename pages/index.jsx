@@ -10,6 +10,7 @@ import MainCourse from "@/widgets/main-course/MainCourse";
 import MainTestimonial from "@/widgets/main-testimonial/MainTestimonial";
 import MainPost from "@/widgets/main-post/MainPost";
 import MainTitle from "@/widgets/main-title/MainTitle";
+import MainGynecology from "@/widgets/main-gynecology/MainGynecology";
 import TrustCareBanner from "@/shared/trust-care-banner/TrustCareBanner";
 import FooterAssociations from "@/shared/footer-associations/FooterAssociations";
 import {useQuery} from "@apollo/client";
@@ -44,9 +45,9 @@ const Index = ({initialData}) => {
     // Filter data by current language
     const displayData = rawData ? {
         ...rawData,
-        salons: {
-            ...rawData.salons,
-            edges: filterByLanguage(rawData.salons?.edges || [], locale)
+        abouts: {
+            ...rawData.abouts,
+            edges: filterByLanguage(rawData.abouts?.edges || [], locale)
         },
         bonuses: {
             ...rawData.bonuses,
@@ -92,6 +93,8 @@ const Index = ({initialData}) => {
                     )}*/}
 
                     <MainTitle/>
+
+                    <MainGynecology />
 
                     <FooterAssociations />
 
@@ -158,7 +161,7 @@ export async function getStaticProps({ locale }) {
                     category4: null,
                     category5: null,
                     salon: null,
-                    salons: { edges: [] },
+                    abouts: { edges: [] },
                     bonuses: { edges: [] },
                     massages: { edges: [] },
                     courses: { edges: [] },

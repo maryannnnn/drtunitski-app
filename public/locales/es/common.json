@@ -137,7 +137,7 @@
     },
     "breadcrumbs": {
       "main": "Inicio",
-      "salon": "Salón",
+      "about": "Acerca de",
       "massage": "Masaje",
       "course": "Cursos",
       "media": "Medios",
@@ -168,5 +168,41 @@
   },
   "trustCareBanner": {
     "title": "Confianza y cuidado — tu fuente de paz y salud"
+  },
+  "gynecology": {
+    "title": "Cirugía ginecológica",
+    "description": "Dr. Sergey Tunitsky se especializa en cirugía ginecológica moderna, ofreciendo tratamiento integral para diversas condiciones de salud femenina. Con más de 25 años de experiencia, realiza procedimientos quirúrgicos de rutina y complejos utilizando técnicas mínimamente invasivas. Nuestro enfoque combina tecnología médica avanzada con atención personalizada para asegurar resultados óptimos para cada paciente. Tratamos una amplia gama de condiciones ginecológicas, incluyendo fibromas, endometriosis, enfermedades ováricas y diversas formas de cáncer. Cada plan de tratamiento se adapta cuidadosamente para satisfacer las necesidades individuales y objetivos de salud.",
+    "gynecologicalDiseases": {
+      "title": "Ginecología",
+      "description": "Diagnóstico y tratamiento integral de diversas condiciones ginecológicas que afectan la salud reproductiva y el bienestar general de las mujeres."
+    },
+    "gynecologicalSurgery": {
+      "title": "Cirugía",
+      "description": "Procedimientos quirúrgicos avanzados para tratar condiciones ginecológicas utilizando técnicas y equipos mínimamente invasivos modernos."
+    },
+    "oncologicalSurgeries": {
+      "title": "Oncología",
+      "description": "Tratamiento quirúrgico especializado para cánceres ginecológicos, incluyendo cánceres ováricos, cervicales, endometriales y otros tumores malignos del sistema reproductor."
+    },
+    "plasticSurgery": {
+      "title": "Cirugía plástica",
+      "description": "Procedimientos quirúrgicos cosméticos y reconstructivos para el sistema reproductor femenino, incluyendo labiaplastia e himenoplastia."
+    },
+    "uterineFibroids": {
+      "title": "Miomas uterinos",
+      "description": "Tratamiento de tumores uterinos benignos, incluyendo miomectomía, histerectomía y otras intervenciones quirúrgicas para el manejo de fibromas."
+    },
+    "endometriosis": {
+      "title": "Endometriosis",
+      "description": "Tratamiento quirúrgico de la endometriosis, incluyendo escisión laparoscópica de implantes endometriales y procedimientos de extracción de quistes."
+    },
+    "ovarianDiseases": {
+      "title": "Enfermedades ováricas",
+      "description": "Diagnóstico y tratamiento quirúrgico de diversas condiciones ováricas, incluyendo quistes, tumores y otros cambios patológicos."
+    },
+    "polyps": {
+      "title": "Pólipos",
+      "description": "Extracción de pólipos endometriales y cervicales mediante técnicas quirúrgicas histeroscópicas y otras mínimamente invasivas."
+    }
   }
 }

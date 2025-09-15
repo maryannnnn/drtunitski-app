@@ -110,7 +110,7 @@
       "address": "rue Eli Landau 7, Herzliya, Israël"
     },
     "mainTitle": {
-      "title": "Salon de massage propose différents types de massage et cours de massage à d'excellents prix",
+      "title": "About de massage propose différents types de massage et cours de massage à d'excellents prix",
       "description": "Pour nous, le massage c'est l'amour. Le massage vous aidera à améliorer votre état et à régler votre corps pour l'auto-guérison. Venez au centre Wings of Wind, faites confiance aux maîtres expérimentés qui créeront un programme unique spécialement pour vous, incluant les procédures les plus efficaces et orientées résultats."
     },
     "attributes": {
@@ -137,7 +137,7 @@
     },
     "breadcrumbs": {
       "main": "Accueil",
-      "salon": "Salon",
+      "about": "À propos",
       "massage": "Massage",
       "course": "Cours",
       "media": "Médias",
@@ -168,5 +168,41 @@
   },
   "trustCareBanner": {
     "title": "Confiance et soins — votre source de paix et de santé"
+  },
+  "gynecology": {
+    "title": "Chirurgie gynécologique",
+    "description": "Dr. Sergey Tunitsky se spécialise dans la chirurgie gynécologique moderne, offrant un traitement complet pour diverses conditions de santé féminine. Avec plus de 25 ans d'expérience, il effectue des procédures chirurgicales de routine et complexes en utilisant des techniques minimalement invasives. Notre approche combine une technologie médicale avancée avec des soins personnalisés pour assurer des résultats optimaux pour chaque patiente. Nous traitons un large éventail de conditions gynécologiques, y compris les fibromes, l'endométriose, les maladies ovariennes et diverses formes de cancer. Chaque plan de traitement est soigneusement adapté pour répondre aux besoins individuels et aux objectifs de santé.",
+    "gynecologicalDiseases": {
+      "title": "Gynécologie",
+      "description": "Diagnostic et traitement complets de diverses conditions gynécologiques affectant la santé reproductive et le bien-être général des femmes."
+    },
+    "gynecologicalSurgery": {
+      "title": "Chirurgie",
+      "description": "Procédures chirurgicales avancées pour traiter les conditions gynécologiques en utilisant des techniques et équipements minimalement invasifs modernes."
+    },
+    "oncologicalSurgeries": {
+      "title": "Oncologie",
+      "description": "Traitement chirurgical spécialisé pour les cancers gynécologiques, y compris les cancers ovariens, cervicaux, endométriaux et autres tumeurs malignes du système reproducteur."
+    },
+    "plasticSurgery": {
+      "title": "Chirurgie plastique",
+      "description": "Procédures chirurgicales cosmétiques et reconstructives pour le système reproducteur féminin, y compris la labiaplastie et l'hymenoplastie."
+    },
+    "uterineFibroids": {
+      "title": "Fibromes utérins",
+      "description": "Traitement des tumeurs utérines bénignes, y compris la myomectomie, l'hystérectomie et autres interventions chirurgicales pour la gestion des fibromes."
+    },
+    "endometriosis": {
+      "title": "Endométriose",
+      "description": "Traitement chirurgical de l'endométriose, y compris l'excision laparoscopique des implants endométriaux et les procédures d'ablation des kystes."
+    },
+    "ovarianDiseases": {
+      "title": "Maladies ovariennes",
+      "description": "Diagnostic et traitement chirurgical de diverses conditions ovariennes, y compris les kystes, tumeurs et autres changements pathologiques."
+    },
+    "polyps": {
+      "title": "Polypes",
+      "description": "Ablation des polypes endométriaux et cervicaux par des techniques chirurgicales hystéroscopiques et autres minimalement invasives."
+    }
   }
 }

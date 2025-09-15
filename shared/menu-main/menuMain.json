@@ -216,7 +216,7 @@
         {
           "node": {
             "id": "cG9zdDozNjc44",
-            "path": "/cancer",
+            "path": "/surgery/cancer",
             "parentId": null,
             "order": 4,
             "label": "Cancer"
@@ -225,7 +225,7 @@
         {
           "node": {
             "id": "cG9zdDozNjc44a",
-            "path": "/cancer",
+            "path": "/surgery/cancer",
             "parentId": "cG9zdDozNjc44",
             "order": 0,
             "label": "Oncological surgeries"
@@ -234,7 +234,7 @@
         {
           "node": {
             "id": "cG9zdDozNjc44b",
-            "path": "/cancer/endometrial-cancer",
+            "path": "/surgery/endometrial-cancer",
             "parentId": "cG9zdDozNjc44",
             "order": 1,
             "label": "Endometrial cancer"
@@ -243,7 +243,7 @@
         {
           "node": {
             "id": "cG9zdDozNjc44c",
-            "path": "/cancer/cervical-cancer",
+            "path": "/surgery/cervical-cancer",
             "parentId": "cG9zdDozNjc44",
             "order": 2,
             "label": "Cervical cancer"
@@ -252,7 +252,7 @@
         {
           "node": {
             "id": "cG9zdDozNjc44d",
-            "path": "/cancer/uterine-sarcoma",
+            "path": "/surgery/uterine-sarcoma",
             "parentId": "cG9zdDozNjc44",
             "order": 3,
             "label": "Uterine sarcoma"
@@ -261,7 +261,7 @@
         {
           "node": {
             "id": "cG9zdDozNjc44e",
-            "path": "/cancer/fallopian-tube-cancer",
+            "path": "/surgery/fallopian-tube-cancer",
             "parentId": "cG9zdDozNjc44",
             "order": 4,
             "label": "Fallopian tube cancer"
@@ -270,7 +270,7 @@
         {
           "node": {
             "id": "cG9zdDozNjc44f",
-            "path": "/cancer/vaginal-cancer",
+            "path": "/surgery/vaginal-cancer",
             "parentId": "cG9zdDozNjc44",
             "order": 5,
             "label": "Vaginal cancer"
@@ -279,7 +279,7 @@
         {
           "node": {
             "id": "cG9zdDozNjc44g",
-            "path": "/cancer/vulvar-cancer",
+            "path": "/surgery/vulvar-cancer",
             "parentId": "cG9zdDozNjc44",
             "order": 6,
             "label": "Vulvar cancer"
@@ -288,7 +288,7 @@
         {
           "node": {
             "id": "cG9zdDozNjc44h",
-            "path": "/cancer/choriocarcinoma",
+            "path": "/surgery/choriocarcinoma",
             "parentId": "cG9zdDozNjc44",
             "order": 7,
             "label": "Choriocarcinoma"
@@ -297,7 +297,7 @@
         {
           "node": {
             "id": "cG9zdDozNjc44i",
-            "path": "/cancer/metastatic-tumors",
+            "path": "/surgery/metastatic-tumors",
             "parentId": "cG9zdDozNjc44",
             "order": 8,
             "label": "Metastatic tumors"
@@ -306,7 +306,7 @@
         {
           "node": {
             "id": "cG9zdDozNjc44j",
-            "path": "/cancer/molar-pregnancy",
+            "path": "/surgery/molar-pregnancy",
             "parentId": "cG9zdDozNjc44",
             "order": 9,
             "label": "Molar pregnancy"

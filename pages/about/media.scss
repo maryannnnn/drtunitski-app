@@ -2,7 +2,7 @@
 @import '../../app/scss/colors';
 
 @media screen and (max-width: 767px) {
-  .salon {
+  .about {
     &__anons {
       display: flex;
       flex-direction: column;
@@ -18,7 +18,7 @@
     }
   }
 
-  .block-salons {
+  .block-abouts {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -26,7 +26,7 @@
     padding-bottom: 20px;
   }
 
-  .salon__video {
+  .about__video {
     display: block; /* Стандартное поведение для мобильных устройств */
     padding-bottom: 20px;
 
