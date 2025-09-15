@@ -76,6 +76,7 @@
 
         &__left {
             align-items: flex-end;
+            flex-direction: column; // Ensure vertical layout
         }
 
         &__logo {

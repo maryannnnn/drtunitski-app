@@ -136,6 +136,32 @@
     &__title {
       text-align: right;
     }
+    
+    &__text {
+      text-align: right;
+      flex-direction: column; // Ensure vertical layout
+    }
+    
+    &__subtitle {
+      text-align: right;
+    }
+    
+    &__description {
+      text-align: right;
+    }
+    
+    &__biography-title {
+      text-align: right;
+    }
+    
+    &__biography-text {
+      text-align: right;
+    }
+    
+    &__buttons {
+      justify-content: flex-end;
+      flex-direction: row; // Keep buttons horizontal
+    }
   }
 
   // Mobile responsive
@@ -165,8 +191,39 @@
     
     // RTL support for mobile
     [dir="rtl"] & {
+      &__content {
+        flex-direction: column !important; // Force single column on mobile
+      }
+
+      &__image {
+        order: 2; // Image after text
+      }
+
       &__text {
+        order: 1; // Text first
         text-align: right;
+        flex-direction: column; // Ensure vertical layout
+      }
+      
+      &__subtitle {
+        text-align: right;
+      }
+      
+      &__description {
+        text-align: right;
+      }
+      
+      &__biography-title {
+        text-align: right;
+      }
+      
+      &__biography-text {
+        text-align: right;
+      }
+      
+      &__buttons {
+        justify-content: flex-end;
+        flex-direction: column; // Vertical layout for mobile
       }
     }
 
@@ -199,35 +256,6 @@
     }
   }
 
-  @media (max-width: 768px) {
-    padding: 40px 0;
-
-    &__content {
-      flex-direction: column;
-      gap: 30px;
-    }
-
-    &__image {
-      width: 100%;
-      max-width: 400px;
-      height: auto;
-      
-      .main-title__photo {
-        width: 100% !important;
-        height: auto !important;
-        max-width: 400px;
-        object-fit: cover;
-      }
-    }
-
-    &__text {
-      order: 1;
-    }
-
-    &__image {
-      order: 2;
-    }
-  }
 
   @media (max-width: 480px) {
     padding: 30px 0;
@@ -281,8 +309,39 @@
     
     // RTL support for small mobile
     [dir="rtl"] & {
+      &__content {
+        flex-direction: column !important; // Force single column on small mobile
+      }
+
+      &__image {
+        order: 2; // Image after text
+      }
+
       &__text {
+        order: 1; // Text first
         text-align: right;
+        flex-direction: column; // Ensure vertical layout
+      }
+      
+      &__subtitle {
+        text-align: right;
+      }
+      
+      &__description {
+        text-align: right;
+      }
+      
+      &__biography-title {
+        text-align: right;
+      }
+      
+      &__biography-text {
+        text-align: right;
+      }
+      
+      &__buttons {
+        justify-content: flex-end;
+        flex-direction: column; // Vertical layout for small mobile
       }
     }
   }

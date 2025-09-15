@@ -159,8 +159,77 @@
 // RTL Support for mobile
 [dir="rtl"] .trust-care-banner {
     @media screen and (max-width: 767px) {
+        &__content {
+            flex-direction: column !important; // Force single column on mobile
+        }
+
         &__left {
             align-items: center;
+            order: 2; // Text content after image
+        }
+
+        &__right {
+            order: 1; // Image first
+        }
+
+        &__logo {
+            justify-content: center;
+        }
+
+        &__title {
+            text-align: center;
+        }
+
+        &__button {
+            justify-content: center;
+        }
+    }
+}
+
+// Additional RTL support for tablet and desktop
+[dir="rtl"] .trust-care-banner {
+    @media screen and (min-width: 768px) {
+        &__content {
+            flex-direction: row-reverse;
+        }
+
+        &__left {
+            align-items: flex-end;
+            flex-direction: column; // Ensure vertical layout
+        }
+
+        &__logo {
+            justify-content: flex-end;
+        }
+
+        &__title {
+            text-align: right;
+        }
+
+        &__associations {
+            direction: rtl;
+        }
+
+        &__button {
+            justify-content: flex-end;
+        }
+    }
+}
+
+// RTL Support for small mobile
+[dir="rtl"] .trust-care-banner {
+    @media screen and (max-width: 480px) {
+        &__content {
+            flex-direction: column !important; // Force single column on small mobile
+        }
+
+        &__left {
+            align-items: center;
+            order: 2; // Text content after image
+        }
+
+        &__right {
+            order: 1; // Image first
         }
 
         &__logo {

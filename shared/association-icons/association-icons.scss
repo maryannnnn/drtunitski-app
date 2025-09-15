@@ -144,3 +144,16 @@
         }
     }
 }
+
+// RTL Support
+[dir="rtl"] .association-icons {
+    &--banner {
+        direction: rtl;
+        flex-direction: row; // Keep horizontal layout for banner
+    }
+    
+    &--footer {
+        direction: rtl;
+        flex-direction: row; // Keep horizontal layout for footer
+    }
+}
