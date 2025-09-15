@@ -11,6 +11,7 @@ import MainTestimonial from "@/widgets/main-testimonial/MainTestimonial";
 import MainPost from "@/widgets/main-post/MainPost";
 import MainTitle from "@/widgets/main-title/MainTitle";
 import TrustCareBanner from "@/shared/trust-care-banner/TrustCareBanner";
+import FooterAssociations from "@/shared/footer-associations/FooterAssociations";
 import {useQuery} from "@apollo/client";
 import apolloClient from '../app/graphql/apollo-client';
 import {GET_HOME_DATA} from "../entities/main/actions/mainActions";
@@ -92,6 +93,7 @@ const Index = ({initialData}) => {
 
                     <MainTitle/>
 
+                    <FooterAssociations />
 
 {/*                    {displayData.salons?.edges?.length > 0 && (
                         <MainCompany data={displayData}/>

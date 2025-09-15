@@ -6,6 +6,7 @@ import HeaderContact from "@/shared/header-contact/HeaderContact";
 import Link from "next/link";
 import Image from 'next/image';
 import DrawerMenu from "../../shared/drawer-menu/DrawerMenu";
+import logoImage from "../../app/assets/images/logo/logo_3.png";
 
 const HeaderMiddle = () => {
     return (
@@ -15,11 +16,10 @@ const HeaderMiddle = () => {
                     <div className='header-middle__inner-logo'>
                         <Link href="/" className="header-middle__inner-logo-link">
                             <Image
-                                src="/logo_6.png"
+                                src={logoImage}
                                 alt="Logo"
                                 width={343}
                                 height={60}
-                                layout="responsive"
                                 priority
                             />
                         </Link>

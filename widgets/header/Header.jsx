@@ -7,6 +7,8 @@ import MenuMain from "../../shared/menu-main/MenuMain";
 import Link from "next/link";
 import {contactSalon} from "@/app/info/info";
 import LanguageSwitcher from "../../shared/language-switcher/LanguageSwitcher";
+import logoImage from "../../app/assets/images/logo/logo_3.png";
+import mobileImage from "../../app/assets/images/mobile/mobile.png";
 
 const Header = () => {
     return (
@@ -16,11 +18,10 @@ const Header = () => {
                 <div className='header__inner-logo'>
                     <Link href="/">
                         <Image
-                            src="/images/logo/logo_3.png"
+                            src={logoImage}
                             alt="Logo"
                             width={243}
                             height={48}
-                            layout="responsive"
                             priority
                         />
                     </Link>
@@ -35,11 +36,10 @@ const Header = () => {
                     <div className='header__inner-mobile__image'>
                         <Link href={`tel:${contactSalon.mobile}`} className="header__inner-mobile__number-link">
                             <Image
-                                src="/images/mobile/mobile.png"
+                                src={mobileImage}
                                 alt="mobile"
                                 width={12}
                                 height={24}
-                                layout="responsive"
                                 priority
                             />
                         </Link>

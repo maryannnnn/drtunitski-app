@@ -4,6 +4,7 @@ import Head from "next/head";
 import { useRouter } from 'next/router';
 import Header from "../../widgets/header/Header";
 import Footer from "../../widgets/footer/Footer";
+import LanguageDetectionBanner from "../../shared/language-detection-banner/LanguageDetectionBanner";
 import { BASIS_URL } from "../config/config.js";
 import { isRTL } from "../../shared/utils/rtl-utils";
 
@@ -91,6 +92,7 @@ const MainLayout = ({
                     }}
                 />
             </Head>
+            {/* <LanguageDetectionBanner /> - ОТКЛЮЧЕНО для удобства разработки */}
             <Header />
             <div className="main">
                 {children}

@@ -102,7 +102,13 @@
     "loading": "Loading...",
     "error": "Error",
     "success": "Success",
-    "language": "Language"
+    "language": "Language",
+    "yes": "Yes",
+    "no": "No",
+    "languageDetection": {
+      "title": "We detected your language preference",
+      "message": "We noticed you might prefer to view this site in {{language}} instead of {{currentLanguage}}. Would you like to switch?"
+    }
   },
   "info": {
     "contact": {
@@ -169,7 +175,11 @@
   "info": {
     "mainTitle": {
       "title": "Doctor Sergey Tunitsky - Modern Gynecology and Surgical Treatment",
-      "description": "Dr. Sergey Tonitsky is a specialist in women's medicine and a specialist in gynecological surgery. He has extensive experience in various gynecological surgeries, including therapeutic excisions and terminations of pregnancy. He performs surgeries in the private hospitals Herzliya Medical Center, Rafael and Assuta Ramat HaChayal. Dr. Sergey Tonitsky is a specialist in women's medicine and a specialist in gynecological surgery. He has extensive experience in various gynecological surgeries, including therapeutic excisions and terminations of pregnancy. He performs surgeries in the private hospitals Herzliya Medical Center, Rafael and Assuta Ramat HaChayal."
+      "description": "Dr. Sergey Tunitsky is a renowned Israeli gynecologist, a specialist of the highest category, and a recognized expert in the treatment of all forms of female infertility and diseases of the female reproductive system. He applies modern clinical protocols, minimally invasive surgical techniques, and an individual approach to each patient.\n\nDr. Tunitsky's clinical experience exceeds 25 years. His expertise in diagnosis, surgical treatment, and prevention of gynecological diseases makes him one of the most sought-after specialists in Israel.",
+      "biography": "Biography and Clinical Experience",
+      "biographyText": "Dr. Sergey Tunitsky has progressed from a medical institute graduate to chief physician of the gynecological department and leading surgeon.\n\nClinical Positions:\n• Chief Physician of the Gynecological Department at Hillel Yaffe Hospital\n• Leading Gynecologist at Herzliya Medical Center\n\nHe combines clinical practice, teaching activities, and participation in international gynecology conferences, constantly improving his professional skills.",
+      "subtitle": "Expert in Women's Health",
+      "learnMore": "Learn More"
     }
   },
   "trustCareBanner": {

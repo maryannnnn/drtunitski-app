@@ -1,0 +1,80 @@
+.language-detection-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10000;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #e0e0e0;
+
+    &__alert {
+        max-width: 600px;
+        margin: 0 auto;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+    }
+
+    &__title {
+        font-weight: 600;
+        margin-bottom: 8px;
+    }
+
+    &__message {
+        line-height: 1.5;
+        color: #666;
+    }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    &__accept-btn {
+        background: #1976d2;
+        color: white;
+        border-radius: 4px;
+        text-transform: none;
+        font-weight: 500;
+        
+        &:hover {
+            background: #1565c0;
+        }
+    }
+
+    &__dismiss-btn {
+        color: #666;
+        
+        &:hover {
+            background: rgba(0, 0, 0, 0.04);
+        }
+    }
+
+    // RTL support
+    [dir="rtl"] & {
+        &__actions {
+            flex-direction: row-reverse;
+        }
+    }
+
+    // Mobile responsive
+    @media (max-width: 768px) {
+        padding: 12px;
+        
+        &__alert {
+            margin: 0;
+        }
+        
+        &__actions {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 4px;
+        }
+        
+        &__accept-btn {
+            width: 100%;
+        }
+    }
+}

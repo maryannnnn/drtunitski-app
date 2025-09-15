@@ -159,7 +159,11 @@
     "info": {
         "mainTitle": {
             "title": "دكتور سيرجي تونيتسكي - أمراض النساء الحديثة والعلاج الجراحي",
-            "description": "Dr. Sergey Tonitsky is a specialist in women's medicine and a specialist in gynecological surgery. He has extensive experience in various gynecological surgeries, including therapeutic excisions and terminations of pregnancy. He performs surgeries in the private hospitals Herzliya Medical Center, Rafael and Assuta Ramat HaChayal. Dr. Sergey Tonitsky is a specialist in women's medicine and a specialist in gynecological surgery. He has extensive experience in various gynecological surgeries, including therapeutic excisions and terminations of pregnancy. He performs surgeries in the private hospitals Herzliya Medical Center, Rafael and Assuta Ramat HaChayal."
+            "description": "د. سيرجي تونيتسكي هو طبيب نساء إسرائيلي مشهور، أخصائي من أعلى فئة وخبير معترف به في علاج جميع أشكال العقم الأنثوي وأمراض الجهاز التناسلي الأنثوي. يطبق بروتوكولات سريرية حديثة وتقنيات جراحية طفيفة التوغل ونهج فردي لكل مريضة.\n\nتتجاوز خبرة د. تونيتسكي السريرية 25 عاماً. خبرته في التشخيص والعلاج الجراحي والوقاية من الأمراض النسائية تجعله أحد أكثر الأخصائيين طلباً في إسرائيل.",
+            "biography": "السيرة الذاتية والخبرة السريرية",
+            "biographyText": "تقدم د. سيرجي تونيتسكي من خريج معهد طبي إلى طبيب رئيسي في قسم النساء والجراح الرئيسي.\n\nالمناصب السريرية:\n• طبيب رئيسي في قسم النساء في مستشفى هيلل يافي\n• طبيب نساء رئيسي في مركز هرتسليا الطبي\n\nيجمع بين الممارسة السريرية والأنشطة التعليمية والمشاركة في المؤتمرات الدولية لأمراض النساء، ويحسن باستمرار مهاراته المهنية.",
+            "subtitle": "خبير في صحة المرأة",
+            "learnMore": "اعرف المزيد"
         }
     },
     "trustCareBanner": {

@@ -1,0 +1,46 @@
+@import '../../app/scss/colors';
+
+.footer-associations {
+    background: $white;
+    padding: 60px 0;
+    margin-top: 0;
+    width: 100%;
+
+    &__content {
+        text-align: center;
+        width: 100%;
+    }
+
+    &__title {
+        color: $black;
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 40px;
+        font-family: 'Montserrat', sans-serif;
+    }
+}
+
+// Мобильные стили
+@media (max-width: 768px) {
+    .footer-associations {
+        padding: 40px 0;
+        margin-top: 0;
+
+        &__title {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-associations {
+        padding: 30px 0;
+        margin-top: 0;
+
+        &__title {
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+    }
+}

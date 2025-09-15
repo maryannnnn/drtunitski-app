@@ -9,6 +9,7 @@ import {
     Typography
 } from '@mui/material';
 import { Language as LanguageIcon } from '@mui/icons-material';
+import { detectUserLanguage, saveUserLanguagePreference } from '../utils/language-detection';
 import './language-switcher.scss';
 
 const languages = [
@@ -28,9 +29,22 @@ const LanguageSwitcher = ({ variant = 'dropdown', showLabel = false }) => {
     const [open, setOpen] = useState(false);
     const ref = useRef(null);
 
+    // Auto-detect language on first visit - ОТКЛЮЧЕНО для удобства разработки
+    // useEffect(() => {
+    //     if (typeof window !== 'undefined' && !localStorage.getItem('language-set')) {
+    //         const detectedLang = detectUserLanguage();
+    //         if (detectedLang !== locale) {
+    //             router.push(router.asPath, router.asPath, { locale: detectedLang });
+    //             localStorage.setItem('language-set', 'true');
+    //         }
+    //     }
+    // }, []);
+
     const handleLanguageChange = (newLocale) => {
         router.push(router.asPath, router.asPath, { locale: newLocale });
         setOpen(false);
+        saveUserLanguagePreference(newLocale);
+        localStorage.setItem('language-set', 'true');
     };
 
     const currentLanguage = languages.find(lang => lang.code === locale) || languages[0];

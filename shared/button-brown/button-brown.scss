@@ -32,5 +32,23 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+
+  // Вариант с primary цветом
+  &--primary {
+    background-color: $primary;
+    box-shadow: 0px 4px 12px rgba(29, 29, 109, 0.3);
+
+    &:hover {
+      background-color: lighten($primary, 10%);
+      color: $white-full;
+      transform: translateY(-2px);
+      box-shadow: 0px 6px 16px rgba(29, 29, 109, 0.4);
+    }
+
+    &:active {
+      transform: translateY(0);
+      box-shadow: 0px 2px 8px rgba(29, 29, 109, 0.3);
+    }
+  }
 }
 

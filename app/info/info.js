@@ -11,7 +11,11 @@ export const contactSalon = {
 // Функции для получения переводов
 export const getMainTitle = (t) => ({
     title: t('common:info.mainTitle.title'),
-    description: t('common:info.mainTitle.description')
+    description: t('common:info.mainTitle.description'),
+    subtitle: t('common:info.mainTitle.subtitle'),
+    biography: t('common:info.mainTitle.biography'),
+    biographyText: t('common:info.mainTitle.biographyText'),
+    learnMore: t('common:info.mainTitle.learnMore')
 })
 
 export const getAttributeTitleMassage = (t) => t('common:info.attributes.massageTitle')

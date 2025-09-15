@@ -3,24 +3,26 @@
 // Trust Care Banner Media Queries
 @media screen and (max-width: 767px) {
     .trust-care-banner {
-        padding: 40px 0 100px 0;
+        padding: 40px 0 80px 0;
         height: auto;
-        margin-bottom: 50px;
+        margin-bottom: 60px;
         position: relative;
         clear: both;
         display: block;
         float: none;
+        z-index: 1;
 
         &__content {
             flex-direction: column;
-            gap: 40px;
+            gap: 30px;
             text-align: center;
             height: auto;
+            padding: 0 15px;
         }
 
         &__left {
             order: 2;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
 
         &__right {
@@ -29,39 +31,113 @@
 
         &__logo {
             justify-content: center;
+            margin-bottom: 20px;
             
             img {
-                max-width: 300px;
+                max-width: 280px;
             }
         }
 
         &__title {
             max-width: 100%;
             text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
         }
 
         &__associations {
             grid-template-columns: repeat(2, 1fr);
             max-width: 100%;
             justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        &__association-item {
+            height: 80px;
+            padding: 8px;
         }
 
         &__doctor-image {
-            max-width: 300px;
+            max-width: 350px;
             margin: 0 auto;
+            
+            img {
+                width: 100%;
+                height: auto;
+            }
         }
 
         &__button {
             justify-content: center;
+            margin-top: 30px;
         }
     }
 
     // Fix for next block (MainTitle) to prevent overlap
     .main-title {
-        margin-top: 50px !important;
+        margin-top: 60px !important;
         clear: both;
         position: relative;
-        z-index: 1;
+        z-index: 2;
+        padding-top: 40px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .trust-care-banner {
+        padding: 30px 0 60px 0;
+        margin-bottom: 40px;
+
+        &__content {
+            gap: 25px;
+            padding: 0 10px;
+        }
+
+        &__left {
+            margin-bottom: 30px;
+        }
+
+        &__logo {
+            img {
+                max-width: 250px;
+            }
+        }
+
+        &__title {
+            font-size: 1.25rem;
+            margin-bottom: 15px;
+        }
+
+        &__associations {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        &__association-item {
+            height: 70px;
+            padding: 6px;
+        }
+
+        &__doctor-image {
+            max-width: 300px;
+            margin: 0 auto;
+            
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        &__button {
+            margin-top: 25px;
+        }
+    }
+
+    .main-title {
+        margin-top: 40px !important;
+        padding-top: 30px;
     }
 }
 

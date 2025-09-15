@@ -6,6 +6,7 @@ import Image from "next/image";
 import DrawerMenu from "../../shared/drawer-menu/DrawerMenu";
 import MenuMain from "../../shared/menu-main/MenuMain";
 import {contactSalon} from "@/app/info/info";
+import logoImage from "../../app/assets/images/logo/logo_3.png";
 
 const HeaderTop = () => {
     return (
@@ -13,11 +14,10 @@ const HeaderTop = () => {
             <div className="header-top__inner">
                 <div className='header-top__inner-logo'>
                     <Image
-                        src="/images/logo/logo_3.png"
+                        src={logoImage}
                         alt="Logo"
                         width={300}
                         height={59}
-                        layout="responsive"
                         priority
                     />
                     <DrawerMenu/>

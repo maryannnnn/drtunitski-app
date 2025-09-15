@@ -102,7 +102,13 @@
         "loading": "Загрузка...",
         "error": "Ошибка",
         "success": "Успешно",
-        "language": "Язык"
+        "language": "Язык",
+        "yes": "Да",
+        "no": "Нет",
+        "languageDetection": {
+            "title": "Мы определили ваши языковые предпочтения",
+            "message": "Мы заметили, что вы, возможно, предпочитаете просматривать этот сайт на {{language}} вместо {{currentLanguage}}. Хотите переключиться?"
+        }
     },
     "info": {
         "contact": {
@@ -169,7 +175,11 @@
     "info": {
         "mainTitle": {
             "title": "Доктор Сергей Туницкий - Современная гинекология и хирургическое лечение",
-            "description": "Dr. Sergey Tonitsky is a specialist in women's medicine and a specialist in gynecological surgery. He has extensive experience in various gynecological surgeries, including therapeutic excisions and terminations of pregnancy. He performs surgeries in the private hospitals Herzliya Medical Center, Rafael and Assuta Ramat HaChayal. Dr. Sergey Tonitsky is a specialist in women's medicine and a specialist in gynecological surgery. He has extensive experience in various gynecological surgeries, including therapeutic excisions and terminations of pregnancy. He performs surgeries in the private hospitals Herzliya Medical Center, Rafael and Assuta Ramat HaChayal."
+            "description": "Доктор Сергей Туницкий – известный израильский врач-гинеколог, специалист высшей категории, признанный эксперт по лечению всех форм женского бесплодия и заболеваний женской репродуктивной системы. Он применяет современные клинические протоколы, малоинвазивные хирургические методики и индивидуальный подход к каждой пациентке.\n\nСтаж клинической деятельности доктора Туницкого превышает 25 лет. Его опыт в диагностике, хирургическом лечении и профилактике гинекологических заболеваний делает его одним из самых востребованных специалистов в Израиле.",
+            "biography": "Биография и клинический опыт",
+            "biographyText": "Доктор Сергей Туницкий прошёл путь от выпускника медицинского института до главного врача гинекологического отделения и ведущего хирурга.\n\nКлинические должности:\n• Главный врач гинекологического отделения больницы «Гилель-Яфе»\n• Ведущий гинеколог «Герцлия Медикал Центр»\n\nОн совмещает лечебную практику, преподавательскую деятельность и участие в международных конференциях по гинекологии, постоянно совершенствуя профессиональные навыки.",
+            "subtitle": "Эксперт в области женского здоровья",
+            "learnMore": "Узнать больше"
         }
     },
     "trustCareBanner": {
