@@ -5,6 +5,12 @@ export function middleware(request) {
   // Get the pathname and search params
   const { pathname, searchParams } = request.nextUrl;
   
+  // Skip redirect for static pages that don't need locale prefix
+  const staticPages = ['/sitemap', '/privacy-policy', '/accessibility-statement'];
+  if (staticPages.includes(pathname)) {
+    return NextResponse.next();
+  }
+  
   // Check if there is any supported locale in the pathname
   const pathnameIsMissingLocale = ['en', 'ru', 'he', 'de', 'fr', 'es', 'ar'].every(
     (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
