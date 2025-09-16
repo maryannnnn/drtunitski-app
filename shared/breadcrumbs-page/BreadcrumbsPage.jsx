@@ -4,9 +4,13 @@ import {getBreadcrumbType} from "../../app/info/info";
 import React from "react";
 import Link from "next/link";
 import { useTranslation } from 'next-i18next';
+import { useRouter } from 'next/router';
+import { processMenuUrl } from '../utils/utils-url';
 
 const BreadcrumbsPage = ({material, typeMaterial}) => {
     const { t } = useTranslation();
+    const router = useRouter();
+    const currentLocale = router.locale || 'en';
     const breadcrumbType = getBreadcrumbType(t);
 
     function handleClick(event) {
@@ -23,13 +27,13 @@ const BreadcrumbsPage = ({material, typeMaterial}) => {
              <Breadcrumbs aria-label="breadcrumb">
                  <Link
                      className="breadcrumb-link"
-                     href={breadcrumbMain?.url}
+                     href={processMenuUrl(breadcrumbMain?.url, currentLocale)}
                  >
                      {breadcrumbMain?.title}
                  </Link>
                  <Link
                      className="breadcrumb-link"
-                     href={breadcrumb?.url}
+                     href={processMenuUrl(breadcrumb?.url, currentLocale)}
                  >
                      {breadcrumb?.title}
                  </Link>

@@ -5,36 +5,43 @@ import MainLayout from '../app/layouts/MainLayout';
 import { Box, Typography, Container, Paper, List, ListItem, ListItemText, Divider } from '@mui/material';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { processMenuUrl } from '../shared/utils/utils-url';
 
 const Sitemap = () => {
     const { t } = useTranslation();
     const router = useRouter();
     const isRTL = router.locale === 'he' || router.locale === 'ar';
+    const currentLocale = router.locale || 'en';
+
+    // Функция для обработки путей в sitemap
+    const processSitemapPath = (path) => {
+        return processMenuUrl(path, currentLocale);
+    };
 
     const sitemapSections = [
         {
             title: t('sitemap:sections.main.title'),
             items: [
-                { label: t('sitemap:sections.main.items.home'), path: '/' },
-                { label: t('sitemap:sections.main.items.about'), path: '/about' },
-                { label: t('sitemap:sections.main.items.gynecology'), path: '/gynecology' },
-                { label: t('sitemap:sections.main.items.cancer'), path: '/cancer' },
-                { label: t('sitemap:sections.main.items.surgery'), path: '/surgery' },
-                { label: t('sitemap:sections.main.items.stories'), path: '/stories' },
-                { label: t('sitemap:sections.main.items.media'), path: '/media' },
-                { label: t('sitemap:sections.main.items.contact'), path: '/contact' },
+                { label: t('sitemap:sections.main.items.home'), path: processSitemapPath('/') },
+                { label: t('sitemap:sections.main.items.about'), path: processSitemapPath('/about') },
+                { label: t('sitemap:sections.main.items.gynecology'), path: processSitemapPath('/gynecology') },
+                { label: t('sitemap:sections.main.items.cancer'), path: processSitemapPath('/cancer') },
+                { label: t('sitemap:sections.main.items.surgery'), path: processSitemapPath('/surgery') },
+                { label: t('sitemap:sections.main.items.stories'), path: processSitemapPath('/stories') },
+                { label: t('sitemap:sections.main.items.media'), path: processSitemapPath('/media') },
+                { label: t('sitemap:sections.main.items.contact'), path: processSitemapPath('/contact') },
             ]
         },
         {
             title: t('sitemap:sections.about.title'),
             items: [
-                { label: t('sitemap:sections.about.items.drSergeTunitski'), path: '/about/dr-serge-tunitski' },
-                { label: t('sitemap:sections.about.items.clinicTeam'), path: '/about' },
-                { label: t('sitemap:sections.about.items.requestAppointment'), path: '/about/request-appointment' },
-                { label: t('sitemap:sections.about.items.preparation'), path: '/about/preparation' },
-                { label: t('sitemap:sections.about.items.pricesPayment'), path: '/about/prices-payment' },
-                { label: t('sitemap:sections.about.items.medicalTourism'), path: '/about/medical-tourism' },
-                { label: t('sitemap:sections.about.items.reviewsTestimonials'), path: '/about/reviews-testimonials' },
+                { label: t('sitemap:sections.about.items.drSergeTunitski'), path: processSitemapPath('/about/dr-serge-tunitski') },
+                { label: t('sitemap:sections.about.items.clinicTeam'), path: processSitemapPath('/about') },
+                { label: t('sitemap:sections.about.items.requestAppointment'), path: processSitemapPath('/about/request-appointment') },
+                { label: t('sitemap:sections.about.items.preparation'), path: processSitemapPath('/about/preparation') },
+                { label: t('sitemap:sections.about.items.pricesPayment'), path: processSitemapPath('/about/prices-payment') },
+                { label: t('sitemap:sections.about.items.medicalTourism'), path: processSitemapPath('/about/medical-tourism') },
+                { label: t('sitemap:sections.about.items.reviewsTestimonials'), path: processSitemapPath('/about/reviews-testimonials') },
             ]
         },
         {
@@ -43,14 +50,14 @@ const Sitemap = () => {
                 {
                     title: t('sitemap:sections.gynecology.subsections.plannedSurgeries.title'),
                     items: [
-                        { label: t('sitemap:sections.gynecology.subsections.plannedSurgeries.items.gynecologicalDiseases'), path: '/gynecology' },
-                        { label: t('sitemap:sections.gynecology.subsections.plannedSurgeries.items.uterineFibroids'), path: '/gynecology/uterine-fibroids' },
-                        { label: t('sitemap:sections.gynecology.subsections.plannedSurgeries.items.endometriosis'), path: '/gynecology/endometriosis' },
-                        { label: t('sitemap:sections.gynecology.subsections.plannedSurgeries.items.ovarianDiseases'), path: '/gynecology/ovarian-diseases' },
-                        { label: t('sitemap:sections.gynecology.subsections.plannedSurgeries.items.rectoceleCystocele'), path: '/gynecology/rectocele-cystocele' },
-                        { label: t('sitemap:sections.gynecology.subsections.plannedSurgeries.items.cinIII'), path: '/gynecology/cin-iii' },
-                        { label: t('sitemap:sections.gynecology.subsections.plannedSurgeries.items.uterineProlapse'), path: '/gynecology/uterine-prolapse' },
-                        { label: t('sitemap:sections.gynecology.subsections.plannedSurgeries.items.genitalProlapse'), path: '/gynecology/genital-prolapse' },
+                        { label: t('sitemap:sections.gynecology.subsections.plannedSurgeries.items.gynecologicalDiseases'), path: processSitemapPath('/gynecology') },
+                        { label: t('sitemap:sections.gynecology.subsections.plannedSurgeries.items.uterineFibroids'), path: processSitemapPath('/gynecology/uterine-fibroids') },
+                        { label: t('sitemap:sections.gynecology.subsections.plannedSurgeries.items.endometriosis'), path: processSitemapPath('/gynecology/endometriosis') },
+                        { label: t('sitemap:sections.gynecology.subsections.plannedSurgeries.items.ovarianDiseases'), path: processSitemapPath('/gynecology/ovarian-diseases') },
+                        { label: t('sitemap:sections.gynecology.subsections.plannedSurgeries.items.rectoceleCystocele'), path: processSitemapPath('/gynecology/rectocele-cystocele') },
+                        { label: t('sitemap:sections.gynecology.subsections.plannedSurgeries.items.cinIII'), path: processSitemapPath('/gynecology/cin-iii') },
+                        { label: t('sitemap:sections.gynecology.subsections.plannedSurgeries.items.uterineProlapse'), path: processSitemapPath('/gynecology/uterine-prolapse') },
+                        { label: t('sitemap:sections.gynecology.subsections.plannedSurgeries.items.genitalProlapse'), path: processSitemapPath('/gynecology/genital-prolapse') },
                     ]
                 },
                 {

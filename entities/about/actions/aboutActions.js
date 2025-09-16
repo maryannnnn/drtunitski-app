@@ -89,6 +89,14 @@ query  GetAboutAll {
           metaDesc
           title
         }
+        language {
+          code
+          homeUrl
+          id
+          locale
+          name
+          slug
+        }
       AcfAbout {
         faqContent
         faqTitle

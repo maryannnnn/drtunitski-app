@@ -3,13 +3,17 @@ import './menu-nain.scss';
 import './media.scss';
 import Link from "next/link";
 import { useTranslation } from 'next-i18next';
+import { useRouter } from 'next/router';
 import {checkMenuItem} from "../utils/utils-menu";
+import { processMenuUrl } from "../utils/utils-url";
 import menuMain from './menuMain.json';
 
 const MenuMain = () => {
     const {data} = menuMain;
     const [activeMenu, setActiveMenu] = useState(null);
     const { t } = useTranslation();
+    const router = useRouter();
+    const currentLocale = router.locale || 'en';
 
     // Функция для получения переведенного названия меню
     const getTranslatedLabel = (label, itemId) => {
@@ -210,7 +214,7 @@ const MenuMain = () => {
                                                                     {column.node.columnItems.map((item) => (
                                                                         <li key={item.id} className="navigation-menu-column-item">
                                                                             <Link 
-                                                                                href={item.path} 
+                                                                                href={processMenuUrl(item.path, currentLocale)} 
                                                                                 className="navigation-menu-link"
                                                                             >
                                                                                 {getTranslatedLabel(item.label, item.id)}
@@ -227,7 +231,7 @@ const MenuMain = () => {
                                                         {childItems.map((child) => (
                                                             <li key={child.node.id} className="navigation-menu-content-item">
                                                                 <Link 
-                                                                    href={child.node.path} 
+                                                                    href={processMenuUrl(child.node.path, currentLocale)} 
                                                                     className="navigation-menu-link"
                                                                 >
                                                                     {getTranslatedLabel(child.node.label, child.node.id)}
@@ -241,7 +245,7 @@ const MenuMain = () => {
                                     </>
                                 ) : (
                                     <Link 
-                                        href={link.node.path} 
+                                        href={processMenuUrl(link.node.path, currentLocale)} 
                                         className="navigation-menu-link"
                                     >
                                         {getTranslatedLabel(link.node.label, link.node.id)}

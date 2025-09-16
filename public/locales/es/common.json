@@ -96,7 +96,8 @@
   "buttons": {
     "readMore": "Leer más",
     "learnMore": "Saber más",
-    "contactUs": "Contáctanos"
+    "contactUs": "Contáctanos",
+    "bookAppointment": "Reservar cita"
   },
   "common": {
     "loading": "Cargando...",
@@ -110,8 +111,12 @@
       "address": "calle Eli Landau 7, Herzliya, Israel"
     },
     "mainTitle": {
-      "title": "Salón de masajes ofrece diferentes tipos de masajes y cursos de masajes a precios excelentes",
-      "description": "Para nosotros, el masaje es sobre amor. El masaje te ayudará a mejorar tu condición y sintonizar tu cuerpo para la autocuración. Ven al centro Alas de Viento, confía en maestros experimentados que crearán un programa único específicamente para ti, incluyendo los procedimientos más efectivos y orientados a resultados."
+      "title": "Doctor Sergey Tunitsky - Ginecología moderna y tratamiento quirúrgico",
+      "description": "Dr. Sergey Tunitsky es un reconocido ginecólogo israelí, especialista de la más alta categoría y experto reconocido en el tratamiento de todas las formas de infertilidad femenina y enfermedades del sistema reproductor femenino. Aplica protocolos clínicos modernos, técnicas quirúrgicas mínimamente invasivas y un enfoque individual para cada paciente.\n\nLa experiencia clínica del Dr. Tunitsky supera los 25 años. Su experiencia en diagnóstico, tratamiento quirúrgico y prevención de enfermedades ginecológicas lo convierte en uno de los especialistas más solicitados en Israel.",
+      "biography": "Biografía y experiencia clínica",
+      "biographyText": "Dr. Sergey Tunitsky ha progresado de graduado del instituto médico a médico jefe del departamento ginecológico y cirujano principal.\n\nPosiciones clínicas:\n• Médico jefe del departamento ginecológico en el Hospital Hillel Yaffe\n• Ginecólogo principal en Herzliya Medical Center\n\nCombina práctica clínica, actividades docentes y participación en conferencias internacionales de ginecología, mejorando constantemente sus habilidades profesionales.",
+      "subtitle": "Experto en salud femenina",
+      "learnMore": "Saber más"
     },
     "attributes": {
       "massageTitle": "Elementos principales del masaje",
@@ -152,19 +157,6 @@
     "accessibilityStatement": "Declaración de accesibilidad",
     "sitemap": "Mapa del sitio",
     "designBy": "Diseño y promoción por"
-  },
-  "buttons": {
-    "bookAppointment": "Reservar cita"
-  },
-  "info": {
-    "mainTitle": {
-      "title": "Doctor Sergey Tunitsky - Ginecología moderna y tratamiento quirúrgico",
-      "description": "Dr. Sergey Tunitsky es un reconocido ginecólogo israelí, especialista de la más alta categoría y experto reconocido en el tratamiento de todas las formas de infertilidad femenina y enfermedades del sistema reproductor femenino. Aplica protocolos clínicos modernos, técnicas quirúrgicas mínimamente invasivas y un enfoque individual para cada paciente.\n\nLa experiencia clínica del Dr. Tunitsky supera los 25 años. Su experiencia en diagnóstico, tratamiento quirúrgico y prevención de enfermedades ginecológicas lo convierte en uno de los especialistas más solicitados en Israel.",
-      "biography": "Biografía y experiencia clínica",
-      "biographyText": "Dr. Sergey Tunitsky ha progresado de graduado del instituto médico a médico jefe del departamento ginecológico y cirujano principal.\n\nPosiciones clínicas:\n• Médico jefe del departamento ginecológico en el Hospital Hillel Yaffe\n• Ginecólogo principal en Herzliya Medical Center\n\nCombina práctica clínica, actividades docentes y participación en conferencias internacionales de ginecología, mejorando constantemente sus habilidades profesionales.",
-      "subtitle": "Experto en salud femenina",
-      "learnMore": "Saber más"
-    }
   },
   "trustCareBanner": {
     "title": "Confianza y cuidado — tu fuente de paz y salud"

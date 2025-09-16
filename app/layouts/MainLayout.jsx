@@ -7,6 +7,7 @@ import Footer from "../../widgets/footer/Footer";
 import LanguageDetectionBanner from "../../shared/language-detection-banner/LanguageDetectionBanner";
 import { BASIS_URL } from "../config/config.js";
 import { isRTL } from "../../shared/utils/rtl-utils";
+import { useLanguageUrl } from "../../shared/hooks/useLanguageUrl";
 
 const MainLayout = ({
                         children,
@@ -17,6 +18,9 @@ const MainLayout = ({
     const { locale } = router;
     const canonicalUrl = `${BASIS_URL}`;
     const isRTLDirection = isRTL(locale);
+    
+    // Автоматически обновляем URL с языковыми суффиксами
+    useLanguageUrl();
 
     return (
         <div className="wrapper" dir={isRTLDirection ? 'rtl' : 'ltr'}>

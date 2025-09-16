@@ -10,6 +10,7 @@ import {
 } from '@mui/material';
 import { Language as LanguageIcon } from '@mui/icons-material';
 import { detectUserLanguage, saveUserLanguagePreference } from '../utils/language-detection';
+import { addLanguageSuffix, removeLanguageSuffix, isStaticPath } from '../utils/utils-url';
 import './language-switcher.scss';
 
 const languages = [
@@ -25,7 +26,7 @@ const languages = [
 const LanguageSwitcher = ({ variant = 'dropdown', showLabel = false }) => {
     const router = useRouter();
     const { t } = useTranslation();
-    const { locale } = router;
+    const { locale, asPath } = router;
     const [open, setOpen] = useState(false);
     const ref = useRef(null);
 
@@ -41,7 +42,18 @@ const LanguageSwitcher = ({ variant = 'dropdown', showLabel = false }) => {
     // }, []);
 
     const handleLanguageChange = (newLocale) => {
-        router.push(router.asPath, router.asPath, { locale: newLocale });
+        // Обрабатываем URL с учетом новой логики
+        const currentPath = removeLanguageSuffix(router.asPath);
+        
+        // Если это статический путь, не добавляем суффикс
+        if (isStaticPath(currentPath)) {
+            router.push(currentPath, undefined, { locale: newLocale });
+        } else {
+            // Для slug страниц добавляем языковой суффикс
+            const newPath = addLanguageSuffix(currentPath, newLocale);
+            router.push(newPath, undefined, { locale: newLocale });
+        }
+        
         setOpen(false);
         saveUserLanguagePreference(newLocale);
         localStorage.setItem('language-set', 'true');
