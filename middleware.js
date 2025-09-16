@@ -6,8 +6,13 @@ export function middleware(request) {
   const { pathname, searchParams } = request.nextUrl;
   
   // Skip redirect for static pages that don't need locale prefix
-  const staticPages = ['/sitemap', '/privacy-policy', '/accessibility-statement'];
-  if (staticPages.includes(pathname)) {
+  const staticPages = ['/sitemap', '/privacy-policy', '/accessibility-statement', '/about', '/gynecology', '/surgery', '/stories', '/media'];
+  if (staticPages.includes(pathname) || 
+      pathname.startsWith('/about/') || 
+      pathname.startsWith('/gynecology/') || 
+      pathname.startsWith('/surgery/') || 
+      pathname.startsWith('/stories/') || 
+      pathname.startsWith('/media/')) {
     return NextResponse.next();
   }
   

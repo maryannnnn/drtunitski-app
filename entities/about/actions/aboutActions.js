@@ -74,7 +74,7 @@ query  GetAboutAll {
         }
     }
   }
-  about(id: "cG9zdDozNjk2") {
+  about(id: "cG9zdDo0ODcz") {
         id
         menuOrder
         title
@@ -107,5 +107,4 @@ query  GetAboutAll {
   }
 }
 `;
-
 

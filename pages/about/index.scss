@@ -16,7 +16,7 @@
 
   &__title {
     @include title-h1;
-    color: $black;
+    color: $primary;
     padding-top: 15px;
     padding-bottom: 15px;
 
@@ -94,16 +94,12 @@
   &-block-center {
     width: 100%;
     padding: 20px;
-    border-bottom: 1px solid $brown-7;
-    border-top: 1px solid $brown-7;
     background-color: $white;
     margin-bottom: 30px;
   }
 
   &-block-bottom {
     width: 100%;
-    border-bottom: 1px solid $brown-7;
-    border-top: 1px solid $brown-7;
     background-color: $white;
     padding: 20px;
     margin-bottom: 50px;

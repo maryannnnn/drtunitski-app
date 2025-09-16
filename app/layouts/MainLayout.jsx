@@ -21,7 +21,7 @@ const MainLayout = ({
     return (
         <div className="wrapper" dir={isRTLDirection ? 'rtl' : 'ltr'}>
             <Head>
-                <title>{title + ` | запись по хорошей стоимости в Израиле`}</title>
+                <title>{title + ` | Clinic of Dr. Serge Tunitski in Israel`}</title>
                 <meta name="description" content={description} />
                 <meta name="robots" content="index, follow" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />

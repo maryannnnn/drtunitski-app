@@ -56,8 +56,8 @@ const AboutPage = ({initialData}) => {
     const typeMaterial = "about"
 
     const PageProps = {
-        title: about?.seo?.title || 'Компания',
-        description: about?.seo?.metaDesc || 'Компания'
+        title: about?.seo?.title || 'Clinic',
+        description: about?.seo?.metaDesc || 'Clinic'
     };
 
     return (
@@ -211,5 +211,4 @@ export async function getStaticProps({params, locale}) {
 
 
 export default AboutPage;
-
 

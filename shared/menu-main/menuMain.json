@@ -574,7 +574,7 @@
         {
           "node": {
             "id": "cG9zdDozNjYy10",
-            "path": "/contact",
+            "path": "/about/contact",
             "parentId": null,
             "order": 9,
             "label": "Contact"
