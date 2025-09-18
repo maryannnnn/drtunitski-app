@@ -10,6 +10,11 @@
     margin-bottom: 50px;
   }
 
+  // Right alignment for Hebrew (RTL languages)
+  [dir="rtl"] &__header {
+    text-align: right;
+  }
+
   &__title {
     @include title-h2;
     color: $black;
@@ -70,12 +75,22 @@
     color: $primary;
     margin-bottom: 0;
     line-height: 1.4;
-    text-align: center;
+    text-align: left;
+  }
+
+  // Right alignment for Hebrew (RTL languages)
+  [dir="rtl"] &__card-title {
+    text-align: right;
   }
 
   &__button {
     text-align: left;
     margin-top: 40px;
+  }
+
+  // Right alignment for Hebrew (RTL languages)
+  [dir="rtl"] &__button {
+    text-align: right;
   }
 
   &__appointment-btn {

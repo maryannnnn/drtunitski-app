@@ -59,8 +59,12 @@ const MainStories = () => {
         }
     ];
 
+    // Determine text direction based on locale
+    const isRTL = locale === 'he' || locale === 'ar';
+    const dir = isRTL ? 'rtl' : 'ltr';
+
     return (
-        <div className="main-stories">
+        <div className="main-stories" dir={dir}>
             <div className="container">
                 <div className="main-stories__header">
                     <h2 className="main-stories__title">
