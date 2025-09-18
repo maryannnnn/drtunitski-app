@@ -170,16 +170,44 @@ const IndexCourse = ({initialData}) => {
     );
 };
 
-export async function getStaticProps() {
+export async function getStaticProps({ locale }) {
     try {
         const {data} = await apolloClient.query({query: GET_COURSE_ALL});
+        
+        // Ensure data is serializable
+        const safeData = data ? {
+            course: data.course || null,
+            courses: data.courses || { edges: [] },
+            testimonials: data.testimonials || { edges: [] }
+        } : {
+            course: null,
+            courses: { edges: [] },
+            testimonials: { edges: [] }
+        };
+        
         return {
-            props: {initialData: data},
+            props: {
+                initialData: safeData,
+                ...(await import('next-i18next/serverSideTranslations').then(({ serverSideTranslations }) => 
+                    serverSideTranslations(locale, ['common'])
+                )),
+            },
             // revalidate: 86400, // Пересборка каждый день
         };
     } catch (error) {
         console.error('Error fetching data:', error);
-        return {props: {initialData: {}}};
+        return {
+            props: {
+                initialData: {
+                    course: null,
+                    courses: { edges: [] },
+                    testimonials: { edges: [] }
+                },
+                ...(await import('next-i18next/serverSideTranslations').then(({ serverSideTranslations }) => 
+                    serverSideTranslations(locale, ['common'])
+                )),
+            }
+        };
     }
 }
 

@@ -202,6 +202,15 @@ export async function getStaticPaths({ locales }) {
 
         console.log("Fetched massages data: ", data);
 
+        // Check if data and massages exist
+        if (!data || !data.massages || !data.massages.edges) {
+            console.warn("No massages data available");
+            return {
+                paths: [],
+                fallback: true
+            };
+        }
+
         const paths = [];
         
         // Generate paths for each locale
@@ -234,9 +243,18 @@ export async function getStaticProps({params, locale}) {
             variables: {slug: params.slug},
         });
 
+        // Ensure data is serializable
+        const safeData = data ? {
+            massageBy: data.massageBy || null,
+            testimonials: data.testimonials || { edges: [] }
+        } : {
+            massageBy: null,
+            testimonials: { edges: [] }
+        };
+
         return {
             props: {
-                initialData: data,
+                initialData: safeData,
                 ...(await import('next-i18next/serverSideTranslations').then(({ serverSideTranslations }) => 
                     serverSideTranslations(locale, ['common'])
                 )),
@@ -247,7 +265,10 @@ export async function getStaticProps({params, locale}) {
         console.error("Error fetching massage:", error);
         return {
             props: {
-                initialData: { massageBy: null },
+                initialData: { 
+                    massageBy: null,
+                    testimonials: { edges: [] }
+                },
                 ...(await import('next-i18next/serverSideTranslations').then(({ serverSideTranslations }) => 
                     serverSideTranslations(locale, ['common'])
                 )),

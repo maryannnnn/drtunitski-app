@@ -206,6 +206,15 @@ export async function getStaticPaths({ locales }) {
 
         console.log("Fetched courses data: ", data);
 
+        // Check if data and courses exist
+        if (!data || !data.courses || !data.courses.edges) {
+            console.warn("No courses data available");
+            return {
+                paths: [],
+                fallback: true
+            };
+        }
+
         const paths = data.courses.edges.map(item => ({
             params: {slug: item.node.slug},
         }));
@@ -229,9 +238,18 @@ export async function getStaticProps({params, locale}) {
             variables: {slug: params.slug},
         });
 
+        // Ensure data is serializable
+        const safeData = data ? {
+            courseBy: data.courseBy || null,
+            testimonials: data.testimonials || { edges: [] }
+        } : {
+            courseBy: null,
+            testimonials: { edges: [] }
+        };
+
         return {
             props: {
-                initialData: data,
+                initialData: safeData,
                 ...(await import('next-i18next/serverSideTranslations').then(({ serverSideTranslations }) => 
                     serverSideTranslations(locale, ['common'])
                 )),
@@ -242,7 +260,10 @@ export async function getStaticProps({params, locale}) {
         console.error("Error fetching course:", error);
         return {
             props: {
-                initialData: { courseBy: null },
+                initialData: { 
+                    courseBy: null,
+                    testimonials: { edges: [] }
+                },
                 ...(await import('next-i18next/serverSideTranslations').then(({ serverSideTranslations }) => 
                     serverSideTranslations(locale, ['common'])
                 )),
