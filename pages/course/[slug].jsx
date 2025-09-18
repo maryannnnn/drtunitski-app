@@ -3,6 +3,7 @@ import './media.scss';
 import {useRouter} from 'next/router';
 import { useTranslation } from 'next-i18next';
 import { filterByLanguage } from '../../shared/utils/language-filter';
+import VideoDisplay from '../../shared/video-display/VideoDisplay';
 import {useQuery} from "@apollo/client";
 import {GET_COURSE_BY_SLUG, GET_COURSE_ALL} from "../../entities/course/actions/courseActions";
 import apolloClient from "../../app/graphql/apollo-client";
@@ -94,7 +95,7 @@ const CoursePage = ({initialData}) => {
                                                 <a href={course?.AcfCourse?.imageAnonsPage?.sourceUrl}>
                                                     <Image
                                                         src={course?.AcfCourse?.imageAnonsPage?.sourceUrl}
-                                                        alt={course?.AcfCourse?.imageAnonsPage?.altText || 'Image'}
+                                                        alt={cleanHtmlFull(course?.AcfCourse?.titleLong || '')}
                                                         width={400}
                                                         height={400}
                                                         layout="intrinsic"
@@ -128,8 +129,9 @@ const CoursePage = ({initialData}) => {
                         {course?.content && (
                             <>
                                 <div className="course-block-center">
-                                    <h2 className="course__title-main">{cleanHtmlFull(course?.AcfCourse?.titleCenter || '')}</h2>
-                                    <div className="course__description">
+                                    <div className="container">
+                                        <h2 className="course__title-main">{cleanHtmlFull(course?.AcfCourse?.titleCenter || '')}</h2>
+                                        <div className="course__description">
                                         {course?.featuredImage?.node?.sourceUrl && (
                                             <div className="course__description-img">
                                                 <LightGallery
@@ -140,7 +142,7 @@ const CoursePage = ({initialData}) => {
                                                     <a href={course?.featuredImage?.node?.sourceUrl}>
                                                         <Image
                                                             src={course?.featuredImage?.node?.sourceUrl}
-                                                            alt={course?.featuredImage?.node?.altText || 'Image'}
+                                                            alt={cleanHtmlFull(course?.AcfCourse?.titleCenter || '')}
                                                             width={400}
                                                             height={400}
                                                             layout="intrinsic"
@@ -152,20 +154,22 @@ const CoursePage = ({initialData}) => {
                                         <div className="course__description-text"
                                              dangerouslySetInnerHTML={{__html: course?.content || ''}}>
                                         </div>
+                                        </div>
                                     </div>
                                 </div>
                             </>
                         )}
                         {course?.AcfCourse?.video && (
-                            <div className="course-block-video">
+                            <div className="course__video">
                                 <h2 className="course__title-video">{cleanHtmlFull(course?.AcfCourse?.videoTitle || '')}</h2>
-                                <div className="course__video">
-                                    <div className="course__video-content"
-                                         dangerouslySetInnerHTML={{__html: course?.AcfCourse?.video || ''}}>
-                                    </div>
-                                    <div className="course__video-text"
-                                         dangerouslySetInnerHTML={{__html: course?.AcfCourse?.videoDescription || ''}}>
-                                    </div>
+                                <div className="course__video-content">
+                                    <VideoDisplay
+                                        videoUrl={course?.AcfCourse?.video}
+                                        title={cleanHtmlFull(course?.AcfCourse?.videoTitle || '')}
+                                    />
+                                </div>
+                                <div className="course__video-text"
+                                     dangerouslySetInnerHTML={{__html: course?.AcfCourse?.videoDescription || ''}}>
                                 </div>
                             </div>
                         )}
@@ -177,10 +181,12 @@ const CoursePage = ({initialData}) => {
                         )}
                         {course?.AcfCourse?.faqContent && (
                             <div className="course-block-bottom">
-                                <h2 className="course__title-faq">{cleanHtmlFull(course?.AcfCourse?.faqTitle || '')}</h2>
-                                <div className="course__faq">
-                                    <div className="course__faq-content"
+                                <div className="container">
+                                    <h2 className="course__title-faq">{cleanHtmlFull(course?.AcfCourse?.faqTitle || '')}</h2>
+                                    <div className="course__faq">
+                                        <div className="course__faq-content"
                                          dangerouslySetInnerHTML={{__html: course?.AcfCourse?.faqContent || ''}}>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

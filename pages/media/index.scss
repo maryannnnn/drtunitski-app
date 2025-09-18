@@ -75,19 +75,52 @@
 }
 
 .salon-block-center {
-  width: 100%;
-  padding: 20px;
-  border-bottom: 1px solid $brown-7;
-  border-top: 1px solid $brown-7;
   background-color: $white;
+  padding: 60px 0;
+  margin: 40px 0;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .salon__title-main {
+    @include title-h2;
+    color: $brown-7;
+    margin-bottom: 30px;
+    text-align: left;
+  }
 }
 
 .salon-block-bottom {
-  width: 100%;
-  padding: 20px;
-  border-bottom: 1px solid $brown-7;
-  border-top: 1px solid $brown-7;
-  background-color: $white;
+  background-color: $grey-3;
+  padding: 60px 0;
+  margin: 40px 0;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .salon__title-faq {
+    @include title-h2;
+    color: $primary;
+    margin-bottom: 30px;
+    text-align: left;
+  }
+  
+  .salon__faq {
+    &-content {
+      text-align: justify;
+      line-height: 1.6;
+    }
+  }
 }
 
 .salon-block-video {

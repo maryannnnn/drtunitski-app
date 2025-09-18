@@ -20,18 +20,24 @@ const MainGynecology = () => {
     };
 
     const getLocalizedUrl = (url) => {
-        return locale === 'en' ? url : `/${locale}${url}`;
+        // Для английского языка URL остается без изменений
+        if (locale === 'en') {
+            return url;
+        }
+        
+        // Для всех slug страниц добавляем языковой суффикс к концу URL
+        return `${url}-${locale}`;
     };
 
     const gynecologyItems = [
         {
             title: safeT('gynecology.gynecologicalDiseases.title'),
-            url: getLocalizedUrl('/gynecology'),
+            url: getLocalizedUrl('/gynecology/planned'),
             description: safeT('gynecology.gynecologicalDiseases.description')
         },
         {
             title: safeT('gynecology.gynecologicalSurgery.title'),
-            url: getLocalizedUrl('/surgery'),
+            url: getLocalizedUrl('/surgery/important'),
             description: safeT('gynecology.gynecologicalSurgery.description')
         },
         {

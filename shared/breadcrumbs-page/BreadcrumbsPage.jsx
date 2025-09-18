@@ -27,13 +27,13 @@ const BreadcrumbsPage = ({material, typeMaterial}) => {
              <Breadcrumbs aria-label="breadcrumb">
                  <Link
                      className="breadcrumb-link"
-                     href={processMenuUrl(breadcrumbMain?.url, currentLocale)}
+                     href={breadcrumbMain?.url ? processMenuUrl(breadcrumbMain.url, currentLocale) : '/'}
                  >
                      {breadcrumbMain?.title}
                  </Link>
                  <Link
                      className="breadcrumb-link"
-                     href={processMenuUrl(breadcrumb?.url, currentLocale)}
+                     href={breadcrumb?.url ? processMenuUrl(breadcrumb.url, currentLocale) : '/story'}
                  >
                      {breadcrumb?.title}
                  </Link>

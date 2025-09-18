@@ -1,8 +1,8 @@
 import {gql} from '@apollo/client';
 
-export const GET_TESTIMONIAL_BY_SLUG = gql`
-  query GetTestimonialBySlug($slug: String!) {
-    testimonialBy(slug: $slug) {
+export const GET_STORY_BY_SLUG = gql`
+  query GetStoryBySlug($slug: String!) {
+    storyBy(slug: $slug) {
       id
       language {
         code
@@ -33,7 +33,7 @@ export const GET_TESTIMONIAL_BY_SLUG = gql`
             }
         }
       }
-      AcfTestimonial {
+      AcfStory {
         faqContent
         faqTitle
         videoTitle
@@ -63,9 +63,9 @@ export const GET_TESTIMONIAL_BY_SLUG = gql`
   }
 `;
 
-export const GET_TESTIMONIAL_ALL = gql`
-  query GetTestimonialAll {
-    testimonials {
+export const GET_STORY_ALL = gql`
+  query GetStoryAll {
+    stories {
       edges {
         node {
           id
@@ -99,7 +99,7 @@ export const GET_TESTIMONIAL_ALL = gql`
                 }
             }
           }
-          AcfTestimonial {
+          AcfStory {
             faqContent
             faqTitle
             videoTitle
@@ -128,47 +128,9 @@ export const GET_TESTIMONIAL_ALL = gql`
         }
       }
     }
-    testimonial(id: "cG9zdDo0NDM4") {
-      id
-      title
-      content
-      uri
-      featuredImage {
-        node {
-          altText
-          sourceUrl
-        }
-      }
-      seo {
-        metaDesc
-        title
-      }
-      AcfTestimonial {
-            faqContent
-            faqTitle
-            videoTitle
-            videoDescription
-            video
-            titleLong
-            titleShort
-            descriptionAnons
-            titleCenter
-            imageAnons {
-              altText
-              sourceUrl
-            }
-            front
-            groupInfoPost {
-              speciality
-              position
-              fullName
-              imageAuthor {
-                altText
-                sourceUrl
-                uri
-              }
-            }
-       }
-    }
   }
 `;
+
+// Обратная совместимость - оставляем старые названия для постепенного перехода
+export const GET_TESTIMONIAL_BY_SLUG = GET_STORY_BY_SLUG;
+export const GET_TESTIMONIAL_ALL = GET_STORY_ALL;

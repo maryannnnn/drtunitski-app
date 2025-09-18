@@ -103,7 +103,7 @@
             "columnItems": [
               {
                 "id": "cG9zdDozNjc43a1",
-                "path": "/gynecology",
+                "path": "/gynecology/planned",
                 "label": "Gynecological diseases"
               },
               {
@@ -315,7 +315,7 @@
         {
           "node": {
             "id": "cG9zdDozNjc55",
-            "path": "/surgery",
+            "path": "/surgery/important",
             "parentId": null,
             "order": 5,
             "label": "Surgery"
@@ -332,7 +332,7 @@
             "columnItems": [
               {
                 "id": "cG9zdDozNjc55a1",
-                "path": "/surgery",
+                "path": "/surgery/important",
                 "label": "Gynecological Surgery"
               },
               {
@@ -502,7 +502,7 @@
         {
           "node": {
             "id": "cG9zdDozNjYy6",
-            "path": "/stories",
+            "path": "/story/main",
             "parentId": null,
             "order": 6,
             "label": "Success Stories"
@@ -520,7 +520,7 @@
         {
           "node": {
             "id": "cG9zdDozNjYy9a",
-            "path": "/media",
+            "path": "/media/blog",
             "parentId": "cG9zdDozNjYy9",
             "order": 0,
             "label": "Clinic Blog"

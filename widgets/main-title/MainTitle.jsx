@@ -31,7 +31,13 @@ const MainTitle = () => {
     // Определяем URL для кнопки в зависимости от языка
     const getAboutUrl = () => {
         const baseUrl = '/about/dr-serge-tunitski';
-        return locale === 'en' ? baseUrl : `/${locale}${baseUrl}`;
+        // Для английского языка URL остается без префикса
+        // Для других языков добавляем языковой суффикс
+        if (locale === 'en') {
+            return baseUrl;
+        }
+        // Добавляем языковой суффикс к slug
+        return `${baseUrl}-${locale}`;
     };
 
     return (

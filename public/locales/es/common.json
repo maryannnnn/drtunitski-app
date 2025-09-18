@@ -196,5 +196,20 @@
       "title": "Pólipos",
       "description": "Extracción de pólipos endometriales y cervicales mediante técnicas quirúrgicas histeroscópicas y otras mínimamente invasivas."
     }
+  },
+  "stories": {
+    "title": "Historias de éxito",
+    "fertility": {
+      "title": "Preservación de fertilidad: extracción de quiste ovárico sin incisiones",
+      "description": "Cirugía laparoscópica mínimamente invasiva preservando la función reproductiva"
+    },
+    "myomectomy": {
+      "title": "Extracción de fibroma uterino con preservación de órgano: una historia de maternidad",
+      "description": "Tratamiento exitoso manteniendo la capacidad de concebir y llevar un hijo"
+    },
+    "polyp": {
+      "title": "Extracción suave de pólipo: resolviendo problemas de infertilidad",
+      "description": "Procedimiento histeroscópico restaurando la fertilidad y esperanza para el futuro"
+    }
   }
 }

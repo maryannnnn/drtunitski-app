@@ -27,7 +27,7 @@ const Sitemap = () => {
                 { label: t('sitemap:sections.main.items.gynecology'), path: processSitemapPath('/gynecology') },
                 { label: t('sitemap:sections.main.items.cancer'), path: processSitemapPath('/cancer') },
                 { label: t('sitemap:sections.main.items.surgery'), path: processSitemapPath('/surgery') },
-                { label: t('sitemap:sections.main.items.stories'), path: processSitemapPath('/stories') },
+                { label: t('sitemap:sections.main.items.stories'), path: processSitemapPath('/story') },
                 { label: t('sitemap:sections.main.items.media'), path: processSitemapPath('/media') },
                 { label: t('sitemap:sections.main.items.contact'), path: processSitemapPath('/contact') },
             ]

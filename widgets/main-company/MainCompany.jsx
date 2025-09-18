@@ -15,9 +15,13 @@ const MainCompany = ({data}) => {
     console.log("MainCompany data: ", data)
 
     const router = useRouter();
+    const { locale } = router;
 
     const handleClick = () => {
-        router.push('/about');
+        // Для английского языка URL остается без изменений
+        // Для других языков добавляем языковой суффикс
+        const aboutUrl = locale === 'en' ? '/about' : `/about-${locale}`;
+        router.push(aboutUrl);
     };
 
     return (

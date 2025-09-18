@@ -3,6 +3,7 @@ import './media.scss';
 import {useRouter} from 'next/router';
 import { useTranslation } from 'next-i18next';
 import { filterByLanguage } from '../../shared/utils/language-filter';
+import VideoDisplay from '../../shared/video-display/VideoDisplay';
 import {useQuery} from "@apollo/client";
 import {GET_ABOUT_BY_SLUG, GET_ABOUT_ALL} from "../../entities/about/actions/aboutActions";
 import apolloClient from "../../app/graphql/apollo-client";
@@ -80,7 +81,7 @@ const AboutPage = ({initialData}) => {
                                                 <a href={about?.AcfAbout?.imageAnons?.sourceUrl}>
                                                     <Image
                                                         src={about?.AcfAbout?.imageAnons?.sourceUrl}
-                                                        alt={about?.AcfAbout?.imageAnons?.altText || 'Image'}
+                                                        alt={cleanHtmlFull(about?.AcfAbout?.titleLong || '')}
                                                         width={400}
                                                         height={400}
                                                         layout="intrinsic"
@@ -98,53 +99,58 @@ const AboutPage = ({initialData}) => {
                         {about?.content && (
                             <>
                                 <div className="about-block-center">
-                                    <h2 className="about__title-main">{cleanHtmlFull(about?.AcfAbout?.titleCenter || '')}</h2>
-                                    <div className="about__description">
-                                        {about?.featuredImage?.node?.sourceUrl && (
-                                            <div className="about__description-img">
-                                                <LightGallery
-                                                    elementClassNames={'masonry-gallery-demo'}
-                                                    plugins={[lgZoom, lgShare, lgHash]}
-                                                    speed={500}
-                                                >
-                                                    <a href={about?.featuredImage?.node?.sourceUrl}>
-                                                        <Image
-                                                            src={about?.featuredImage?.node?.sourceUrl}
-                                                            alt={about?.featuredImage?.node?.altText || 'Image'}
-                                                            width={400}
-                                                            height={400}
-                                                            layout="intrinsic"
-                                                        />
-                                                    </a>
-                                                </LightGallery>
+                                    <div className="container">
+                                        <h2 className="about__title-main">{cleanHtmlFull(about?.AcfAbout?.titleCenter || '')}</h2>
+                                        <div className="about__description">
+                                            {about?.featuredImage?.node?.sourceUrl && (
+                                                <div className="about__description-img">
+                                                    <LightGallery
+                                                        elementClassNames={'masonry-gallery-demo'}
+                                                        plugins={[lgZoom, lgShare, lgHash]}
+                                                        speed={500}
+                                                    >
+                                                        <a href={about?.featuredImage?.node?.sourceUrl}>
+                                                            <Image
+                                                                src={about?.featuredImage?.node?.sourceUrl}
+                                                                alt={cleanHtmlFull(about?.AcfAbout?.titleCenter || '')}
+                                                                width={400}
+                                                                height={400}
+                                                                layout="intrinsic"
+                                                            />
+                                                        </a>
+                                                    </LightGallery>
+                                                </div>
+                                            )}
+                                            <div className="about__description-text"
+                                                 dangerouslySetInnerHTML={{__html: about?.content || ''}}>
                                             </div>
-                                        )}
-                                        <div className="about__description-text"
-                                             dangerouslySetInnerHTML={{__html: about?.content || ''}}>
                                         </div>
                                     </div>
                                 </div>
                             </>
                         )}
                         {about?.AcfAbout?.video && (
-                            <div className="about-block-video">
+                            <div className="about__video">
                                 <h2 className="about__title-video">{cleanHtmlFull(about?.AcfAbout?.videoTitle || '')}</h2>
-                                <div className="about__video">
-                                    <div className="about__video-content"
-                                         dangerouslySetInnerHTML={{__html: about?.AcfAbout?.video || ''}}>
-                                    </div>
-                                    <div className="about__video-text"
-                                         dangerouslySetInnerHTML={{__html: about?.AcfAbout?.videoDescription || ''}}>
-                                    </div>
+                                <div className="about__video-content">
+                                    <VideoDisplay
+                                        videoUrl={about?.AcfAbout?.video}
+                                        title={cleanHtmlFull(about?.AcfAbout?.videoTitle || '')}
+                                    />
+                                </div>
+                                <div className="about__video-text"
+                                     dangerouslySetInnerHTML={{__html: about?.AcfAbout?.videoDescription || ''}}>
                                 </div>
                             </div>
                         )}
                         {about?.AcfAbout?.faqContent && (
                             <div className="about-block-bottom">
-                                <h2 className="about__title-faq">{cleanHtmlFull(about?.AcfAbout?.faqTitle || '')}</h2>
-                                <div className="about__faq">
-                                    <div className="about__faq-content"
-                                         dangerouslySetInnerHTML={{__html: about?.AcfAbout?.faqContent || ''}}>
+                                <div className="container">
+                                    <h2 className="about__title-faq">{cleanHtmlFull(about?.AcfAbout?.faqTitle || '')}</h2>
+                                    <div className="about__faq">
+                                        <div className="about__faq-content"
+                                             dangerouslySetInnerHTML={{__html: about?.AcfAbout?.faqContent || ''}}>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

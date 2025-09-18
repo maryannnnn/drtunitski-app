@@ -2,6 +2,7 @@ import React from 'react';
 import '../app/scss/app.scss';
 import {SpeedInsights} from "@vercel/speed-insights/next";
 import MainLayout from "../app/layouts/MainLayout";
+import { useTranslation } from 'next-i18next';
 import MainBanner from "@/widgets/main-banner/MainBanner";
 import MainBonus from "@/widgets/main-bonus/MainBonus";
 import MainCompany from "@/widgets/main-company/MainCompany";
@@ -11,8 +12,10 @@ import MainTestimonial from "@/widgets/main-testimonial/MainTestimonial";
 import MainPost from "@/widgets/main-post/MainPost";
 import MainTitle from "@/widgets/main-title/MainTitle";
 import MainGynecology from "@/widgets/main-gynecology/MainGynecology";
+import MainStories from "@/widgets/main-stories/MainStories";
 import TrustCareBanner from "@/shared/trust-care-banner/TrustCareBanner";
 import FooterAssociations from "@/shared/footer-associations/FooterAssociations";
+import VideoDisplayTest from "@/shared/video-display/VideoDisplayTest";
 import {useQuery} from "@apollo/client";
 import apolloClient from '../app/graphql/apollo-client';
 import {GET_HOME_DATA} from "../entities/main/actions/mainActions";
@@ -20,13 +23,12 @@ import Stack from "@mui/material/Stack";
 import Alert from "@mui/material/Alert";
 import {getMainTitle, getTestimonialType} from "../app/info/info";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import { filterByLanguage } from '../shared/utils/language-filter';
 
 
 const Index = ({initialData}) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('common');
     const router = useRouter();
     const { locale } = router;
     
@@ -96,7 +98,11 @@ const Index = ({initialData}) => {
 
                     <MainGynecology />
 
+                    <MainStories />
+
                     <FooterAssociations />
+                    
+
 
 {/*                    {displayData.salons?.edges?.length > 0 && (
                         <MainCompany data={displayData}/>
@@ -139,9 +145,25 @@ export async function getStaticProps({ locale }) {
 
         console.log("Fetched data:", data);
 
+        // Ensure data is not undefined and has proper structure
+        const safeData = data || {};
+
         return {
             props: {
-                initialData: data,
+                initialData: {
+                    category1: safeData.category1 || null,
+                    category2: safeData.category2 || null,
+                    category3: safeData.category3 || null,
+                    category4: safeData.category4 || null,
+                    category5: safeData.category5 || null,
+                    about: safeData.about || null,
+                    abouts: safeData.abouts || { edges: [] },
+                    bonuses: safeData.bonuses || { edges: [] },
+                    massages: safeData.massages || { edges: [] },
+                    courses: safeData.courses || { edges: [] },
+                    testimonials: safeData.testimonials || { edges: [] },
+                    posts: safeData.posts || { edges: [] }
+                },
                 ...(await serverSideTranslations(locale, ['common'])),
             },
            // revalidate: 2592000, // Revalidate every 30 days
@@ -160,7 +182,7 @@ export async function getStaticProps({ locale }) {
                     category3: null,
                     category4: null,
                     category5: null,
-                    salon: null,
+                    about: null,
                     abouts: { edges: [] },
                     bonuses: { edges: [] },
                     massages: { edges: [] },

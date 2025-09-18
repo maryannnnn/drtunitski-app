@@ -1,43 +1,17 @@
 @import '../../app/scss/mixins';
 @import '../../app/scss/colors';
 
-.block-bonuses {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 30px;
-  padding-bottom: 20px;
-  margin-bottom: 50px;
-}
-
-.bonus {
+.testimonial {
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
+  padding-bottom: 50px;
 
   &__title {
     @include title-h1;
     color: $black;
     padding-top: 15px;
     padding-bottom: 15px;
-
-    &-main {
-      @include title-h2;
-      color: $brown-7;
-      padding-bottom: 15px;
-    }
-
-    &-video {
-      @include title-h2;
-      color: $brown-7;
-      padding-bottom: 15px;
-    }
-    &-faq {
-      @include title-h2;
-      color: $brown-7;
-      padding-bottom: 15px;
-    }
   }
 
   &__anons {
@@ -107,6 +81,12 @@
     }
   }
 
+  &__title-video {
+    @include title-h2;
+    color: $brown-7;
+    padding-bottom: 15px;
+  }
+
   // Мобильные стили для видео
   @media (max-width: 768px) {
     &__video {
@@ -126,72 +106,80 @@
       }
     }
   }
+}
 
-  &__title-video {
+.block-testimonials {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+// Блоки для story страниц
+.story-block-center {
+  background-color: $white;
+  padding: 60px 0;
+  margin: 40px 0;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .story__title-main {
     @include title-h2;
     color: $brown-7;
-    padding-bottom: 15px;
-  }
-
-  &-block-center {
-    background-color: $white;
-    padding: 60px 0;
-    margin: 40px 0;
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
-    
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-    
-    .bonus__title-main {
-      @include title-h2;
-      color: $brown-7;
-      margin-bottom: 30px;
-      text-align: left;
-    }
-  }
-
-  &-block-bottom {
-    background-color: $grey-3;
-    padding: 60px 0;
-    margin: 40px 0;
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
-    
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-    
-    .bonus__title-faq {
-      @include title-h2;
-      color: $primary;
-      margin-bottom: 30px;
-      text-align: left;
-    }
-    
-    .bonus__faq {
-      &-content {
-        text-align: justify;
-        line-height: 1.6;
-      }
-    }
-  }
-
-  &-block-video {
-    padding-top: 20px;
     margin-bottom: 30px;
+    text-align: left;
   }
-
-  &-block-top {
-    padding-top: 20px;
-    margin-bottom: 30px;
+  
+  .story__description {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    
+    &-img {
+      flex-shrink: 0;
+      max-width: 400px;
+    }
+    
+    &-text {
+      flex: 1;
+      text-align: justify;
+    }
   }
-
 }
+
+.story-block-bottom {
+  background-color: $grey-3;
+  padding: 60px 0;
+  margin: 40px 0;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .story__title-faq {
+    @include title-h2;
+    color: $primary;
+    margin-bottom: 30px;
+    text-align: left;
+  }
+  
+  .story__faq {
+    &-content {
+      text-align: justify;
+      line-height: 1.6;
+    }
+  }
+}
+
 
 

@@ -212,5 +212,20 @@
       "title": "Polyps",
       "description": "Removal of endometrial and cervical polyps through hysteroscopic and other minimally invasive surgical techniques."
     }
+  },
+  "stories": {
+    "title": "Success Stories",
+    "fertility": {
+      "title": "Fertility Preservation: Ovarian Cyst Removal Without Incisions",
+      "description": "Minimally invasive laparoscopic surgery preserving reproductive function"
+    },
+    "myomectomy": {
+      "title": "Uterine Fibroid Removal with Organ Preservation: A Motherhood Story",
+      "description": "Successful treatment maintaining the ability to conceive and carry a child"
+    },
+    "polyp": {
+      "title": "Gentle Polyp Removal: Solving Infertility Issues",
+      "description": "Hysteroscopic procedure restoring fertility and hope for the future"
+    }
   }
 }

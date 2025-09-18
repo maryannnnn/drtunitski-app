@@ -196,5 +196,20 @@
       "title": "Polypen",
       "description": "Entfernung von Endometrium- und Zervixpolypen durch hysteroskopische und andere minimalinvasive chirurgische Techniken."
     }
+  },
+  "stories": {
+    "title": "Erfolgsgeschichten",
+    "fertility": {
+      "title": "Fruchtbarkeitserhaltung: Eierstockzystenentfernung ohne Schnitte",
+      "description": "Minimalinvasive laparoskopische Chirurgie mit Erhaltung der Fortpflanzungsfunktion"
+    },
+    "myomectomy": {
+      "title": "Gebärmuttermyom-Entfernung mit Organerhaltung: Eine Mutterschaftsgeschichte",
+      "description": "Erfolgreiche Behandlung mit Erhaltung der Fähigkeit zu empfangen und ein Kind auszutragen"
+    },
+    "polyp": {
+      "title": "Sanfte Polypenentfernung: Lösung von Unfruchtbarkeitsproblemen",
+      "description": "Hysteroskopisches Verfahren zur Wiederherstellung der Fruchtbarkeit und Hoffnung für die Zukunft"
+    }
   }
 }

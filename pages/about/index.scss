@@ -67,22 +67,37 @@
     }
   }
 
+  &__title-video {
+    @include title-h2;
+    color: $brown-7;
+    margin-bottom: 20px;
+  }
+
   &__video {
     display: block;
     padding-bottom: 20px;
+    
+    &::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
 
     &-content {
       position: relative;
-      width: 50%; /* Половина ширины экрана, если нужно обтекание */
+      width: 400px !important; /* Фиксированная ширина для видео */
       max-width: 100%;
-      float: left; /* Обтекание текста справа */
+      float: left !important; /* Обтекание текста справа */
       margin-right: 20px; /* Отступ от текста */
+      min-width: 400px; /* Минимальная ширина */
+      flex-shrink: 0; /* Не сжимается */
 
       iframe {
-        width: 100%;
-        height: auto;
-        aspect-ratio: 16 / 9;
+        width: 100% !important;
+        height: 250px !important; /* Фиксированная высота */
         display: block;
+        border-radius: 8px;
+        min-width: 400px; /* Минимальная ширина для iframe */
       }
     }
 
@@ -91,18 +106,73 @@
     }
   }
 
+  // Мобильные стили для видео
+  @media (max-width: 768px) {
+    &__video {
+      &-content {
+        width: 100% !important;
+        float: none !important;
+        margin-right: 0 !important;
+        margin-bottom: 15px;
+
+        iframe {
+          height: 250px;
+        }
+      }
+
+      &-text {
+        overflow: visible;
+      }
+    }
+  }
+
   &-block-center {
-    width: 100%;
-    padding: 20px;
     background-color: $white;
-    margin-bottom: 30px;
+    padding: 60px 0;
+    margin: 40px 0;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .about__title-main {
+      @include title-h2;
+      color: $brown-7;
+      margin-bottom: 30px;
+      text-align: left;
+    }
   }
 
   &-block-bottom {
-    width: 100%;
-    background-color: $white;
-    padding: 20px;
-    margin-bottom: 50px;
+    background-color: $grey-3;
+    padding: 60px 0;
+    margin: 40px 0;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .about__title-faq {
+      @include title-h2;
+      color: $primary;
+      margin-bottom: 30px;
+      text-align: left;
+    }
+    
+    .about__faq {
+      &-content {
+        text-align: justify;
+        line-height: 1.6;
+      }
+    }
   }
 
   &-block-video {

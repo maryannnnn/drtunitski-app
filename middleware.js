@@ -6,12 +6,12 @@ export function middleware(request) {
   const { pathname, searchParams } = request.nextUrl;
   
   // Skip redirect for static pages that don't need locale prefix
-  const staticPages = ['/sitemap', '/privacy-policy', '/accessibility-statement', '/about', '/gynecology', '/surgery', '/stories', '/media'];
+  const staticPages = ['/sitemap', '/privacy-policy', '/accessibility-statement', '/about', '/gynecology', '/surgery', '/story', '/media'];
   if (staticPages.includes(pathname) || 
       pathname.startsWith('/about/') || 
       pathname.startsWith('/gynecology/') || 
       pathname.startsWith('/surgery/') || 
-      pathname.startsWith('/stories/') || 
+      pathname.startsWith('/story/') || 
       pathname.startsWith('/media/')) {
     return NextResponse.next();
   }

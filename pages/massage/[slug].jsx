@@ -3,6 +3,7 @@ import './media.scss';
 import {useRouter} from 'next/router';
 import { useTranslation } from 'next-i18next';
 import { filterByLanguage } from '../../shared/utils/language-filter';
+import VideoDisplay from '../../shared/video-display/VideoDisplay';
 import {useQuery} from "@apollo/client";
 import apolloClient from "../../app/graphql/apollo-client";
 import React, {useEffect, useState} from "react";
@@ -95,7 +96,7 @@ const MassagePage = ({initialData}) => {
                                                 <a href={massage?.AcfMassage?.imageAnonsPage?.sourceUrl}>
                                                     <Image
                                                         src={massage?.AcfMassage?.imageAnonsPage?.sourceUrl}
-                                                        alt={massage?.AcfMassage?.imageAnonsPage?.altText || 'Image'}
+                                                        alt={cleanHtmlFull(massage?.AcfMassage?.titleLong || '')}
                                                         width={400}
                                                         height={400}
                                                         layout="intrinsic"
@@ -140,7 +141,7 @@ const MassagePage = ({initialData}) => {
                                                     <a href={massage?.featuredImage?.node?.sourceUrl}>
                                                         <Image
                                                             src={massage?.featuredImage?.node?.sourceUrl}
-                                                            alt={massage?.featuredImage?.node?.altText || 'Image'}
+                                                            alt={cleanHtmlFull(massage?.AcfMassage?.titleCenter || '')}
                                                             width={400}
                                                             height={400}
                                                             layout="intrinsic"
@@ -157,15 +158,16 @@ const MassagePage = ({initialData}) => {
                         )}
 
                         {massage?.AcfMassage?.video && (
-                            <div className="massage-block-video">
+                            <div className="massage__video">
                                 <h2 className="massage__title-video">{cleanHtmlFull(massage?.AcfMassage?.videoTitle || '')}</h2>
-                                <div className="massage__video">
-                                    <div className="massage__video-content"
-                                         dangerouslySetInnerHTML={{__html: massage?.AcfMassage?.video || ''}}>
-                                    </div>
-                                    <div className="massage__video-text"
-                                         dangerouslySetInnerHTML={{__html: massage?.AcfMassage?.videoDescription || ''}}>
-                                    </div>
+                                <div className="massage__video-content">
+                                    <VideoDisplay
+                                        videoUrl={massage?.AcfMassage?.video}
+                                        title={cleanHtmlFull(massage?.AcfMassage?.videoTitle || '')}
+                                    />
+                                </div>
+                                <div className="massage__video-text"
+                                     dangerouslySetInnerHTML={{__html: massage?.AcfMassage?.videoDescription || ''}}>
                                 </div>
                             </div>
                         )}

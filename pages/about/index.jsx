@@ -94,29 +94,31 @@ const IndexAbout = ({initialData}) => {
                             {about?.content && (
                                 <>
                                     <div className="about-block-center">
-                                        <h2 className="about__title-main">{cleanHtmlFull(about?.AcfAbout?.titleCenter || '')}</h2>
-                                        <div className="about__description">
-                                            {about?.featuredImage?.node?.sourceUrl && (
-                                                <div className="about__description-img">
-                                                    <LightGallery
-                                                        elementClassNames={'masonry-gallery-demo'}
-                                                        plugins={[lgZoom, lgShare, lgHash]}
-                                                        speed={500}
-                                                    >
-                                                        <a href={about?.featuredImage?.node?.sourceUrl}>
-                                                            <Image
-                                                                src={about?.featuredImage?.node?.sourceUrl || ''}
-                                                                alt={about?.featuredImage?.node?.altText || ''}
-                                                                width={400}
-                                                                height={600}
-                                                                layout="intrinsic"
-                                                            />
-                                                        </a>
-                                                    </LightGallery>
+                                        <div className="container">
+                                            <h2 className="about__title-main">{cleanHtmlFull(about?.AcfAbout?.titleCenter || '')}</h2>
+                                            <div className="about__description">
+                                                {about?.featuredImage?.node?.sourceUrl && (
+                                                    <div className="about__description-img">
+                                                        <LightGallery
+                                                            elementClassNames={'masonry-gallery-demo'}
+                                                            plugins={[lgZoom, lgShare, lgHash]}
+                                                            speed={500}
+                                                        >
+                                                            <a href={about?.featuredImage?.node?.sourceUrl}>
+                                                                <Image
+                                                                    src={about?.featuredImage?.node?.sourceUrl || ''}
+                                                                    alt={about?.featuredImage?.node?.altText || ''}
+                                                                    width={400}
+                                                                    height={600}
+                                                                    layout="intrinsic"
+                                                                />
+                                                            </a>
+                                                        </LightGallery>
+                                                    </div>
+                                                )}
+                                                <div className="about__description-text"
+                                                     dangerouslySetInnerHTML={{__html: about?.content || ''}}>
                                                 </div>
-                                            )}
-                                            <div className="about__description-text"
-                                                 dangerouslySetInnerHTML={{__html: about?.content || ''}}>
                                             </div>
                                         </div>
                                     </div>
@@ -138,10 +140,12 @@ const IndexAbout = ({initialData}) => {
                             )}
                             {about?.AcfAbout?.faqTitle && (
                                 <div className="about-block-bottom">
-                                    <h2 className="about__title-gallery">{cleanHtmlFull(about?.AcfAbout?.faqTitle || '')}</h2>
-                                    <div className="about__gallery">
-                                        <div className="about__gallery-content"
-                                             dangerouslySetInnerHTML={{__html: about?.AcfAbout?.faqContent || ''}}>
+                                    <div className="container">
+                                        <h2 className="about__title-faq">{cleanHtmlFull(about?.AcfAbout?.faqTitle || '')}</h2>
+                                        <div className="about__faq">
+                                            <div className="about__faq-content"
+                                                 dangerouslySetInnerHTML={{__html: about?.AcfAbout?.faqContent || ''}}>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

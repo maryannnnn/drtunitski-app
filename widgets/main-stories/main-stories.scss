@@ -1,0 +1,127 @@
+@import '../../app/scss/_colors';
+@import '../../app/scss/_mixins';
+
+.main-stories {
+  padding: 60px 0;
+  background-color: #f8f9fa;
+
+  &__header {
+    text-align: left;
+    margin-bottom: 50px;
+  }
+
+  &__title {
+    @include title-h2;
+    color: $black;
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    font-weight: 700;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  &__card {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  &__card-image {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .main-stories__card:hover & img {
+      transform: scale(1.05);
+    }
+  }
+
+  &__card-content {
+    padding: 25px 20px;
+  }
+
+  &__card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: $primary;
+    margin-bottom: 0;
+    line-height: 1.4;
+    text-align: center;
+  }
+
+  &__button {
+    text-align: left;
+    margin-top: 40px;
+  }
+
+  &__appointment-btn {
+    width: 254px;
+    height: 50px;
+    padding: 0;
+  }
+}
+
+// Мобильные стили
+@media (max-width: 768px) {
+  .main-stories {
+    padding: 40px 0;
+
+    &__header {
+      margin-bottom: 30px;
+    }
+
+    &__title {
+      font-size: 2rem;
+    }
+
+    &__grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+      padding: 0 15px;
+    }
+
+    &__card-content {
+      padding: 20px 15px;
+    }
+
+    &__card-title {
+      font-size: 1.25rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .main-stories {
+    &__grid {
+      padding: 0 10px;
+    }
+
+    &__card-image {
+      height: 180px;
+    }
+  }
+}

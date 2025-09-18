@@ -3,6 +3,7 @@ import './media.scss';
 import {useRouter} from 'next/router';
 import { useTranslation } from 'next-i18next';
 import { filterByLanguage } from '../../shared/utils/language-filter';
+import VideoDisplay from '../../shared/video-display/VideoDisplay';
 import {useQuery} from "@apollo/client";
 import {GET_BONUS_BY_SLUG, GET_BONUS_ALL} from "../../entities/bonus/actions/bonusActions";
 import apolloClient from "../../app/graphql/apollo-client";
@@ -80,7 +81,7 @@ const BonusPage = ({initialData}) => {
                                                 <a href={bonus?.AcfBonus?.imageAnonsPage?.sourceUrl}>
                                                     <Image
                                                         src={bonus?.AcfBonus?.imageAnonsPage?.sourceUrl}
-                                                        alt={bonus?.AcfBonus?.imageAnonsPage?.altText || 'Image'}
+                                                        alt={cleanHtmlFull(bonus?.AcfBonus?.titleLong || '')}
                                                         width={400}
                                                         height={400}
                                                         layout="intrinsic"
@@ -98,53 +99,58 @@ const BonusPage = ({initialData}) => {
                         {bonus?.content && (
                             <>
                                 <div className="bonus-block-center">
-                                    <h2 className="bonus__title-main">{cleanHtmlFull(bonus?.AcfBonus?.titleCenter || '')}</h2>
-                                    <div className="bonus__description">
-                                        {bonus?.featuredImage?.node?.sourceUrl && (
-                                            <div className="bonus__description-img">
-                                                <LightGallery
-                                                    elementClassNames={'masonry-gallery-demo'}
-                                                    plugins={[lgZoom, lgShare, lgHash]}
-                                                    speed={500}
-                                                >
-                                                    <a href={bonus?.featuredImage?.node?.sourceUrl}>
-                                                        <Image
-                                                            src={bonus?.featuredImage?.node?.sourceUrl}
-                                                            alt={bonus?.featuredImage?.node?.altText || 'Image'}
-                                                            width={400}
-                                                            height={400}
-                                                            layout="intrinsic"
-                                                        />
-                                                    </a>
-                                                </LightGallery>
+                                    <div className="container">
+                                        <h2 className="bonus__title-main">{cleanHtmlFull(bonus?.AcfBonus?.titleCenter || '')}</h2>
+                                        <div className="bonus__description">
+                                            {bonus?.featuredImage?.node?.sourceUrl && (
+                                                <div className="bonus__description-img">
+                                                    <LightGallery
+                                                        elementClassNames={'masonry-gallery-demo'}
+                                                        plugins={[lgZoom, lgShare, lgHash]}
+                                                        speed={500}
+                                                    >
+                                                        <a href={bonus?.featuredImage?.node?.sourceUrl}>
+                                                            <Image
+                                                                src={bonus?.featuredImage?.node?.sourceUrl}
+                                                                alt={cleanHtmlFull(bonus?.AcfBonus?.titleCenter || '')}
+                                                                width={400}
+                                                                height={400}
+                                                                layout="intrinsic"
+                                                            />
+                                                        </a>
+                                                    </LightGallery>
+                                                </div>
+                                            )}
+                                            <div className="bonus__description-text"
+                                                 dangerouslySetInnerHTML={{__html: bonus?.content || ''}}>
                                             </div>
-                                        )}
-                                        <div className="bonus__description-text"
-                                             dangerouslySetInnerHTML={{__html: bonus?.content || ''}}>
                                         </div>
                                     </div>
                                 </div>
                             </>
                         )}
                         {bonus?.AcfBonus?.video && (
-                            <div className="bonus-block-video">
+                            <div className="bonus__video">
                                 <h2 className="bonus__title-video">{cleanHtmlFull(bonus?.AcfBonus?.videoTitle || '')}</h2>
-                                <div className="bonus__video">
-                                    <div className="bonus__video-content"
-                                         dangerouslySetInnerHTML={{__html: bonus?.AcfBonus?.video || ''}}>
-                                    </div>
-                                    <div className="bonus__video-text"
-                                         dangerouslySetInnerHTML={{__html: bonus?.AcfBonus?.videoDescription || ''}}>
-                                    </div>
+                                <div className="bonus__video-content">
+                                    <VideoDisplay
+                                        videoUrl={bonus?.AcfBonus?.video}
+                                        title={cleanHtmlFull(bonus?.AcfBonus?.videoTitle || '')}
+                                    />
+                                </div>
+                                <div className="bonus__video-text"
+                                     dangerouslySetInnerHTML={{__html: bonus?.AcfBonus?.videoDescription || ''}}>
                                 </div>
                             </div>
                         )}
                         {bonus?.AcfBonus?.faqContent && (
                             <div className="bonus-block-bottom">
-                                <h2 className="bonus__title-faq">{cleanHtmlFull(bonus?.AcfBonus?.faqTitle || '')}</h2>
-                                <div className="bonus__faq">
-                                    <div className="bonus__faq-content"
-                                         dangerouslySetInnerHTML={{__html: bonus?.AcfBonus?.faqContent || ''}}>
+                                <div className="container">
+                                    <h2 className="bonus__title-faq">{cleanHtmlFull(bonus?.AcfBonus?.faqTitle || '')}</h2>
+                                    <div className="bonus__faq">
+                                        <div className="bonus__faq-content"
+                                             dangerouslySetInnerHTML={{__html: bonus?.AcfBonus?.faqContent || ''}}>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
