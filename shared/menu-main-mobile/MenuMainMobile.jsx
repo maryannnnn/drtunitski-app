@@ -15,13 +15,21 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import { useI18n } from "../hooks/useI18n";
 import { useTranslation } from 'next-i18next';
+import { useRouter } from 'next/router';
 
 const MenuMainMobile = ({ initialData }) => {
     const { data } = menuMainMobile;
     const { isRTL, textAlign } = useI18n();
     const { t } = useTranslation();
+    const router = useRouter();
+    const [forceUpdate, setForceUpdate] = useState(0);
 
     const [openSubmenu, setOpenSubmenu] = useState(null); // Состояние для подменю (только одно может быть открыто)
+
+    // Принудительное обновление при изменении языка
+    useEffect(() => {
+        setForceUpdate(prev => prev + 1);
+    }, [router.locale]);
 
     // Функция для получения переведенного названия меню
     const getTranslatedLabel = (label, itemId) => {
@@ -172,7 +180,7 @@ const MenuMainMobile = ({ initialData }) => {
     };
 
     return (
-        <ul className="menu-main-mobile">
+        <ul className="menu-main-mobile" key={forceUpdate}>
             {data.menuItems.edges.length > 0 ? (
                 data.menuItems.edges
                     .filter((link) => link.node.parentId === null)

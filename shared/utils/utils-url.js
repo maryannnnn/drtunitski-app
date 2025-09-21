@@ -135,7 +135,8 @@ export const isStaticPath = (path) => {
         '/surgery',
         '/media',
         '/stories',
-        '/contact',
+        '/story/main',
+        '/about/contact',
         '/privacy-policy',
         '/accessibility-statement',
         '/sitemap'

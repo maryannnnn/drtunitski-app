@@ -4,10 +4,12 @@ import {useRouter} from 'next/router';
 import { useTranslation } from 'next-i18next';
 import { filterByLanguage } from '../../shared/utils/language-filter';
 import VideoDisplay from '../../shared/video-display/VideoDisplay';
+import ButtonBrown from '../../shared/button-brown/ButtonBrown';
+import Modal from '../../shared/modal/Modal';
 import {useQuery} from "@apollo/client";
 import {GET_ABOUT_BY_SLUG, GET_ABOUT_ALL} from "../../entities/about/actions/aboutActions";
 import apolloClient from "../../app/graphql/apollo-client";
-import React from "react";
+import React, { useState } from "react";
 import LeftLayout from "../../app/layouts/LeftLayout";
 import Stack from "@mui/material/Stack";
 import Alert from "@mui/material/Alert";
@@ -27,8 +29,10 @@ import "lightgallery/css/lg-zoom.css";
 import "lightgallery/css/lg-share.css";
 
 const AboutPage = ({initialData}) => {
+    const { t } = useTranslation();
     const router = useRouter();
     const {slug} = router.query;
+    const [isModalActive, setIsModalActive] = useState(false);
 
     const {loading, error, data} = useQuery(GET_ABOUT_BY_SLUG, {
         variables: {slug},
@@ -94,6 +98,14 @@ const AboutPage = ({initialData}) => {
                                          dangerouslySetInnerHTML={{__html: about?.AcfAbout?.descriptionAnons || ''}}>
                                     </div>
                                 </div>
+                                <div className="about__appointment-btn">
+                                    <ButtonBrown
+                                        onClick={() => setIsModalActive(true)}
+                                        className="about__appointment-button"
+                                    >
+                                        {t('common:buttons.bookAppointment')}
+                                    </ButtonBrown>
+                                </div>
                             </>
                         )}
                         {about?.content && (
@@ -127,6 +139,14 @@ const AboutPage = ({initialData}) => {
                                         </div>
                                     </div>
                                 </div>
+                                <div className="about__appointment-btn">
+                                    <ButtonBrown
+                                        onClick={() => setIsModalActive(true)}
+                                        className="about__appointment-button"
+                                    >
+                                        {t('common:buttons.bookAppointment')}
+                                    </ButtonBrown>
+                                </div>
                             </>
                         )}
                         {about?.AcfAbout?.video && (
@@ -145,6 +165,16 @@ const AboutPage = ({initialData}) => {
                                 </div>
                             </div>
                         )}
+                        {about?.AcfAbout?.video && (
+                            <div className="about__appointment-btn">
+                                <ButtonBrown
+                                    onClick={() => setIsModalActive(true)}
+                                    className="about__appointment-button"
+                                >
+                                    {t('common:buttons.bookAppointment')}
+                                </ButtonBrown>
+                            </div>
+                        )}
                         {about?.AcfAbout?.faqContent && (
                             <div className="about-block-bottom">
                                 <div className="container">
@@ -160,6 +190,11 @@ const AboutPage = ({initialData}) => {
                     </>
                 </div>
             </div>
+            <Modal 
+                active={isModalActive} 
+                setActive={setIsModalActive}
+                title={t('common:buttons.bookAppointment')}
+            />
         </LeftLayout>
     );
 };

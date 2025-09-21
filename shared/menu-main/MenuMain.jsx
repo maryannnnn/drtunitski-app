@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './menu-nain.scss';
 import './media.scss';
 import Link from "next/link";
@@ -11,9 +11,15 @@ import menuMain from './menuMain.json';
 const MenuMain = () => {
     const {data} = menuMain;
     const [activeMenu, setActiveMenu] = useState(null);
+    const [forceUpdate, setForceUpdate] = useState(0);
     const { t } = useTranslation();
     const router = useRouter();
     const currentLocale = router.locale || 'en';
+
+    // Принудительное обновление при изменении языка
+    useEffect(() => {
+        setForceUpdate(prev => prev + 1);
+    }, [currentLocale]);
 
     // Функция для получения переведенного названия меню
     const getTranslatedLabel = (label, itemId) => {
@@ -173,7 +179,7 @@ const MenuMain = () => {
     };
 
     return (
-        <nav className="navigation-menu">
+        <nav className="navigation-menu" key={forceUpdate}>
             <ul className="navigation-menu-list">
                 {data.menuItems.edges
                     .filter((link) => link.node.parentId === null)

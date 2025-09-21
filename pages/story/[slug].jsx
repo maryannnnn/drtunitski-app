@@ -16,6 +16,8 @@ import {storyOptions} from "../../app/info/info";
 import { useTranslation } from 'next-i18next';
 import { filterByLanguage } from '../../shared/utils/language-filter';
 import VideoDisplay from '../../shared/video-display/VideoDisplay';
+import ButtonBrown from '../../shared/button-brown/ButtonBrown';
+import Modal from '../../shared/modal/Modal';
 
 import lgZoom from "lightgallery/plugins/zoom";
 import lgShare from "lightgallery/plugins/share";
@@ -30,6 +32,7 @@ import "lightgallery/css/lg-share.css";
 const StoryPage = ({initialData}) => {
     const { t } = useTranslation();
     const [isClient, setIsClient] = useState(false);
+    const [isModalActive, setIsModalActive] = useState(false);
 
     useEffect(() => {
         setIsClient(true);
@@ -133,6 +136,14 @@ const StoryPage = ({initialData}) => {
                                      dangerouslySetInnerHTML={{__html: story?.AcfStory?.descriptionAnons || ''}}>
                                 </div>
                             </div>
+                            <div className="story__appointment-btn">
+                                <ButtonBrown
+                                    onClick={() => setIsModalActive(true)}
+                                    className="story__appointment-button"
+                                >
+                                    {t('common:buttons.bookAppointment')}
+                                </ButtonBrown>
+                            </div>
                             {story?.content && (
                                 <div className="story-block-center">
                                     <div className="container">
@@ -164,6 +175,16 @@ const StoryPage = ({initialData}) => {
                                     </div>
                                 </div>
                             )}
+                            {story?.content && (
+                                <div className="story__appointment-btn">
+                                    <ButtonBrown
+                                        onClick={() => setIsModalActive(true)}
+                                        className="story__appointment-button"
+                                    >
+                                        {t('common:buttons.bookAppointment')}
+                                    </ButtonBrown>
+                                </div>
+                            )}
                             {story?.AcfStory?.video && (
                                 <div className="story__video">
                                     <h2 className="story__title-video">{cleanHtmlFull(story?.AcfStory?.videoTitle)}</h2>
@@ -178,6 +199,16 @@ const StoryPage = ({initialData}) => {
                                     <div className="story__video-text"
                                          dangerouslySetInnerHTML={{__html: story?.AcfStory?.videoDescription}}>
                                     </div>
+                                </div>
+                            )}
+                            {story?.AcfStory?.video && (
+                                <div className="story__appointment-btn">
+                                    <ButtonBrown
+                                        onClick={() => setIsModalActive(true)}
+                                        className="story__appointment-button"
+                                    >
+                                        {t('common:buttons.bookAppointment')}
+                                    </ButtonBrown>
                                 </div>
                             )}
                             {story?.AcfStory?.faqContent && (
@@ -196,6 +227,11 @@ const StoryPage = ({initialData}) => {
                     )}
                 </div>
             </div>
+            <Modal 
+                active={isModalActive} 
+                setActive={setIsModalActive}
+                title={t('common:buttons.bookAppointment')}
+            />
         </LeftLayout>
     );
 };
