@@ -126,3 +126,42 @@
 .salon-block-video {
   padding-top: 20px;
 }
+
+// RTL стили для media/salon блоков
+[dir="rtl"] {
+  .salon-block-center {
+    margin-left: 0;
+    margin-right: calc(-50vw + 50%);
+    
+    .salon__title-main {
+      text-align: right;
+    }
+  }
+  
+  .salon-block-bottom {
+    margin-left: 0;
+    margin-right: calc(-50vw + 50%);
+    
+    .salon__title-faq {
+      text-align: right;
+    }
+  }
+  
+  .salon__anons-img {
+    float: right;
+    margin-right: 0;
+    margin-left: 20px;
+  }
+  
+  .salon__description-img {
+    float: left;
+    margin-left: 0;
+    margin-right: 20px;
+  }
+  
+  .salon__video-content {
+    float: right;
+    margin-right: 0;
+    margin-left: 20px;
+  }
+}

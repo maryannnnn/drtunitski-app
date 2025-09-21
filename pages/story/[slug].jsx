@@ -171,6 +171,8 @@ const StoryPage = ({initialData}) => {
                                         <VideoDisplay
                                             videoUrl={story?.AcfStory?.video}
                                             title={cleanHtmlFull(story?.AcfStory?.videoTitle)}
+                                            style={{ width: '500px', height: '281px' }}
+                                            mobileStyle={{ width: '370px', height: '208px' }}
                                         />
                                     </div>
                                     <div className="story__video-text"

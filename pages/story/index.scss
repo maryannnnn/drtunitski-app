@@ -64,6 +64,7 @@
       max-width: 100%;
       float: left !important; /* Обтекание текста справа */
       margin-right: 20px; /* Отступ от текста */
+      margin-top: 15px; /* Отступ от заголовка */
       min-width: 400px; /* Минимальная ширина */
       flex-shrink: 0; /* Не сжимается */
 
@@ -150,6 +151,49 @@
       flex: 1;
       text-align: justify;
     }
+  }
+}
+
+// RTL стили для story блоков
+[dir="rtl"] {
+  .story-block-center {
+    margin-left: 0;
+    margin-right: calc(-50vw + 50%);
+    
+    .story__title-main {
+      text-align: right;
+    }
+    
+    .story__description {
+      flex-direction: row-reverse;
+    }
+  }
+  
+  .story-block-bottom {
+    margin-left: 0;
+    margin-right: calc(-50vw + 50%);
+    
+    .story__title-faq {
+      text-align: right;
+    }
+  }
+  
+  .story__anons-img {
+    float: right;
+    margin-right: 0;
+    margin-left: 20px;
+  }
+  
+  .story__description-img {
+    float: left;
+    margin-left: 0;
+    margin-right: 20px;
+  }
+  
+  .story__video-content {
+    float: right !important;
+    margin-right: 0 !important;
+    margin-left: 20px !important;
   }
 }
 

@@ -1,8 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { processVideoUrl, isValidUrl } from '../utils/video-utils';
 import './video-display.scss';
 
-const VideoDisplay = ({ videoUrl, title, description, className = '' }) => {
+const VideoDisplay = ({ videoUrl, title, description, className = '', style = {}, mobileStyle = {} }) => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkIsMobile();
+    window.addEventListener('resize', checkIsMobile);
+    
+    return () => window.removeEventListener('resize', checkIsMobile);
+  }, []);
+
   if (!videoUrl) {
     return null;
   }
@@ -46,6 +59,8 @@ const VideoDisplay = ({ videoUrl, title, description, className = '' }) => {
   }
 
   // Для YouTube показываем iframe
+  const currentStyle = isMobile ? { ...style, ...mobileStyle } : style;
+  
   return (
     <iframe
       src={videoInfo.embedUrl}
@@ -53,6 +68,7 @@ const VideoDisplay = ({ videoUrl, title, description, className = '' }) => {
       frameBorder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowFullScreen
+      style={currentStyle}
     />
   );
 };

@@ -136,6 +136,8 @@ const AboutPage = ({initialData}) => {
                                     <VideoDisplay
                                         videoUrl={about?.AcfAbout?.video}
                                         title={cleanHtmlFull(about?.AcfAbout?.videoTitle || '')}
+                                        style={{ width: '500px', height: '281px' }}
+                                        mobileStyle={{ width: '370px', height: '208px' }}
                                     />
                                 </div>
                                 <div className="about__video-text"

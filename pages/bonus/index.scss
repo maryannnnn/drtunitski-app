@@ -194,4 +194,43 @@
 
 }
 
+// RTL стили для bonus блоков
+[dir="rtl"] {
+  .bonus-block-center {
+    margin-left: 0;
+    margin-right: calc(-50vw + 50%);
+    
+    .bonus__title-main {
+      text-align: right;
+    }
+  }
+  
+  .bonus-block-bottom {
+    margin-left: 0;
+    margin-right: calc(-50vw + 50%);
+    
+    .bonus__title-faq {
+      text-align: right;
+    }
+  }
+  
+  .bonus__anons-img {
+    float: right;
+    margin-right: 0;
+    margin-left: 20px;
+  }
+  
+  .bonus__description-img {
+    float: left;
+    margin-left: 0;
+    margin-right: 20px;
+  }
+  
+  .bonus__video-content {
+    float: right !important;
+    margin-right: 0 !important;
+    margin-left: 20px !important;
+  }
+}
+
 
