@@ -227,5 +227,17 @@
       "title": "Hysteroscopic removal of endometrial polyp",
       "description": "Hysteroscopic procedure restoring fertility and hope for the future"
     }
+  },
+  "videoTestimonials": {
+    "title": "Video testimonials from our patients",
+    "afterOperation": {
+      "title": "After the operation I feel great"
+    },
+    "whyChose": {
+      "title": "Why I chose this particular surgeon"
+    },
+    "wantShare": {
+      "title": "Now I am healthy and I want to share my joy"
+    }
   }
 }

@@ -13,6 +13,7 @@ import MainPost from "@/widgets/main-post/MainPost";
 import MainTitle from "@/widgets/main-title/MainTitle";
 import MainGynecology from "@/widgets/main-gynecology/MainGynecology";
 import MainStories from "@/widgets/main-stories/MainStories";
+import MainVideoTestimonials from "@/widgets/main-video-testimonials/MainVideoTestimonials";
 import TrustCareBanner from "@/shared/trust-care-banner/TrustCareBanner";
 import FooterAssociations from "@/shared/footer-associations/FooterAssociations";
 import VideoDisplayTest from "@/shared/video-display/VideoDisplayTest";
@@ -99,6 +100,8 @@ const Index = ({initialData}) => {
                     <MainGynecology />
 
                     <MainStories />
+
+                    <MainVideoTestimonials />
 
                     <FooterAssociations />
                     

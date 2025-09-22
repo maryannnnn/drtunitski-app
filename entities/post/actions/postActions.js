@@ -152,5 +152,5 @@ export const GET_POST_ALL = gql`
 `;
 
 // Обратная совместимость - оставляем старые названия для постепенного перехода
-export const GET_TESTIMONIAL_BY_SLUG = GET_STORY_BY_SLUG;
-export const GET_TESTIMONIAL_ALL = GET_STORY_ALL;
+export const GET_TESTIMONIAL_BY_SLUG = GET_POST_BY_SLUG;
+export const GET_TESTIMONIAL_ALL = GET_POST_ALL;

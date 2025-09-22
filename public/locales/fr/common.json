@@ -211,5 +211,17 @@
       "title": "Ablation hystéroscopique de polype endométrial",
       "description": "Procédure hystéroscopique restaurant la fertilité et l'espoir pour l'avenir"
     }
+  },
+  "videoTestimonials": {
+    "title": "Témoignages vidéo de nos patientes",
+    "afterOperation": {
+      "title": "Après l'opération je me sens très bien"
+    },
+    "whyChose": {
+      "title": "Pourquoi j'ai choisi ce chirurgien particulier"
+    },
+    "wantShare": {
+      "title": "Maintenant je suis en bonne santé et je veux partager ma joie"
+    }
   }
 }

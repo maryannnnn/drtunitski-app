@@ -211,5 +211,17 @@
       "title": "Hysteroskopische Entfernung von Endometriumpolypen",
       "description": "Hysteroskopisches Verfahren zur Wiederherstellung der Fruchtbarkeit und Hoffnung für die Zukunft"
     }
+  },
+  "videoTestimonials": {
+    "title": "Video-Bewertungen unserer Patientinnen",
+    "afterOperation": {
+      "title": "Nach der Operation fühle ich mich großartig"
+    },
+    "whyChose": {
+      "title": "Warum ich diesen bestimmten Chirurgen gewählt habe"
+    },
+    "wantShare": {
+      "title": "Jetzt bin ich gesund und möchte meine Freude teilen"
+    }
   }
 }

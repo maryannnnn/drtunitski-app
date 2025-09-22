@@ -211,5 +211,17 @@
       "title": "Extracción histeroscópica de pólipo endometrial",
       "description": "Procedimiento histeroscópico restaurando la fertilidad y esperanza para el futuro"
     }
+  },
+  "videoTestimonials": {
+    "title": "Testimonios en video de nuestras pacientes",
+    "afterOperation": {
+      "title": "Después de la operación me siento muy bien"
+    },
+    "whyChose": {
+      "title": "Por qué elegí a este cirujano en particular"
+    },
+    "wantShare": {
+      "title": "Ahora estoy sana y quiero compartir mi alegría"
+    }
   }
 }
