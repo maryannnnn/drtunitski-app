@@ -30,9 +30,19 @@ export const GET_STORY_BY_SLUG = gql`
             node {
                 id
                 name
+                slug
             }
         }
       }
+      trees {
+          edges {
+            node {
+              id
+              name
+              slug
+            }
+        }
+      }  
       AcfStory {
         faqContent
         faqTitle
@@ -96,9 +106,19 @@ export const GET_STORY_ALL = gql`
                 node {
                     id
                     name
+                    slug
                 }
             }
           }
+          trees {
+            edges {
+                node {
+                    id
+                    name
+                    slug
+                }
+            }
+          }  
           AcfStory {
             faqContent
             faqTitle
