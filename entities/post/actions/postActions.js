@@ -75,7 +75,7 @@ export const GET_POST_BY_SLUG = gql`
 
 export const GET_POST_ALL = gql`
   query GetPostAll {
-    postss {
+    posts {
       edges {
         node {
           id

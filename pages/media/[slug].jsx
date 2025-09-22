@@ -63,6 +63,20 @@ const BlogPage = ({initialData}) => {
 
     const post = data?.postBy || initialData?.postBy;
 
+    // Проверяем, что пост существует
+    if (!post) {
+        return (
+            <LeftLayout title="Post not found" description="The requested post could not be found">
+                <div className="blog">
+                    <div className="container">
+                        <h1>Post not found</h1>
+                        <p>The requested post could not be found.</p>
+                    </div>
+                </div>
+            </LeftLayout>
+        );
+    }
+
     const typeMaterial = "post"
 
     const PageProps = {
@@ -105,7 +119,7 @@ const BlogPage = ({initialData}) => {
                                                     alt={cleanHtmlFull(post?.AcfPost?.titleLong || '')}
                                                     width={500}
                                                     height={400}
-                                                    layout="intrinsic"
+                                                    style={{ width: '100%', height: 'auto' }}
                                                 />
                                             </a>
                                         </LightGallery>
@@ -121,7 +135,7 @@ const BlogPage = ({initialData}) => {
                                                     alt={cleanHtmlFull(post?.AcfPost?.titleLong || '')}
                                                     width={150}
                                                     height={150}
-                                                    layout="intrinsic"
+                                                    style={{ width: '100%', height: 'auto' }}
                                                 />
                                             </a>
                                         </LightGallery>
@@ -157,7 +171,7 @@ const BlogPage = ({initialData}) => {
                                                                 alt={cleanHtmlFull(post?.AcfPost?.titleCenter || '')}
                                                                 width={500}
                                                                 height={400}
-                                                                layout="intrinsic"
+                                                                style={{ width: '100%', height: 'auto' }}
                                                             />
                                                         </a>
                                                     </LightGallery>
