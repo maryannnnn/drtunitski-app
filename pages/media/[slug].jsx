@@ -3,7 +3,7 @@ import './media.scss';
 import {useRouter} from 'next/router';
 import {useQuery} from "@apollo/client";
 import {GET_POST_BY_SLUG, GET_POST_ALL} from "../../entities/post/actions/postActions";
-import apolloClient from "../../app/graphql/apollo-client";
+import apolloClient, { createServerApolloClient } from "../../app/graphql/apollo-client";
 import React, {useEffect, useState} from "react";
 import LeftLayout from "../../app/layouts/LeftLayout";
 import Stack from "@mui/material/Stack";
@@ -178,7 +178,7 @@ const BlogPage = ({initialData}) => {
                                                 </div>
                                             )}
                                             <div className="blog__description-text"
-                                                 dangerouslySetInnerHTML={{__html: post?.content}}>
+                                                 dangerouslySetInnerHTML={{__html: post?.content || ''}}>
                                             </div>
                                         </div>
                                     </div>
@@ -206,7 +206,7 @@ const BlogPage = ({initialData}) => {
                                         />
                                     </div>
                                     <div className="blog__video-text"
-                                         dangerouslySetInnerHTML={{__html: post?.AcfPost?.videoDescription}}>
+                                         dangerouslySetInnerHTML={{__html: post?.AcfPost?.videoDescription || ''}}>
                                     </div>
                                 </div>
                             )}
@@ -226,7 +226,7 @@ const BlogPage = ({initialData}) => {
                                         <h2 className="blog__title-faq">{cleanHtmlFull(post?.AcfPost?.faqTitle)}</h2>
                                         <div className="blog__faq">
                                             <div className="blog__faq-content"
-                                                 dangerouslySetInnerHTML={{__html: post?.AcfPost?.faqContent}}>
+                                                 dangerouslySetInnerHTML={{__html: post?.AcfPost?.faqContent || ''}}>
                                             </div>
                                         </div>
                                     </div>
@@ -247,7 +247,8 @@ const BlogPage = ({initialData}) => {
 
 export async function getStaticPaths({ locales }) {
     try {
-        const {data} = await apolloClient.query({
+        const serverClient = createServerApolloClient();
+        const {data} = await serverClient.query({
             query: GET_POST_ALL,
         });
 
@@ -255,16 +256,19 @@ export async function getStaticPaths({ locales }) {
 
         const paths = [];
         
-        // Generate paths for each locale
-        locales.forEach(locale => {
-            const filteredPosts = filterByLanguage(data.posts.edges, locale);
-            filteredPosts.forEach(item => {
-                paths.push({
-                    params: { slug: item.node.slug },
-                    locale: locale
+        // Проверяем, что data и data.posts существуют
+        if (data && data.posts && data.posts.edges) {
+            // Generate paths for each locale
+            locales.forEach(locale => {
+                const filteredPosts = filterByLanguage(data.posts.edges, locale);
+                filteredPosts.forEach(item => {
+                    paths.push({
+                        params: { slug: item.node.slug },
+                        locale: locale
+                    });
                 });
             });
-        });
+        }
 
         console.log("Generated paths: ", paths);
 
@@ -280,16 +284,22 @@ export async function getStaticPaths({ locales }) {
 
 export async function getStaticProps({params, locale}) {
     try {
-        const {data} = await apolloClient.query({
+        const serverClient = createServerApolloClient();
+        const {data} = await serverClient.query({
             query: GET_POST_BY_SLUG,
             variables: {slug: params.slug},
         });
 
+        // Убеждаемся, что initialData всегда сериализуемо
+        const initialData = data ? {
+            postBy: data.postBy || null
+        } : {
+            postBy: null
+        };
+
         return {
             props: {
-                initialData: data || {
-                    postBy: null
-                },
+                initialData,
                 ...(await import('next-i18next/serverSideTranslations').then(({ serverSideTranslations }) =>
                     serverSideTranslations(locale, ['common'])
                 )),

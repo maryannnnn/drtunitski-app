@@ -30,6 +30,45 @@ const authLink = setContext((_, { headers }) => {
     }
 });
 
+// Server-side Apollo Client without localStorage dependency
+const createServerApolloClient = () => {
+    const serverAuthLink = setContext((_, { headers }) => {
+        return {
+            headers: {
+                ...headers,
+                'Accept-Language': 'en', // Default language for server-side
+            }
+        }
+    });
+
+    return new ApolloClient({
+        link: serverAuthLink.concat(httpLink),
+        cache: new InMemoryCache({
+            typePolicies: {
+                Query: {
+                    fields: {
+                        posts: {
+                            merge(existing, incoming) {
+                                return incoming;
+                            }
+                        }
+                    }
+                }
+            }
+        }),
+        defaultOptions: {
+            watchQuery: {
+                errorPolicy: 'ignore',
+            },
+            query: {
+                errorPolicy: 'ignore',
+            },
+        },
+        assumeImmutableResults: true,
+        ssrMode: true
+    });
+};
+
 const apolloClient = new ApolloClient({
     link: authLink.concat(httpLink),
     cache: new InMemoryCache({
@@ -52,7 +91,11 @@ const apolloClient = new ApolloClient({
         query: {
             errorPolicy: 'ignore',
         },
-    }
+    },
+    // Отключаем нормализацию кеша для избежания проблем с сериализацией
+    assumeImmutableResults: true,
+    connectToDevTools: process.env.NODE_ENV === 'development'
 });
 
 export default apolloClient;
+export { createServerApolloClient };
