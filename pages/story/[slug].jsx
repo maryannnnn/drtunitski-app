@@ -41,7 +41,10 @@ const StoryPage = ({initialData}) => {
     const router = useRouter();
     const {slug, locale} = router.query;
 
-    console.log("Slug data: ", slug);
+    // Only log slug when it's available (not during build)
+    if (slug) {
+        console.log("Slug data: ", slug);
+    }
 
     const {loading, error, data} = useQuery(GET_STORY_BY_SLUG, {
         variables: {slug},

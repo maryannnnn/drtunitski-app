@@ -54,7 +54,9 @@ const createServerApolloClient = () => {
                         }
                     }
                 }
-            }
+            },
+            // Disable deprecated canonizeResults option
+            canonizeResults: false
         }),
         defaultOptions: {
             watchQuery: {
@@ -82,7 +84,9 @@ const apolloClient = new ApolloClient({
                     }
                 }
             }
-        }
+        },
+        // Disable deprecated canonizeResults option
+        canonizeResults: false
     }),
     defaultOptions: {
         watchQuery: {

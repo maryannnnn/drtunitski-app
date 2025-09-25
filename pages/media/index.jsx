@@ -91,9 +91,16 @@ export async function getStaticProps() {
 
         console.log("Fetched posts data:", data);
 
+        // Ensure we always return valid data structure
+        const initialData = data || {
+            posts: {
+                edges: []
+            }
+        };
+
         return {
             props: {
-                initialData: data
+                initialData
             },
             //revalidate: 2592000, // Revalidate every 30 days
         };
