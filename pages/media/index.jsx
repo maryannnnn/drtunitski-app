@@ -6,7 +6,7 @@ import Link from "next/link";
 import LeftLayout from "../../app/layouts/LeftLayout";
 import {useQuery} from "@apollo/client";
 import apolloClient from '../../app/graphql/apollo-client';
-import {GET_POST_ALL} from "../../entities/post/actions/postActions";
+import {GET_POST_ALL} from "../../entities/media/actions/mediaActions";
 import Stack from "@mui/material/Stack";
 import Alert from "@mui/material/Alert";
 import Image from "next/image";
@@ -49,21 +49,63 @@ const IndexBlog = ({initialData}) => {
                     ) : (
                         <>
                             <h1 className="blog__title">Блог</h1>
-                            <div>Debug: posts?.edges?.length = {posts?.edges?.length || 0}</div>
+                            <div style={{ marginBottom: '20px' }}>
+                                <Link href="/" style={{ 
+                                    display: 'inline-block', 
+                                    padding: '8px 16px', 
+                                    backgroundColor: '#6c757d', 
+                                    color: 'white', 
+                                    textDecoration: 'none', 
+                                    borderRadius: '4px',
+                                    marginRight: '10px'
+                                }}>
+                                    ← На главную
+                                </Link>
+                            </div>
+                            <div style={{ marginBottom: '20px', padding: '10px', backgroundColor: '#e3f2fd', borderRadius: '5px' }}>
+                                <p><strong>Всего постов:</strong> {posts?.edges?.length || 0}</p>
+                                <p><strong>Статус загрузки:</strong> {loading ? 'Загрузка...' : 'Загружено'}</p>
+                                <p><strong>Ошибки:</strong> {error ? error.message : 'Нет'}</p>
+                            </div>
+                            
                             <div className="blog__list">
                                 {posts?.edges && posts.edges.length > 0 ? posts.edges.map((item, index) => {
                                     if (!item?.node) return null;
+                                    const post = item.node;
                                     return (
-                                        <div key={item.node.slug || index} className="blog__item">
-                                            <Link href={`/media/${item.node.slug}`}>
+                                        <div key={post.slug || index} className="blog__item" style={{ 
+                                            border: '1px solid #ddd', 
+                                            marginBottom: '20px', 
+                                            padding: '15px',
+                                            borderRadius: '5px',
+                                            backgroundColor: '#fff'
+                                        }}>
+                                            <Link href={`/media/${post.slug}`}>
                                                 <div className="blog__item-content">
                                                     <div className="blog__item-text">
                                                         <h3 className="blog__item-title">
-                                                            {cleanHtmlFull(item.node.AcfPost?.titleLong || item.node.title || 'Без названия')}
+                                                            {cleanHtmlFull(post.AcfPost?.titleLong || post.title || 'Без названия')}
                                                         </h3>
-                                                        {item.node.AcfPost?.descriptionAnons && (
+                                                        <div style={{ fontSize: '14px', color: '#666', marginBottom: '10px' }}>
+                                                            <p><strong>Slug:</strong> {post.slug}</p>
+                                                            <p><strong>ID:</strong> {post.id}</p>
+                                                            <p><strong>Язык:</strong> {post.language?.code || 'Не определен'}</p>
+                                                            <p><strong>Дата:</strong> {post.date || 'Не указана'}</p>
+                                                        </div>
+                                                        {post.AcfPost?.descriptionAnons && (
                                                             <div className="blog__item-description"
-                                                                 dangerouslySetInnerHTML={{__html: item.node.AcfPost.descriptionAnons}}>
+                                                                 dangerouslySetInnerHTML={{__html: post.AcfPost.descriptionAnons}}>
+                                                            </div>
+                                                        )}
+                                                        {post.featuredImage?.node?.sourceUrl && (
+                                                            <div style={{ marginTop: '10px' }}>
+                                                                <Image
+                                                                    src={post.featuredImage.node.sourceUrl}
+                                                                    alt={post.title}
+                                                                    width={200}
+                                                                    height={150}
+                                                                    style={{ borderRadius: '5px' }}
+                                                                />
                                                             </div>
                                                         )}
                                                     </div>
@@ -71,7 +113,12 @@ const IndexBlog = ({initialData}) => {
                                             </Link>
                                         </div>
                                     );
-                                }) : <div>Нет постов для отображения</div>}
+                                }) : (
+                                    <div style={{ padding: '20px', textAlign: 'center', backgroundColor: '#f5f5f5', borderRadius: '5px' }}>
+                                        <h3>Нет постов для отображения</h3>
+                                        <p>Проверьте подключение к WordPress и настройки GraphQL</p>
+                                    </div>
+                                )}
                             </div>
                         </>
                     )}

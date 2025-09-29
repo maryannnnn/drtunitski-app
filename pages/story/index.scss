@@ -1,22 +1,51 @@
 @import '../../app/scss/mixins';
 @import '../../app/scss/colors';
 
-.testimonial {
+.story {
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
-  padding-bottom: 50px;
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
 
   &__title {
     @include title-h1;
-    color: $black;
+    color: $primary;
     padding-top: 15px;
     padding-bottom: 15px;
+
+    &-main {
+      @include title-h2;
+      color: $brown-7;
+      padding-bottom: 15px;
+    }
+
+    &-video {
+      @include title-h2;
+      color: $brown-7;
+      padding-bottom: 15px;
+    }
+    &-faq {
+      @include title-h2;
+      color: $brown-7;
+      padding-bottom: 15px;
+    }
   }
 
   &__anons {
     display: block;
     padding-bottom: 20px;
+    padding-top: 10px;
+    
+    &::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
 
     &-img {
       float: left;
@@ -31,6 +60,12 @@
   &__description {
     display: block;
     padding-bottom: 20px;
+    
+    &::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
 
     &-img {
       float: right;
@@ -82,12 +117,6 @@
     }
   }
 
-  &__title-video {
-    @include title-h2;
-    color: $brown-7;
-    padding-bottom: 15px;
-  }
-
   // Мобильные стили для видео
   @media (max-width: 768px) {
     &__video {
@@ -107,13 +136,6 @@
       }
     }
   }
-}
-
-.block-testimonials {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 20px;
 }
 
 // Блоки для story страниц
@@ -138,17 +160,21 @@
   }
   
   .story__description {
-    display: flex;
-    align-items: flex-start;
-    gap: 30px;
+    display: block;
+    padding-bottom: 20px;
     
-    &-img {
-      flex-shrink: 0;
-      max-width: 400px;
+    &::after {
+      content: "";
+      display: table;
+      clear: both;
     }
-    
+
+    &-img {
+      float: right;
+      margin-left: 20px;
+    }
+
     &-text {
-      flex: 1;
       text-align: justify;
     }
   }
@@ -162,10 +188,6 @@
     
     .story__title-main {
       text-align: right;
-    }
-    
-    .story__description {
-      flex-direction: row-reverse;
     }
   }
   

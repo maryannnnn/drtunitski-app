@@ -1,14 +1,20 @@
 @import '../../app/scss/mixins';
 @import '../../app/scss/colors';
 
-.salon {
+.media {
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
 
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
   &__title {
     @include title-h1;
-    color: $black;
+    color: $primary;
     padding-top: 15px;
     padding-bottom: 15px;
 
@@ -33,6 +39,13 @@
   &__anons {
     display: block;
     padding-bottom: 20px;
+    padding-top: 10px;
+
+    &::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
 
     &-img {
       float: left;
@@ -48,6 +61,12 @@
     display: block;
     padding-bottom: 20px;
 
+    &::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
     &-img {
       float: right;
       margin-left: 20px;
@@ -58,13 +77,39 @@
     }
   }
 
+  &__title-video {
+    @include title-h2;
+    color: $brown-7;
+    margin-bottom: 20px;
+  }
+
   &__video {
     display: block;
     padding-bottom: 20px;
 
+    &::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
     &-content {
-      float: left;
-      margin-right: 20px;
+      position: relative;
+      width: 400px !important; /* Фиксированная ширина для видео */
+      max-width: 100%;
+      float: left !important; /* Обтекание текста справа */
+      margin-right: 20px; /* Отступ от текста */
+      margin-top: 15px; /* Отступ от заголовка */
+      min-width: 400px; /* Минимальная ширина */
+      flex-shrink: 0; /* Не сжимается */
+
+      iframe {
+        width: 100% !important;
+        height: 250px !important; /* Фиксированная высота */
+        display: block;
+        border-radius: 8px;
+        min-width: 400px; /* Минимальная ширина для iframe */
+      }
     }
 
     &-text {
@@ -72,50 +117,148 @@
     }
   }
 
+  // Мобильные стили для видео
+  @media (max-width: 768px) {
+    &__video {
+      &-content {
+        width: 100% !important;
+        float: none !important;
+        margin-right: 0 !important;
+        margin-bottom: 15px;
+
+        iframe {
+          height: 250px;
+        }
+      }
+
+      &-text {
+        overflow: visible;
+      }
+    }
+  }
 }
 
-.salon-block-center {
+// Блоки для media страниц
+.media-block-center {
   background-color: $white;
   padding: 60px 0;
   margin: 40px 0;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
-  
+
   .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
   }
-  
-  .salon__title-main {
+
+  .media__title-main {
     @include title-h2;
     color: $brown-7;
     margin-bottom: 30px;
     text-align: left;
   }
+
+  .media__description {
+    display: block;
+    padding-bottom: 20px;
+
+    &::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    &-img {
+      float: right;
+      margin-left: 20px;
+    }
+
+    &-text {
+      text-align: justify;
+    }
+  }
 }
 
-.salon-block-bottom {
+// RTL стили для media блоков
+[dir="rtl"] {
+  .media-block-center {
+    margin-left: 0;
+    margin-right: calc(-50vw + 50%);
+
+    .media__title-main {
+      text-align: right;
+    }
+  }
+
+  .media-block-bottom {
+    margin-left: 0;
+    margin-right: calc(-50vw + 50%);
+
+    .media__title-faq {
+      text-align: right;
+    }
+  }
+
+  .media__anons-img {
+    float: right;
+    margin-right: 0;
+    margin-left: 20px;
+  }
+
+  .media__description-img {
+    float: left;
+    margin-left: 0;
+    margin-right: 20px;
+  }
+
+  .media__video-content {
+    float: right !important;
+    margin-right: 0 !important;
+    margin-left: 20px !important;
+  }
+}
+
+// Стили для кнопок "Назначить встречу"
+.media__appointment-btn {
+  text-align: left;
+  margin: 30px 0;
+
+  .media__appointment-button {
+    width: 254px;
+    height: 50px;
+    padding: 0;
+  }
+}
+
+// RTL стили для кнопок
+[dir="rtl"] {
+  .media__appointment-btn {
+    text-align: right;
+  }
+}
+
+.media-block-bottom {
   background-color: $grey-3;
   padding: 60px 0;
   margin: 40px 0;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
-  
+
   .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
   }
-  
-  .salon__title-faq {
+
+  .media__title-faq {
     @include title-h2;
     color: $primary;
     margin-bottom: 30px;
     text-align: left;
   }
-  
-  .salon__faq {
+
+  .media__faq {
     &-content {
       text-align: justify;
       line-height: 1.6;
@@ -123,45 +266,4 @@
   }
 }
 
-.salon-block-video {
-  padding-top: 20px;
-}
 
-// RTL стили для media/salon блоков
-[dir="rtl"] {
-  .salon-block-center {
-    margin-left: 0;
-    margin-right: calc(-50vw + 50%);
-    
-    .salon__title-main {
-      text-align: right;
-    }
-  }
-  
-  .salon-block-bottom {
-    margin-left: 0;
-    margin-right: calc(-50vw + 50%);
-    
-    .salon__title-faq {
-      text-align: right;
-    }
-  }
-  
-  .salon__anons-img {
-    float: right;
-    margin-right: 0;
-    margin-left: 20px;
-  }
-  
-  .salon__description-img {
-    float: left;
-    margin-left: 0;
-    margin-right: 20px;
-  }
-  
-  .salon__video-content {
-    float: right;
-    margin-right: 0;
-    margin-left: 20px;
-  }
-}

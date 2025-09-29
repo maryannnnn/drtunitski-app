@@ -9,10 +9,8 @@ import LeftLayout from "../../app/layouts/LeftLayout";
 import Stack from "@mui/material/Stack";
 import Alert from "@mui/material/Alert";
 import {cleanHtmlFull} from "../../shared/utils/utils-content";
-import Link from "next/link";
 import Image from "next/image";
 import Breadcrumbs from "../../shared/breadcrumbs-page/BreadcrumbsPage";
-import {storyOptions} from "../../app/info/info";
 import { useTranslation } from 'next-i18next';
 import { filterByLanguage } from '../../shared/utils/language-filter';
 import VideoDisplay from '../../shared/video-display/VideoDisplay';
@@ -93,15 +91,10 @@ const StoryPage = ({initialData}) => {
                                 <div
                                     className="story__personal-name">{cleanHtmlFull(story?.AcfStory?.groupInfoPost?.fullName)}
                                 </div>
-                                {/*{story?.AcfStory?.groupInfoPost?.speciality && (*/}
-                                {/*    <div className="story__personal-name">*/}
-                                {/*        {cleanHtmlFull(story.AcfStory.groupInfoPost.speciality)}*/}
-                                {/*    </div>*/}
-                                {/*)}*/}
                             </div>
                             <div className="story__anons">
-                                <div className="story__anons-img">
-                                    {story?.AcfStory?.imageAnons?.sourceUrl ? (
+                                {story?.AcfStory?.imageAnons && (
+                                    <div className="story__anons-img">
                                         <LightGallery
                                             elementClassNames={'masonry-gallery-demo'}
                                             plugins={[lgZoom, lgShare, lgHash]}
@@ -111,30 +104,14 @@ const StoryPage = ({initialData}) => {
                                                 <Image
                                                     src={story.AcfStory.imageAnons.sourceUrl}
                                                     alt={cleanHtmlFull(story?.AcfStory?.titleLong || '')}
-                                                    width={500}
+                                                    width={400}
                                                     height={400}
                                                     layout="intrinsic"
                                                 />
                                             </a>
                                         </LightGallery>
-                                    ) : story?.AcfStory?.groupInfoPost?.imageAuthor?.sourceUrl ? (
-                                        <LightGallery
-                                            elementClassNames={'masonry-gallery-demo'}
-                                            plugins={[lgZoom, lgShare, lgHash]}
-                                            speed={500}
-                                        >
-                                            <a href={story.AcfStory.groupInfoPost.imageAuthor.sourceUrl}>
-                                                <Image
-                                                    src={story.AcfStory.groupInfoPost.imageAuthor.sourceUrl}
-                                                    alt={cleanHtmlFull(story?.AcfStory?.titleLong || '')}
-                                                    width={150}
-                                                    height={150}
-                                                    layout="intrinsic"
-                                                />
-                                            </a>
-                                        </LightGallery>
-                                    ) : null}
-                                </div>
+                                    </div>
+                                )}
                                 <div className="story__anons-text"
                                      dangerouslySetInnerHTML={{__html: story?.AcfStory?.descriptionAnons || ''}}>
                                 </div>
@@ -152,7 +129,7 @@ const StoryPage = ({initialData}) => {
                                     <div className="container">
                                         <h2 className="story__title-main">{cleanHtmlFull(story?.AcfStory?.titleCenter)}</h2>
                                         <div className="story__description">
-                                            {story?.AcfStory?.imageAnons && (
+                                            {story?.featuredImage?.node?.sourceUrl && (
                                                 <div className="story__description-img">
                                                     <LightGallery
                                                         elementClassNames={'masonry-gallery-demo'}
@@ -163,7 +140,7 @@ const StoryPage = ({initialData}) => {
                                                             <Image
                                                                 src={story?.featuredImage?.node?.sourceUrl}
                                                                 alt={cleanHtmlFull(story?.AcfStory?.titleCenter || '')}
-                                                                width={500}
+                                                                width={400}
                                                                 height={400}
                                                                 layout="intrinsic"
                                                             />

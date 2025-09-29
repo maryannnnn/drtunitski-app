@@ -62,14 +62,12 @@ query  GetAboutAll {
             titleLong
             titleShort
             imageAnons {
-              uri
               title
               altText
               sourceUrl
             }
           }
           title
-          uri
           slug
         }
     }

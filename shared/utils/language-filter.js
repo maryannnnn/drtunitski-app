@@ -19,9 +19,16 @@ export const filterByLanguage = (edges, targetLanguage = 'en') => {
         }
 
         // Check if the node's language matches the target language
-        return node.language.code === targetLanguage || 
-               node.language.locale === targetLanguage ||
-               node.language.slug === targetLanguage;
+        const nodeCode = node.language.code?.toLowerCase();
+        const nodeLocale = node.language.locale?.toLowerCase();
+        const nodeSlug = node.language.slug?.toLowerCase();
+        const targetLang = targetLanguage.toLowerCase();
+        
+        return nodeCode === targetLang || 
+               nodeLocale === targetLang ||
+               nodeSlug === targetLang ||
+               nodeLocale?.startsWith(targetLang) ||
+               nodeCode?.startsWith(targetLang);
     });
 };
 
@@ -71,6 +78,7 @@ export const getContentByLanguage = (edges, targetLanguage, fallbackLanguage = '
     
     return filtered;
 };
+
 
 
 

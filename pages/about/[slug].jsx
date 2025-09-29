@@ -14,7 +14,6 @@ import LeftLayout from "../../app/layouts/LeftLayout";
 import Stack from "@mui/material/Stack";
 import Alert from "@mui/material/Alert";
 import {cleanHtmlFull} from "../../shared/utils/utils-content";
-import Link from "next/link";
 import Image from "next/image";
 import Breadcrumbs from "../../shared/breadcrumbs-page/BreadcrumbsPage";
 

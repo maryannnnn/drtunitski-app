@@ -66,8 +66,8 @@ export const contentType = {
     bonuses: 'bonuses',
     massages: 'massages',
     courses: 'courses',
-    testimonials: 'testimonials',
-    posts: 'posts',
+    stories: 'stories',
+    medias: 'medias',
     category: 'category',
     methodology: 'methodology',
     procedure: 'procedure'
@@ -77,7 +77,7 @@ export const getTestimonialType = (t) => ({
     main: t('common:info.testimonials.types.main'),
     massage: t('common:info.testimonials.types.massage'),
     course: t('common:info.testimonials.types.course'),
-    post: t('common:info.testimonials.types.post'),
+    media: t('common:info.testimonials.types.media'),
 })
 
 export const getTestimonialOptions = (t) => ({
@@ -113,14 +113,14 @@ export const getBreadcrumbType = (t) => [
         url: '/media/blog'
     },
     {
-        id: 'stories',
-        title: t('common:info.breadcrumbs.stories'),
+        id: 'story',
+        title: t('common:info.breadcrumbs.story'),
         url: '/stories/main'
     },
     {
         id: 'bonus',
         title: t('common:info.breadcrumbs.bonus'),
-        url: '/bonus'
+        url: '/bonus/promotions'
     },
 ]
 

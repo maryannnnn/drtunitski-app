@@ -3,6 +3,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
+import { useQuery } from '@apollo/client';
+import { GET_MEDIA_ALL } from '../../entities/media/actions/mediaActions';
+import { filterByLanguage } from '../../shared/utils/language-filter';
 import './main-video-testimonials.scss';
 
 // Импортируем изображения
@@ -15,6 +18,12 @@ const MainVideoTestimonials = () => {
     const router = useRouter();
     const { locale } = router;
 
+    // Получаем реальные посты из WordPress
+    const { loading, error, data } = useQuery(GET_MEDIA_ALL, {
+        fetchPolicy: "cache-first",
+        nextFetchPolicy: "cache-and-network"
+    });
+
     // Fallback function if translation is not available
     const safeT = (key) => {
         try {
@@ -25,40 +34,88 @@ const MainVideoTestimonials = () => {
         }
     };
 
-    const getLocalizedUrl = (url) => {
+    const getLocalizedUrl = (slug) => {
         // Для английского языка URL остается без изменений
         if (locale === 'en') {
-            return url;
+            return `/media/${slug}`;
         }
         
         // Для всех slug страниц добавляем языковой суффикс к концу URL
-        return `${url}-${locale}`;
+        return `/media/${slug}-${locale}`;
     };
 
-    const videoTestimonials = [
+    // Фильтруем посты по языку
+    const filteredMedias = data?.AcfMedias?.edges ? filterByLanguage(data.AcfMedias.edges, locale) : [];
+    
+    // Отладочная информация
+    console.log('MainVideoTestimonials - All AcfMedias:', data?.AcfMedias?.edges);
+    console.log('MainVideoTestimonials - Filtered AcfMedias for locale', locale, ':', filteredMedias);
+    console.log('MainVideoTestimonials - Loading:', loading, 'Error:', error);
+    
+    // Берем первые 3 поста или используем fallback
+    const videoTestimonials = filteredMedias.slice(0, 3).map((item, index) => {
+        const AcfMedia = item.node;
+        const fallbackImages = [testimonial1, testimonial2, testimonial3];
+        const fallbackTitles = [
+            safeT('videoTestimonials.afterOperation.title'),
+            safeT('videoTestimonials.whyChose.title'),
+            safeT('videoTestimonials.wantShare.title')
+        ];
+        
+        return {
+            id: AcfMedia.id,
+            image: AcfMedia.AcfMedia?.imageAnons?.sourceUrl || fallbackImages[index] || testimonial1,
+            title: AcfMedia.AcfMedia?.titleLong || AcfMedia.title || fallbackTitles[index] || 'Video Testimonial',
+            url: getLocalizedUrl(AcfMedia.slug)
+        };
+    });
+
+    // Если нет постов, используем fallback данные
+    const finalVideoTestimonials = videoTestimonials.length > 0 ? videoTestimonials : [
         {
             id: 1,
             image: testimonial1,
             title: safeT('videoTestimonials.afterOperation.title'),
-            url: getLocalizedUrl('/media/after-operation')
+            url: getLocalizedUrl('after-operation')
         },
         {
             id: 2,
             image: testimonial2,
             title: safeT('videoTestimonials.whyChose.title'),
-            url: getLocalizedUrl('/media/why-i-chose')
+            url: getLocalizedUrl('why-i-chose')
         },
         {
             id: 3,
             image: testimonial3,
             title: safeT('videoTestimonials.wantShare.title'),
-            url: getLocalizedUrl('/media/i-want')
+            url: getLocalizedUrl('i-want')
         }
     ];
 
     // Determine text direction based on locale
     const isRTL = locale === 'he' || locale === 'ar';
     const dir = isRTL ? 'rtl' : 'ltr';
+
+    // Показываем состояние загрузки
+    if (loading) {
+        return (
+            <div className="main-video-testimonials" dir={dir}>
+                <div className="container">
+                    <div className="main-video-testimonials__header">
+                        <h2 className="main-video-testimonials__title">
+                            {safeT('videoTestimonials.title')}
+                        </h2>
+                    </div>
+                    <div>Загрузка видео отзывов...</div>
+                </div>
+            </div>
+        );
+    }
+
+    // Показываем ошибку, если есть
+    if (error) {
+        console.error('MainVideoTestimonials GraphQL error:', error);
+    }
 
     return (
         <div className="main-video-testimonials" dir={dir}>
@@ -70,7 +127,7 @@ const MainVideoTestimonials = () => {
                 </div>
                 
                 <div className="main-video-testimonials__grid">
-                    {videoTestimonials.map((testimonial) => (
+                    {finalVideoTestimonials.map((testimonial) => (
                         <Link 
                             key={testimonial.id} 
                             href={testimonial.url}
