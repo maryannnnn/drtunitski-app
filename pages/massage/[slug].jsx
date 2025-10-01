@@ -17,6 +17,7 @@ import MainTestimonial from "../../widgets/main-testimonial/MainTestimonial";
 import AttributesMassage from "../../widgets/attributes-massage/AtributesMassage";
 import {attributeTitleMassage, breadcrumbType, testimonialTitleMassage, testimonialType} from "../../app/info/info";
 import Breadcrumbs from "../../shared/breadcrumbs-page/BreadcrumbsPage";
+import ContactUsBlock from '../../shared/contact-us-block/ContactUsBlock';
 
 import GalleryLightbox from "../../shared/gallegry-lightbox/GalleryLightbox";
 import lgZoom from "lightgallery/plugins/zoom";

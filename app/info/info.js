@@ -1,11 +1,10 @@
 
 // Контактная информация - статичные данные, не требующие перевода
-export const contactSalon = {
+export const contactClinic = {
     mobile: '0507377870',
     email: 'drtunitski@gmail.com',
-    address_2: '',
-    map: '',
-    video: '<iframe width="560" height="315" src="https://www.youtube.com/embed/PY2Lf5WWI4U?si=B94JWsgKpzcpXpl1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+    address_2: 'Eli Landau 7, Herzliya, Israel',
+    map: 'https://maps.app.goo.gl/BS6RNh6mdi3mSTJv8',
 }
 
 // Функции для получения переводов
@@ -125,6 +124,7 @@ export const getBreadcrumbType = (t) => [
 ]
 
 // Алиасы для обратной совместимости (старые имена экспортов)
+export const contactSalon = contactClinic; // Алиас для старого кода
 export const attributeTitleCourse = getAttributeTitleCourse
 export const testimonialTitleCourse = getTestimonialTitleCourse
 export const testimonialType = getTestimonialType

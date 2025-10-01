@@ -97,7 +97,8 @@
     "readMore": "Read More",
     "learnMore": "Learn More",
     "contactUs": "Contact Us",
-    "bookAppointment": "Book Appointment"
+    "bookAppointment": "Book Appointment",
+    "book": "Book"
   },
   "common": {
     "loading": "Loading...",
@@ -109,6 +110,64 @@
     "languageDetection": {
       "title": "We detected your language preference",
       "message": "We noticed you might prefer to view this site in {{language}} instead of {{currentLanguage}}. Would you like to switch?"
+    }
+  },
+  "contact": {
+    "title": "Contact Us Today",
+    "contactInfo": "Contact Information",
+    "getInTouch": "Get In Touch",
+    "formTitle": "Book a Consultation in a Convenient Way",
+    "formPromo": "When booking online right now — 10% discount, consultation from $500 - $800 + free ultrasound",
+    "formDisclaimer": "Information is not a public offer",
+    "name": "Name",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "phone": "Phone",
+    "email": "Email",
+    "message": "Message",
+    "selectConsultation": "Select consultation type",
+    "inPersonConsultation": "In-person consultation with Dr. Tunitski",
+    "onlineConsultation": "Online consultation",
+    "secondOpinion": "Second opinion",
+    "send": "Send",
+    "sending": "Sending...",
+    "formSent": "Thank you! Your message has been sent. We will contact you soon.",
+    "formError": "Error sending form. Please try again.",
+    "validation": {
+      "nameRequired": "Name is required",
+      "nameMin": "Name must be at least 2 characters",
+      "phoneRequired": "Phone is required",
+      "phoneInvalid": "Invalid phone format",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Invalid email format",
+      "consultationRequired": "Please select consultation type",
+      "messageMax": "Message must not exceed 500 characters"
+    },
+    "email": {
+      "adminSubject": "New consultation request from",
+      "adminTitle": "NEW REQUEST",
+      "clinicName": "Dr. Serge Tunitski Clinic",
+      "consultationType": "Consultation type",
+      "patientName": "Patient name",
+      "sentTime": "Request sent",
+      "patientSubject": "Your request has been received - Dr. Serge Tunitski Clinic",
+      "thankYou": "Thank you for your request!",
+      "dear": "Dear",
+      "requestReceived": "Your request has been successfully received!",
+      "contactSoon": "We will contact you shortly to confirm the appointment and clarify the details.",
+      "requestDetails": "Your request details:",
+      "whatNext": "What's next?",
+      "step1": "Our administrator will contact you within 24 hours",
+      "step2": "We will find a convenient time for your consultation",
+      "step3": "You will receive an appointment confirmation",
+      "clinicContacts": "Clinic contact information:",
+      "address": "Address",
+      "addressValue": "7 Eli Landau St, Herzliya, Israel",
+      "urgentQuestions": "If you have urgent questions, you can contact us by phone or via WhatsApp/Telegram.",
+      "autoMessage": "This is an automated email, please do not reply.",
+      "tagline": "Modern gynecology and infertility treatment",
+      "returnToSite": "Back to site",
+      "forContact": "for contact"
     }
   },
   "info": {

@@ -1,5 +1,6 @@
 import './modal.scss'
 import { useTranslation } from 'next-i18next';
+import ContactForm from '../contact-form/ContactForm';
 
 const Modal = ({active, setActive, children, title}) => {
     const { t } = useTranslation();
@@ -12,8 +13,11 @@ const Modal = ({active, setActive, children, title}) => {
                 </button>
                 {title && <h2 className="modal__title">{title}</h2>}
                 {children || (
-                    <div className="modal__text">
-                        <p>{t('common:modal.appointmentText')}</p>
+                    <div className="modal__form-wrapper">
+                        <div className="modal__text">
+                            <p>{t('common:modal.appointmentText')}</p>
+                        </div>
+                        <ContactForm />
                     </div>
                 )}
             </div>

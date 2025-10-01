@@ -1,0 +1,25 @@
+@media (max-width: 768px) {
+    .contact-us-block {
+        padding: 40px 0;
+        margin-top: 40px;
+
+        &__title {
+            font-size: 28px;
+            margin-bottom: 30px;
+        }
+
+        &__left,
+        &__right {
+            padding: 25px;
+        }
+
+        &__subtitle {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+    }
+}
+
+
+
+

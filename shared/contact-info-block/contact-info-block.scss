@@ -1,0 +1,85 @@
+@import '../../app/scss/colors';
+@import '../../app/scss/mixins';
+
+.contact-info-block {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    &__logo {
+        margin-bottom: 20px;
+        
+        &-image {
+            width: 100%;
+            height: auto;
+            max-width: 300px;
+        }
+    }
+
+    &__item {
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    &__icon {
+        color: $black;
+        flex-shrink: 0;
+        margin-top: 4px;
+        font-size: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        svg {
+            width: 32px;
+            height: 32px;
+        }
+    }
+
+    &__address-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    &__link {
+        color: $primary;
+        text-decoration: none;
+        transition: color 0.3s ease;
+
+        &--phone {
+            @include title-h2;
+        }
+
+        &--address {
+            @include title-h5;
+        }
+
+        &:hover {
+            color: darken($primary, 15%);
+            text-decoration: underline;
+        }
+    }
+
+    &__map-link {
+        display: block;
+        border-radius: 8px;
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+    }
+
+    &__map-image {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 8px;
+    }
+}
+
+

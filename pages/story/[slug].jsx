@@ -16,6 +16,7 @@ import { filterByLanguage } from '../../shared/utils/language-filter';
 import VideoDisplay from '../../shared/video-display/VideoDisplay';
 import ButtonBrown from '../../shared/button-brown/ButtonBrown';
 import Modal from '../../shared/modal/Modal';
+import ContactUsBlock from '../../shared/contact-us-block/ContactUsBlock';
 
 import lgZoom from "lightgallery/plugins/zoom";
 import lgShare from "lightgallery/plugins/share";
@@ -207,7 +208,7 @@ const StoryPage = ({initialData}) => {
                     )}
                 </div>
             </div>
-            <Modal 
+            <Modal
                 active={isModalActive} 
                 setActive={setIsModalActive}
                 title={t('common:buttons.bookAppointment')}

@@ -6,6 +6,7 @@ import { filterByLanguage } from '../../shared/utils/language-filter';
 import VideoDisplay from '../../shared/video-display/VideoDisplay';
 import ButtonBrown from '../../shared/button-brown/ButtonBrown';
 import Modal from '../../shared/modal/Modal';
+import ContactUsBlock from '../../shared/contact-us-block/ContactUsBlock';
 import {useQuery} from "@apollo/client";
 import {GET_ABOUT_BY_SLUG, GET_ABOUT_ALL} from "../../entities/about/actions/aboutActions";
 import apolloClient from "../../app/graphql/apollo-client";

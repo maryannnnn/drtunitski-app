@@ -7,6 +7,7 @@ import Footer from "../../widgets/footer/Footer";
 import {BASIS_URL} from "../config/config.js";
 import DrawerLeft from "../../shared/drawer-left/DrawerLeft";
 import { isRTL } from "../../shared/utils/rtl-utils";
+import ContactUsBlock from "../../shared/contact-us-block/ContactUsBlock";
 
 const LeftLayout
     = ({
@@ -91,6 +92,7 @@ const LeftLayout
             <div className="main">
                 {children}
             </div>
+            <ContactUsBlock />
             <Footer/>
         </div>
     );

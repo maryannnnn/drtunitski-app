@@ -1,0 +1,191 @@
+@import '../../app/scss/colors';
+@import '../../app/scss/mixins';
+
+.contact-form {
+    width: 100%;
+
+    &__title {
+        @include title-h3;
+        color: $grey-1;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    &__promo {
+        @include body-md;
+        color: $grey-2;
+        text-align: center;
+        margin-bottom: 10px;
+        line-height: 1.6;
+    }
+
+    &__disclaimer {
+        @include body-xs;
+        color: $grey-4;
+        text-align: center;
+        margin-bottom: 25px;
+        font-style: italic;
+    }
+
+    &__messengers {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 25px;
+    }
+
+    &__messenger {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        padding: 14px 24px;
+        border-radius: 12px;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+
+        svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        &--whatsapp {
+            background: #25D366;
+            color: $white-full;
+
+            &:hover {
+                background: darken(#25D366, 10%);
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+            }
+        }
+
+        &--telegram {
+            background: #0088cc;
+            color: $white-full;
+
+            &:hover {
+                background: darken(#0088cc, 10%);
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(0, 136, 204, 0.4);
+            }
+        }
+
+        &--messenger {
+            background: #0084ff;
+            color: $white-full;
+
+            &:hover {
+                background: darken(#0084ff, 10%);
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(0, 132, 255, 0.4);
+            }
+        }
+
+        &--email {
+            background: $brown-7;
+            color: $white-full;
+
+            &:hover {
+                background: darken($brown-7, 10%);
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(229, 121, 0, 0.4);
+            }
+        }
+    }
+
+    &__fields {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 20px;
+        animation: slideDown 0.3s ease-out;
+        overflow: hidden;
+    }
+
+    &__field {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    &__error {
+        @include body-xs;
+        color: $black;
+        font-weight: 600;
+    }
+
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            max-height: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            max-height: 1000px;
+            transform: translateY(0);
+        }
+    }
+
+    &__row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__input,
+    &__textarea,
+    &__select {
+        width: 100%;
+        padding: 12px 16px;
+        border: 1px solid $grey-7;
+        border-radius: 8px;
+        font-size: 14px;
+        font-family: inherit;
+        transition: border-color 0.3s ease;
+
+        &:focus {
+            outline: none;
+            border-color: $primary;
+        }
+
+        &::placeholder {
+            color: $grey-4;
+        }
+
+        &--error {
+            border-color: $black;
+            background-color: lighten($rose, 5%);
+        }
+    }
+
+    &__select {
+        cursor: pointer;
+        background: $white-full;
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%23404040' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 16px center;
+        padding-right: 40px;
+
+        option {
+            color: $grey-1;
+        }
+    }
+
+    &__textarea {
+        resize: vertical;
+        min-height: 120px;
+    }
+}
+
+

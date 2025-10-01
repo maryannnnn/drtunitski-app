@@ -15,6 +15,7 @@ import {cleanHtmlFull} from "../../shared/utils/utils-content";
 import Link from "next/link";
 import Image from "next/image";
 import Breadcrumbs from "../../shared/breadcrumbs-page/BreadcrumbsPage";
+import ContactUsBlock from '../../shared/contact-us-block/ContactUsBlock';
 import {attributeTitleCourse, testimonialTitleCourse, testimonialType} from "../../app/info/info";
 import AttributesCourse from "../../widgets/attributes-course/AtributesCourse";
 import MainTestimonial from "../../widgets/main-testimonial/MainTestimonial";

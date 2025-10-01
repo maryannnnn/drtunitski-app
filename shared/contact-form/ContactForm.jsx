@@ -1,0 +1,200 @@
+import './contact-form.scss';
+import './media.scss';
+import { useState } from 'react';
+import { useTranslation } from 'next-i18next';
+import { useRouter } from 'next/router';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+import ButtonBrown from '../button-brown/ButtonBrown';
+import { FaWhatsapp, FaTelegram, FaFacebookMessenger } from 'react-icons/fa';
+import { FiMail } from 'react-icons/fi';
+
+const ContactForm = () => {
+    const { t } = useTranslation();
+    const router = useRouter();
+    const { locale } = router;
+    const [showEmailForm, setShowEmailForm] = useState(false);
+
+    // Схема валидации Yup
+    const validationSchema = yup.object().shape({
+        name: yup
+            .string()
+            .required(t('common:contact.validation.nameRequired') || 'Name is required')
+            .min(2, t('common:contact.validation.nameMin') || 'Name must be at least 2 characters'),
+        phone: yup
+            .string()
+            .required(t('common:contact.validation.phoneRequired') || 'Phone is required')
+            .matches(/^[+]?[(]?[0-9]{1,4}[)]?[-\s.]?[(]?[0-9]{1,4}[)]?[-\s.]?[0-9]{1,9}$/, 
+                t('common:contact.validation.phoneInvalid') || 'Invalid phone format'),
+        email: yup
+            .string()
+            .required(t('common:contact.validation.emailRequired') || 'Email is required')
+            .email(t('common:contact.validation.emailInvalid') || 'Invalid email format'),
+        consultationType: yup
+            .string()
+            .required(t('common:contact.validation.consultationRequired') || 'Please select consultation type'),
+        message: yup
+            .string()
+            .max(500, t('common:contact.validation.messageMax') || 'Message must not exceed 500 characters')
+    });
+
+    const {
+        register,
+        handleSubmit,
+        formState: { errors, isSubmitting },
+        reset
+    } = useForm({
+        resolver: yupResolver(validationSchema),
+        mode: 'onBlur'
+    });
+
+    const onSubmit = async (data) => {
+        try {
+            console.log('Отправка формы...', { ...data, locale: locale || 'en' });
+            
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    ...data,
+                    locale: locale || 'en' // Передаем язык пользователя
+                })
+            });
+
+            console.log('Статус ответа:', response.status);
+            
+            const result = await response.json();
+            console.log('Ответ сервера:', result);
+
+            if (response.ok) {
+                alert(t('common:contact.formSent') || 'Форма успешно отправлена!');
+                reset();
+                setShowEmailForm(false);
+            } else {
+                console.error('Ошибка сервера:', result);
+                throw new Error(result.error || result.details || 'Server error');
+            }
+        } catch (error) {
+            console.error('Form submission error:', error);
+            const errorMessage = error.message || t('common:contact.formError') || 'Error sending form';
+            alert(`${t('common:contact.formError') || 'Ошибка отправки формы'}\n\nДетали: ${errorMessage}\n\nПроверьте консоль браузера (F12) для подробностей.`);
+        }
+    };
+
+    return (
+        <form className="contact-form" onSubmit={handleSubmit(onSubmit)}>
+            <h3 className="contact-form__title">
+                {t('common:contact.formTitle')}
+            </h3>
+            
+            <p className="contact-form__promo">
+                {t('common:contact.formPromo')}
+            </p>
+            
+            <p className="contact-form__disclaimer">
+                * {t('common:contact.formDisclaimer')}
+            </p>
+
+            <div className="contact-form__messengers">
+                <a href="https://wa.me/972507377870" target="_blank" rel="noopener noreferrer" className="contact-form__messenger contact-form__messenger--whatsapp">
+                    <FaWhatsapp />
+                    WhatsApp
+                </a>
+                <a href="https://t.me/+972507377870" target="_blank" rel="noopener noreferrer" className="contact-form__messenger contact-form__messenger--telegram">
+                    <FaTelegram />
+                    Telegram
+                </a>
+                <a href="https://m.me/YourFacebookPage" target="_blank" rel="noopener noreferrer" className="contact-form__messenger contact-form__messenger--messenger">
+                    <FaFacebookMessenger />
+                    Messenger
+                </a>
+                <button 
+                    type="button" 
+                    onClick={() => setShowEmailForm(!showEmailForm)} 
+                    className="contact-form__messenger contact-form__messenger--email"
+                >
+                    <FiMail />
+                    E-mail
+                </button>
+            </div>
+
+            {showEmailForm && (
+                <div className="contact-form__fields">
+                    <div className="contact-form__field">
+                        <input
+                            type="text"
+                            placeholder={`${t('common:contact.name')} *`}
+                            {...register('name')}
+                            className={`contact-form__input ${errors.name ? 'contact-form__input--error' : ''}`}
+                        />
+                        {errors.name && (
+                            <span className="contact-form__error">{errors.name.message}</span>
+                        )}
+                    </div>
+
+                    <div className="contact-form__field">
+                        <input
+                            type="tel"
+                            placeholder={`${t('common:contact.phone')} *`}
+                            {...register('phone')}
+                            className={`contact-form__input ${errors.phone ? 'contact-form__input--error' : ''}`}
+                        />
+                        {errors.phone && (
+                            <span className="contact-form__error">{errors.phone.message}</span>
+                        )}
+                    </div>
+
+                    <div className="contact-form__field">
+                        <input
+                            type="email"
+                            placeholder={`${t('common:contact.email')} *`}
+                            {...register('email')}
+                            className={`contact-form__input ${errors.email ? 'contact-form__input--error' : ''}`}
+                        />
+                        {errors.email && (
+                            <span className="contact-form__error">{errors.email.message}</span>
+                        )}
+                    </div>
+
+                    <div className="contact-form__field">
+                        <select
+                            {...register('consultationType')}
+                            className={`contact-form__select ${errors.consultationType ? 'contact-form__select--error' : ''}`}
+                        >
+                            <option value="">{`${t('common:contact.selectConsultation')} *`}</option>
+                            <option value="in-person">{t('common:contact.inPersonConsultation')}</option>
+                            <option value="online">{t('common:contact.onlineConsultation')}</option>
+                            <option value="second-opinion">{t('common:contact.secondOpinion')}</option>
+                        </select>
+                        {errors.consultationType && (
+                            <span className="contact-form__error">{errors.consultationType.message}</span>
+                        )}
+                    </div>
+
+                    <div className="contact-form__field">
+                        <textarea
+                            placeholder={t('common:contact.message')}
+                            {...register('message')}
+                            className={`contact-form__textarea ${errors.message ? 'contact-form__textarea--error' : ''}`}
+                            rows="5"
+                        />
+                        {errors.message && (
+                            <span className="contact-form__error">{errors.message.message}</span>
+                        )}
+                    </div>
+
+                    <ButtonBrown type="submit" disabled={isSubmitting}>
+                        {isSubmitting ? t('common:contact.sending') || 'Sending...' : t('common:contact.send')}
+                    </ButtonBrown>
+                </div>
+            )}
+        </form>
+    );
+};
+
+export default ContactForm;
+
+

@@ -8,6 +8,7 @@ import LanguageDetectionBanner from "../../shared/language-detection-banner/Lang
 import { BASIS_URL } from "../config/config.js";
 import { isRTL } from "../../shared/utils/rtl-utils";
 import { useLanguageUrl } from "../../shared/hooks/useLanguageUrl";
+import ContactUsBlock from "../../shared/contact-us-block/ContactUsBlock";
 
 const MainLayout = ({
                         children,
@@ -101,6 +102,7 @@ const MainLayout = ({
             <div className="main">
                 {children}
             </div>
+            <ContactUsBlock />
             <Footer />
         </div>
     );
