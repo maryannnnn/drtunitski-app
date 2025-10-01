@@ -1,37 +1,25 @@
 import { NextResponse } from 'next/server';
 
-// ОТКЛЮЧЕНО для удобства разработки - сайт всегда открывается на английском
+/**
+ * Middleware для работы со встроенным i18n Next.js
+ * 
+ * Встроенный i18n Next.js автоматически управляет роутингом:
+ * - / → главная на английском (defaultLocale без префикса)
+ * - /ru → главная на русском
+ * - /he → главная на иврите
+ * - и т.д.
+ * 
+ * Middleware НЕ должен создавать редиректы на /en, 
+ * так как встроенный i18n использует / для дефолтной локали.
+ */
 export function middleware(request) {
-  // Get the pathname and search params
-  const { pathname, searchParams } = request.nextUrl;
-  
-  // Skip redirect for static pages that don't need locale prefix
-  const staticPages = ['/sitemap', '/privacy-policy', '/accessibility-statement', '/about', '/gynecology', '/surgery', '/story', '/media'];
-  if (staticPages.includes(pathname) || 
-      pathname.startsWith('/about/') || 
-      pathname.startsWith('/gynecology/') || 
-      pathname.startsWith('/surgery/') || 
-      pathname.startsWith('/story/') || 
-      pathname.startsWith('/media/')) {
-    return NextResponse.next();
-  }
-  
-  // Check if there is any supported locale in the pathname
-  const pathnameIsMissingLocale = ['en', 'ru', 'he', 'de', 'fr', 'es', 'ar'].every(
-    (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
-  );
-
-  // Redirect if there is no locale - всегда редиректим на английский
-  if (pathnameIsMissingLocale) {
-    return NextResponse.redirect(
-      new URL(`/en${pathname}`, request.url)
-    );
-  }
+  // Позволяем встроенному i18n Next.js управлять всем роутингом
+  return NextResponse.next();
 }
 
 export const config = {
   matcher: [
-    // Skip all internal paths (_next)
-    '/((?!_next|api|favicon.ico).*)',
+    // Skip all internal paths (_next, api, static files)
+    '/((?!_next|api|favicon.ico|.*\\..*|_next/static|_next/image).*)',
   ],
 };
