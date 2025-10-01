@@ -186,14 +186,14 @@ export async function getStaticPaths({ locales }) {
 
         console.log("Generated paths: ", paths);
 
-        return {paths, fallback: true};
+        return {paths, fallback: 'blocking'};
     } catch (error) {
         console.error("Error fetching bonuses for static paths:", error);
-        // Возвращаем пустой массив путей, но с fallback: true
+        // Возвращаем пустой массив путей, но с fallback: 'blocking'
         // Это позволит страницам генерироваться по требованию
         return {
             paths: [],
-            fallback: true
+            fallback: 'blocking'
         };
     }
 }

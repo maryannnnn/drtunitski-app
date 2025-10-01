@@ -208,7 +208,7 @@ export async function getStaticPaths({ locales }) {
             console.warn("No massages data available");
             return {
                 paths: [],
-                fallback: true
+                fallback: 'blocking'
             };
         }
 
@@ -227,12 +227,12 @@ export async function getStaticPaths({ locales }) {
 
         console.log("Generated paths: ", paths);
 
-        return {paths, fallback: true};
+        return {paths, fallback: 'blocking'};
     } catch (error) {
         console.error("Error fetching massages for static paths:", error);
         return {
             paths: [],
-            fallback: true
+            fallback: 'blocking'
         };
     }
 }

@@ -47,6 +47,7 @@
         color: $primary;
         text-decoration: none;
         transition: color 0.3s ease;
+        text-align: start; // RTL поддержка для ссылок
 
         &--phone {
             @include title-h2;
@@ -81,5 +82,4 @@
         border-radius: 8px;
     }
 }
-
 

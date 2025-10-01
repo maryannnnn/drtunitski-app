@@ -9,7 +9,7 @@
     &__title {
         @include title-h2;
         color: $primary;
-        text-align: left;
+        text-align: start; // Автоматически работает с RTL (справа для иврита, слева для остальных)
         margin-bottom: 40px;
     }
 
@@ -41,7 +41,7 @@
         font-weight: 600;
         color: $black;
         margin-bottom: 25px;
+        text-align: start; // Также добавлю для подзаголовков
     }
 }
-
 

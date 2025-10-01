@@ -1,211 +1,59 @@
+import apolloClient from '@/app/graphql/apollo-client';
+import {GET_ABOUTS_ALL, GET_ABOUT_BY_SLUG} from '@/entities/about/actions/aboutActions';
+import LeftLayout from '@/app/layouts/LeftLayout';
+import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
 import './index.scss';
 import './media.scss';
-import {useRouter} from 'next/router';
-import { useTranslation } from 'next-i18next';
-import { filterByLanguage } from '../../shared/utils/language-filter';
-import VideoDisplay from '../../shared/video-display/VideoDisplay';
-import ButtonBrown from '../../shared/button-brown/ButtonBrown';
-import Modal from '../../shared/modal/Modal';
-import ContactUsBlock from '../../shared/contact-us-block/ContactUsBlock';
-import {useQuery} from "@apollo/client";
-import {GET_ABOUT_BY_SLUG, GET_ABOUT_ALL} from "../../entities/about/actions/aboutActions";
-import apolloClient from "../../app/graphql/apollo-client";
-import React, { useState } from "react";
-import LeftLayout from "../../app/layouts/LeftLayout";
-import Stack from "@mui/material/Stack";
-import Alert from "@mui/material/Alert";
-import {cleanHtmlFull} from "../../shared/utils/utils-content";
-import Image from "next/image";
-import Breadcrumbs from "../../shared/breadcrumbs-page/BreadcrumbsPage";
+import BlockItemAbouts from '@/shared/block-item-abouts/BlockItemAbouts';
+import MainTemplate from '@/widgets/main-template/MainTemplate';
+import {useI18n} from '@/shared/hooks/useI18n';
 
-import lgZoom from "lightgallery/plugins/zoom";
-import lgShare from "lightgallery/plugins/share";
-import lgHash from "lightgallery/plugins/hash";
-import dynamic from "next/dynamic";
+const AboutPage = ({about}) => {
+    const {isRTL, direction} = useI18n();
 
-const LightGallery = dynamic(() => import("lightgallery/react"), {ssr: false});
-import "lightgallery/css/lightgallery.css";
-import "lightgallery/css/lg-zoom.css";
-import "lightgallery/css/lg-share.css";
-
-const AboutPage = ({initialData}) => {
-    const { t } = useTranslation();
-    const router = useRouter();
-    const {slug} = router.query;
-    const [isModalActive, setIsModalActive] = useState(false);
-
-    const {loading, error, data} = useQuery(GET_ABOUT_BY_SLUG, {
-        variables: {slug},
-        skip: !slug,
-        fetchPolicy: 'cache-and-network',
-    });
-
-    if (router.isFallback || loading) {
-        return <div>Loading...</div>;
-    }
-
-    if (error) {
+    if (!about) {
         return (
-            <Stack sx={{width: '100%'}} spacing={2}>
-                <Alert severity="error">
-                    {error.graphQLErrors ? error.graphQLErrors.map((err, index) => (
-                        <div key={index}>{err.message}</div>
-                    )) : 'An error occurred'}
-                </Alert>
-            </Stack>
+            <LeftLayout>
+                <div dir={direction} style={{padding: '60px 0', textAlign: 'center'}}>
+                    <h1>Page not found</h1>
+                </div>
+            </LeftLayout>
         );
     }
 
-    const about = data?.aboutBy || initialData?.aboutBy;
-
-    const typeMaterial = "about"
-
-    const PageProps = {
-        title: about?.seo?.title || 'Clinic',
-        description: about?.seo?.metaDesc || 'Clinic'
+    const bannerData = {
+        backgroundImage: about.featuredImage?.node?.sourceUrl,
+        title: about.AcfAbout?.titleLong || about.title,
+        description: about.AcfAbout?.descriptionAnons,
+        imageAnons: about.AcfAbout?.imageAnons?.sourceUrl,
     };
 
     return (
-        <LeftLayout title={PageProps.title} description={PageProps.description}>
-            <div className="about">
-                <div className="container">
-                    <>
-                        {about?.AcfAbout?.descriptionAnons && (
-                            <>
-                                <h1 className="about__title">{cleanHtmlFull(about?.AcfAbout?.titleLong || '')}</h1>
-                                <Breadcrumbs material={about} typeMaterial={typeMaterial}/>
-                                <div className="about__anons">
-                                    {about?.AcfAbout?.imageAnons && (
-                                        <div className="about__anons-img">
-                                            <LightGallery
-                                                elementClassNames={'masonry-gallery-demo'}
-                                                plugins={[lgZoom, lgShare, lgHash]}
-                                                speed={500}
-                                            >
-                                                <a href={about?.AcfAbout?.imageAnons?.sourceUrl}>
-                                                    <Image
-                                                        src={about?.AcfAbout?.imageAnons?.sourceUrl}
-                                                        alt={cleanHtmlFull(about?.AcfAbout?.titleLong || '')}
-                                                        width={400}
-                                                        height={400}
-                                                        layout="intrinsic"
-                                                    />
-                                                </a>
-                                            </LightGallery>
-                                        </div>
-                                    )}
-                                    <div className="about__anons-text"
-                                         dangerouslySetInnerHTML={{__html: about?.AcfAbout?.descriptionAnons || ''}}>
-                                    </div>
-                                </div>
-                                <div className="about__appointment-btn">
-                                    <ButtonBrown
-                                        onClick={() => setIsModalActive(true)}
-                                        className="about__appointment-button"
-                                    >
-                                        {t('common:buttons.bookAppointment')}
-                                    </ButtonBrown>
-                                </div>
-                            </>
-                        )}
-                        {about?.content && (
-                            <>
-                                <div className="about-block-center">
-                                    <div className="container">
-                                        <h2 className="about__title-main">{cleanHtmlFull(about?.AcfAbout?.titleCenter || '')}</h2>
-                                        <div className="about__description">
-                                            {about?.featuredImage?.node?.sourceUrl && (
-                                                <div className="about__description-img">
-                                                    <LightGallery
-                                                        elementClassNames={'masonry-gallery-demo'}
-                                                        plugins={[lgZoom, lgShare, lgHash]}
-                                                        speed={500}
-                                                    >
-                                                        <a href={about?.featuredImage?.node?.sourceUrl}>
-                                                            <Image
-                                                                src={about?.featuredImage?.node?.sourceUrl}
-                                                                alt={cleanHtmlFull(about?.AcfAbout?.titleCenter || '')}
-                                                                width={400}
-                                                                height={400}
-                                                                layout="intrinsic"
-                                                            />
-                                                        </a>
-                                                    </LightGallery>
-                                                </div>
-                                            )}
-                                            <div className="about__description-text"
-                                                 dangerouslySetInnerHTML={{__html: about?.content || ''}}>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="about__appointment-btn">
-                                    <ButtonBrown
-                                        onClick={() => setIsModalActive(true)}
-                                        className="about__appointment-button"
-                                    >
-                                        {t('common:buttons.bookAppointment')}
-                                    </ButtonBrown>
-                                </div>
-                            </>
-                        )}
-                        {about?.AcfAbout?.video && (
-                            <div className="about__video">
-                                <h2 className="about__title-video">{cleanHtmlFull(about?.AcfAbout?.videoTitle || '')}</h2>
-                                <div className="about__video-content">
-                                    <VideoDisplay
-                                        videoUrl={about?.AcfAbout?.video}
-                                        title={cleanHtmlFull(about?.AcfAbout?.videoTitle || '')}
-                                        style={{ width: '500px', height: '281px' }}
-                                        mobileStyle={{ width: '370px', height: '208px' }}
-                                    />
-                                </div>
-                                <div className="about__video-text"
-                                     dangerouslySetInnerHTML={{__html: about?.AcfAbout?.videoDescription || ''}}>
-                                </div>
-                            </div>
-                        )}
-                        {about?.AcfAbout?.video && (
-                            <div className="about__appointment-btn">
-                                <ButtonBrown
-                                    onClick={() => setIsModalActive(true)}
-                                    className="about__appointment-button"
-                                >
-                                    {t('common:buttons.bookAppointment')}
-                                </ButtonBrown>
-                            </div>
-                        )}
-                        {about?.AcfAbout?.faqContent && (
-                            <div className="about-block-bottom">
-                                <div className="container">
-                                    <h2 className="about__title-faq">{cleanHtmlFull(about?.AcfAbout?.faqTitle || '')}</h2>
-                                    <div className="about__faq">
-                                        <div className="about__faq-content"
-                                             dangerouslySetInnerHTML={{__html: about?.AcfAbout?.faqContent || ''}}>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        )}
-                    </>
-                </div>
+        <LeftLayout>
+            <div dir={direction} className={`about-page ${isRTL ? 'rtl' : ''}`}>
+                <MainTemplate bannerData={bannerData}>
+                    <BlockItemAbouts data={about}/>
+                </MainTemplate>
             </div>
-            <Modal 
-                active={isModalActive} 
-                setActive={setIsModalActive}
-                title={t('common:buttons.bookAppointment')}
-            />
         </LeftLayout>
     );
 };
 
-export async function getStaticPaths({ locales }) {
+export default AboutPage;
+
+export async function getStaticPaths() {
     try {
         const {data} = await apolloClient.query({
-            query: GET_ABOUT_ALL,
+            query: GET_ABOUTS_ALL,
         });
 
-        console.log("Fetched abouts data: ", data);
+        if (!data || !data.abouts || !data.abouts.edges) {
+            console.error("No abouts data received from GraphQL");
+            return {
+                paths: [],
+                fallback: 'blocking'
+            };
+        }
 
         const paths = data.abouts.edges.map(item => ({
             params: {slug: item.node.slug},
@@ -213,12 +61,12 @@ export async function getStaticPaths({ locales }) {
 
         console.log("Generated paths: ", paths);
 
-        return {paths, fallback: true};
+        return {paths, fallback: 'blocking'};
     } catch (error) {
         console.error("Error fetching abouts for static paths:", error);
         return {
             paths: [],
-            fallback: true
+            fallback: 'blocking'
         };
     }
 }
@@ -232,26 +80,19 @@ export async function getStaticProps({params, locale}) {
 
         return {
             props: {
-                initialData: data,
-                ...(await import('next-i18next/serverSideTranslations').then(({ serverSideTranslations }) => 
-                    serverSideTranslations(locale, ['common'])
-                )),
+                about: data.about || null,
+                ...(await serverSideTranslations(locale, ['common'])),
             },
-            revalidate: 2592000, // Revalidate every 30 days
+            revalidate: 2592000, // 30 days in seconds
         };
     } catch (error) {
-        console.error("Error fetching about:", error);
+        console.error(`Error fetching data for about slug ${params.slug}:`, error);
         return {
             props: {
-                initialData: { aboutBy: null },
-                ...(await import('next-i18next/serverSideTranslations').then(({ serverSideTranslations }) => 
-                    serverSideTranslations(locale, ['common'])
-                )),
+                about: null,
+                ...(await serverSideTranslations(locale, ['common'])),
             },
+            revalidate: 2592000,
         };
     }
 }
-
-
-export default AboutPage;
-

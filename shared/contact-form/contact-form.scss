@@ -117,6 +117,7 @@
         @include body-xs;
         color: $black;
         font-weight: 600;
+        text-align: start; // Ошибки выравниваются по направлению текста
     }
 
     @keyframes slideDown {
@@ -152,6 +153,7 @@
         font-size: 14px;
         font-family: inherit;
         transition: border-color 0.3s ease;
+        text-align: start; // Текст в полях по направлению языка
 
         &:focus {
             outline: none;
@@ -176,6 +178,14 @@
         background-repeat: no-repeat;
         background-position: right 16px center;
         padding-right: 40px;
+        padding-left: 16px;
+
+        // RTL поддержка для стрелки select
+        [dir="rtl"] & {
+            background-position: left 16px center;
+            padding-right: 16px;
+            padding-left: 40px;
+        }
 
         option {
             color: $grey-1;
@@ -187,5 +197,4 @@
         min-height: 120px;
     }
 }
-
 
