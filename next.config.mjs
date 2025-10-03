@@ -2,10 +2,7 @@
 import nextI18nextConfig from './next-i18next.config.js';
 
 const nextConfig = {
-    i18n: {
-        ...nextI18nextConfig.i18n,
-        localeDetection: false,
-    },
+    i18n: nextI18nextConfig.i18n,
     trailingSlash: false,
     images: {
         domains: ['drtunitski.neo-lines.bond'],
