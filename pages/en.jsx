@@ -1,16 +1,12 @@
-// Специальная страница для обработки /en маршрута
-// Выполняет серверный редирект на корневую страницу
-export async function getServerSideProps(context) {
-    return {
-      redirect: {
-        destination: '/',
-        permanent: true,
-      },
-    };
-  }
-  
-  // Компонент не будет отрендерен из-за редиректа
-  export default function EnPage() {
-    return null;
-  }
-  
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
+
+export default function EnPage() {
+  const router = useRouter();
+
+  useEffect(() => {
+    router.replace('/');
+  }, [router]);
+
+  return null;
+} 
