@@ -1,12 +1,13 @@
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
-
-export default function EnPage() {
-  const router = useRouter();
-
-  useEffect(() => {
-    router.replace('/');
-  }, [router]);
-
-  return null;
-} 
+// Серверный редирект для /en маршрута
+export async function getServerSideProps() {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: true,
+      },
+    };
+  }
+  
+  export default function EnPage() {
+    return null;
+  }
