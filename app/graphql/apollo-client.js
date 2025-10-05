@@ -1,11 +1,31 @@
 import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
+// Custom fetch with extended timeout for Vercel
+const customFetch = (uri, options) => {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => {
+        controller.abort();
+    }, 30000); // 30 секунд для медленного GraphQL сервера
+
+    return fetch(uri, {
+        ...options,
+        signal: controller.signal,
+        headers: {
+            ...options.headers,
+            'Connection': 'keep-alive',
+        },
+    }).finally(() => {
+        clearTimeout(timeout);
+    });
+};
+
 // Create HTTP link
 const httpLink = createHttpLink({
     uri: process.env.NEXT_PUBLIC_BACKEND_API_URL,
+    fetch: customFetch,
     fetchOptions: {
-        timeout: 15000, // 15 секунд timeout для Vercel build
+        timeout: 30000, // 30 секунд timeout для Vercel build
     },
 });
 
