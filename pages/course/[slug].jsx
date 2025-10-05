@@ -38,6 +38,17 @@ const CoursePage = ({initialData}) => {
     }, []);
 
     const router = useRouter();
+    
+    if (router.isFallback) {
+        return (
+            <LeftLayout>
+                <div style={{padding: '60px 0', textAlign: 'center'}}>
+                    <h1>Loading...</h1>
+                </div>
+            </LeftLayout>
+        );
+    }
+    
     const {slug} = router.query;
 
     const {loading, error, data} = useQuery(GET_COURSE_BY_SLUG, {
@@ -200,36 +211,11 @@ const CoursePage = ({initialData}) => {
 };
 
 export async function getStaticPaths({ locales }) {
-    try {
-        const {data} = await apolloClient.query({
-            query: GET_COURSE_ALL,
-        });
-
-        console.log("Fetched courses data: ", data);
-
-        // Check if data and courses exist
-        if (!data || !data.courses || !data.courses.edges) {
-            console.warn("No courses data available");
-            return {
-                paths: [],
-                fallback: 'blocking'
-            };
-        }
-
-        const paths = data.courses.edges.map(item => ({
-            params: {slug: item.node.slug},
-        }));
-
-        console.log("Generated paths: ", paths);
-
-        return {paths, fallback: 'blocking'};
-    } catch (error) {
-        console.error("Error fetching courses for static paths:", error);
-        return {
-            paths: [],
-            fallback: 'blocking'
-        };
-    }
+    console.log("⚠️ ISR enabled: course pages generated on-demand");
+    return {
+        paths: [],
+        fallback: true
+    };
 }
 
 export async function getStaticProps({params, locale}) {
@@ -255,7 +241,7 @@ export async function getStaticProps({params, locale}) {
                     serverSideTranslations(locale, ['common'])
                 )),
             },
-            //revalidate: 2592000, // Revalidate every 30 days
+            revalidate: 86400, // 24 hours
         };
     } catch (error) {
         console.error("Error fetching course:", error);
@@ -269,6 +255,7 @@ export async function getStaticProps({params, locale}) {
                     serverSideTranslations(locale, ['common'])
                 )),
             },
+            revalidate: 3600,
         };
     }
 }

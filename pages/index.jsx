@@ -116,7 +116,7 @@ export async function getStaticProps({ locale }) {
                 },
                 ...(await serverSideTranslations(locale, ['common'])),
             },
-           // revalidate: 2592000, // Revalidate every 30 days
+            revalidate: 3600, // 1 hour for homepage - more frequent updates
         };
     } catch (error) {
         console.error("Error fetching home data:", error);
@@ -135,6 +135,7 @@ export async function getStaticProps({ locale }) {
                 },
                 ...(await serverSideTranslations(locale, ['common'])),
             },
+            revalidate: 300, // 5 minutes - retry faster on error
         };
     }
 }

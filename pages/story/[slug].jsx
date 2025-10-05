@@ -38,6 +38,18 @@ const StoryPage = ({initialData}) => {
     }, []);
 
     const router = useRouter();
+    
+    // Show loading state while page is being generated (ISR fallback)
+    if (router.isFallback) {
+        return (
+            <LeftLayout>
+                <div style={{padding: '60px 0', textAlign: 'center'}}>
+                    <h1>Loading...</h1>
+                </div>
+            </LeftLayout>
+        );
+    }
+    
     const {slug, locale} = router.query;
 
     // Only log slug when it's available (not during build)
@@ -218,36 +230,13 @@ const StoryPage = ({initialData}) => {
 };
 
 export async function getStaticPaths({ locales }) {
-    try {
-        const {data} = await apolloClient.query({
-            query: GET_STORY_ALL,
-        });
-
-        console.log("Fetched stories data: ", data);
-
-        const paths = [];
-        
-        // Generate paths for each locale
-        locales.forEach(locale => {
-            const filteredStories = filterByLanguage(data.stories.edges, locale);
-            filteredStories.forEach(item => {
-                paths.push({
-                    params: { slug: item.node.slug },
-                    locale: locale
-                });
-            });
-        });
-
-        console.log("Generated paths: ", paths);
-
-        return {paths, fallback: 'blocking'};
-    } catch (error) {
-        console.error("Error fetching storys for static paths:", error);
-        return {
-            paths: [],
-            fallback: 'blocking'
-        };
-    }
+    // ISR FIX: Skip GraphQL during build - pages generated on-demand
+    console.log("⚠️ ISR enabled: pages will be generated on first request");
+    
+    return {
+        paths: [],
+        fallback: true // Pages generated on-demand, then cached
+    };
 }
 
 export async function getStaticProps({params, locale}) {
@@ -266,7 +255,7 @@ export async function getStaticProps({params, locale}) {
                     serverSideTranslations(locale, ['common'])
                 )),
             },
-            //revalidate: 2592000, // Revalidate every 30 days
+            revalidate: 86400, // 24 hours - page regenerated daily
         };
     } catch (error) {
         console.error("Error fetching story:", error);
@@ -277,6 +266,7 @@ export async function getStaticProps({params, locale}) {
                     serverSideTranslations(locale, ['common'])
                 )),
             },
+            revalidate: 3600, // 1 hour - retry faster on error
         };
     }
 }

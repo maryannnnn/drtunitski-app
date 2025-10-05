@@ -164,38 +164,11 @@ const BonusPage = ({initialData}) => {
 };
 
 export async function getStaticPaths({ locales }) {
-    try {
-        const {data} = await apolloClient.query({
-            query: GET_BONUS_ALL,
-        });
-
-        console.log("Fetched bonuses data: ", data);
-
-        const paths = [];
-        
-        // Generate paths for each locale
-        locales.forEach(locale => {
-            const filteredItems = filterByLanguage(data.bonuses.edges, locale);
-            filteredItems.forEach(item => {
-                paths.push({
-                    params: { slug: item.node.slug },
-                    locale: locale
-                });
-            });
-        });
-
-        console.log("Generated paths: ", paths);
-
-        return {paths, fallback: 'blocking'};
-    } catch (error) {
-        console.error("Error fetching bonuses for static paths:", error);
-        // Возвращаем пустой массив путей, но с fallback: 'blocking'
-        // Это позволит страницам генерироваться по требованию
-        return {
-            paths: [],
-            fallback: 'blocking'
-        };
-    }
+    console.log("⚠️ ISR enabled: bonus pages generated on-demand");
+    return {
+        paths: [],
+        fallback: true
+    };
 }
 
 export async function getStaticProps({params, locale}) {
@@ -212,7 +185,7 @@ export async function getStaticProps({params, locale}) {
                     serverSideTranslations(locale, ['common'])
                 )),
             },
-            revalidate: 2592000, // Revalidate every 30 days
+            revalidate: 86400, // 24 hours
         };
     } catch (error) {
         console.error("Error fetching bonus:", error);
@@ -223,6 +196,7 @@ export async function getStaticProps({params, locale}) {
                     serverSideTranslations(locale, ['common'])
                 )),
             },
+            revalidate: 3600,
         };
     }
 }

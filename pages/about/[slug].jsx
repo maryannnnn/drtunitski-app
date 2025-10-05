@@ -2,6 +2,7 @@ import apolloClient from '@/app/graphql/apollo-client';
 import {GET_ABOUTS_ALL, GET_ABOUT_BY_SLUG} from '@/entities/about/actions/aboutActions';
 import LeftLayout from '@/app/layouts/LeftLayout';
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
+import { useRouter } from 'next/router';
 import './index.scss';
 import './media.scss';
 import BlockItemAbouts from '@/shared/block-item-abouts/BlockItemAbouts';
@@ -11,6 +12,18 @@ import { filterByLanguage } from '@/shared/utils/language-filter';
 
 const AboutPage = ({about}) => {
     const {isRTL, direction} = useI18n();
+    const router = useRouter();
+
+    // Show loading state while page is being generated (ISR fallback)
+    if (router.isFallback) {
+        return (
+            <LeftLayout>
+                <div dir={direction} style={{padding: '60px 0', textAlign: 'center'}}>
+                    <h1>Loading...</h1>
+                </div>
+            </LeftLayout>
+        );
+    }
 
     if (!about) {
         return (
@@ -43,44 +56,13 @@ const AboutPage = ({about}) => {
 export default AboutPage;
 
 export async function getStaticPaths({ locales }) {
-    try {
-        const {data} = await apolloClient.query({
-            query: GET_ABOUTS_ALL,
-        });
-
-        if (!data || !data.abouts || !data.abouts.edges) {
-            console.error("No abouts data received from GraphQL");
-            return {
-                paths: [],
-                fallback: 'blocking'
-            };
-        }
-
-        console.log("Fetched abouts data: ", data);
-
-        const paths = [];
-        
-        // Generate paths for each locale
-        locales.forEach(locale => {
-            const filteredAbouts = filterByLanguage(data.abouts.edges, locale);
-            filteredAbouts.forEach(item => {
-                paths.push({
-                    params: { slug: item.node.slug },
-                    locale: locale
-                });
-            });
-        });
-
-        console.log("Generated paths: ", paths);
-
-        return {paths, fallback: 'blocking'};
-    } catch (error) {
-        console.error("Error fetching abouts for static paths:", error);
-        return {
-            paths: [],
-            fallback: 'blocking'
-        };
-    }
+    // TEMPORARY FIX: Skip GraphQL during build, generate pages on-demand
+    console.log("⚠️ Skipping GraphQL fetch during build - using fallback: true");
+    
+    return {
+        paths: [], // Пустой массив - страницы будут генерироваться по требованию
+        fallback: true // Включаем ISR - страницы генерируются при первом запросе
+    };
 }
 
 export async function getStaticProps({params, locale}) {
@@ -95,7 +77,7 @@ export async function getStaticProps({params, locale}) {
                 about: data.about || null,
                 ...(await serverSideTranslations(locale, ['common'])),
             },
-            revalidate: 2592000, // 30 days in seconds
+            revalidate: 86400, // 24 hours - страница перегенерируется раз в сутки
         };
     } catch (error) {
         console.error(`Error fetching data for about slug ${params.slug}:`, error);
@@ -104,7 +86,7 @@ export async function getStaticProps({params, locale}) {
                 about: null,
                 ...(await serverSideTranslations(locale, ['common'])),
             },
-            revalidate: 2592000,
+            revalidate: 3600, // 1 час - повторить попытку быстрее при ошибке
         };
     }
 }

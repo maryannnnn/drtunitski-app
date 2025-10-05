@@ -38,6 +38,18 @@ const MediaPage = ({initialData}) => {
     }, []);
 
     const router = useRouter();
+    
+    // ISR loading state
+    if (router.isFallback) {
+        return (
+            <LeftLayout>
+                <div style={{padding: '60px 0', textAlign: 'center'}}>
+                    <h1>Loading...</h1>
+                </div>
+            </LeftLayout>
+        );
+    }
+    
     const {slug, locale} = router.query;
 
     // Only log slug when it's available (not during build)
@@ -218,36 +230,11 @@ const MediaPage = ({initialData}) => {
 };
 
 export async function getStaticPaths({ locales }) {
-    try {
-        const {data} = await apolloClient.query({
-            query: GET_MEDIA_ALL,
-        });
-
-        console.log("Fetched stories data: ", data);
-
-        const paths = [];
-
-        // Generate paths for each locale
-        locales.forEach(locale => {
-            const filteredMedias = filterByLanguage(data.medias.edges, locale);
-            filteredMedias.forEach(item => {
-                paths.push({
-                    params: { slug: item.node.slug },
-                    locale: locale
-                });
-            });
-        });
-
-        console.log("Generated paths: ", paths);
-
-        return {paths, fallback: 'blocking'};
-    } catch (error) {
-        console.error("Error fetching medias for static paths:", error);
-        return {
-            paths: [],
-            fallback: 'blocking'
-        };
-    }
+    console.log("⚠️ ISR enabled: media pages generated on-demand");
+    return {
+        paths: [],
+        fallback: true
+    };
 }
 
 export async function getStaticProps({params, locale}) {
@@ -266,7 +253,7 @@ export async function getStaticProps({params, locale}) {
                     serverSideTranslations(locale, ['common'])
                 )),
             },
-            //revalidate: 2592000, // Revalidate every 30 days
+            revalidate: 86400,
         };
     } catch (error) {
         console.error("Error fetching media:", error);
@@ -277,6 +264,7 @@ export async function getStaticProps({params, locale}) {
                     serverSideTranslations(locale, ['common'])
                 )),
             },
+            revalidate: 3600,
         };
     }
 }
