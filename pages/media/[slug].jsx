@@ -38,18 +38,6 @@ const MediaPage = ({initialData}) => {
     }, []);
 
     const router = useRouter();
-    
-    // ISR loading state
-    if (router.isFallback) {
-        return (
-            <LeftLayout>
-                <div style={{padding: '60px 0', textAlign: 'center'}}>
-                    <h1>Loading...</h1>
-                </div>
-            </LeftLayout>
-        );
-    }
-    
     const {slug, locale} = router.query;
 
     // Only log slug when it's available (not during build)
@@ -62,9 +50,16 @@ const MediaPage = ({initialData}) => {
         skip: !slug,
         fetchPolicy: 'cache-and-network',
     });
-
+    
+    // ISR loading state or data loading
     if (router.isFallback || loading) {
-        return <div>Loading...</div>;
+        return (
+            <LeftLayout>
+                <div style={{padding: '60px 0', textAlign: 'center'}}>
+                    <h1>Loading...</h1>
+                </div>
+            </LeftLayout>
+        );
     }
 
     if (error) {

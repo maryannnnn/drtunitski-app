@@ -39,17 +39,6 @@ const MassagePage = ({initialData}) => {
     }, []);
 
     const router = useRouter();
-    
-    if (router.isFallback) {
-        return (
-            <LeftLayout>
-                <div style={{padding: '60px 0', textAlign: 'center'}}>
-                    <h1>Loading...</h1>
-                </div>
-            </LeftLayout>
-        );
-    }
-    
     const {slug} = router.query;
 
     const {loading, error, data} = useQuery(GET_MASSAGE_BY_SLUG, {
@@ -57,9 +46,16 @@ const MassagePage = ({initialData}) => {
         skip: !slug,
         fetchPolicy: 'cache-and-network',
     });
-
+    
+    // ISR loading state or data loading
     if (router.isFallback || loading) {
-        return <div>Loading...</div>;
+        return (
+            <LeftLayout>
+                <div style={{padding: '60px 0', textAlign: 'center'}}>
+                    <h1>Loading...</h1>
+                </div>
+            </LeftLayout>
+        );
     }
 
     if (error) {

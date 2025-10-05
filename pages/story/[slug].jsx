@@ -38,18 +38,6 @@ const StoryPage = ({initialData}) => {
     }, []);
 
     const router = useRouter();
-    
-    // Show loading state while page is being generated (ISR fallback)
-    if (router.isFallback) {
-        return (
-            <LeftLayout>
-                <div style={{padding: '60px 0', textAlign: 'center'}}>
-                    <h1>Loading...</h1>
-                </div>
-            </LeftLayout>
-        );
-    }
-    
     const {slug, locale} = router.query;
 
     // Only log slug when it's available (not during build)
@@ -62,9 +50,16 @@ const StoryPage = ({initialData}) => {
         skip: !slug,
         fetchPolicy: 'cache-and-network',
     });
-
+    
+    // Show loading state while page is being generated (ISR fallback) or data loading
     if (router.isFallback || loading) {
-        return <div>Loading...</div>;
+        return (
+            <LeftLayout>
+                <div style={{padding: '60px 0', textAlign: 'center'}}>
+                    <h1>Loading...</h1>
+                </div>
+            </LeftLayout>
+        );
     }
 
     if (error) {
