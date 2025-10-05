@@ -53,6 +53,20 @@ const createServerApolloClient = () => {
                             }
                         }
                     }
+                },
+                // Fix for Story ACF merge errors
+                Story_Acfstory: {
+                    keyFields: false,
+                    merge: true
+                },
+                Story_Acfstory_GroupInfoPost: {
+                    keyFields: false,
+                    merge: true
+                },
+                // Fix for Media ACF merge errors
+                Media_Acfmedia: {
+                    keyFields: false,
+                    merge: true
                 }
             }
         }),
@@ -81,6 +95,20 @@ const apolloClient = new ApolloClient({
                         }
                     }
                 }
+            },
+            // Fix for Story ACF merge errors
+            Story_Acfstory: {
+                keyFields: false,
+                merge: true
+            },
+            Story_Acfstory_GroupInfoPost: {
+                keyFields: false,
+                merge: true
+            },
+            // Fix for Media ACF merge errors
+            Media_Acfmedia: {
+                keyFields: false,
+                merge: true
             }
         }
     }),
@@ -93,8 +121,7 @@ const apolloClient = new ApolloClient({
         },
     },
     // Отключаем нормализацию кеша для избежания проблем с сериализацией
-    assumeImmutableResults: true,
-    connectToDevTools: process.env.NODE_ENV === 'development'
+    assumeImmutableResults: true
 });
 
 export default apolloClient;

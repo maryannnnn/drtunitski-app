@@ -193,7 +193,7 @@ async function sendEmailToAdmin(data) {
 
           <div class="footer">
             <p>${t.email.sentTime}: ${new Date().toLocaleString(data.locale, { timeZone: 'Asia/Jerusalem' })}</p>
-            <p>${t.email.addressValue} | <a href="https://www.drtunitski.com">www.drtunitski.com</a></p>
+            <p>${t.email.addressValue} | <a href="https://www.drtunitski.co.il">www.drtunitski.co.il</a></p>
           </div>
         </div>
       </body>
@@ -283,12 +283,12 @@ async function sendConfirmationToPatient(data) {
                 <strong>${t.email}:</strong> <a href="mailto:${process.env.ADMIN_EMAIL}">${process.env.ADMIN_EMAIL}</a>
               </div>
               <div class="contact-item">
-                <strong>Website:</strong> <a href="https://www.drtunitski.com">www.drtunitski.com</a>
+                <strong>Website:</strong> <a href="https://www.drtunitski.co.il">www.drtunitski.co.il</a>
               </div>
             </div>
 
             <div style="text-align: center; margin-top: 30px;">
-              <a href="https://www.drtunitski.com" class="btn">${t.email.returnToSite || 'Back to site'}</a>
+              <a href="https://www.drtunitski.co.il" class="btn">${t.email.returnToSite || 'Back to site'}</a>
             </div>
 
             <p style="margin-top: 30px; font-size: 14px; color: #666;">

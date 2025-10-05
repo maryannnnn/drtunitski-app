@@ -7,6 +7,7 @@ import './media.scss';
 import BlockItemAbouts from '@/shared/block-item-abouts/BlockItemAbouts';
 import MainTemplate from '@/widgets/main-template/MainTemplate';
 import {useI18n} from '@/shared/hooks/useI18n';
+import { filterByLanguage } from '@/shared/utils/language-filter';
 
 const AboutPage = ({about}) => {
     const {isRTL, direction} = useI18n();
@@ -41,7 +42,7 @@ const AboutPage = ({about}) => {
 
 export default AboutPage;
 
-export async function getStaticPaths() {
+export async function getStaticPaths({ locales }) {
     try {
         const {data} = await apolloClient.query({
             query: GET_ABOUTS_ALL,
@@ -55,9 +56,20 @@ export async function getStaticPaths() {
             };
         }
 
-        const paths = data.abouts.edges.map(item => ({
-            params: {slug: item.node.slug},
-        }));
+        console.log("Fetched abouts data: ", data);
+
+        const paths = [];
+        
+        // Generate paths for each locale
+        locales.forEach(locale => {
+            const filteredAbouts = filterByLanguage(data.abouts.edges, locale);
+            filteredAbouts.forEach(item => {
+                paths.push({
+                    params: { slug: item.node.slug },
+                    locale: locale
+                });
+            });
+        });
 
         console.log("Generated paths: ", paths);
 
