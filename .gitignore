@@ -36,10 +36,5 @@ yarn-error.log*
 next-env.d.ts
 
 # documentation/guide files (keep only README.md)
-*_GUIDE.md
-*_SETUP.md
-*_FIX.md
-*_IMPLEMENTATION.md
-*_COMPARISON.md
-*_REMOVAL.md
-QUICK_START_*.txt
+*.md
+!README.md
