@@ -19,6 +19,8 @@ function loadTranslations(locale) {
 export default async function handler(req, res) {
   console.log('=== API /api/contact вызван ===');
   console.log('Method:', req.method);
+  console.log('Environment:', process.env.NODE_ENV);
+  console.log('Vercel?:', !!process.env.VERCEL);
   
   if (req.method !== 'POST') {
     return res.status(405).json({ message: 'Method not allowed' });
@@ -96,23 +98,47 @@ export default async function handler(req, res) {
     };
 
     let emailsSent = false;
+    let emailResults = [];
     let errors = [];
 
     // Пытаемся отправить email, если настроено
     if (emailEnabled) {
       try {
         console.log('📧 Отправка email администратору...');
-        await sendEmailToAdmin(formData);
-        console.log('✅ Email администратору отправлен');
+        const adminResult = await sendEmailToAdmin(formData);
+        console.log('✅ Email администратору отправлен:', {
+          messageId: adminResult.messageId,
+          accepted: adminResult.accepted,
+          rejected: adminResult.rejected,
+          response: adminResult.response
+        });
+        emailResults.push({ type: 'admin', result: adminResult });
 
         console.log('📧 Отправка подтверждения пациенту...');
-        await sendConfirmationToPatient(formData);
-        console.log('✅ Подтверждение пациенту отправлено');
+        const patientResult = await sendConfirmationToPatient(formData);
+        console.log('✅ Подтверждение пациенту отправлено:', {
+          messageId: patientResult.messageId,
+          accepted: patientResult.accepted,
+          rejected: patientResult.rejected,
+          response: patientResult.response
+        });
+        emailResults.push({ type: 'patient', result: patientResult });
 
         emailsSent = true;
       } catch (emailError) {
-        console.error('❌ Ошибка отправки email:', emailError);
-        errors.push(`Email error: ${emailError.message}`);
+        console.error('❌ КРИТИЧЕСКАЯ ОШИБКА отправки email:', emailError);
+        console.error('Error name:', emailError.name);
+        console.error('Error message:', emailError.message);
+        console.error('Error code:', emailError.code);
+        console.error('Error command:', emailError.command);
+        console.error('Full stack:', emailError.stack);
+        
+        errors.push({
+          type: 'email',
+          error: emailError.message,
+          code: emailError.code,
+          command: emailError.command
+        });
         // Не прерываем выполнение - данные все равно сохранены
       }
     }
@@ -125,16 +151,31 @@ export default async function handler(req, res) {
         console.log('✅ Уведомление в Telegram отправлено');
       } catch (telegramError) {
         console.error('⚠️ Ошибка отправки в Telegram:', telegramError);
-        errors.push(`Telegram error: ${telegramError.message}`);
+        errors.push({
+          type: 'telegram',
+          error: telegramError.message
+        });
         // Не критично, продолжаем
       }
     }
     
     console.log('✅ Форма успешно обработана');
+    console.log('Итоговый результат:', {
+      emailsSent,
+      emailResults: emailResults.length,
+      errors: errors.length
+    });
+    
     res.status(200).json({ 
       success: true, 
       message: 'Form submitted successfully',
       emailSent: emailsSent,
+      emailResults: emailResults.map(r => ({
+        type: r.type,
+        messageId: r.result.messageId,
+        accepted: r.result.accepted?.length || 0,
+        rejected: r.result.rejected?.length || 0
+      })),
       errors: errors.length > 0 ? errors : undefined,
       note: emailsSent ? 'Emails sent successfully' : 'Data logged (emails not configured)'
     });
@@ -151,35 +192,54 @@ export default async function handler(req, res) {
 }
 
 // Создание транспорта для отправки email
-function createTransport() {
+function createTransporter() {
   // Используем require для надежного импорта в Next.js API routes
   const nodemailer = require('nodemailer');
   
-  console.log('nodemailer объект:', Object.keys(nodemailer));
-  console.log('nodemailer.default?', typeof nodemailer.default);
-  console.log('nodemailer.createTransport?', typeof nodemailer.createTransport);
+  console.log('🔧 Создание nodemailer транспорта...');
+  console.log('SMTP Config:', {
+    host: process.env.SMTP_HOST,
+    port: process.env.SMTP_PORT,
+    user: process.env.EMAIL_USER ? '***' + process.env.EMAIL_USER.slice(-10) : 'не задан',
+    pass: process.env.EMAIL_PASS ? '***' : 'не задан'
+  });
   
   // Пробуем разные варианты доступа
   const mailer = nodemailer.default || nodemailer;
   
-  if (typeof mailer.createTransport !== 'function') {
-    throw new Error(`createTransport не найден! Доступные методы: ${Object.keys(mailer).join(', ')}`);
+  if (typeof mailer.createTransporter !== 'function') {
+    throw new Error(`createTransporter не найден! Доступные методы: ${Object.keys(mailer).join(', ')}`);
   }
   
-  return mailer.createTransport({
+  const transporter = mailer.createTransporter({
     host: process.env.SMTP_HOST,
     port: parseInt(process.env.SMTP_PORT),
-    secure: true,
+    secure: true, // true для порта 465, false для других портов
     auth: {
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASS
+    },
+    // Добавляем больше опций для отладки
+    debug: process.env.NODE_ENV === 'development',
+    logger: process.env.NODE_ENV === 'development'
+  });
+
+  // Проверяем соединение
+  transporter.verify(function (error, success) {
+    if (error) {
+      console.error('❌ SMTP connection verification failed:', error);
+    } else {
+      console.log('✅ SMTP server is ready to take our messages');
     }
   });
+  
+  return transporter;
 }
 
 // 1. Отправка email администратору
 async function sendEmailToAdmin(data) {
-  const transporter = createTransport();
+  console.log('📧 sendEmailToAdmin: начало');
+  const transporter = createTransporter();
   const { t } = data;
 
   const consultationTypeLabels = {
@@ -256,12 +316,21 @@ async function sendEmailToAdmin(data) {
     `
   };
 
-  await transporter.sendMail(mailOptions);
+  console.log('📧 Отправка письма администратору:', {
+    from: mailOptions.from,
+    to: mailOptions.to,
+    subject: mailOptions.subject
+  });
+
+  const result = await transporter.sendMail(mailOptions);
+  console.log('📧 sendEmailToAdmin: результат получен');
+  return result;
 }
 
 // 2. Отправка автоответа пациенту
 async function sendConfirmationToPatient(data) {
-  const transporter = createTransport();
+  console.log('📧 sendConfirmationToPatient: начало');
+  const transporter = createTransporter();
   const { t } = data;
 
   const consultationTypeLabels = {
@@ -366,7 +435,15 @@ async function sendConfirmationToPatient(data) {
     `
   };
 
-  await transporter.sendMail(mailOptions);
+  console.log('📧 Отправка письма пациенту:', {
+    from: mailOptions.from,
+    to: mailOptions.to,
+    subject: mailOptions.subject
+  });
+
+  const result = await transporter.sendMail(mailOptions);
+  console.log('📧 sendConfirmationToPatient: результат получен');
+  return result;
 }
 
 // 3. Отправка уведомления в Telegram (опционально)
