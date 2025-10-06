@@ -58,13 +58,24 @@ export default async function handler(req, res) {
   
   console.log('Проверка переменных окружения:', envCheck);
 
-  // ВРЕМЕННО ОТКЛЮЧАЕМ EMAIL до решения проблемы с nodemailer
-  const emailEnabled = false; // Принудительно отключено
+  // Проверяем, настроены ли переменные окружения для email
+  const emailEnabled = !!(
+    process.env.SMTP_HOST && 
+    process.env.SMTP_PORT && 
+    process.env.EMAIL_USER && 
+    process.env.EMAIL_PASS && 
+    process.env.ADMIN_EMAIL
+  );
   
-  console.warn('⚠️ Email отправка ВРЕМЕННО ОТКЛЮЧЕНА (проблема с nodemailer в Next.js)');
+  if (!emailEnabled) {
+    console.warn('⚠️ Email отправка ОТКЛЮЧЕНА - не настроены переменные окружения');
+    console.warn('Необходимо настроить: SMTP_HOST, SMTP_PORT, EMAIL_USER, EMAIL_PASS, ADMIN_EMAIL');
+  } else {
+    console.log('✅ Email отправка ВКЛЮЧЕНА');
+  }
 
   try {
-    console.log('📝 Данные формы сохранены:');
+    console.log('📝 Обработка данных формы:');
     console.log({
       Имя: name,
       Телефон: phone,
@@ -74,18 +85,62 @@ export default async function handler(req, res) {
       Язык: locale
     });
     
-    // Здесь позже можно добавить сохранение в базу данных или файл
+    const formData = {
+      name,
+      phone,
+      email,
+      consultationType,
+      message,
+      locale,
+      t
+    };
+
+    let emailsSent = false;
+    let errors = [];
+
+    // Пытаемся отправить email, если настроено
+    if (emailEnabled) {
+      try {
+        console.log('📧 Отправка email администратору...');
+        await sendEmailToAdmin(formData);
+        console.log('✅ Email администратору отправлен');
+
+        console.log('📧 Отправка подтверждения пациенту...');
+        await sendConfirmationToPatient(formData);
+        console.log('✅ Подтверждение пациенту отправлено');
+
+        emailsSent = true;
+      } catch (emailError) {
+        console.error('❌ Ошибка отправки email:', emailError);
+        errors.push(`Email error: ${emailError.message}`);
+        // Не прерываем выполнение - данные все равно сохранены
+      }
+    }
+
+    // Пытаемся отправить в Telegram (если настроено)
+    if (process.env.TELEGRAM_BOT_TOKEN && process.env.TELEGRAM_CHAT_ID) {
+      try {
+        console.log('📱 Отправка в Telegram...');
+        await sendToTelegram(formData);
+        console.log('✅ Уведомление в Telegram отправлено');
+      } catch (telegramError) {
+        console.error('⚠️ Ошибка отправки в Telegram:', telegramError);
+        errors.push(`Telegram error: ${telegramError.message}`);
+        // Не критично, продолжаем
+      }
+    }
     
-    console.log('✅ Форма успешно обработана (данные логированы)');
+    console.log('✅ Форма успешно обработана');
     res.status(200).json({ 
       success: true, 
-      message: 'Form submitted successfully (email temporarily disabled)',
-      emailSent: false,
-      note: 'Data logged to server console'
+      message: 'Form submitted successfully',
+      emailSent: emailsSent,
+      errors: errors.length > 0 ? errors : undefined,
+      note: emailsSent ? 'Emails sent successfully' : 'Data logged (emails not configured)'
     });
 
   } catch (error) {
-    console.error('❌ ОШИБКА при обработке формы:', error);
+    console.error('❌ КРИТИЧЕСКАЯ ОШИБКА при обработке формы:', error);
     console.error('Stack trace:', error.stack);
     res.status(500).json({ 
       error: 'Error submitting form',
