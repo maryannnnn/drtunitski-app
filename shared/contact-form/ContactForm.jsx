@@ -9,12 +9,14 @@ import * as yup from 'yup';
 import ButtonBrown from '../button-brown/ButtonBrown';
 import { FaWhatsapp, FaTelegram, FaFacebookMessenger } from 'react-icons/fa';
 import { FiMail } from 'react-icons/fi';
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
 const ContactForm = () => {
     const { t } = useTranslation();
     const router = useRouter();
     const { locale } = router;
     const [showEmailForm, setShowEmailForm] = useState(false);
+    const { executeRecaptcha } = useGoogleReCaptcha();
 
     // Схема валидации Yup
     const validationSchema = yup.object().shape({
@@ -51,6 +53,16 @@ const ContactForm = () => {
 
     const onSubmit = async (data) => {
         try {
+            // Получаем токен reCAPTCHA
+            if (!executeRecaptcha) {
+                console.log('reCAPTCHA еще не готова');
+                alert(t('common:contact.recaptchaNotReady') || 'Security check is loading. Please wait...');
+                return;
+            }
+
+            const recaptchaToken = await executeRecaptcha('contact_form');
+            console.log('reCAPTCHA токен получен');
+            
             console.log('Отправка формы...', { ...data, locale: locale || 'en' });
             
             const response = await fetch('/api/contact', {
@@ -60,7 +72,8 @@ const ContactForm = () => {
                 },
                 body: JSON.stringify({
                     ...data,
-                    locale: locale || 'en' // Передаем язык пользователя
+                    locale: locale || 'en',
+                    recaptchaToken // Добавляем токен капчи
                 })
             });
 
@@ -186,9 +199,13 @@ const ContactForm = () => {
                         )}
                     </div>
 
-                    <ButtonBrown type="submit" disabled={isSubmitting}>
+                    <ButtonBrown type="submit" disabled={isSubmitting || !executeRecaptcha}>
                         {isSubmitting ? t('common:contact.sending') || 'Sending...' : t('common:contact.send')}
                     </ButtonBrown>
+                    
+                    <p className="contact-form__recaptcha-notice">
+                        {t('common:contact.recaptchaNotice') || 'This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.'}
+                    </p>
                 </div>
             )}
         </form>

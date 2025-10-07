@@ -24,9 +24,51 @@ export default async function handler(req, res) {
     return res.status(405).json({ message: 'Method not allowed' });
   }
 
-  const { name, phone, email, consultationType, message, locale = 'en' } = req.body;
+  const { name, phone, email, consultationType, message, locale = 'en', recaptchaToken } = req.body;
   
-  console.log('Получены данные:', { name, phone, email, consultationType, locale });
+  console.log('Получены данные:', { name, phone, email, consultationType, locale, hasRecaptcha: !!recaptchaToken });
+
+  // Проверяем reCAPTCHA
+  if (!recaptchaToken) {
+    console.log('❌ Отсутствует reCAPTCHA токен');
+    return res.status(400).json({ error: 'reCAPTCHA verification required' });
+  }
+
+  try {
+    // Проверяем токен через Google API
+    const recaptchaResponse = await fetch('https://www.google.com/recaptcha/api/siteverify', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: `secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${recaptchaToken}`
+    });
+
+    const recaptchaData = await recaptchaResponse.json();
+    console.log('reCAPTCHA результат:', { 
+      success: recaptchaData.success, 
+      score: recaptchaData.score,
+      action: recaptchaData.action 
+    });
+
+    // Проверяем результат (для v3 минимальный score 0.5)
+    if (!recaptchaData.success || recaptchaData.score < 0.5) {
+      console.log('❌ reCAPTCHA проверка не пройдена:', recaptchaData);
+      return res.status(400).json({ 
+        error: 'reCAPTCHA verification failed',
+        details: 'Suspicious activity detected. Please try again.'
+      });
+    }
+
+    console.log('✅ reCAPTCHA проверка пройдена, score:', recaptchaData.score);
+
+  } catch (recaptchaError) {
+    console.error('❌ Ошибка проверки reCAPTCHA:', recaptchaError);
+    return res.status(500).json({ 
+      error: 'reCAPTCHA verification error',
+      details: recaptchaError.message
+    });
+  }
 
   // Загружаем переводы для выбранного языка
   let t;

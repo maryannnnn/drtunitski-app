@@ -137,6 +137,8 @@
             "consultationRequired": "اختر نوع الاستشارة",
             "messageMax": "يجب ألا تتجاوز الرسالة 500 حرف"
         },
+        "recaptchaNotReady": "جاري تحميل فحص الأمان. يرجى الانتظار...",
+        "recaptchaNotice": "هذا الموقع محمي بواسطة reCAPTCHA وتنطبق سياسة الخصوصية وشروط الخدمة من Google.",
         "email": {
             "adminSubject": "طلب استشارة جديد من",
             "adminTitle": "طلب جديد",

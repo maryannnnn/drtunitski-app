@@ -137,6 +137,8 @@
       "consultationRequired": "בחר סוג ייעוץ",
       "messageMax": "ההודעה לא יכולה לעבור 500 תווים"
     },
+    "recaptchaNotReady": "בדיקת האבטחה נטענת. אנא המתן...",
+    "recaptchaNotice": "אתר זה מוגן על ידי reCAPTCHA וחלות מדיניות הפרטיות ותנאי השירות של Google.",
     "email": {
       "adminSubject": "בקשה חדשה לייעוץ מ",
       "adminTitle": "בקשה חדשה",

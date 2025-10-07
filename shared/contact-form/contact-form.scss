@@ -196,5 +196,23 @@
         resize: vertical;
         min-height: 120px;
     }
+
+    &__recaptcha-notice {
+        @include body-xs;
+        color: $grey-4;
+        text-align: center;
+        margin-top: 15px;
+        line-height: 1.4;
+        font-size: 11px;
+        
+        a {
+            color: $primary;
+            text-decoration: underline;
+            
+            &:hover {
+                color: $brown-7;
+            }
+        }
+    }
 }
 

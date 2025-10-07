@@ -137,6 +137,8 @@
       "consultationRequired": "Veuillez sélectionner le type de consultation",
       "messageMax": "Le message ne doit pas dépasser 500 caractères"
     },
+    "recaptchaNotReady": "Chargement de la vérification de sécurité. Veuillez patienter...",
+    "recaptchaNotice": "Ce site est protégé par reCAPTCHA et les Règles de confidentialité et Conditions d'utilisation de Google s'appliquent.",
     "email": {
       "adminSubject": "Nouvelle demande de consultation de",
       "adminTitle": "NOUVELLE DEMANDE",
