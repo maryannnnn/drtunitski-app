@@ -1,4 +1,4 @@
-// import './block-item-massage.scss'
+// import './block-item-gynecology.scss'
 import './attributes-massage.scss'
 import './media.scss'
 import Link from "next/link";

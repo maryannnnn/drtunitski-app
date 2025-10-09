@@ -74,7 +74,7 @@ export const contentType = {
 
 export const getTestimonialType = (t) => ({
     main: t('common:info.testimonials.types.main'),
-    massage: t('common:info.testimonials.types.massage'),
+    massage: t('common:info.testimonials.types.gynecology'),
     course: t('common:info.testimonials.types.course'),
     media: t('common:info.testimonials.types.media'),
 })
@@ -97,9 +97,9 @@ export const getBreadcrumbType = (t) => [
         url: '/about/clinic'
     },
     {
-        id: 'massage',
-        title: t('common:info.breadcrumbs.massage'),
-        url: '/massage'
+        id: 'gynecology',
+        title: t('common:info.breadcrumbs.gynecology'),
+        url: '/gynecology/planned'
     },
     {
         id: 'course',

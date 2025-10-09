@@ -7,7 +7,8 @@
 
   &__label {
     font-size: 14px;
-    color: #666;
+    color: $lang-text;
+    font-weight: 500;
     white-space: nowrap;
   }
 
@@ -26,7 +27,7 @@
 
   &__icon {
     font-size: 18px;
-    color: #666;
+    color: $lang-text-active;
   }
 
   &__option {
@@ -43,7 +44,8 @@
 
   &__name {
     font-size: 14px;
-    color: #333;
+    color: $lang-text-active;
+    font-weight: 500;
   }
 
   // Простой вариант с буквами
@@ -60,18 +62,19 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 4px 8px;
-      border: 1px solid $lang-border;
-      border-radius: 3px;
+      padding: 6px 10px;
+      border: 1px solid $grey-4;
+      border-radius: 6px;
       cursor: pointer;
       background: $lang-bg;
-      transition: all 0.2s ease;
-      min-width: 32px;
+      transition: all 0.3s ease;
+      min-width: 36px;
+      font-weight: 600;
       @include body-sm;
 
       &:hover {
-        border-color: $lang-text-active;
-        background: $lang-hover;
+        background: $lang-bg;
+        border-color: $grey-2;
       }
     }
 
@@ -81,11 +84,11 @@
       left: 0;
       right: 0;
       background: $white-full;
-      border: 1px solid $lang-border;
-      border-radius: 3px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      border: none;
+      border-radius: 6px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
       z-index: 99999;
-      margin-top: 2px;
+      margin-top: 4px;
       overflow: hidden;
       min-width: 100%;
     }
@@ -94,25 +97,23 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 6px 8px;
+      padding: 8px 10px;
       cursor: pointer;
-      transition: background-color 0.2s ease;
-      border-bottom: 1px solid $lang-border;
+      transition: all 0.2s ease;
+      border-bottom: none;
       @include body-sm;
       background: $white-full;
-
-      &:last-child {
-        border-bottom: none;
-      }
+      font-weight: 500;
 
       &:hover {
-        background: $lang-hover;
+        background: $grey-7;
+        color: $lang-text-active;
       }
 
       &--active {
         background: $lang-active;
-        color: $lang-text-active;
-        font-weight: 600;
+        color: $white-full !important;
+        font-weight: 700;
       }
     }
 
@@ -150,16 +151,17 @@
 
     &--dropdown {
       .language-switcher__current {
-        padding: 3px 6px;
-        min-width: 28px;
+        padding: 5px 8px;
+        min-width: 32px;
       }
 
       .language-switcher__option {
-        padding: 4px 6px;
+        padding: 6px 8px;
       }
 
       .language-switcher__short {
-        font-size: 11px;
+        font-size: 12px;
+        font-weight: 600;
       }
     }
 

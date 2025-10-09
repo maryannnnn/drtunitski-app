@@ -1,21 +1,21 @@
 @import '../../app/scss/mixins';
 @import '../../app/scss/colors';
 
-.block-massages {
+.block-gynecologies {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   padding-bottom: 40px;
 }
 
-.massage {
+.gynecology {
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
 
   &__title {
     @include title-h1;
-    color: $black;
+    color: $primary;
     padding-top: 15px;
     padding-bottom: 15px;
 
@@ -41,6 +41,12 @@
     display: block;
     padding-bottom: 20px;
     padding-top: 10px;
+    
+    &::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
 
     &-img {
       float: left;
@@ -55,6 +61,12 @@
   &__description {
     display: block;
     padding-bottom: 20px;
+    
+    &::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
 
     &-img {
       float: right;
@@ -88,6 +100,7 @@
       max-width: 100%;
       float: left !important; /* Обтекание текста справа */
       margin-right: 20px; /* Отступ от текста */
+      margin-top: 15px; /* Отступ от заголовка */
       min-width: 400px; /* Минимальная ширина */
       flex-shrink: 0; /* Не сжимается */
 
@@ -147,7 +160,7 @@
       padding: 0 20px;
     }
     
-    .massage__title-main {
+    .gynecology__title-main {
       @include title-h2;
       color: $brown-7;
       margin-bottom: 30px;
@@ -176,14 +189,14 @@
       padding: 0 20px;
     }
     
-    .massage__title-faq {
+    .gynecology__title-faq {
       @include title-h2;
       color: $primary;
       margin-bottom: 30px;
       text-align: left;
     }
     
-    .massage__faq {
+    .gynecology__faq {
       &-content {
         text-align: justify;
         line-height: 1.6;
@@ -194,49 +207,66 @@
   &-block-video {
     padding-top: 20px;
     margin-bottom: 30px;
-    border-bottom: 1px solid $brown-7;
   }
 
   &-block-top {
     padding-top: 20px;
     margin-bottom: 30px;
   }
-
 }
 
-// RTL стили для massage блоков
+// Стили для кнопок "Назначить встречу"
+.gynecology__appointment-btn {
+  text-align: left;
+  margin: 30px 0;
+  
+  .gynecology__appointment-button {
+    width: 254px;
+    height: 50px;
+    padding: 0;
+  }
+}
+
+// RTL стили для кнопок
 [dir="rtl"] {
-  .massage-block-center {
+  .gynecology__appointment-btn {
+    text-align: right;
+  }
+}
+
+// RTL стили для gynecology блоков
+[dir="rtl"] {
+  .gynecology-block-center {
     margin-left: 0;
     margin-right: calc(-50vw + 50%);
     
-    .massage__title-main {
+    .gynecology__title-main {
       text-align: right;
     }
   }
   
-  .massage-block-bottom {
+  .gynecology-block-bottom {
     margin-left: 0;
     margin-right: calc(-50vw + 50%);
     
-    .massage__title-faq {
+    .gynecology__title-faq {
       text-align: right;
     }
   }
   
-  .massage__anons-img {
+  .gynecology__anons-img {
     float: right;
     margin-right: 0;
     margin-left: 20px;
   }
   
-  .massage__description-img {
+  .gynecology__description-img {
     float: left;
     margin-left: 0;
     margin-right: 20px;
   }
   
-  .massage__video-content {
+  .gynecology__video-content {
     float: right !important;
     margin-right: 0 !important;
     margin-left: 20px !important;

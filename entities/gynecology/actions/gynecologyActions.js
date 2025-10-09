@@ -1,10 +1,12 @@
 import {gql} from '@apollo/client';
 
-export const GET_MASSAGE_BY_SLUG = gql`
-  query GetMassageBySlug($slug: String!) {
-    massageBy(slug: $slug) {
+export const GET_GYNECOLOGY_BY_SLUG = gql`
+  query GetGynecologyBySlug($slug: String!) {
+    gynecologyBy(slug: $slug) {
       id
+      slug
       menuOrder
+      uri
       language {
         code
         homeUrl
@@ -32,7 +34,7 @@ export const GET_MASSAGE_BY_SLUG = gql`
           metaDesc
           title
       }
-      AcfMassage {
+      AcfGynecology {
         faqContent
         faqTitle
         videoTitle
@@ -58,27 +60,27 @@ export const GET_MASSAGE_BY_SLUG = gql`
               uri
            }
          }
-         massazhist {
+         doctor {
             ... on Master {
               id
               uri
               title
            }
          }
-         aromaty
-         czenaPaket
-         czenaPaket2
-         czenaSeans
+         medicationTherapy
+         czena1
+         czena2
+         czena3
          effekty
-         metodikiMassage {
+         metodiki {
             ... on Methodology {
               id
               title
               uri
            }
          }
-         muzyka
-         pokazaniyaMassage {
+         anesthesia
+         pokazaniya {
             ... on Pokazaniya {
               id
               uri
@@ -96,7 +98,7 @@ export const GET_MASSAGE_BY_SLUG = gql`
               title
            }
          }
-         zonaMassage {
+         zona {
             ... on Zone {
               id
               uri
@@ -105,49 +107,18 @@ export const GET_MASSAGE_BY_SLUG = gql`
          }
       }
     }
-    testimonials {
-      edges {
-        node {
-          id
-          menuOrder
-          AcfTestimonial {
-            descriptionAnons
-            front
-            groupInfoPost {
-              speciality
-              position
-              fullName
-              imageAuthor {
-                altText
-                sourceUrl
-                uri
-              }
-            }
-          }
-          title
-          uri
-          categories {
-            edges {
-              node {
-                id
-                uri
-                name
-              }
-            }
-          }
-        }
-      }
-    }    
   }
 `;
 
-export const GET_MASSAGE_ALL = gql`
-query  GetMassageAll {
-  massages {
+export const GET_GYNECOLOGY_ALL = gql`
+query  GetGynecologyAll {
+  gynecologies {
     edges {
         node {
           id
+          slug
           menuOrder
+          uri
           language {
             code
             homeUrl
@@ -156,7 +127,7 @@ query  GetMassageAll {
             name
             slug
           }
-          AcfMassage {
+          AcfGynecology {
             titleLong
             titleShort
             descriptionAnons
@@ -179,27 +150,27 @@ query  GetMassageAll {
                 uri
               }
             }
-            massazhist {
+            doctor {
               ... on Master {
                 id
                 uri
                 title
               }
             }
-            aromaty
-            czenaPaket
-            czenaPaket2
-            czenaSeans
+            medicationTherapy
+            czena1
+            czena2
+            czena3
             effekty
-            metodikiMassage {
+            metodiki {
               ... on Methodology {
                 id
                 title
                 uri
               }
             }
-            muzyka
-            pokazaniyaMassage {
+            anesthesia
+            pokazaniya {
               ... on Pokazaniya {
                 id
                 uri
@@ -217,7 +188,7 @@ query  GetMassageAll {
                 title
               }
             }
-            zonaMassage {
+            zona {
               ... on Zone {
                 id
                 uri
@@ -238,69 +209,5 @@ query  GetMassageAll {
         }
     }
   }
-  massage(id: "cG9zdDo0MTEy") {
-        id
-        menuOrder
-        title
-        content(format: RENDERED)
-        featuredImage {
-        node {
-          altText
-          sourceUrl
-          }
-        }
-        seo {
-          metaDesc
-          title
-        }
-        AcfMassage {
-         faqContent
-         faqTitle
-         videoTitle
-         videoDescription
-         video
-         titleLong
-         titleShort
-         descriptionAnons
-         titleCenter
-         titleGallery
-         imageAnonsPage {
-          altText
-          sourceUrl
-        }
-      }
-  }
-  testimonials {
-      edges {
-        node {
-          id
-          AcfTestimonial {
-            descriptionAnons
-            front
-            groupInfoPost {
-              speciality
-              position
-              fullName
-              imageAuthor {
-                altText
-                sourceUrl
-                uri
-              }
-            }
-          }
-          title
-          uri
-          categories {
-            edges {
-              node {
-                id
-                uri
-                name
-              }
-            }
-          }
-        }
-      }
-    }    
 }
 `;

@@ -87,15 +87,20 @@ const createServerApolloClient = () => {
                 Media_Acfmedia: {
                     keyFields: false,
                     merge: true
+                },
+                // Fix for Gynecology ACF merge errors
+                Gynecology_AcfGynecology: {
+                    keyFields: false,
+                    merge: true
                 }
             }
         }),
         defaultOptions: {
             watchQuery: {
-                errorPolicy: 'ignore',
+                errorPolicy: 'all',
             },
             query: {
-                errorPolicy: 'ignore',
+                errorPolicy: 'all',
             },
         },
         assumeImmutableResults: true,
@@ -129,15 +134,20 @@ const apolloClient = new ApolloClient({
             Media_Acfmedia: {
                 keyFields: false,
                 merge: true
+            },
+            // Fix for Gynecology ACF merge errors
+            Gynecology_AcfGynecology: {
+                keyFields: false,
+                merge: true
             }
         }
     }),
     defaultOptions: {
         watchQuery: {
-            errorPolicy: 'ignore',
+            errorPolicy: 'all',
         },
         query: {
-            errorPolicy: 'ignore',
+            errorPolicy: 'all',
         },
     },
     // Отключаем нормализацию кеша для избежания проблем с сериализацией
