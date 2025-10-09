@@ -27,7 +27,7 @@ import "lightgallery/css/lg-zoom.css";
 import "lightgallery/css/lg-share.css";
 
 
-const gynecologyPage = ({initialData}) => {
+const GynecologyPage = ({initialData}) => {
     const { t } = useTranslation();
     const [isClient, setIsClient] = useState(false);
     const [isModalActive, setIsModalActive] = useState(false);
@@ -273,7 +273,7 @@ export async function getStaticProps({params, locale}) {
     }
 }
 
-export default gynecologyPage;
+export default GynecologyPage;
 
 
 
