@@ -289,7 +289,8 @@
     "title": "Blog der Klinik von Dr. Serge Tunitski: Nachrichten, Expertenbeiträge, Video-Bewertungen und Antworten auf Fragen",
     "seoTitle": "Medienblog - Klinik von Dr. Serge Tunitski",
     "seoDescription": "Durchsuchen Sie unsere umfassende Sammlung von Nachrichten, Expertenbeiträgen, Video-Bewertungen und Antworten auf häufig gestellte Fragen zu gynäkologischen Operationen und Behandlungen.",
-    "noPosts": "Derzeit sind keine Beiträge verfügbar."
+    "noPosts": "Derzeit sind keine Beiträge verfügbar.",
+    "allCategories": "Alle"
   },
   "pagination": {
     "prev": "Zurück",

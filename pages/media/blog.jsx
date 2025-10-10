@@ -22,15 +22,22 @@ const MediaBlogPage = ({ initialData }) => {
     const { locale } = router;
     const [currentPage, setCurrentPage] = useState(1);
     const [isClient, setIsClient] = useState(false);
+    const [selectedCategory, setSelectedCategory] = useState('all');
 
     useEffect(() => {
         setIsClient(true);
     }, []);
 
-    // Сбрасываем страницу на 1 при смене языка
+    // Сбрасываем страницу и категорию на 1 при смене языка
     useEffect(() => {
         setCurrentPage(1);
+        setSelectedCategory('all');
     }, [locale]);
+    
+    // Сбрасываем страницу на 1 при смене категории
+    useEffect(() => {
+        setCurrentPage(1);
+    }, [selectedCategory]);
 
     // Прокрутка наверх при смене страницы
     useEffect(() => {
@@ -81,6 +88,34 @@ const MediaBlogPage = ({ initialData }) => {
         console.warn('⚠️ MediaBlog - No posts found for locale', locale, ', showing all posts as fallback');
         filteredMedias = allMedias;
     }
+    
+    // Извлекаем уникальные категории из отфильтрованных постов
+    const categoriesSet = new Set();
+    filteredMedias.forEach(item => {
+        const trees = item.node.trees?.edges || [];
+        trees.forEach(tree => {
+            const categoryName = tree.node.name;
+            // Фильтруем только нужные категории: News, Expert, Video
+            if (categoryName && (
+                categoryName.toLowerCase().includes('news') ||
+                categoryName.toLowerCase().includes('expert') ||
+                categoryName.toLowerCase().includes('video')
+            )) {
+                categoriesSet.add(categoryName);
+            }
+        });
+    });
+    const availableCategories = Array.from(categoriesSet).sort();
+    
+    // Фильтруем по выбранной категории
+    if (selectedCategory !== 'all') {
+        filteredMedias = filteredMedias.filter(item => {
+            const trees = item.node.trees?.edges || [];
+            return trees.some(tree => tree.node.name === selectedCategory);
+        });
+    }
+    
+    console.log('MediaBlog - After category filter:', filteredMedias.length);
 
     // Сортируем посты по дате (от новых к старым)
     const sortedMedias = [...filteredMedias].sort((a, b) => {
@@ -127,6 +162,27 @@ const MediaBlogPage = ({ initialData }) => {
                 <div className="container">
                     <h1 className="media-blog__title">{t('mediaBlog.title')}</h1>
                     <Breadcrumbs material={breadcrumbsMaterial} typeMaterial="media" />
+                    
+                    {/* Фильтр по категориям */}
+                    {availableCategories.length > 0 && (
+                        <div className="media-blog__filter">
+                            <button
+                                className={`media-blog__filter-btn ${selectedCategory === 'all' ? 'active' : ''}`}
+                                onClick={() => setSelectedCategory('all')}
+                            >
+                                {t('mediaBlog.allCategories') || 'All'}
+                            </button>
+                            {availableCategories.map(category => (
+                                <button
+                                    key={category}
+                                    className={`media-blog__filter-btn ${selectedCategory === category ? 'active' : ''}`}
+                                    onClick={() => setSelectedCategory(category)}
+                                >
+                                    {category}
+                                </button>
+                            ))}
+                        </div>
+                    )}
                     
                     {pageInfo?.hasNextPage && (
                         <div className="media-blog__warning" style={{ 

@@ -289,7 +289,8 @@
     "title": "Blog de la Clinique du Docteur Serge Tunitski: Actualités, Articles d'Experts, Témoignages Vidéo et Réponses aux Questions",
     "seoTitle": "Blog Média - Clinique du Dr. Serge Tunitski",
     "seoDescription": "Parcourez notre collection complète d'actualités, d'articles d'experts, de témoignages vidéo et de réponses aux questions fréquemment posées sur la chirurgie gynécologique et les traitements.",
-    "noPosts": "Aucune publication disponible pour le moment."
+    "noPosts": "Aucune publication disponible pour le moment.",
+    "allCategories": "Tous"
   },
   "pagination": {
     "prev": "Précédent",
