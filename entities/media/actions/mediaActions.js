@@ -47,7 +47,13 @@ export const GET_MEDIA_BY_SLUG = gql`
 
 export const GET_MEDIA_ALL = gql`
   query GetMediaAll {
-    medias {
+    medias(first: 1000) {
+      pageInfo {
+        hasNextPage
+        hasPreviousPage
+        startCursor
+        endCursor
+      }
       edges {
         node {
           id
@@ -73,6 +79,25 @@ export const GET_MEDIA_ALL = gql`
             metaDesc
             title
           }
+          categories {
+            edges {
+                node {
+                    id
+                    name
+                    slug
+                }
+            }
+          }
+          trees {
+            edges {
+                node {
+                    id
+                    name
+                    slug
+                    uri
+                }
+            }
+          }  
           AcfMedia {
             faqContent
             faqTitle

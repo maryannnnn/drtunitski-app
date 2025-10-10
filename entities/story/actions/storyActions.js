@@ -39,6 +39,7 @@ export const GET_STORY_BY_SLUG = gql`
               id
               name
               slug
+              uri
             }
         }
       }  

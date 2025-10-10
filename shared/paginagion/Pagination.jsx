@@ -1,9 +1,10 @@
 import './pagination.scss'
 import PaginationNumbers from "./PaginationItem";
 import React from "react";
+import { useTranslation } from 'next-i18next';
 
 const Pagination = ({totalPages, currentPage, setPageNumber}) => {
-
+    const { t } = useTranslation('common');
     const pages = Array.from({length: totalPages}, (_, index) => index + 1);
 
     return (
@@ -11,11 +12,11 @@ const Pagination = ({totalPages, currentPage, setPageNumber}) => {
             <button className="pagination__item pagination__item-arrow"
                     disabled={currentPage === 1}
                     onClick={() => setPageNumber(currentPage - 1)}>
-                prev
+                {t('pagination.prev')}
             </button>
 
             {pages.map((pageNumber) =>
-                (<ul>
+                (<ul key={pageNumber}>
                     <PaginationNumbers pageNumber={pageNumber} setPageNumber={setPageNumber} currentPage={currentPage}/>
                 </ul>)
             )}
@@ -23,7 +24,7 @@ const Pagination = ({totalPages, currentPage, setPageNumber}) => {
             <button className="pagination__item pagination__item-arrow"
                     disabled={currentPage === totalPages}
                     onClick={() => setPageNumber(currentPage + 1)}>
-                next
+                {t('pagination.next')}
             </button>
         </nav>
     );

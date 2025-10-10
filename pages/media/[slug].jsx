@@ -180,7 +180,7 @@ const MediaPage = ({initialData}) => {
                                         <VideoDisplay
                                             videoUrl={media?.AcfMedia?.video}
                                             title={cleanHtmlFull(media?.AcfMedia?.videoTitle)}
-                                            style={{ width: '500px', height: '281px' }}
+                                            style={{ width: '700px', height: '281px' }}
                                             mobileStyle={{ width: '370px', height: '208px' }}
                                         />
                                     </div>

@@ -124,16 +124,6 @@ const GynecologyPage = ({initialData}) => {
                                 {t('common:buttons.bookAppointment')}
                             </ButtonBrown>
                         </div>
-
-                        {/*{gynecology?.galleryImages && gynecology?.galleryImages?.length > 0 && (*/}
-                        {/*    <div className="gynecology-block-gallery">*/}
-                        {/*        <h2 className="gynecology__title-main">*/}
-                        {/*            {cleanHtmlFull(gynecology?.AcfGynecology?.titleGallery || '')}*/}
-                        {/*        </h2>*/}
-                        {/*        <GalleryLightbox images={gynecology?.galleryImages ?? []}/>*/}
-                        {/*    </div>*/}
-                        {/*)}*/}
-
                         {gynecology?.content && (
                             <>
                                 <div className="gynecology-block-center">

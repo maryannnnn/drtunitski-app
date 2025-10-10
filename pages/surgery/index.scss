@@ -1,21 +1,21 @@
 @import '../../app/scss/mixins';
 @import '../../app/scss/colors';
 
-.block-courses {
+.block-surgeries {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   padding-bottom: 40px;
 }
 
-.course {
+.surgery {
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
 
   &__title {
     @include title-h1;
-    color: $black;
+    color: $primary;
     padding-top: 15px;
     padding-bottom: 15px;
 
@@ -41,6 +41,12 @@
     display: block;
     padding-bottom: 20px;
     padding-top: 10px;
+    
+    &::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
 
     &-img {
       float: left;
@@ -55,6 +61,12 @@
   &__description {
     display: block;
     padding-bottom: 20px;
+    
+    &::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
 
     &-img {
       float: right;
@@ -88,6 +100,7 @@
       max-width: 100%;
       float: left !important; /* Обтекание текста справа */
       margin-right: 20px; /* Отступ от текста */
+      margin-top: 15px; /* Отступ от заголовка */
       min-width: 400px; /* Минимальная ширина */
       flex-shrink: 0; /* Не сжимается */
 
@@ -125,6 +138,15 @@
     }
   }
 
+  &__gallery {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    gap: 10px;
+  }
+
   &-block-center {
     background-color: $white;
     padding: 60px 0;
@@ -138,7 +160,7 @@
       padding: 0 20px;
     }
     
-    .course__title-main {
+    .surgery__title-main {
       @include title-h2;
       color: $brown-7;
       margin-bottom: 30px;
@@ -167,14 +189,14 @@
       padding: 0 20px;
     }
     
-    .course__title-faq {
+    .surgery__title-faq {
       @include title-h2;
       color: $primary;
       margin-bottom: 30px;
       text-align: left;
     }
     
-    .course__faq {
+    .surgery__faq {
       &-content {
         text-align: justify;
         line-height: 1.6;
@@ -191,46 +213,67 @@
     padding-top: 20px;
     margin-bottom: 30px;
   }
-
 }
 
-// RTL стили для course блоков
+// Стили для кнопок "Назначить встречу"
+.surgery__appointment-btn {
+  text-align: left;
+  margin: 30px 0;
+  
+  .surgery__appointment-button {
+    width: 254px;
+    height: 50px;
+    padding: 0;
+  }
+}
+
+// RTL стили для кнопок
 [dir="rtl"] {
-  .course-block-center {
+  .surgery__appointment-btn {
+    text-align: right;
+  }
+}
+
+// RTL стили для surgery блоков
+[dir="rtl"] {
+  .surgery-block-center {
     margin-left: 0;
     margin-right: calc(-50vw + 50%);
     
-    .course__title-main {
+    .surgery__title-main {
       text-align: right;
     }
   }
   
-  .course-block-bottom {
+  .surgery-block-bottom {
     margin-left: 0;
     margin-right: calc(-50vw + 50%);
     
-    .course__title-faq {
+    .surgery__title-faq {
       text-align: right;
     }
   }
   
-  .course__anons-img {
+  .surgery__anons-img {
     float: right;
     margin-right: 0;
     margin-left: 20px;
   }
   
-  .course__description-img {
+  .surgery__description-img {
     float: left;
     margin-left: 0;
     margin-right: 20px;
   }
   
-  .course__video-content {
+  .surgery__video-content {
     float: right !important;
     margin-right: 0 !important;
     margin-left: 20px !important;
   }
 }
+
+
+
 
 

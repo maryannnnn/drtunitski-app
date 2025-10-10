@@ -18,17 +18,26 @@ export const filterByLanguage = (edges, targetLanguage = 'en') => {
             return targetLanguage === 'en';
         }
 
-        // Check if the node's language matches the target language
-        const nodeCode = node.language.code?.toLowerCase();
-        const nodeLocale = node.language.locale?.toLowerCase();
-        const nodeSlug = node.language.slug?.toLowerCase();
+        // Normalize target language to lowercase
         const targetLang = targetLanguage.toLowerCase();
         
+        // Get all possible language identifiers from the node
+        const nodeCode = node.language.code?.toLowerCase() || '';
+        const nodeLocale = node.language.locale?.toLowerCase() || '';
+        const nodeSlug = node.language.slug?.toLowerCase() || '';
+        const nodeName = node.language.name?.toLowerCase() || '';
+        
+        // Extract just the language code from locale (e.g., 'ru_RU' -> 'ru')
+        const localePrefix = nodeLocale.split('_')[0];
+        
+        // Check various matching conditions
         return nodeCode === targetLang || 
                nodeLocale === targetLang ||
                nodeSlug === targetLang ||
+               localePrefix === targetLang ||
+               nodeCode?.startsWith(targetLang) ||
                nodeLocale?.startsWith(targetLang) ||
-               nodeCode?.startsWith(targetLang);
+               nodeName?.includes(targetLang);
     });
 };
 

@@ -211,7 +211,7 @@
       "main": "Home",
       "about": "About",
       "gynecology": "Gynecology",
-      "course": "Courses",
+      "surgery": "Surgery",
       "media": "Media",
       "story": "Stories",
       "bonus": "Bonus"
@@ -300,5 +300,15 @@
     "wantShare": {
       "title": "Now I am healthy and I want to share my joy"
     }
+  },
+  "mediaBlog": {
+    "title": "Dr. Serge Tunitski Clinic Blog: News, Expert Articles, Video Testimonials, and Q&A",
+    "seoTitle": "Media Blog - Dr. Serge Tunitski Clinic",
+    "seoDescription": "Browse our comprehensive collection of news, expert articles, video testimonials, and answers to frequently asked questions about gynecological surgery and treatments.",
+    "noPosts": "No posts available at the moment."
+  },
+  "pagination": {
+    "prev": "Previous",
+    "next": "Next"
   }
 }

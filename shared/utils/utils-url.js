@@ -25,9 +25,24 @@ export const addLanguageSuffix = (path, locale) => {
         return path;
     }
 
-    // Не добавляем суффикс к основным папкам (только к slug страницам)
-    const mainFolders = ['/about', '/gynecology', '/surgery', '/media', '/stories'];
-    if (mainFolders.includes(path)) {
+    // Не добавляем суффикс к статическим страницам (они используют языковые префиксы)
+    // Проверяем через isStaticPath (определена ниже)
+    const staticPaths = [
+        '/',
+        '/about',
+        '/gynecology',
+        '/surgery',
+        '/media',
+        '/media/blog',
+        '/stories',
+        '/story/main',
+        '/about/contact',
+        '/privacy-policy',
+        '/accessibility-statement',
+        '/sitemap'
+    ];
+    
+    if (staticPaths.includes(path)) {
         return path;
     }
 
@@ -134,6 +149,7 @@ export const isStaticPath = (path) => {
         '/gynecology',
         '/surgery',
         '/media',
+        '/media/blog',
         '/stories',
         '/story/main',
         '/about/contact',
