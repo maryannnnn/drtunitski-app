@@ -1,0 +1,66 @@
+@import '../app/scss/colors';
+@import '../app/scss/mixins';
+
+.privacy-policy-container {
+    padding: 40px 20px;
+}
+
+.privacy-policy-paper {
+    padding: 40px;
+    border-radius: 12px;
+    background: $white-full;
+    
+    @media (max-width: 768px) {
+        padding: 24px 20px;
+    }
+}
+
+.privacy-header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.privacy-title {
+    @include title-h2;
+    color: $brown-7;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.privacy-updated {
+    color: $grey-4;
+    font-style: italic;
+}
+
+.privacy-section {
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+
+.section-title {
+    @include title-h4;
+    color: $grey-1;
+    font-weight: 600;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid $brown-7;
+}
+
+.subsection-title {
+    @include title-h6;
+    color: $grey-2;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 12px;
+}
+
+.privacy-footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    
+    p {
+        margin: 4px 0;
+    }
+}
+

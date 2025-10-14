@@ -1,27 +1,290 @@
 {
-    "title": "Política de privacidad",
-    "description": "Nuestra política de privacidad y prácticas de protección de datos",
-    "lastUpdated": "Última actualización: diciembre 2024",
+    "title": "POLÍTICA DE PRIVACIDAD",
+    "description": "Política de privacidad y protección de datos personales de la Clínica Dr. Serge Tunitski",
+    "lastUpdated": "Última actualización: Octubre 2025",
     "sections": {
         "introduction": {
-            "title": "Introducción",
-            "content": "Esta Política de Privacidad describe cómo la práctica médica del Dr. Serge Tunitski recopila, usa y protege su información personal cuando visita nuestro sitio web o utiliza nuestros servicios. Nos comprometemos a proteger su privacidad y garantizar la seguridad de sus datos personales."
+            "title": "INTRODUCCIÓN",
+            "content": "La Clínica Médica Dr. Serge Tunitski (en adelante — 'nosotros', 'nuestra', 'Clínica') se compromete a proteger la confidencialidad y seguridad de los datos personales de nuestros pacientes y visitantes del sitio web.",
+            "regulations": "Esta Política de Privacidad describe cómo recopilamos, usamos, procesamos y protegemos su información de acuerdo con:",
+            "regulation1": "Ley de Protección de la Privacidad de Israel",
+            "regulation2": "Reglamento General de Protección de Datos (GDPR)",
+            "regulation3": "Normas éticas médicas",
+            "agreement": "Al usar nuestro sitio web y servicios, usted acepta los términos de esta Política."
         },
         "dataCollection": {
-            "title": "Información que recopilamos",
-            "content": "Recopilamos información que usted nos proporciona directamente, como cuando solicita una cita, nos contacta o se suscribe a nuestro boletín. Esto puede incluir su nombre, dirección de correo electrónico, número de teléfono, información médica y cualquier otra información que elija proporcionar."
+            "title": "QUÉ DATOS RECOPILAMOS",
+            "direct": {
+                "title": "Datos que usted proporciona directamente:",
+                "item1": "Datos personales: nombre, apellido, identificación, información de contacto (teléfono, correo electrónico, dirección)",
+                "item2": "Información médica: historial médico, síntomas, diagnósticos, resultados de exámenes, imágenes médicas",
+                "item3": "Datos demográficos: edad, sexo, estado civil",
+                "item4": "Datos financieros: información de pago de servicios (al realizar pagos)"
+            },
+            "automatic": {
+                "title": "Datos recopilados automáticamente:",
+                "item1": "Datos técnicos: dirección IP, tipo de navegador, sistema operativo, información del dispositivo",
+                "item2": "Datos de uso: páginas vistas, tiempo de visita, historial de actividad en el sitio",
+                "item3": "Cookies y tecnologías similares (ver detalles en la sección 5)"
+            },
+            "thirdParty": {
+                "title": "Datos de terceros:",
+                "item1": "Información de otras instituciones médicas (a su solicitud)",
+                "item2": "Datos de compañías de seguros",
+                "item3": "Información de referencia de médicos remitentes"
+            }
         },
         "dataUsage": {
-            "title": "Cómo utilizamos su información",
-            "content": "Utilizamos la información recopilada para proporcionar servicios médicos, programar citas, comunicarnos con usted sobre su atención, enviarle actualizaciones importantes sobre nuestros servicios y mejorar nuestro sitio web y servicios. No vendemos ni compartimos su información personal con terceros sin su consentimiento."
+            "title": "CÓMO USAMOS SUS DATOS",
+            "purposes": {
+                "title": "Propósitos principales de procesamiento:",
+                "content": "Utilizamos sus datos para proporcionar servicios médicos y tratamiento, mantener registros médicos, programar citas y gestionar horarios, comunicarnos con los pacientes sobre el tratamiento, mejorar la calidad de los servicios médicos, comunicaciones de marketing (con su consentimiento) y cumplir con obligaciones legales."
+            },
+            "medical": {
+                "title": "Procesamiento de datos médicos:",
+                "content": "Los datos médicos especialmente protegidos se procesan sobre la base de:",
+                "basis1": "Consentimiento explícito (Art. 9(2)(a) GDPR)",
+                "basis2": "Prestación de servicios médicos (Art. 9(2)(h) GDPR)",
+                "basis3": "Protección de intereses vitales (Art. 9(2)(c) GDPR)"
+            }
         },
-        "dataProtection": {
-            "title": "Protección de datos",
-            "content": "Implementamos medidas de seguridad apropiadas para proteger su información personal contra acceso no autorizado, alteración, divulgación o destrucción. Su información médica está protegida de acuerdo con las leyes y regulaciones aplicables de privacidad médica."
+        "dataSharing": {
+            "title": "COMPARTIR DATOS CON TERCEROS",
+            "internal": {
+                "title": "Compartir interno:",
+                "content": "Sus datos pueden compartirse entre el personal de la Clínica Dr. Serge Tunitski exclusivamente con fines médicos y en la medida necesaria para prestar servicios."
+            },
+            "external": {
+                "title": "Destinatarios externos:",
+                "content": "Podemos compartir datos con las siguientes categorías de destinatarios:",
+                "category1": "Especialistas médicos: consultores, laboratorios, centros de diagnóstico",
+                "category2": "Proveedores técnicos: proveedores de hosting, soporte de TI",
+                "category3": "Servicios administrativos: contabilidad, compañías de seguros",
+                "category4": "Autoridades gubernamentales: según requerimiento legal"
+            },
+            "international": {
+                "title": "Transferencias internacionales:",
+                "content": "Los datos se almacenan principalmente en Israel. Al transferir a terceros países, garantizamos la protección mediante decisiones adecuadas de la UE, cláusulas contractuales estándar y mecanismos de protección certificados."
+            }
+        },
+        "thirdPartyServices": {
+            "title": "SERVICIOS ESPECÍFICOS DE TERCEROS",
+            "communication": {
+                "title": "Servicios de comunicación y mensajería:",
+                "whatsapp": "WhatsApp Business (Meta Platforms, Inc.) - consultas en línea y reserva de citas",
+                "telegram": "Telegram Messenger (Telegram FZ-LLC) - comunicación con pacientes",
+                "messenger": "Facebook Messenger (Meta Platforms, Inc.) - servicio al cliente",
+                "viber": "Viber (Rakuten Viber) - comunicaciones de mensajería",
+                "wechat": "WeChat (Tencent Holdings) - para pacientes internacionales",
+                "line": "Line (LINE Corporation) - mercado asiático",
+                "signal": "Signal (Signal Foundation) - comunicaciones seguras",
+                "slack": "Slack (Salesforce) - comunicaciones internas del equipo"
+            },
+            "socialMedia": {
+                "title": "Redes sociales y plataformas:",
+                "facebook": "Facebook (Meta Platforms, Inc.) - marketing y adquisición de pacientes",
+                "instagram": "Instagram (Meta Platforms, Inc.) - educación médica",
+                "youtube": "YouTube (Google LLC) - contenido médico educativo",
+                "linkedin": "LinkedIn (Microsoft Corporation) - comunicaciones profesionales",
+                "twitter": "Twitter/X (X Corp.) - noticias y actualizaciones",
+                "tiktok": "TikTok (ByteDance Ltd.) - contenido médico educativo",
+                "pinterest": "Pinterest (Pinterest Inc.) - contenido médico visual",
+                "reddit": "Reddit (Reddit Inc.) - participación en comunidades médicas"
+            },
+            "analytics": {
+                "title": "Servicios de análisis:",
+                "googleAnalytics": "Google Analytics (Google LLC) - análisis web y estadísticas",
+                "yandex": "Yandex.Metrika (Yandex LLC) - análisis de comportamiento del usuario",
+                "clarity": "Microsoft Clarity (Microsoft Corporation) - grabación de sesiones",
+                "hotjar": "Hotjar (Hotjar Ltd) - mapas de calor y análisis de interacción",
+                "amplitude": "Amplitude (Amplitude Inc.) - análisis de producto",
+                "mixpanel": "Mixpanel (Mixpanel Inc.) - análisis de viajes de usuario",
+                "adobe": "Adobe Analytics (Adobe Inc.) - análisis web avanzado"
+            },
+            "marketing": {
+                "title": "Servicios de marketing y publicidad:",
+                "googleAds": "Google Ads (Google LLC) - publicidad contextual y retargeting",
+                "fbPixel": "Facebook Pixel (Meta Platforms Inc.) - seguimiento de conversiones",
+                "linkedinTag": "LinkedIn Insight Tag (Microsoft Corporation) - análisis de audiencia",
+                "tiktokPixel": "TikTok Pixel (ByteDance Ltd.) - publicidad en TikTok",
+                "twitterPixel": "Twitter Pixel (X Corp.) - retargeting en Twitter/X",
+                "pinterestTag": "Pinterest Tag (Pinterest Inc.) - seguimiento de conversiones",
+                "criteo": "Criteo (Criteo SA) - retargeting dinámico",
+                "googleMarketing": "Google Marketing Platform (Google LLC) - gestión de campañas"
+            },
+            "technical": {
+                "title": "Servicios técnicos y de infraestructura:",
+                "gtm": "Google Tag Manager (Google LLC) - gestión de etiquetas",
+                "cloudflare": "Cloudflare (Cloudflare Inc.) - CDN y seguridad",
+                "vercel": "Vercel Analytics (Vercel Inc.) - monitoreo de rendimiento",
+                "sentry": "Sentry (Sentry Inc.) - monitoreo de errores",
+                "newRelic": "New Relic (New Relic Inc.) - rendimiento de aplicaciones",
+                "googleFonts": "Google Fonts (Google LLC) - fuentes web",
+                "fontAwesome": "Font Awesome (Fonticons Inc.) - iconos y gráficos",
+                "workspace": "Google Workspace (Google LLC) - correo y documentos"
+            },
+            "crm": {
+                "title": "Servicios de gestión de contenido y CRM:",
+                "hubspot": "HubSpot (HubSpot Inc.) - CRM y automatización de marketing",
+                "salesforce": "Salesforce (Salesforce Inc.) - gestión de relaciones con clientes",
+                "mailchimp": "Mailchimp (Intuit Inc.) - marketing por correo electrónico",
+                "sendgrid": "SendGrid (Twilio Inc.) - correos electrónicos transaccionales",
+                "calendly": "Calendly (Calendly LLC) - reserva de citas en línea",
+                "acuity": "Acuity Scheduling (Square Inc.) - gestión de horarios",
+                "typeform": "Typeform (Typeform SL) - formularios y encuestas en línea",
+                "jotform": "JotForm (JotForm Inc.) - creación de formularios"
+            },
+            "payment": {
+                "title": "Servicios de pago y financieros:",
+                "stripe": "Stripe (Stripe Inc.) - procesamiento de pagos en línea",
+                "paypal": "PayPal (PayPal Holdings Inc.) - pagos electrónicos",
+                "square": "Square (Square Inc.) - soluciones de pago",
+                "applePay": "Apple Pay (Apple Inc.) - pagos móviles",
+                "googlePay": "Google Pay (Google LLC) - pagos móviles"
+            },
+            "medical": {
+                "title": "Servicios médicos especializados:",
+                "ehr": "Electronic Health Records systems - sistemas de registros médicos electrónicos",
+                "imaging": "Medical imaging platforms - plataformas de imágenes médicas",
+                "telemedicine": "Telemedicine platforms - plataformas de telemedicina",
+                "billing": "Medical billing services - servicios de facturación médica"
+            },
+            "additional": {
+                "title": "Servicios potenciales adicionales:",
+                "zoom": "Zoom (Zoom Video Communications) - videoconferencias",
+                "teams": "Microsoft Teams (Microsoft Corporation) - comunicaciones corporativas",
+                "meet": "Google Meet (Google LLC) - reuniones por video",
+                "dropbox": "Dropbox (Dropbox Inc.) - almacenamiento de archivos en la nube",
+                "drive": "Google Drive (Google LLC) - almacenamiento en la nube",
+                "onedrive": "OneDrive (Microsoft Corporation) - almacenamiento en la nube",
+                "notion": "Notion (Notion Labs Inc.) - gestión de proyectos",
+                "trello": "Trello (Atlassian) - gestión de tareas"
+            },
+            "consent": {
+                "title": "Gestión de consentimiento y cumplimiento:",
+                "onetrust": "OneTrust (OneTrust LLC) - gestión de consentimiento de cookies",
+                "cookiebot": "Cookiebot (Usercentrics A/S) - gestión de consentimiento",
+                "termly": "Termly (Termly Inc.) - generador de políticas",
+                "iubenda": "iubenda (iubenda s.r.l.) - soluciones legales para sitios web"
+            },
+            "internationalTransfer": {
+                "title": "TRANSFERENCIA INTERNACIONAL DE DATOS",
+                "content": "Tenga en cuenta que muchos de los servicios mencionados pueden almacenar y procesar datos fuera de Israel, incluidos EE. UU., países de la UE y otras jurisdicciones. Garantizamos la protección de sus datos mediante:",
+                "item1": "Cláusulas contractuales estándar de la UE",
+                "item2": "Certificados de cumplimiento de estándares internacionales",
+                "item3": "Acuerdos de procesamiento de datos (DPAs)",
+                "item4": "Principios de Privacy Shield (cuando aplique)"
+            },
+            "consentManagement": {
+                "title": "GESTIÓN DE CONSENTIMIENTO",
+                "content": "Puede cambiar sus preferencias sobre el uso de cookies y seguimiento en cualquier momento a través del panel de control en nuestro sitio web o directamente en la configuración de su navegador."
+            }
+        },
+        "cookies": {
+            "title": "COOKIES Y TECNOLOGÍAS DE SEGUIMIENTO",
+            "essential": {
+                "title": "Cookies esenciales (funcionales):",
+                "item1": "Cookies de sesión para el funcionamiento del sitio web",
+                "item2": "Cookies de seguridad",
+                "item3": "Cookies de carrito de compras/reserva de citas"
+            },
+            "analytics": {
+                "title": "Cookies analíticas (requieren consentimiento):",
+                "item1": "Google Analytics (datos anonimizados)",
+                "item2": "Análisis de comportamiento del usuario",
+                "item3": "Estadísticas de visitas"
+            },
+            "marketing": {
+                "title": "Cookies de marketing (requieren consentimiento explícito):",
+                "item1": "Tecnologías de retargeting",
+                "item2": "Píxeles de redes sociales",
+                "item3": "Plataformas publicitarias"
+            },
+            "control": "Puede gestionar la configuración de cookies a través del panel de control en nuestro sitio web."
+        },
+        "security": {
+            "title": "SEGURIDAD DE DATOS",
+            "intro": "Aplicamos medidas de seguridad integrales para proteger sus datos:",
+            "technical": {
+                "title": "Medidas técnicas:",
+                "item1": "Cifrado de datos durante la transmisión (SSL/TLS)",
+                "item2": "Servidores seguros con acceso restringido",
+                "item3": "Respaldo regular",
+                "item4": "Monitoreo de seguridad 24/7"
+            },
+            "organizational": {
+                "title": "Medidas organizativas:",
+                "item1": "Firma de acuerdos de confidencialidad con empleados",
+                "item2": "Restricción del acceso a registros médicos según el principio de 'necesidad de saber'",
+                "item3": "Capacitación regular de empleados en protección de datos",
+                "item4": "Auditorías de seguridad periódicas"
+            },
+            "medical": {
+                "title": "Confidencialidad médica:",
+                "content": "Los registros médicos están protegidos de acuerdo con la Ley de Derechos del Paciente de Israel, la ética médica y los protocolos internos de confidencialidad."
+            }
+        },
+        "retention": {
+            "title": "PERÍODOS DE RETENCIÓN DE DATOS",
+            "intro": "Conservamos sus datos solo durante el período necesario:",
+            "medical": {
+                "title": "Registros médicos:",
+                "item1": "7 años desde la fecha de la última visita (requisito legal israelí)",
+                "item2": "Para menores — hasta los 25 años",
+                "item3": "Ciertos documentos médicos — permanentemente"
+            },
+            "personal": {
+                "title": "Datos personales:",
+                "item1": "Hasta la retirada del consentimiento o 3 años de inactividad",
+                "item2": "Datos de marketing — hasta la retirada del consentimiento"
+            },
+            "technical": {
+                "title": "Datos técnicos:",
+                "item1": "Cookies — hasta 24 meses",
+                "item2": "Registros del servidor — hasta 12 meses"
+            }
+        },
+        "rights": {
+            "title": "SUS DERECHOS",
+            "intro": "De acuerdo con el GDPR y la legislación israelí, usted tiene derecho a:",
+            "basic": {
+                "title": "Derechos básicos:",
+                "item1": "Derecho de acceso — obtener una copia de sus datos",
+                "item2": "Derecho de rectificación — actualizar datos inexactos",
+                "item3": "Derecho de supresión — solicitar la eliminación de datos ('derecho al olvido')",
+                "item4": "Derecho de portabilidad — recibir datos en formato legible por máquina"
+            },
+            "additional": {
+                "title": "Derechos adicionales:",
+                "item1": "Derecho a la limitación del procesamiento — suspender temporalmente el procesamiento",
+                "item2": "Derecho de oposición — al procesamiento para marketing",
+                "item3": "Derecho a retirar el consentimiento — en cualquier momento sin consecuencias",
+                "item4": "Derecho a la intervención humana — en la toma de decisiones automatizada"
+            },
+            "procedure": {
+                "title": "Procedimiento de ejercicio de derechos:",
+                "content": "Para ejercer sus derechos, contacte a nuestro Oficial de Protección de Datos (detalles de contacto abajo). Responderemos dentro de 30 días."
+            }
         },
         "contact": {
-            "title": "Contáctanos",
-            "content": "Si tiene preguntas sobre esta Política de Privacidad o nuestras prácticas de datos, por favor contáctenos en la dirección de nuestra clínica o a través de nuestro formulario de contacto en el sitio web."
+            "title": "CONTACTOS Y RESPONSABILIDAD",
+            "controller": "Controlador de datos:"
+        },
+        "changes": {
+            "title": "CAMBIOS DE POLÍTICA",
+            "intro": "Podemos actualizar esta Política de Privacidad. Le notificaremos sobre cambios significativos a través de:",
+            "method1": "Correo electrónico (para pacientes existentes)",
+            "method2": "Notificación en el sitio web",
+            "method3": "Banner al ingresar al sitio web",
+            "effective": "Los cambios entran en vigor 30 días después de la publicación."
+        },
+        "legal": {
+            "title": "INFORMACIÓN LEGAL",
+            "content": "Esta Política se rige por las leyes del Estado de Israel. Todas las disputas están sujetas a resolución en los tribunales israelíes."
         }
+    },
+    "footer": {
+        "effective": "Vigente desde: Octubre 2025",
+        "version": "Versión: 2.0 Conforme con GDPR"
     }
 }

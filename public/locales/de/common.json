@@ -135,8 +135,12 @@
       "emailRequired": "E-Mail ist erforderlich",
       "emailInvalid": "Ungültiges E-Mail-Format",
       "consultationRequired": "Bitte wählen Sie die Beratungsart",
-      "messageMax": "Die Nachricht darf 500 Zeichen nicht überschreiten"
+      "messageMax": "Die Nachricht darf 500 Zeichen nicht überschreiten",
+      "privacyPolicyRequired": "Sie müssen der Datenschutzerklärung zustimmen"
     },
+    "privacyPolicyText": "Ich habe die",
+    "privacyPolicyLink": "Datenschutzerklärung",
+    "privacyPolicyTextAfter": "gelesen und stimme ihr zu",
     "recaptchaNotReady": "Sicherheitsüberprüfung wird geladen. Bitte warten...",
     "recaptchaNotice": "Diese Website ist durch reCAPTCHA geschützt und es gelten die Datenschutzbestimmungen und Nutzungsbedingungen von Google.",
     "email": {

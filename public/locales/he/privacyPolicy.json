@@ -1,27 +1,290 @@
 {
     "title": "מדיניות פרטיות",
-    "description": "מדיניות הפרטיות שלנו ופרקטיקות הגנת הנתונים",
-    "lastUpdated": "עדכון אחרון: דצמבר 2024",
+    "description": "מדיניות פרטיות והגנת מידע אישי של מרפאת ד״ר סרג'י טוניצקי",
+    "lastUpdated": "עדכון אחרון: אוקטובר 2025",
     "sections": {
         "introduction": {
             "title": "הקדמה",
-            "content": "מדיניות פרטיות זו מתארת כיצד הפרקטיקה הרפואית של ד\"ר סרג'י טוניצקי אוספת, משתמשת ומגנה על המידע האישי שלך כאשר אתה מבקר באתר שלנו או משתמש בשירותים שלנו. אנחנו מחויבים להגן על הפרטיות שלך ולהבטיח את האבטחה של הנתונים האישיים שלך."
+            "content": "מרפאת ד״ר סרג'י טוניצקי (להלן — 'אנו', 'שלנו', 'המרפאה') מחויבת להגנה על הפרטיות והאבטחה של נתונים אישיים של המטופלים ומבקרי האתר שלנו.",
+            "regulations": "מדיניות פרטיות זו מתארת כיצד אנו אוספים, משתמשים, מעבדים ומגנים על המידע שלך בהתאם ל:",
+            "regulation1": "חוק הגנת הפרטיות הישראלי",
+            "regulation2": "התקנה הכללית להגנת מידע (GDPR)",
+            "regulation3": "נורמות אתיות רפואיות",
+            "agreement": "בשימוש באתר ובשירותים שלנו, אתה מסכים לתנאי מדיניות זו."
         },
         "dataCollection": {
-            "title": "מידע שאנחנו אוספים",
-            "content": "אנחנו אוספים מידע שאתה מספק לנו ישירות, כמו כאשר אתה מבקש תור, מתקשר איתנו או נרשם לניוזלטר שלנו. זה יכול לכלול את השם שלך, כתובת אימייל, מספר טלפון, מידע רפואי וכל מידע אחר שאתה בוחר לספק."
+            "title": "אילו נתונים אנו אוספים",
+            "direct": {
+                "title": "נתונים שאתה מספק ישירות:",
+                "item1": "נתונים אישיים: שם פרטי, שם משפחה, ת.ז., פרטי קשר (טלפון, אימייל, כתובת)",
+                "item2": "מידע רפואי: היסטוריה רפואית, תסמינים, אבחנות, תוצאות בדיקות, תמונות רפואיות",
+                "item3": "נתונים דמוגרפיים: גיל, מין, מצב משפחתי",
+                "item4": "נתונים פיננסיים: מידע לתשלום עבור שירותים (בעת ביצוע תשלומים)"
+            },
+            "automatic": {
+                "title": "נתונים הנאספים אוטומטית:",
+                "item1": "נתונים טכניים: כתובת IP, סוג דפדפן, מערכת הפעלה, נתוני מכשיר",
+                "item2": "נתוני שימוש: דפי צפייה, זמן ביקור, היסטוריית פעילות באתר",
+                "item3": "Cookies וטכנולוגיות דומות (ראה פרטים בסעיף 5)"
+            },
+            "thirdParty": {
+                "title": "נתונים מצדדים שלישיים:",
+                "item1": "מידע ממוסדות רפואיים אחרים (לפי בקשתך)",
+                "item2": "נתונים מחברות ביטוח",
+                "item3": "מידע הפניה מרופאים מפנים"
+            }
         },
         "dataUsage": {
-            "title": "איך אנחנו משתמשים במידע שלך",
-            "content": "אנחנו משתמשים במידע שנאסף כדי לספק שירותים רפואיים, לתאם תורים, לתקשר איתך על הטיפול שלך, לשלוח לך עדכונים חשובים על השירותים שלנו ולשפר את האתר והשירותים שלנו. אנחנו לא מוכרים או חולקים את המידע האישי שלך עם צדדים שלישיים ללא הסכמתך."
+            "title": "כיצד אנו משתמשים בנתונים שלך",
+            "purposes": {
+                "title": "מטרות עיבוד עיקריות:",
+                "content": "אנו משתמשים בנתונים שלך למתן שירותים רפואיים וטיפול, ניהול תיעוד רפואי, תיאום פגישות וניהול לו״ז, תקשורת עם מטופלים על הטיפול, שיפור איכות השירותים הרפואיים, תקשורת שיווקית (בהסכמתך), ומילוי התחייבויות משפטיות."
+            },
+            "medical": {
+                "title": "עיבוד נתונים רפואיים:",
+                "content": "נתונים רפואיים המוגנים במיוחד מעובדים על בסיס:",
+                "basis1": "הסכמה מפורשת (סעיף 9(2)(a) GDPR)",
+                "basis2": "מתן שירותים רפואיים (סעיף 9(2)(h) GDPR)",
+                "basis3": "הגנה על אינטרסים חיוניים (סעיף 9(2)(c) GDPR)"
+            }
         },
-        "dataProtection": {
-            "title": "הגנת נתונים",
-            "content": "אנחנו מיישמים אמצעי אבטחה מתאימים כדי להגן על המידע האישי שלך מפני גישה לא מורשית, שינוי, חשיפה או הרס. המידע הרפואי שלך מוגן בהתאם לחוקים והתקנות החלים על פרטיות רפואית."
+        "dataSharing": {
+            "title": "העברת נתונים לצדדים שלישיים",
+            "internal": {
+                "title": "שיתוף פנימי:",
+                "content": "הנתונים שלך עשויים להיות מועברים בין צוות מרפאת ד״ר סרג'י טוניצקי אך ורק למטרות רפואיות ובהיקף הנדרש למתן שירותים."
+            },
+            "external": {
+                "title": "נמענים חיצוניים:",
+                "content": "אנו עשויים להעביר נתונים לקטגוריות הנמענים הבאות:",
+                "category1": "מומחים רפואיים: יועצים, מעבדות, מרכזי אבחון",
+                "category2": "ספקים טכניים: ספקי אירוח, תמיכת IT",
+                "category3": "שירותים אדמיניסטרטיביים: הנהלת חשבונות, חברות ביטוח",
+                "category4": "רשויות ממשלתיות: לפי דרישה משפטית"
+            },
+            "international": {
+                "title": "העברות בינלאומיות:",
+                "content": "הנתונים מאוחסנים בעיקר בישראל. בעת העברה למדינות שלישיות, אנו מבטיחים הגנה באמצעות החלטות הולמות של האיחוד האירופי, סעיפי חוזה סטנדרטיים ומנגנוני הגנה מאושרים."
+            }
+        },
+        "thirdPartyServices": {
+            "title": "שירותי צד שלישי ספציפיים",
+            "communication": {
+                "title": "שירותי תקשורת ומסרים:",
+                "whatsapp": "WhatsApp Business (Meta Platforms, Inc.) - ייעוץ מקוון וקביעת תורים",
+                "telegram": "Telegram Messenger (Telegram FZ-LLC) - תקשורת עם מטופלים",
+                "messenger": "Facebook Messenger (Meta Platforms, Inc.) - שירות לקוחות",
+                "viber": "Viber (Rakuten Viber) - תקשורת מסרים",
+                "wechat": "WeChat (Tencent Holdings) - למטופלים בינלאומיים",
+                "line": "Line (LINE Corporation) - שוק אסייתי",
+                "signal": "Signal (Signal Foundation) - תקשורת מאובטחת",
+                "slack": "Slack (Salesforce) - תקשורת פנימית של הצוות"
+            },
+            "socialMedia": {
+                "title": "מדיה חברתית ופלטפורמות:",
+                "facebook": "Facebook (Meta Platforms, Inc.) - שיווק ומשיכת מטופלים",
+                "instagram": "Instagram (Meta Platforms, Inc.) - חינוך רפואי",
+                "youtube": "YouTube (Google LLC) - תוכן רפואי חינוכי",
+                "linkedin": "LinkedIn (Microsoft Corporation) - תקשורת מקצועית",
+                "twitter": "Twitter/X (X Corp.) - חדשות ועדכונים",
+                "tiktok": "TikTok (ByteDance Ltd.) - תוכן רפואי חינוכי",
+                "pinterest": "Pinterest (Pinterest Inc.) - תוכן רפואי חזותי",
+                "reddit": "Reddit (Reddit Inc.) - השתתפות בקהילות רפואיות"
+            },
+            "analytics": {
+                "title": "שירותי ניתוח:",
+                "googleAnalytics": "Google Analytics (Google LLC) - ניתוח אתרים וסטטיסטיקה",
+                "yandex": "Yandex.Metrika (Yandex LLC) - ניתוח התנהגות משתמשים",
+                "clarity": "Microsoft Clarity (Microsoft Corporation) - הקלטת סשנים",
+                "hotjar": "Hotjar (Hotjar Ltd) - מפות חום וניתוח אינטראקציה",
+                "amplitude": "Amplitude (Amplitude Inc.) - ניתוח מוצר",
+                "mixpanel": "Mixpanel (Mixpanel Inc.) - ניתוח מסעות משתמש",
+                "adobe": "Adobe Analytics (Adobe Inc.) - ניתוח אתרים מתקדם"
+            },
+            "marketing": {
+                "title": "שירותי שיווק ופרסום:",
+                "googleAds": "Google Ads (Google LLC) - פרסום קונטקסטואלי ו-retargeting",
+                "fbPixel": "Facebook Pixel (Meta Platforms Inc.) - מעקב קונברסיות",
+                "linkedinTag": "LinkedIn Insight Tag (Microsoft Corporation) - ניתוח קהל",
+                "tiktokPixel": "TikTok Pixel (ByteDance Ltd.) - פרסום ב-TikTok",
+                "twitterPixel": "Twitter Pixel (X Corp.) - retargeting ב-Twitter/X",
+                "pinterestTag": "Pinterest Tag (Pinterest Inc.) - מעקב קונברסיות",
+                "criteo": "Criteo (Criteo SA) - retargeting דינמי",
+                "googleMarketing": "Google Marketing Platform (Google LLC) - ניהול קמפיינים"
+            },
+            "technical": {
+                "title": "שירותים טכניים ותשתיתיים:",
+                "gtm": "Google Tag Manager (Google LLC) - ניהול תגיות",
+                "cloudflare": "Cloudflare (Cloudflare Inc.) - CDN ואבטחה",
+                "vercel": "Vercel Analytics (Vercel Inc.) - ניטור ביצועים",
+                "sentry": "Sentry (Sentry Inc.) - ניטור שגיאות",
+                "newRelic": "New Relic (New Relic Inc.) - ביצועי אפליקציות",
+                "googleFonts": "Google Fonts (Google LLC) - גופנים לאתר",
+                "fontAwesome": "Font Awesome (Fonticons Inc.) - אייקונים וגרפיקה",
+                "workspace": "Google Workspace (Google LLC) - דואר ומסמכים"
+            },
+            "crm": {
+                "title": "שירותי ניהול תוכן ו-CRM:",
+                "hubspot": "HubSpot (HubSpot Inc.) - CRM ואוטומציה שיווקית",
+                "salesforce": "Salesforce (Salesforce Inc.) - ניהול קשרי לקוחות",
+                "mailchimp": "Mailchimp (Intuit Inc.) - שיווק בדוא\"ל",
+                "sendgrid": "SendGrid (Twilio Inc.) - דוא\"ל טרנזקציוני",
+                "calendly": "Calendly (Calendly LLC) - קביעת תורים מקוונת",
+                "acuity": "Acuity Scheduling (Square Inc.) - ניהול לוח זמנים",
+                "typeform": "Typeform (Typeform SL) - טפסים מקוונים וסקרים",
+                "jotform": "JotForm (JotForm Inc.) - יצירת טפסים"
+            },
+            "payment": {
+                "title": "שירותי תשלום ופיננסים:",
+                "stripe": "Stripe (Stripe Inc.) - עיבוד תשלומים מקוון",
+                "paypal": "PayPal (PayPal Holdings Inc.) - תשלומים אלקטרוניים",
+                "square": "Square (Square Inc.) - פתרונות תשלום",
+                "applePay": "Apple Pay (Apple Inc.) - תשלומים ניידים",
+                "googlePay": "Google Pay (Google LLC) - תשלומים ניידים"
+            },
+            "medical": {
+                "title": "שירותים רפואיים מתמחים:",
+                "ehr": "Electronic Health Records systems - מערכות תיקים רפואיים אלקטרוניים",
+                "imaging": "Medical imaging platforms - פלטפורמות הדמיה רפואית",
+                "telemedicine": "Telemedicine platforms - פלטפורמות טלמדיצינה",
+                "billing": "Medical billing services - שירותי חיוב רפואי"
+            },
+            "additional": {
+                "title": "שירותים פוטנציאליים נוספים:",
+                "zoom": "Zoom (Zoom Video Communications) - ועידות וידאו",
+                "teams": "Microsoft Teams (Microsoft Corporation) - תקשורת ארגונית",
+                "meet": "Google Meet (Google LLC) - פגישות וידאו",
+                "dropbox": "Dropbox (Dropbox Inc.) - אחסון קבצים בענן",
+                "drive": "Google Drive (Google LLC) - אחסון בענן",
+                "onedrive": "OneDrive (Microsoft Corporation) - אחסון בענן",
+                "notion": "Notion (Notion Labs Inc.) - ניהול פרויקטים",
+                "trello": "Trello (Atlassian) - ניהול משימות"
+            },
+            "consent": {
+                "title": "ניהול הסכמה ועמידה בדרישות:",
+                "onetrust": "OneTrust (OneTrust LLC) - ניהול הסכמה לעוגיות",
+                "cookiebot": "Cookiebot (Usercentrics A/S) - ניהול הסכמה",
+                "termly": "Termly (Termly Inc.) - מחולל מדיניות",
+                "iubenda": "iubenda (iubenda s.r.l.) - פתרונות משפטיים לאתרים"
+            },
+            "internationalTransfer": {
+                "title": "העברת נתונים בינלאומית",
+                "content": "שימו לב שרבים מהשירותים המפורטים עשויים לאחסן ולעבד נתונים מחוץ לישראל, כולל ארה\"ב, מדינות האיחוד האירופי ותחומי שיפוט אחרים. אנו מבטיחים הגנה על הנתונים שלכם באמצעות:",
+                "item1": "סעיפי חוזה סטנדרטיים של האיחוד האירופי",
+                "item2": "תעודות התאמה לתקנים בינלאומיים",
+                "item3": "הסכמי עיבוד נתונים (Data Processing Agreements)",
+                "item4": "עקרונות Privacy Shield (כשישים)"
+            },
+            "consentManagement": {
+                "title": "ניהול הסכמה",
+                "content": "ניתן לשנות את העדפותיכם לגבי שימוש בעוגיות ומעקב בכל עת דרך לוח הבקרה באתר שלנו או ישירות בהגדרות הדפדפן שלכם."
+            }
+        },
+        "cookies": {
+            "title": "COOKIES וטכנולוגיות מעקב",
+            "essential": {
+                "title": "Cookies חיוניים (פונקציונליים):",
+                "item1": "Cookies סשן לתפעול האתר",
+                "item2": "Cookies אבטחה",
+                "item3": "Cookies עגלת קניות/הזמנת תורים"
+            },
+            "analytics": {
+                "title": "Cookies אנליטיים (דורשים הסכמה):",
+                "item1": "Google Analytics (נתונים אנונימיים)",
+                "item2": "ניתוח התנהגות משתמשים",
+                "item3": "סטטיסטיקת ביקורים"
+            },
+            "marketing": {
+                "title": "Cookies שיווקיים (דורשים הסכמה מפורשת):",
+                "item1": "טכנולוגיות ריטרגטינג",
+                "item2": "פיקסלים של רשתות חברתיות",
+                "item3": "פלטפורמות פרסום"
+            },
+            "control": "ניתן לנהל הגדרות Cookies דרך לוח הבקרה באתר שלנו."
+        },
+        "security": {
+            "title": "אבטחת נתונים",
+            "intro": "אנו מיישמים אמצעי אבטחה מקיפים להגנה על הנתונים שלך:",
+            "technical": {
+                "title": "אמצעים טכניים:",
+                "item1": "הצפנת נתונים בעת העברה (SSL/TLS)",
+                "item2": "שרתים מאובטחים עם גישה מוגבלת",
+                "item3": "גיבוי קבוע",
+                "item4": "ניטור אבטחה 24/7"
+            },
+            "organizational": {
+                "title": "אמצעים ארגוניים:",
+                "item1": "חתימה על הסכמי סודיות עם עובדים",
+                "item2": "הגבלת גישה לרשומות רפואיות על בסיס 'צריך לדעת'",
+                "item3": "הדרכה קבועה של עובדים בהגנת מידע",
+                "item4": "ביקורות אבטחה תקופתיות"
+            },
+            "medical": {
+                "title": "סודיות רפואית:",
+                "content": "רשומות רפואיות מוגנות בהתאם לחוק זכויות החולה הישראלי, אתיקה רפואית ופרוטוקולי סודיות פנימיים."
+            }
+        },
+        "retention": {
+            "title": "תקופות שמירת נתונים",
+            "intro": "אנו שומרים את הנתונים שלך רק למשך התקופה הנדרשת:",
+            "medical": {
+                "title": "רשומות רפואיות:",
+                "item1": "7 שנים מתאריך הביקור האחרון (דרישה משפטית ישראלית)",
+                "item2": "לקטינים — עד גיל 25",
+                "item3": "מסמכים רפואיים מסוימים — לצמיתות"
+            },
+            "personal": {
+                "title": "נתונים אישיים:",
+                "item1": "עד לביטול הסכמה או 3 שנות חוסר פעילות",
+                "item2": "נתוני שיווק — עד לביטול הסכמה"
+            },
+            "technical": {
+                "title": "נתונים טכניים:",
+                "item1": "Cookies — עד 24 חודשים",
+                "item2": "לוגי שרתים — עד 12 חודשים"
+            }
+        },
+        "rights": {
+            "title": "הזכויות שלך",
+            "intro": "בהתאם ל-GDPR ולחקיקה הישראלית, יש לך זכות:",
+            "basic": {
+                "title": "זכויות בסיסיות:",
+                "item1": "זכות גישה — לקבל עותק של הנתונים שלך",
+                "item2": "זכות תיקון — לעדכן נתונים לא מדויקים",
+                "item3": "זכות למחיקה — לבקש מחיקת נתונים ('זכות להישכח')",
+                "item4": "זכות לניידות — לקבל נתונים בפורמט קריא למכונה"
+            },
+            "additional": {
+                "title": "זכויות נוספות:",
+                "item1": "זכות להגבלת עיבוד — להשהות זמנית את העיבוד",
+                "item2": "זכות להתנגדות — לעיבוד למטרות שיווק",
+                "item3": "זכות לביטול הסכמה — בכל עת ללא השלכות",
+                "item4": "זכות להתערבות אנושית — בקבלת החלטות אוטומטית"
+            },
+            "procedure": {
+                "title": "נוהל מימוש זכויות:",
+                "content": "למימוש זכויותיך, פנה לקצין הגנת המידע שלנו (פרטי קשר למטה). נשיב תוך 30 יום."
+            }
         },
         "contact": {
-            "title": "צור קשר",
-            "content": "אם יש לך שאלות על מדיניות פרטיות זו או על הפרקטיקות שלנו עם נתונים, אנא צור איתנו קשר בכתובת הקליניקה שלנו או דרך טופס יצירת הקשר באתר."
+            "title": "פרטי קשר ואחריות",
+            "controller": "בקר נתונים:"
+        },
+        "changes": {
+            "title": "שינויים במדיניות",
+            "intro": "אנו עשויים לעדכן מדיניות פרטיות זו. על שינויים משמעותיים נודיע באמצעות:",
+            "method1": "אימייל (למטופלים קיימים)",
+            "method2": "הודעה באתר",
+            "method3": "באנר בכניסה לאתר",
+            "effective": "השינויים ייכנסו לתוקף 30 יום לאחר הפרסום."
+        },
+        "legal": {
+            "title": "מידע משפטי",
+            "content": "מדיניות זו כפופה לחוקי מדינת ישראל. כל המחלוקות כפופות לפתרון בבתי המשפט הישראליים."
         }
+    },
+    "footer": {
+        "effective": "בתוקף מ: אוקטובר 2025",
+        "version": "גרסה: 2.0 תואם GDPR"
     }
 }

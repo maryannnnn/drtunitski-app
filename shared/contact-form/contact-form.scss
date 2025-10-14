@@ -197,6 +197,96 @@
         min-height: 120px;
     }
 
+    &__privacy {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        cursor: pointer;
+        position: relative;
+        padding: 12px;
+        border-radius: 8px;
+        transition: background-color 0.3s ease;
+        
+        &:hover {
+            background-color: rgba($brown-7, 0.03);
+        }
+        
+        &--error {
+            background-color: lighten($rose, 5%);
+        }
+    }
+    
+    &__checkbox {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+        
+        &:checked ~ .contact-form__checkbox-custom {
+            background-color: $brown-7;
+            border-color: $brown-7;
+            
+            &::after {
+                display: block;
+            }
+        }
+        
+        &:focus ~ .contact-form__checkbox-custom {
+            box-shadow: 0 0 0 3px rgba($brown-7, 0.2);
+        }
+    }
+    
+    &__checkbox-custom {
+        position: relative;
+        min-width: 20px;
+        width: 20px;
+        height: 20px;
+        border: 2px solid $grey-4;
+        border-radius: 4px;
+        background-color: $white-full;
+        transition: all 0.3s ease;
+        
+        &::after {
+            content: '';
+            position: absolute;
+            display: none;
+            left: 6px;
+            top: 2px;
+            width: 5px;
+            height: 10px;
+            border: solid $white-full;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+    }
+    
+    &__privacy-text {
+        @include body-xs;
+        color: $grey-2;
+        line-height: 1.6;
+        font-size: 13px;
+        flex: 1;
+        text-align: start;
+    }
+    
+    &__privacy-link {
+        color: $brown-7;
+        text-decoration: underline;
+        font-weight: 600;
+        transition: color 0.3s ease;
+        
+        &:hover {
+            color: darken($brown-7, 10%);
+            text-decoration: none;
+        }
+    }
+    
+    &__required {
+        color: $black;
+        font-weight: 600;
+    }
+
     &__recaptcha-notice {
         @include body-xs;
         color: $grey-4;

@@ -141,8 +141,12 @@
             "emailRequired": "Email обязателен",
             "emailInvalid": "Неверный формат email",
             "consultationRequired": "Выберите тип консультации",
-            "messageMax": "Сообщение не должно превышать 500 символов"
+            "messageMax": "Сообщение не должно превышать 500 символов",
+            "privacyPolicyRequired": "Вы должны согласиться с Политикой конфиденциальности"
         },
+        "privacyPolicyText": "Я прочитал и согласен с",
+        "privacyPolicyLink": "Политикой конфиденциальности",
+        "privacyPolicyTextAfter": "",
         "recaptchaNotReady": "Загружается проверка безопасности. Пожалуйста, подождите...",
         "recaptchaNotice": "Этот сайт защищен reCAPTCHA, применяются Политика конфиденциальности и Условия использования Google.",
         "email": {

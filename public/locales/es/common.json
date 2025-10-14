@@ -135,8 +135,12 @@
       "emailRequired": "El correo electrónico es obligatorio",
       "emailInvalid": "Formato de correo electrónico inválido",
       "consultationRequired": "Seleccione el tipo de consulta",
-      "messageMax": "El mensaje no debe exceder los 500 caracteres"
+      "messageMax": "El mensaje no debe exceder los 500 caracteres",
+      "privacyPolicyRequired": "Debe aceptar la Política de Privacidad"
     },
+    "privacyPolicyText": "He leído y acepto la",
+    "privacyPolicyLink": "Política de Privacidad",
+    "privacyPolicyTextAfter": "",
     "recaptchaNotReady": "Se está cargando la verificación de seguridad. Por favor espere...",
     "recaptchaNotice": "Este sitio está protegido por reCAPTCHA y se aplican la Política de privacidad y los Términos de servicio de Google.",
     "email": {

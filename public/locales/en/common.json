@@ -141,8 +141,12 @@
       "emailRequired": "Email is required",
       "emailInvalid": "Invalid email format",
       "consultationRequired": "Please select consultation type",
-      "messageMax": "Message must not exceed 500 characters"
+      "messageMax": "Message must not exceed 500 characters",
+      "privacyPolicyRequired": "You must agree to the Privacy Policy"
     },
+    "privacyPolicyText": "I have read and agree to the",
+    "privacyPolicyLink": "Privacy Policy",
+    "privacyPolicyTextAfter": "",
     "recaptchaNotReady": "Security check is loading. Please wait...",
     "recaptchaNotice": "This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.",
     "email": {

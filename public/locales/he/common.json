@@ -135,8 +135,12 @@
       "emailRequired": "אימייל הוא שדה חובה",
       "emailInvalid": "פורמט אימייל לא חוקי",
       "consultationRequired": "בחר סוג ייעוץ",
-      "messageMax": "ההודעה לא יכולה לעבור 500 תווים"
+      "messageMax": "ההודעה לא יכולה לעבור 500 תווים",
+      "privacyPolicyRequired": "עליך להסכים למדיניות הפרטיות"
     },
+    "privacyPolicyText": "קראתי ומסכים/ה ל",
+    "privacyPolicyLink": "מדיניות הפרטיות",
+    "privacyPolicyTextAfter": "",
     "recaptchaNotReady": "בדיקת האבטחה נטענת. אנא המתן...",
     "recaptchaNotice": "אתר זה מוגן על ידי reCAPTCHA וחלות מדיניות הפרטיות ותנאי השירות של Google.",
     "email": {

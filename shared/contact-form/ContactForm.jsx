@@ -3,6 +3,7 @@ import './media.scss';
 import { useState } from 'react';
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -38,7 +39,10 @@ const ContactForm = () => {
             .required(t('common:contact.validation.consultationRequired') || 'Please select consultation type'),
         message: yup
             .string()
-            .max(500, t('common:contact.validation.messageMax') || 'Message must not exceed 500 characters')
+            .max(500, t('common:contact.validation.messageMax') || 'Message must not exceed 500 characters'),
+        privacyPolicy: yup
+            .boolean()
+            .oneOf([true], t('common:contact.validation.privacyPolicyRequired') || 'You must agree to the Privacy Policy')
     });
 
     const {
@@ -196,6 +200,28 @@ const ContactForm = () => {
                         />
                         {errors.message && (
                             <span className="contact-form__error">{errors.message.message}</span>
+                        )}
+                    </div>
+
+                    <div className="contact-form__field">
+                        <label className={`contact-form__privacy ${errors.privacyPolicy ? 'contact-form__privacy--error' : ''}`}>
+                            <input
+                                type="checkbox"
+                                {...register('privacyPolicy')}
+                                className="contact-form__checkbox"
+                            />
+                            <span className="contact-form__checkbox-custom"></span>
+                            <span className="contact-form__privacy-text">
+                                {t('common:contact.privacyPolicyText')}{' '}
+                                <Link href="/privacy-policy" className="contact-form__privacy-link" target="_blank">
+                                    {t('common:contact.privacyPolicyLink')}
+                                </Link>
+                                {t('common:contact.privacyPolicyTextAfter') && ` ${t('common:contact.privacyPolicyTextAfter')}`}
+                                <span className="contact-form__required"> *</span>
+                            </span>
+                        </label>
+                        {errors.privacyPolicy && (
+                            <span className="contact-form__error">{errors.privacyPolicy.message}</span>
                         )}
                     </div>
 
