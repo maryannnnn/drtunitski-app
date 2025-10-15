@@ -1,23 +1,153 @@
 {
-    "title": "Declaración de accesibilidad",
-    "description": "Nuestro compromiso con la accesibilidad web",
-    "lastUpdated": "Última actualización: diciembre 2024",
+    "title": "Declaración de Accesibilidad",
+    "description": "Nuestro compromiso con la accesibilidad para todos los pacientes",
+    "lastUpdated": "Última actualización: Octubre 2025",
     "sections": {
-        "commitment": {
-            "title": "Nuestro compromiso",
-            "content": "La práctica médica del Dr. Serge Tunitski se compromete a garantizar la accesibilidad digital para todos los usuarios, incluyendo aquellos con discapacidades. Nos esforzamos por proporcionar una experiencia accesible e inclusiva para todos los que visitan nuestro sitio web."
+        "philosophy": {
+            "title": "1. Nuestra filosofía de accesibilidad",
+            "content": "La Clínica Médica Dr. Serge Tunitski considera la accesibilidad un derecho fundamental de cada paciente. Nos esforzamos por garantizar el acceso igualitario tanto a nuestros servicios físicos como a los recursos digitales."
         },
-        "standards": {
-            "title": "Estándares de accesibilidad",
-            "content": "Buscamos cumplir con los estándares de las Pautas de Accesibilidad del Contenido Web (WCAG) 2.1 Nivel AA. Nuestro sitio web está diseñado para ser accesible para usuarios con diversas discapacidades, incluyendo visuales, auditivas, físicas, del habla, cognitivas y neurológicas."
+        "physicalAccessibility": {
+            "title": "2. Accesibilidad de la clínica física",
+            "generalInfo": "Información general:",
+            "features": [
+                "Entradas y pasillos accesibles",
+                "Estacionamiento para personas con movilidad reducida",
+                "Recepción a altura accesible",
+                "Baños accesibles"
+            ],
+            "specializedServices": "Servicios especializados:",
+            "services": [
+                "Servicio de acompañamiento del personal (con cita previa)",
+                "Asistencia para completar documentos",
+                "Formatos de comunicación alternativos"
+            ]
         },
-        "features": {
-            "title": "Características de accesibilidad",
-            "content": "Nuestro sitio web incluye características como navegación por teclado, compatibilidad con lectores de pantalla, opciones de alto contraste, texto redimensionable y texto alternativo para imágenes. También proporcionamos opciones multilingües para servir a nuestra diversa comunidad de pacientes."
+        "webAccessibility": {
+            "title": "3. Accesibilidad del sitio web",
+            "compliance": "Cumplimiento de estándares:",
+            "standards": [
+                "WCAG 2.1 Level AA - 95% de cumplimiento",
+                "Estándar israelí TI 5568",
+                "Directiva de la UE sobre accesibilidad de sitios web"
+            ],
+            "implementedFeatures": "Características implementadas:",
+            "visualImpairment": {
+                "title": "Para usuarios con discapacidad visual:",
+                "features": [
+                    "Navegación completa con teclado",
+                    "Compatible con JAWS, NVDA, VoiceOver",
+                    "Textos alternativos para imágenes",
+                    "Alto contraste (4.5:1)",
+                    "Zoom de texto hasta 200%"
+                ]
+            },
+            "hearingImpairment": {
+                "title": "Para usuarios con discapacidad auditiva:",
+                "features": [
+                    "Alternativa textual al contenido de audio",
+                    "Formularios de comentarios accesibles",
+                    "Navegación visual clara"
+                ]
+            },
+            "motorLimitations": {
+                "title": "Para usuarios con limitaciones motoras:",
+                "features": [
+                    "Navegación con teclado",
+                    "Tiempo suficiente para la interacción",
+                    "Orden lógico de enfoque"
+                ]
+            },
+            "cognitiveImpairment": {
+                "title": "Para usuarios con discapacidades cognitivas:",
+                "features": [
+                    "Lenguaje simple y claro",
+                    "Navegación consistente",
+                    "Minimización de distracciones"
+                ]
+            }
+        },
+        "languageSupport": {
+            "title": "4. Soporte multilingüe",
+            "fullSupport": "Soporte completo (3 idiomas principales):",
+            "mainLanguages": [
+                "🇬🇧 Inglés - todas las páginas y contenido completo",
+                "🇷🇺 Ruso - versión completa del sitio web",
+                "🇮🇱 Hebreo - todos los materiales disponibles"
+            ],
+            "basicSupport": "Soporte básico (4 idiomas adicionales):",
+            "additionalLanguages": [
+                "🇩🇪 Alemán - páginas principales y navegación",
+                "🇦🇪 Árabe - secciones principales del sitio",
+                "🇫🇷 Francés - contenido clave",
+                "🇪🇸 Español - páginas básicas"
+            ],
+            "features": "Características:",
+            "featuresList": [
+                "Los 7 idiomas tienen soporte completo de funciones de accesibilidad",
+                "La interfaz y la navegación funcionan en todos los idiomas",
+                "Las funciones de accesibilidad (lectores de pantalla, navegación con teclado, contraste) funcionan por igual en todas las versiones de idioma",
+                "Expandiendo gradualmente el contenido a idiomas adicionales"
+            ],
+            "note": "Trabajamos constantemente para mejorar el soporte multilingüe y traducir contenido adicional."
+        },
+        "technicalInfo": {
+            "title": "5. Información técnica",
+            "testedIn": "Probado en: Chrome, Firefox, Safari, Edge",
+            "mobileSupport": "Soporte móvil: Capacidad de respuesta completa",
+            "recommendedScreenReader": "Lector de pantalla recomendado: NVDA (última versión)"
+        },
+        "limitations": {
+            "title": "6. Limitaciones conocidas",
+            "intro": "Trabajamos constantemente en mejoras y reconocemos las siguientes áreas de desarrollo:",
+            "items": [
+                "Widgets de terceros: Pueden tener accesibilidad limitada",
+                "Formularios médicos complejos: Requieren optimización adicional",
+                "Materiales de archivo: Pueden no cumplir completamente con los estándares"
+            ]
+        },
+        "alternativeFormats": {
+            "title": "7. Formatos alternativos de información",
+            "intro": "Si no puede acceder a la información en nuestro sitio web, la proporcionaremos en un formato alternativo:",
+            "formats": [
+                "Versión impresa",
+                "Formato de audio (dentro de 7 días hábiles)",
+                "Texto simplificado",
+                "Consulta personal"
+            ]
         },
         "feedback": {
-            "title": "Comentarios y contacto",
-            "content": "Si encuentra barreras de accesibilidad o tiene sugerencias de mejora, por favor contáctenos. Apreciamos sus comentarios y nos comprometemos a abordar los problemas de accesibilidad de manera oportuna."
-        }
+            "title": "8. Comentarios y soporte",
+            "intro": "Agradecemos sus comentarios y sugerencias para mejorar la accesibilidad.",
+            "contactInfo": "Información de contacto:",
+            "email": "📧 Email: drtunitski@gmail.com",
+            "phone": "📞 Teléfono: 0507377870",
+            "address": "📍 Dirección de la clínica: Eli Landau 7, Herzliya, Israel",
+            "responseTime": "Tiempos de respuesta:",
+            "responseTimes": [
+                "Respuesta inicial: 2 días hábiles",
+                "Resolución de problemas: hasta 7 días hábiles",
+                "Correcciones complejas: hasta 30 días"
+            ]
+        },
+        "legalBasis": {
+            "title": "9. Base legal",
+            "intro": "Nuestra política de accesibilidad se basa en:",
+            "laws": [
+                "Ley de Igualdad de Derechos para Personas con Discapacidades (5758-1998)",
+                "Directiva de la UE sobre accesibilidad de sitios web",
+                "Pautas de Accesibilidad del Contenido Web (WCAG) 2.1"
+            ]
+        },
+        "futureImprovements": {
+            "title": "10. Mejoras futuras",
+            "plan": "Plan para 2026:",
+            "improvements": [
+                "Expansión del soporte multilingüe",
+                "Mejoras de accesibilidad móvil",
+                "Auditorías regulares de accesibilidad"
+            ]
+        },
+        "footer": "Estamos comprometidos con la mejora continua de la accesibilidad de nuestros servicios y agradecemos sus sugerencias."
     }
 }

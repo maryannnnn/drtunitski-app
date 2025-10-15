@@ -1,23 +1,153 @@
 {
     "title": "Barrierefreiheitserklärung",
-    "description": "Unser Engagement für Web-Barrierefreiheit",
-    "lastUpdated": "Zuletzt aktualisiert: Dezember 2024",
+    "description": "Unser Engagement für Barrierefreiheit für alle Patienten",
+    "lastUpdated": "Letzte Aktualisierung: Oktober 2025",
     "sections": {
-        "commitment": {
-            "title": "Unser Engagement",
-            "content": "Die medizinische Praxis von Dr. Serge Tunitski verpflichtet sich, digitale Barrierefreiheit für alle Nutzer, einschließlich Menschen mit Behinderungen, zu gewährleisten. Wir streben danach, eine zugängliche und inklusive Erfahrung für alle zu bieten, die unsere Website besuchen."
+        "philosophy": {
+            "title": "1. Unsere Philosophie der Barrierefreiheit",
+            "content": "Die Medizinische Klinik Dr. Serge Tunitski betrachtet Barrierefreiheit als grundlegendes Recht jedes Patienten. Wir bemühen uns, gleichen Zugang sowohl zu unseren physischen Dienstleistungen als auch zu digitalen Ressourcen zu gewährleisten."
         },
-        "standards": {
-            "title": "Barrierefreiheitsstandards",
-            "content": "Wir streben danach, den Web Content Accessibility Guidelines (WCAG) 2.1 Level AA Standards zu entsprechen. Unsere Website ist so gestaltet, dass sie für Nutzer mit verschiedenen Behinderungen zugänglich ist, einschließlich visueller, auditiver, körperlicher, sprachlicher, kognitiver und neurologischer Behinderungen."
+        "physicalAccessibility": {
+            "title": "2. Barrierefreiheit der physischen Klinik",
+            "generalInfo": "Allgemeine Informationen:",
+            "features": [
+                "Barrierefreie Eingänge und Korridore",
+                "Parkplätze für Menschen mit eingeschränkter Mobilität",
+                "Empfang in barrierefreier Höhe",
+                "Barrierefreie Toiletten"
+            ],
+            "specializedServices": "Spezialisierte Dienstleistungen:",
+            "services": [
+                "Begleitservice durch Personal (nach Vereinbarung)",
+                "Hilfe beim Ausfüllen von Dokumenten",
+                "Alternative Kommunikationsformate"
+            ]
         },
-        "features": {
-            "title": "Barrierefreiheitsfunktionen",
-            "content": "Unsere Website umfasst Funktionen wie Tastaturnavigation, Screenreader-Kompatibilität, Hochkontrast-Optionen, vergrößerbare Schrift und Alternativtext für Bilder. Wir bieten auch mehrsprachige Optionen, um unsere vielfältige Patientengemeinschaft zu bedienen."
+        "webAccessibility": {
+            "title": "3. Website-Barrierefreiheit",
+            "compliance": "Einhaltung von Standards:",
+            "standards": [
+                "WCAG 2.1 Level AA - 95% Konformität",
+                "Israelischer Standard TI 5568",
+                "EU-Richtlinie zur Barrierefreiheit von Websites"
+            ],
+            "implementedFeatures": "Implementierte Funktionen:",
+            "visualImpairment": {
+                "title": "Für Benutzer mit Sehbehinderung:",
+                "features": [
+                    "Vollständige Tastaturnavigation",
+                    "Kompatibel mit JAWS, NVDA, VoiceOver",
+                    "Alternativtexte für Bilder",
+                    "Hoher Kontrast (4.5:1)",
+                    "Textvergrößerung bis 200%"
+                ]
+            },
+            "hearingImpairment": {
+                "title": "Für Benutzer mit Hörbehinderung:",
+                "features": [
+                    "Textalternative zu Audioinhalten",
+                    "Barrierefreie Feedback-Formulare",
+                    "Klare visuelle Navigation"
+                ]
+            },
+            "motorLimitations": {
+                "title": "Für Benutzer mit motorischen Einschränkungen:",
+                "features": [
+                    "Tastaturnavigation",
+                    "Ausreichend Zeit für Interaktion",
+                    "Logische Fokusreihenfolge"
+                ]
+            },
+            "cognitiveImpairment": {
+                "title": "Für Benutzer mit kognitiven Beeinträchtigungen:",
+                "features": [
+                    "Einfache und klare Sprache",
+                    "Konsistente Navigation",
+                    "Minimierung von Ablenkungen"
+                ]
+            }
+        },
+        "languageSupport": {
+            "title": "4. Mehrsprachige Unterstützung",
+            "fullSupport": "Vollständige Unterstützung (3 Hauptsprachen):",
+            "mainLanguages": [
+                "🇬🇧 Englisch - alle Seiten und vollständiger Inhalt",
+                "🇷🇺 Russisch - vollständige Website-Version",
+                "🇮🇱 Hebräisch - alle Materialien verfügbar"
+            ],
+            "basicSupport": "Grundlegende Unterstützung (4 zusätzliche Sprachen):",
+            "additionalLanguages": [
+                "🇩🇪 Deutsch - Hauptseiten und Navigation",
+                "🇦🇪 Arabisch - Hauptbereiche der Website",
+                "🇫🇷 Französisch - wichtige Inhalte",
+                "🇪🇸 Spanisch - Basisseiten"
+            ],
+            "features": "Funktionen:",
+            "featuresList": [
+                "Alle 7 Sprachen haben vollständige Unterstützung für Barrierefreiheitsfunktionen",
+                "Benutzeroberfläche und Navigation funktionieren in allen Sprachen",
+                "Barrierefreiheitsfunktionen (Bildschirmlesegeräte, Tastaturnavigation, Kontrast) funktionieren in allen Sprachversionen gleich",
+                "Schrittweise Erweiterung des Inhalts auf zusätzliche Sprachen"
+            ],
+            "note": "Wir arbeiten ständig daran, die Sprachunterstützung zu verbessern und zusätzliche Inhalte zu übersetzen."
+        },
+        "technicalInfo": {
+            "title": "5. Technische Informationen",
+            "testedIn": "Getestet in: Chrome, Firefox, Safari, Edge",
+            "mobileSupport": "Mobile Unterstützung: Vollständige Responsivität",
+            "recommendedScreenReader": "Empfohlener Screenreader: NVDA (neueste Version)"
+        },
+        "limitations": {
+            "title": "6. Bekannte Einschränkungen",
+            "intro": "Wir arbeiten ständig an Verbesserungen und erkennen die folgenden Entwicklungsbereiche an:",
+            "items": [
+                "Widgets von Drittanbietern: Können eingeschränkte Barrierefreiheit haben",
+                "Komplexe medizinische Formulare: Erfordern zusätzliche Optimierung",
+                "Archivmaterialien: Entsprechen möglicherweise nicht vollständig den Standards"
+            ]
+        },
+        "alternativeFormats": {
+            "title": "7. Alternative Informationsformate",
+            "intro": "Wenn Sie nicht auf Informationen auf unserer Website zugreifen können, stellen wir sie in einem alternativen Format bereit:",
+            "formats": [
+                "Gedruckte Version",
+                "Audioformat (innerhalb von 7 Werktagen)",
+                "Vereinfachter Text",
+                "Persönliche Beratung"
+            ]
         },
         "feedback": {
-            "title": "Feedback und Kontakt",
-            "content": "Wenn Sie auf Barrierefreiheitshindernisse stoßen oder Verbesserungsvorschläge haben, kontaktieren Sie uns bitte. Wir freuen uns über Ihr Feedback und verpflichten uns, Barrierefreiheitsprobleme schnell zu beheben."
-        }
+            "title": "8. Feedback und Unterstützung",
+            "intro": "Wir freuen uns über Ihr Feedback und Ihre Vorschläge zur Verbesserung der Barrierefreiheit.",
+            "contactInfo": "Kontaktinformationen:",
+            "email": "📧 E-Mail: drtunitski@gmail.com",
+            "phone": "📞 Telefon: 0507377870",
+            "address": "📍 Klinikadresse: Eli Landau 7, Herzliya, Israel",
+            "responseTime": "Reaktionszeiten:",
+            "responseTimes": [
+                "Erste Antwort: 2 Werktage",
+                "Problemlösung: bis zu 7 Werktagen",
+                "Komplexe Korrekturen: bis zu 30 Tage"
+            ]
+        },
+        "legalBasis": {
+            "title": "9. Rechtliche Grundlage",
+            "intro": "Unsere Barrierefreiheitsrichtlinie basiert auf:",
+            "laws": [
+                "Gesetz über gleiche Rechte für Menschen mit Behinderungen (5758-1998)",
+                "EU-Richtlinie zur Barrierefreiheit von Websites",
+                "Richtlinien für barrierefreie Webinhalte (WCAG) 2.1"
+            ]
+        },
+        "futureImprovements": {
+            "title": "10. Zukünftige Verbesserungen",
+            "plan": "Plan für 2026:",
+            "improvements": [
+                "Erweiterung der Sprachunterstützung",
+                "Verbesserungen der mobilen Barrierefreiheit",
+                "Regelmäßige Barrierefreiheitsaudits"
+            ]
+        },
+        "footer": "Wir sind der kontinuierlichen Verbesserung der Barrierefreiheit unserer Dienstleistungen verpflichtet und freuen uns über Ihre Vorschläge."
     }
 }

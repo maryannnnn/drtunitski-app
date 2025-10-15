@@ -1,23 +1,153 @@
 {
     "title": "Déclaration d'accessibilité",
-    "description": "Notre engagement envers l'accessibilité web",
-    "lastUpdated": "Dernière mise à jour : décembre 2024",
+    "description": "Notre engagement en faveur de l'accessibilité pour tous les patients",
+    "lastUpdated": "Dernière mise à jour : Octobre 2025",
     "sections": {
-        "commitment": {
-            "title": "Notre engagement",
-            "content": "La pratique médicale du Dr Serge Tunitski s'engage à assurer l'accessibilité numérique pour tous les utilisateurs, y compris les personnes handicapées. Nous nous efforçons de fournir une expérience accessible et inclusive pour tous ceux qui visitent notre site web."
+        "philosophy": {
+            "title": "1. Notre philosophie de l'accessibilité",
+            "content": "La Clinique médicale Dr. Serge Tunitski considère l'accessibilité comme un droit fondamental de chaque patient. Nous nous efforçons d'assurer un accès égal à nos services physiques et à nos ressources numériques."
         },
-        "standards": {
-            "title": "Normes d'accessibilité",
-            "content": "Nous visons à nous conformer aux normes Web Content Accessibility Guidelines (WCAG) 2.1 Niveau AA. Notre site web est conçu pour être accessible aux utilisateurs avec divers handicaps, y compris visuels, auditifs, physiques, de la parole, cognitifs et neurologiques."
+        "physicalAccessibility": {
+            "title": "2. Accessibilité de la clinique physique",
+            "generalInfo": "Informations générales :",
+            "features": [
+                "Entrées et couloirs accessibles",
+                "Parking pour personnes à mobilité réduite",
+                "Réception à hauteur accessible",
+                "Toilettes accessibles"
+            ],
+            "specializedServices": "Services spécialisés :",
+            "services": [
+                "Service d'accompagnement par le personnel (sur rendez-vous)",
+                "Aide au remplissage des documents",
+                "Formats de communication alternatifs"
+            ]
         },
-        "features": {
-            "title": "Fonctionnalités d'accessibilité",
-            "content": "Notre site web comprend des fonctionnalités telles que la navigation au clavier, la compatibilité avec les lecteurs d'écran, les options de contraste élevé, le texte redimensionnable et le texte alternatif pour les images. Nous proposons également des options multilingues pour servir notre communauté de patients diversifiée."
+        "webAccessibility": {
+            "title": "3. Accessibilité du site Web",
+            "compliance": "Conformité aux normes :",
+            "standards": [
+                "WCAG 2.1 Level AA - 95% de conformité",
+                "Norme israélienne TI 5568",
+                "Directive de l'UE sur l'accessibilité des sites Web"
+            ],
+            "implementedFeatures": "Fonctionnalités implémentées :",
+            "visualImpairment": {
+                "title": "Pour les utilisateurs malvoyants :",
+                "features": [
+                    "Navigation complète au clavier",
+                    "Compatible avec JAWS, NVDA, VoiceOver",
+                    "Textes alternatifs pour les images",
+                    "Contraste élevé (4.5:1)",
+                    "Zoom de texte jusqu'à 200%"
+                ]
+            },
+            "hearingImpairment": {
+                "title": "Pour les utilisateurs malentendants :",
+                "features": [
+                    "Alternative textuelle au contenu audio",
+                    "Formulaires de retour accessibles",
+                    "Navigation visuelle claire"
+                ]
+            },
+            "motorLimitations": {
+                "title": "Pour les utilisateurs à mobilité réduite :",
+                "features": [
+                    "Navigation au clavier",
+                    "Temps suffisant pour l'interaction",
+                    "Ordre de focus logique"
+                ]
+            },
+            "cognitiveImpairment": {
+                "title": "Pour les utilisateurs ayant des troubles cognitifs :",
+                "features": [
+                    "Langage simple et clair",
+                    "Navigation cohérente",
+                    "Minimisation des distractions"
+                ]
+            }
+        },
+        "languageSupport": {
+            "title": "4. Support multilingue",
+            "fullSupport": "Support complet (3 langues principales) :",
+            "mainLanguages": [
+                "🇬🇧 Anglais - toutes les pages et contenu complet",
+                "🇷🇺 Russe - version complète du site",
+                "🇮🇱 Hébreu - tous les matériaux disponibles"
+            ],
+            "basicSupport": "Support de base (4 langues supplémentaires) :",
+            "additionalLanguages": [
+                "🇩🇪 Allemand - pages principales et navigation",
+                "🇦🇪 Arabe - sections principales du site",
+                "🇫🇷 Français - contenu clé",
+                "🇪🇸 Espagnol - pages de base"
+            ],
+            "features": "Caractéristiques :",
+            "featuresList": [
+                "Les 7 langues bénéficient d'un support complet des fonctions d'accessibilité",
+                "L'interface et la navigation fonctionnent dans toutes les langues",
+                "Les fonctions d'accessibilité (lecteurs d'écran, navigation au clavier, contraste) fonctionnent de manière égale dans toutes les versions linguistiques",
+                "Extension progressive du contenu vers des langues supplémentaires"
+            ],
+            "note": "Nous travaillons constamment à améliorer le support multilingue et à traduire du contenu supplémentaire."
+        },
+        "technicalInfo": {
+            "title": "5. Informations techniques",
+            "testedIn": "Testé dans : Chrome, Firefox, Safari, Edge",
+            "mobileSupport": "Support mobile : Réactivité complète",
+            "recommendedScreenReader": "Lecteur d'écran recommandé : NVDA (dernière version)"
+        },
+        "limitations": {
+            "title": "6. Limitations connues",
+            "intro": "Nous travaillons constamment à des améliorations et reconnaissons les domaines suivants à développer :",
+            "items": [
+                "Widgets tiers : Peuvent avoir une accessibilité limitée",
+                "Formulaires médicaux complexes : Nécessitent une optimisation supplémentaire",
+                "Matériaux d'archives : Peuvent ne pas être entièrement conformes aux normes"
+            ]
+        },
+        "alternativeFormats": {
+            "title": "7. Formats d'information alternatifs",
+            "intro": "Si vous ne pouvez pas accéder aux informations sur notre site, nous les fournirons dans un format alternatif :",
+            "formats": [
+                "Version imprimée",
+                "Format audio (sous 7 jours ouvrables)",
+                "Texte simplifié",
+                "Consultation personnelle"
+            ]
         },
         "feedback": {
-            "title": "Commentaires et contact",
-            "content": "Si vous rencontrez des obstacles d'accessibilité ou avez des suggestions d'amélioration, veuillez nous contacter. Nous accueillons vos commentaires et nous nous engageons à résoudre rapidement les problèmes d'accessibilité."
-        }
+            "title": "8. Retour d'information et support",
+            "intro": "Nous accueillons vos commentaires et suggestions pour améliorer l'accessibilité.",
+            "contactInfo": "Informations de contact :",
+            "email": "📧 Email : drtunitski@gmail.com",
+            "phone": "📞 Téléphone : 0507377870",
+            "address": "📍 Adresse de la clinique : Eli Landau 7, Herzliya, Israël",
+            "responseTime": "Délais de réponse :",
+            "responseTimes": [
+                "Réponse initiale : 2 jours ouvrables",
+                "Résolution des problèmes : jusqu'à 7 jours ouvrables",
+                "Corrections complexes : jusqu'à 30 jours"
+            ]
+        },
+        "legalBasis": {
+            "title": "9. Base légale",
+            "intro": "Notre politique d'accessibilité est basée sur :",
+            "laws": [
+                "Loi sur l'égalité des droits pour les personnes handicapées (5758-1998)",
+                "Directive de l'UE sur l'accessibilité des sites Web",
+                "Directives pour l'accessibilité des contenus Web (WCAG) 2.1"
+            ]
+        },
+        "futureImprovements": {
+            "title": "10. Améliorations futures",
+            "plan": "Plan pour 2026 :",
+            "improvements": [
+                "Extension du support multilingue",
+                "Améliorations de l'accessibilité mobile",
+                "Audits réguliers d'accessibilité"
+            ]
+        },
+        "footer": "Nous nous engageons à améliorer continuellement l'accessibilité de nos services et accueillons vos suggestions."
     }
 }

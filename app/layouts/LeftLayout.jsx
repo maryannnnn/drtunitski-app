@@ -56,7 +56,7 @@ const LeftLayout
                                     acc: "https://access.equalweb.com/"
                                 },
                                 Position: "left",
-                                Menulang: "EN",
+                                Menulang: "HE",
                                 draggable: true,
                                 btnStyle: {
                                     vPosition: ["80%", "80%"],

@@ -1,23 +1,153 @@
 {
     "title": "Accessibility Statement",
-    "description": "Our commitment to web accessibility",
-    "lastUpdated": "Last updated: December 2024",
+    "description": "Our commitment to accessibility for all patients",
+    "lastUpdated": "Last Updated: October 2025",
     "sections": {
-        "commitment": {
-            "title": "Our Commitment",
-            "content": "Dr. Serge Tunitski's medical practice is committed to ensuring digital accessibility for all users, including those with disabilities. We strive to provide an accessible and inclusive experience for everyone who visits our website."
+        "philosophy": {
+            "title": "1. Our Accessibility Philosophy",
+            "content": "Dr. Serge Tunitski Medical Clinic considers accessibility a fundamental right of every patient. We strive to ensure equal access to both our physical services and digital resources."
         },
-        "standards": {
-            "title": "Accessibility Standards",
-            "content": "We aim to conform to the Web Content Accessibility Guidelines (WCAG) 2.1 Level AA standards. Our website is designed to be accessible to users with various disabilities, including visual, auditory, physical, speech, cognitive, and neurological disabilities."
+        "physicalAccessibility": {
+            "title": "2. Physical Clinic Accessibility",
+            "generalInfo": "General Information:",
+            "features": [
+                "Accessible entrances and corridors",
+                "Parking for people with limited mobility",
+                "Reception desk at accessible height",
+                "Accessible restrooms"
+            ],
+            "specializedServices": "Specialized Services:",
+            "services": [
+                "Staff escort service (by prior arrangement)",
+                "Assistance with filling out documents",
+                "Alternative communication formats"
+            ]
         },
-        "features": {
-            "title": "Accessibility Features",
-            "content": "Our website includes features such as keyboard navigation, screen reader compatibility, high contrast options, resizable text, and alternative text for images. We also provide multiple language options to serve our diverse patient community."
+        "webAccessibility": {
+            "title": "3. Website Accessibility",
+            "compliance": "Standards Compliance:",
+            "standards": [
+                "WCAG 2.1 Level AA - 95% compliance",
+                "Israeli Standard TI 5568",
+                "EU Web Accessibility Directive"
+            ],
+            "implementedFeatures": "Implemented Features:",
+            "visualImpairment": {
+                "title": "For users with visual impairment:",
+                "features": [
+                    "Full keyboard navigation",
+                    "Compatible with JAWS, NVDA, VoiceOver",
+                    "Alternative texts for images",
+                    "High contrast (4.5:1)",
+                    "Text zoom up to 200%"
+                ]
+            },
+            "hearingImpairment": {
+                "title": "For users with hearing impairment:",
+                "features": [
+                    "Text alternative to audio content",
+                    "Accessible feedback forms",
+                    "Clear visual navigation"
+                ]
+            },
+            "motorLimitations": {
+                "title": "For users with motor limitations:",
+                "features": [
+                    "Keyboard navigation",
+                    "Sufficient time for interaction",
+                    "Logical focus order"
+                ]
+            },
+            "cognitiveImpairment": {
+                "title": "For users with cognitive impairments:",
+                "features": [
+                    "Simple and clear language",
+                    "Consistent navigation",
+                    "Minimized distractions"
+                ]
+            }
+        },
+        "languageSupport": {
+            "title": "4. Multilingual Support",
+            "fullSupport": "Full Support (3 main languages):",
+            "mainLanguages": [
+                "🇬🇧 English - all pages and full content",
+                "🇷🇺 Russian - complete website version",
+                "🇮🇱 Hebrew - all materials available"
+            ],
+            "basicSupport": "Basic Support (4 additional languages):",
+            "additionalLanguages": [
+                "🇩🇪 Deutsch - main pages and navigation",
+                "🇦🇪 Arabic - main site sections",
+                "🇫🇷 Français - key content",
+                "🇪🇸 Español - basic pages"
+            ],
+            "features": "Features:",
+            "featuresList": [
+                "All 7 languages have full accessibility features support",
+                "Interface and navigation work in all languages",
+                "Accessibility features (screen readers, keyboard navigation, contrast) work equally across all language versions",
+                "Gradually expanding content to additional languages"
+            ],
+            "note": "We are constantly working to improve language support and translate additional content."
+        },
+        "technicalInfo": {
+            "title": "5. Technical Information",
+            "testedIn": "Tested in: Chrome, Firefox, Safari, Edge",
+            "mobileSupport": "Mobile Support: Full responsiveness",
+            "recommendedScreenReader": "Recommended Screen Reader: NVDA (latest version)"
+        },
+        "limitations": {
+            "title": "6. Known Limitations",
+            "intro": "We are constantly working on improvements and acknowledge the following areas for development:",
+            "items": [
+                "Third-party widgets: May have limited accessibility",
+                "Complex medical forms: Require additional optimization",
+                "Archive materials: May not fully comply with standards"
+            ]
+        },
+        "alternativeFormats": {
+            "title": "7. Alternative Information Formats",
+            "intro": "If you cannot access information on our website, we will provide it in an alternative format:",
+            "formats": [
+                "Printed version",
+                "Audio format (within 7 business days)",
+                "Simplified text",
+                "Personal consultation"
+            ]
         },
         "feedback": {
-            "title": "Feedback and Contact",
-            "content": "If you encounter any accessibility barriers or have suggestions for improvement, please contact us. We welcome your feedback and are committed to addressing accessibility issues promptly."
-        }
+            "title": "8. Feedback and Support",
+            "intro": "We welcome your feedback and suggestions for improving accessibility.",
+            "contactInfo": "Contact Information:",
+            "email": "📧 Email: drtunitski@gmail.com",
+            "phone": "📞 Phone: 0507377870",
+            "address": "📍 Clinic Address: Eli Landau 7, Herzliya, Israel",
+            "responseTime": "Response Times:",
+            "responseTimes": [
+                "Initial response: 2 business days",
+                "Problem resolution: up to 7 business days",
+                "Complex fixes: up to 30 days"
+            ]
+        },
+        "legalBasis": {
+            "title": "9. Legal Basis",
+            "intro": "Our accessibility policy is based on:",
+            "laws": [
+                "Equal Rights for Persons with Disabilities Law (5758-1998)",
+                "EU Web Accessibility Directive",
+                "Web Content Accessibility Guidelines (WCAG) 2.1"
+            ]
+        },
+        "futureImprovements": {
+            "title": "10. Future Improvements",
+            "plan": "Plan for 2026:",
+            "improvements": [
+                "Expansion of language support",
+                "Mobile accessibility improvements",
+                "Regular accessibility audits"
+            ]
+        },
+        "footer": "We are committed to continuously improving the accessibility of our services and welcome your suggestions."
     }
 }
