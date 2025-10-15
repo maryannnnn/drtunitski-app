@@ -1,0 +1,221 @@
+// Responsive styles for Accessibility Widget
+
+@media (max-width: 768px) {
+    .a11y-toggle {
+        width: 48px;
+        height: 48px;
+        font-size: 26px;
+        left: 15px;
+        bottom: 70px;
+    }
+
+    .a11y-panel {
+        left: 10px;
+        right: 10px;
+        width: calc(100% - 20px);
+        max-width: 400px;
+        bottom: 130px;
+    }
+
+    .a11y-header {
+        padding: 16px 18px;
+
+        h3 {
+            font-size: 16px;
+        }
+    }
+
+    .a11y-content {
+        padding: 16px;
+        max-height: 450px;
+    }
+
+    .a11y-item {
+        padding: 11px 13px;
+        margin-bottom: 11px;
+
+        .a11y-label {
+            font-size: 12px;
+
+            svg {
+                font-size: 19px;
+            }
+        }
+    }
+
+    .a11y-size-ctrl {
+        button {
+            width: 36px;
+            height: 36px;
+
+            svg {
+                font-size: 19px;
+            }
+        }
+
+        .a11y-size-val {
+            min-width: 50px;
+            font-size: 15px;
+            padding: 7px 9px;
+        }
+    }
+
+    .a11y-switch {
+        width: 48px;
+        height: 24px;
+
+        .a11y-slider:before {
+            height: 18px;
+            width: 18px;
+        }
+    }
+
+    .a11y-reset {
+        padding: 11px 14px;
+        font-size: 13px;
+
+        svg {
+            font-size: 19px;
+        }
+    }
+
+    [dir="rtl"] {
+        .a11y-toggle {
+            left: auto;
+            right: 15px;
+        }
+
+        .a11y-panel {
+            left: 10px;
+            right: 10px;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .a11y-toggle {
+        width: 44px;
+        height: 44px;
+        font-size: 24px;
+        left: 10px;
+        bottom: 60px;
+    }
+
+    .a11y-panel {
+        left: 5px;
+        right: 5px;
+        width: calc(100% - 10px);
+        bottom: 115px;
+        border-radius: 12px;
+        max-height: 400px;
+    }
+
+    .a11y-header {
+        padding: 14px 16px;
+        border-radius: 12px 12px 0 0;
+
+        h3 {
+            font-size: 15px;
+        }
+
+        .a11y-close {
+            font-size: 20px;
+        }
+    }
+
+    .a11y-content {
+        padding: 14px;
+        max-height: 350px;
+    }
+
+    .a11y-item {
+        padding: 10px 12px;
+        margin-bottom: 10px;
+        border-radius: 8px;
+
+        .a11y-label {
+            font-size: 12px;
+            gap: 8px;
+
+            svg {
+                font-size: 18px;
+            }
+        }
+    }
+
+    .a11y-text-size {
+        gap: 8px;
+    }
+
+    .a11y-size-ctrl {
+        gap: 8px;
+
+        button {
+            width: 34px;
+            height: 34px;
+
+            svg {
+                font-size: 18px;
+            }
+        }
+
+        .a11y-size-val {
+            min-width: 45px;
+            font-size: 14px;
+            padding: 6px 8px;
+        }
+    }
+
+    .a11y-switch {
+        width: 46px;
+        height: 24px;
+
+        .a11y-slider:before {
+            height: 18px;
+            width: 18px;
+        }
+
+        input:checked + .a11y-slider:before {
+            transform: translateX(22px);
+        }
+    }
+
+    .a11y-reset {
+        padding: 10px 12px;
+        font-size: 12px;
+        margin-top: 14px;
+
+        svg {
+            font-size: 18px;
+        }
+    }
+
+    [dir="rtl"] {
+        .a11y-toggle {
+            left: auto;
+            right: 10px;
+        }
+
+        .a11y-panel {
+            left: 5px;
+            right: 5px;
+        }
+
+        .a11y-switch input:checked + .a11y-slider:before {
+            transform: translateX(-22px);
+        }
+    }
+}
+
+// Landscape mobile
+@media (max-width: 768px) and (orientation: landscape) {
+    .a11y-panel {
+        max-height: 350px;
+        bottom: 110px;
+    }
+
+    .a11y-content {
+        max-height: 250px;
+    }
+}
+

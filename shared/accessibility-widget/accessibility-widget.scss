@@ -1,0 +1,375 @@
+@import '../../app/scss/colors';
+
+// Toggle Button
+.a11y-toggle {
+    position: fixed;
+    left: 20px;
+    bottom: 80px;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, $primary 0%, $Logo-1 100%);
+    color: $white-full;
+    border: 3px solid $white-full;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    box-shadow: 0 4px 16px rgba(29, 29, 109, 0.3);
+    z-index: 9999;
+    transition: all 0.3s ease;
+    
+    svg {
+        transition: transform 0.3s ease;
+    }
+
+    &:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 20px rgba(29, 29, 109, 0.4);
+        
+        svg {
+            transform: rotate(15deg);
+        }
+    }
+
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 0 4px rgba(29, 29, 109, 0.3);
+    }
+
+    &.active {
+        transform: scale(0.95);
+    }
+}
+
+// Panel (NO OVERLAY!)
+.a11y-panel {
+    position: fixed;
+    left: 20px;
+    bottom: 145px;
+    width: 340px;
+    max-height: 650px;
+    background: $white-full;
+    border-radius: 14px;
+    box-shadow: 
+        0 10px 40px rgba(0, 0, 0, 0.2),
+        0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 9998;
+    overflow: hidden;
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// Header
+.a11y-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 20px;
+    background: $gradient-blue;
+    color: $white-full;
+
+    h3 {
+        margin: 0;
+        font-size: 17px;
+        font-weight: 700;
+    }
+
+    .a11y-close {
+        background: rgba(255, 255, 255, 0.2);
+        border: none;
+        color: $white-full;
+        font-size: 22px;
+        cursor: pointer;
+        padding: 4px;
+        display: flex;
+        align-items: center;
+        border-radius: 6px;
+        transition: all 0.2s ease;
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
+        }
+    }
+}
+
+// Content
+.a11y-content {
+    padding: 18px;
+    max-height: 550px;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: $grey-3;
+        border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: $primary;
+        border-radius: 10px;
+
+        &:hover {
+            background: $Logo-1;
+        }
+    }
+}
+
+// Items
+.a11y-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    padding: 12px 14px;
+    border-radius: 10px;
+    background: $grey-3;
+    transition: all 0.2s ease;
+
+    &:hover {
+        background: darken($grey-3, 3%);
+    }
+
+    .a11y-label {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 13px;
+        font-weight: 600;
+        color: $grey-1;
+
+        svg {
+            font-size: 20px;
+            color: $primary;
+            flex-shrink: 0;
+        }
+
+        .a11y-gray-icon {
+            font-size: 22px;
+            color: $primary;
+        }
+    }
+}
+
+// Text Size
+.a11y-text-size {
+    flex-direction: column;
+    gap: 10px;
+
+    .a11y-label {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+.a11y-size-ctrl {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    justify-content: center;
+
+    button {
+        width: 38px;
+        height: 38px;
+        border-radius: 8px;
+        border: 2px solid $primary;
+        background: $white-full;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+
+        svg {
+            font-size: 20px;
+            color: $primary;
+        }
+
+        &:hover:not(:disabled) {
+            background: $primary;
+
+            svg {
+                color: $white-full;
+            }
+        }
+
+        &:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+    }
+
+    .a11y-size-val {
+        min-width: 55px;
+        text-align: center;
+        font-weight: 700;
+        font-size: 16px;
+        color: $primary;
+        background: $white-full;
+        padding: 8px 10px;
+        border-radius: 8px;
+        border: 2px solid $primary;
+    }
+}
+
+// Switch
+.a11y-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 26px;
+    flex-shrink: 0;
+
+    input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+
+        &:checked + .a11y-slider {
+            background: linear-gradient(135deg, $primary 0%, $Logo-1 100%);
+
+            &:before {
+                transform: translateX(24px);
+            }
+        }
+
+        &:focus + .a11y-slider {
+            box-shadow: 0 0 0 3px rgba($primary, 0.3);
+        }
+    }
+
+    .a11y-slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: $grey-4;
+        transition: all 0.3s ease;
+        border-radius: 26px;
+
+        &:before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 3px;
+            bottom: 3px;
+            background-color: $white-full;
+            transition: all 0.3s ease;
+            border-radius: 50%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+    }
+}
+
+// Reset Button
+.a11y-reset {
+    width: 100%;
+    padding: 12px 16px;
+    margin-top: 16px;
+    border: 2px solid $primary;
+    background: $white-full;
+    color: $primary;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+
+    svg {
+        font-size: 20px;
+        transition: transform 0.3s ease;
+    }
+
+    &:hover {
+        background: $primary;
+        color: $white-full;
+
+        svg {
+            transform: rotate(180deg);
+        }
+    }
+}
+
+// Global Accessibility Styles (with !important for reliability)
+body.a11y-contrast {
+    .wrapper {
+        filter: contrast(1.5) brightness(1.05) !important;
+    }
+}
+
+body.a11y-highlight {
+    a:not(.a11y-toggle):not(.a11y-close):not(.a11y-reset):not(.a11y-size-ctrl button) {
+        background: $rose !important;
+        color: $grey-1 !important;
+        text-decoration: underline !important;
+        padding: 2px 6px !important;
+        border-radius: 4px !important;
+        font-weight: 600 !important;
+    }
+}
+
+body.a11y-line-height {
+    * {
+        line-height: 2 !important;
+        letter-spacing: 0.03em !important;
+    }
+}
+
+body.a11y-readable {
+    * {
+        font-family: Arial, Helvetica, sans-serif !important;
+    }
+}
+
+body.a11y-cursor {
+    *, *:hover, button, a {
+        cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36"><circle cx="18" cy="18" r="10" fill="%231d1d6d" stroke="white" stroke-width="2"/></svg>') 18 18, auto !important;
+    }
+}
+
+body.a11y-gray {
+    .wrapper {
+        filter: grayscale(100%) !important;
+    }
+}
+
+// RTL Support
+[dir="rtl"] {
+    .a11y-toggle {
+        left: auto;
+        right: 20px;
+    }
+
+    .a11y-panel {
+        left: auto;
+        right: 20px;
+    }
+
+    .a11y-switch input:checked + .a11y-slider:before {
+        transform: translateX(-24px);
+    }
+}
+

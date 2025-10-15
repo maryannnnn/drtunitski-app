@@ -9,6 +9,7 @@ import { BASIS_URL } from "../config/config.js";
 import { isRTL } from "../../shared/utils/rtl-utils";
 import { useLanguageUrl } from "../../shared/hooks/useLanguageUrl";
 import ContactUsBlock from "../../shared/contact-us-block/ContactUsBlock";
+import AccessibilityWidget from "../../shared/accessibility-widget/AccessibilityWidget";
 
 const MainLayout = ({
                         children,
@@ -53,49 +54,6 @@ const MainLayout = ({
                             })
                         }}
                 />
-
-                {/* Скрипт для Accessibility от EqualWeb */}
-                <script
-                    dangerouslySetInnerHTML={{
-                        __html: `
-                            window.interdeal = {
-                                sitekey: "58a9a5486ebd5e4080d0a10c51b76796",
-                                domains: {
-                                    js: "https://cdn.equalweb.com/",
-                                    acc: "https://access.equalweb.com/"
-                                },
-                                Position: "left",
-                                Menulang: "HE",
-                                draggable: true,
-                                btnStyle: {
-                                    vPosition: ["80%", "80%"],
-                                    margin: ["0", "0"],
-                                    scale: ["0.5", "0.5"],
-                                    color: {
-                                        main: "#002680",
-                                        second: "#ffffff"
-                                    },
-                                    icon: {
-                                        outline: false,
-                                        outlineColor: "#ffffff",
-                                        type: 2,
-                                        shape: "circle"
-                                    }
-                                }
-                            };
-
-                            (function(doc, head, body){
-                                var coreCall = doc.createElement('script');
-                                coreCall.src = interdeal.domains.js + 'core/5.2.0/accessibility.js';
-                                coreCall.defer = true;
-                                coreCall.integrity = 'sha512-fHF4rKIzByr1XeM6stpnVdiHrJUOZsKN2/Pm0jikdTQ9uZddgq15F92kUptMnyYmjIVNKeMIa67HRFnBNTOXsQ==';
-                                coreCall.crossOrigin = 'anonymous';
-                                coreCall.setAttribute('data-cfasync', true );
-                                body ? body.appendChild(coreCall) : head.appendChild(coreCall);
-                            })(document, document.head, document.body);
-                        `
-                    }}
-                />
             </Head>
             {/* <LanguageDetectionBanner /> - ОТКЛЮЧЕНО для удобства разработки */}
             <Header />
@@ -103,6 +61,7 @@ const MainLayout = ({
                 {children}
             </div>
             <ContactUsBlock />
+            <AccessibilityWidget />
             <Footer />
         </div>
     );
