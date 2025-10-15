@@ -299,5 +299,28 @@
   "pagination": {
     "prev": "Zurück",
     "next": "Weiter"
+  },
+  "cookieConsent": {
+    "title": "🍪 Wir verwenden Cookies",
+    "description": "Wir verwenden Cookies, um die Website-Funktionalität zu verbessern und Ihr Erlebnis zu personalisieren. Sie können alle Cookies akzeptieren oder individuell anpassen.",
+    "readMore": "Mehr über Cookies erfahren",
+    "customize": "Anpassen",
+    "acceptAll": "Alle akzeptieren",
+    "essentialOnly": "Nur notwendige",
+    "save": "Einstellungen speichern",
+    "cancel": "Abbrechen",
+    "close": "Schließen",
+    "essential": {
+      "title": "✅ Notwendige Cookies",
+      "description": "Erforderlich für den Betrieb der Website (Sicherheit, Sitzungen, Formulare)"
+    },
+    "analytics": {
+      "title": "📊 Analytische Cookies",
+      "description": "Google Analytics (anonymisiert) - helfen uns, die Website zu verbessern"
+    },
+    "marketing": {
+      "title": "🎯 Marketing-Cookies",
+      "description": "Werbung und Retargeting (Facebook, Google Ads)"
+    }
   }
 }

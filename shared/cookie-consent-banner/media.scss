@@ -1,0 +1,30 @@
+// Responsive styles for Cookie Consent Banner
+@media (max-width: 480px) {
+  .cookie-consent-banner {
+    padding: 8px;
+    
+    .cookie-banner-paper {
+      border-radius: 8px !important;
+    }
+
+    .cookie-actions {
+      .MuiButton-root {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .cookie-consent-banner {
+    max-width: 420px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cookie-consent-banner {
+    max-width: 500px;
+  }
+}
+

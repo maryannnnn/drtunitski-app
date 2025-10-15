@@ -315,5 +315,28 @@
   "pagination": {
     "prev": "Previous",
     "next": "Next"
+  },
+  "cookieConsent": {
+    "title": "🍪 We use cookies",
+    "description": "We use cookies to improve website functionality and personalize your experience. You can accept all cookies or customize them individually.",
+    "readMore": "Learn more about cookies",
+    "customize": "Customize",
+    "acceptAll": "Accept all",
+    "essentialOnly": "Essential only",
+    "save": "Save settings",
+    "cancel": "Cancel",
+    "close": "Close",
+    "essential": {
+      "title": "✅ Essential cookies",
+      "description": "Required for website operation (security, sessions, forms)"
+    },
+    "analytics": {
+      "title": "📊 Analytics cookies",
+      "description": "Google Analytics (anonymized) - help us improve the website"
+    },
+    "marketing": {
+      "title": "🎯 Marketing cookies",
+      "description": "Advertising and retargeting (Facebook, Google Ads)"
+    }
   }
 }

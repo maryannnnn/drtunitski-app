@@ -10,6 +10,7 @@ import { isRTL } from "../../shared/utils/rtl-utils";
 import { useLanguageUrl } from "../../shared/hooks/useLanguageUrl";
 import ContactUsBlock from "../../shared/contact-us-block/ContactUsBlock";
 import AccessibilityWidget from "../../shared/accessibility-widget/AccessibilityWidget";
+import CookieConsentBanner from "../../shared/cookie-consent-banner/CookieConsentBanner";
 
 const MainLayout = ({
                         children,
@@ -63,6 +64,7 @@ const MainLayout = ({
             <ContactUsBlock />
             <AccessibilityWidget />
             <Footer />
+            <CookieConsentBanner />
         </div>
     );
 };

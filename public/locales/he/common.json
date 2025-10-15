@@ -299,5 +299,28 @@
   "pagination": {
     "prev": "הקודם",
     "next": "הבא"
+  },
+  "cookieConsent": {
+    "title": "🍪 אנחנו משתמשים בעוגיות",
+    "description": "אנו משתמשים בעוגיות כדי לשפר את פונקציונליות האתר ולהתאים אישית את החוויה שלך. אתה יכול לקבל את כל העוגיות או להתאים אותן בנפרד.",
+    "readMore": "קרא עוד על עוגיות",
+    "customize": "התאמה אישית",
+    "acceptAll": "קבל הכל",
+    "essentialOnly": "רק הכרחיות",
+    "save": "שמור הגדרות",
+    "cancel": "ביטול",
+    "close": "סגור",
+    "essential": {
+      "title": "✅ עוגיות הכרחיות",
+      "description": "נדרשות לתפעול האתר (אבטחה, הפעלות, טפסים)"
+    },
+    "analytics": {
+      "title": "📊 עוגיות אנליטיקה",
+      "description": "Google Analytics (אנונימי) - עוזר לנו לשפר את האתר"
+    },
+    "marketing": {
+      "title": "🎯 עוגיות שיווק",
+      "description": "פרסום וריטרגטינג (Facebook, Google Ads)"
+    }
   }
 }

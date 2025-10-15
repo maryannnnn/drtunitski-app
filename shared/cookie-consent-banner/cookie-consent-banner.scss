@@ -1,0 +1,207 @@
+.cookie-consent-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  padding: 16px;
+  animation: slideUp 0.4s ease-out;
+  pointer-events: none;
+
+  @media (min-width: 768px) {
+    bottom: 20px;
+    left: 20px;
+    right: auto;
+    max-width: 480px;
+  }
+
+  * {
+    pointer-events: auto;
+  }
+}
+
+.cookie-banner-paper {
+  padding: 20px !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15) !important;
+  background: #fff !important;
+  
+  @media (prefers-color-scheme: dark) {
+    background: #2d2d2d !important;
+  }
+}
+
+.cookie-banner-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+
+  .cookie-icon {
+    font-size: 28px;
+    color: #ff9800;
+    flex-shrink: 0;
+  }
+
+  h2 {
+    flex: 1;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .close-button {
+    color: #999;
+    flex-shrink: 0;
+    
+    &:hover {
+      color: #666;
+    }
+  }
+}
+
+.cookie-description {
+  margin-bottom: 16px !important;
+  line-height: 1.6;
+  color: #555;
+  
+  @media (prefers-color-scheme: dark) {
+    color: #ccc;
+  }
+
+  a {
+    font-weight: 500;
+    
+    &:hover {
+      text-decoration: underline !important;
+    }
+  }
+}
+
+.cookie-settings {
+  margin-top: 16px;
+
+  .MuiFormControlLabel-root {
+    display: flex;
+    margin: 12px 0;
+    align-items: flex-start;
+
+    .MuiSwitch-root {
+      margin-top: 4px;
+    }
+
+    .MuiFormControlLabel-label {
+      margin-left: 8px;
+    }
+  }
+
+  .MuiTypography-subtitle2 {
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .MuiTypography-caption {
+    line-height: 1.4;
+  }
+}
+
+.cookie-actions {
+  margin-top: 16px;
+
+  button {
+    text-transform: none;
+    font-weight: 500;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+// RTL Support for Arabic and Hebrew
+[dir="rtl"] {
+  .cookie-consent-banner {
+    @media (min-width: 768px) {
+      left: auto;
+      right: 20px;
+    }
+  }
+
+  .cookie-banner-header {
+    .cookie-icon {
+      order: 3;
+    }
+
+    h2 {
+      order: 2;
+    }
+
+    .close-button {
+      order: 1;
+    }
+  }
+
+  .cookie-settings {
+    .MuiFormControlLabel-label {
+      margin-left: 0;
+      margin-right: 8px;
+    }
+  }
+}
+
+// Mobile optimizations
+@media (max-width: 767px) {
+  .cookie-consent-banner {
+    padding: 12px;
+  }
+
+  .cookie-banner-paper {
+    padding: 16px !important;
+  }
+
+  .cookie-banner-header {
+    h2 {
+      font-size: 1rem;
+    }
+
+    .cookie-icon {
+      font-size: 24px;
+    }
+  }
+
+  .cookie-description {
+    font-size: 0.875rem;
+  }
+
+  .cookie-settings {
+    .MuiTypography-subtitle2 {
+      font-size: 0.875rem;
+    }
+
+    .MuiTypography-caption {
+      font-size: 0.75rem;
+    }
+  }
+}
+
+// Accessibility improvements
+@media (prefers-reduced-motion: reduce) {
+  .cookie-consent-banner {
+    animation: none;
+  }
+}
+
+// High contrast mode support
+@media (prefers-contrast: high) {
+  .cookie-banner-paper {
+    border: 2px solid currentColor !important;
+  }
+}
+
