@@ -96,23 +96,7 @@ const MainVideoTestimonials = () => {
     const isRTL = locale === 'he' || locale === 'ar';
     const dir = isRTL ? 'rtl' : 'ltr';
 
-    // Показываем состояние загрузки
-    if (loading) {
-        return (
-            <div className="main-video-testimonials" dir={dir}>
-                <div className="container">
-                    <div className="main-video-testimonials__header">
-                        <h2 className="main-video-testimonials__title">
-                            {safeT('videoTestimonials.title')}
-                        </h2>
-                    </div>
-                    <div>Загрузка видео отзывов...</div>
-                </div>
-            </div>
-        );
-    }
-
-    // Показываем ошибку, если есть
+    // Показываем ошибку, если есть (но не блокируем рендеринг)
     if (error) {
         console.error('MainVideoTestimonials GraphQL error:', error);
     }

@@ -43,7 +43,7 @@
     }
 }
 
-// Panel (NO OVERLAY!)
+// Panel
 .a11y-panel {
     position: fixed;
     left: 20px;
@@ -58,6 +58,11 @@
     z-index: 9998;
     overflow: hidden;
     animation: slideUp 0.3s ease;
+
+    // На мобильных устройствах fullscreen анимация другая
+    @media (max-width: 768px) {
+        animation: fadeIn 0.3s ease;
+    }
 }
 
 @keyframes slideUp {
@@ -68,6 +73,15 @@
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
     }
 }
 

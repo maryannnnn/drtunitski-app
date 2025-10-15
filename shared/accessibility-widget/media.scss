@@ -2,19 +2,22 @@
 
 @media (max-width: 768px) {
     .a11y-toggle {
-        width: 48px;
-        height: 48px;
+        width: 52px;
+        height: 52px;
         font-size: 26px;
         left: 15px;
-        bottom: 70px;
+        bottom: 90px;
     }
 
     .a11y-panel {
         left: 10px;
         right: 10px;
+        bottom: 155px;
         width: calc(100% - 20px);
-        max-width: 400px;
-        bottom: 130px;
+        max-width: none;
+        max-height: 70vh;
+        border-radius: 14px;
+        position: fixed;
     }
 
     .a11y-header {
@@ -23,59 +26,84 @@
         h3 {
             font-size: 16px;
         }
+
+        .a11y-close {
+            min-width: 44px;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
     }
 
     .a11y-content {
-        padding: 16px;
-        max-height: 450px;
+        padding: 16px 18px;
+        max-height: calc(70vh - 70px);
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
     }
 
     .a11y-item {
-        padding: 11px 13px;
-        margin-bottom: 11px;
+        padding: 12px 14px;
+        margin-bottom: 10px;
+        border-radius: 10px;
+        min-height: 48px;
 
         .a11y-label {
-            font-size: 12px;
+            font-size: 15px;
 
             svg {
-                font-size: 19px;
+                font-size: 22px;
             }
         }
     }
 
     .a11y-size-ctrl {
         button {
-            width: 36px;
-            height: 36px;
+            min-width: 48px;
+            min-height: 48px;
+            width: 48px;
+            height: 48px;
 
             svg {
-                font-size: 19px;
+                font-size: 24px;
             }
         }
 
         .a11y-size-val {
-            min-width: 50px;
-            font-size: 15px;
-            padding: 7px 9px;
+            min-width: 65px;
+            font-size: 17px;
+            padding: 10px 14px;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
     }
 
     .a11y-switch {
-        width: 48px;
-        height: 24px;
+        width: 56px;
+        height: 32px;
+        min-width: 56px;
+        min-height: 32px;
 
         .a11y-slider:before {
-            height: 18px;
-            width: 18px;
+            height: 26px;
+            width: 26px;
+        }
+
+        input:checked + .a11y-slider:before {
+            transform: translateX(24px);
         }
     }
 
     .a11y-reset {
-        padding: 11px 14px;
-        font-size: 13px;
+        padding: 14px 18px;
+        font-size: 15px;
+        min-height: 48px;
 
         svg {
-            font-size: 19px;
+            font-size: 22px;
         }
     }
 
@@ -94,20 +122,22 @@
 
 @media (max-width: 480px) {
     .a11y-toggle {
-        width: 44px;
-        height: 44px;
+        width: 50px;
+        height: 50px;
         font-size: 24px;
         left: 10px;
-        bottom: 60px;
+        bottom: 85px;
+        border-width: 2px;
     }
 
     .a11y-panel {
-        left: 5px;
-        right: 5px;
-        width: calc(100% - 10px);
-        bottom: 115px;
+        left: 8px;
+        right: 8px;
+        bottom: 145px;
+        width: calc(100% - 16px);
         border-radius: 12px;
-        max-height: 400px;
+        max-height: 65vh;
+        position: fixed;
     }
 
     .a11y-header {
@@ -119,60 +149,76 @@
         }
 
         .a11y-close {
-            font-size: 20px;
+            font-size: 24px;
+            min-width: 44px;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
     }
 
     .a11y-content {
-        padding: 14px;
-        max-height: 350px;
+        padding: 14px 16px;
+        max-height: calc(65vh - 70px);
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
     }
 
     .a11y-item {
-        padding: 10px 12px;
-        margin-bottom: 10px;
-        border-radius: 8px;
+        padding: 11px 13px;
+        margin-bottom: 9px;
+        border-radius: 10px;
+        min-height: 48px;
 
         .a11y-label {
-            font-size: 12px;
-            gap: 8px;
+            font-size: 14px;
+            gap: 10px;
 
             svg {
-                font-size: 18px;
+                font-size: 21px;
             }
         }
     }
 
     .a11y-text-size {
-        gap: 8px;
+        gap: 10px;
     }
 
     .a11y-size-ctrl {
-        gap: 8px;
+        gap: 10px;
 
         button {
-            width: 34px;
-            height: 34px;
+            min-width: 44px;
+            min-height: 44px;
+            width: 44px;
+            height: 44px;
 
             svg {
-                font-size: 18px;
+                font-size: 21px;
             }
         }
 
         .a11y-size-val {
-            min-width: 45px;
-            font-size: 14px;
-            padding: 6px 8px;
+            min-width: 60px;
+            font-size: 16px;
+            padding: 9px 12px;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
     }
 
     .a11y-switch {
-        width: 46px;
-        height: 24px;
+        width: 52px;
+        height: 30px;
+        min-width: 52px;
+        min-height: 30px;
 
         .a11y-slider:before {
-            height: 18px;
-            width: 18px;
+            height: 24px;
+            width: 24px;
         }
 
         input:checked + .a11y-slider:before {
@@ -181,12 +227,13 @@
     }
 
     .a11y-reset {
-        padding: 10px 12px;
-        font-size: 12px;
+        padding: 13px 16px;
+        font-size: 14px;
         margin-top: 14px;
+        min-height: 48px;
 
         svg {
-            font-size: 18px;
+            font-size: 21px;
         }
     }
 
@@ -207,15 +254,143 @@
     }
 }
 
-// Landscape mobile
+// Landscape mobile (горизонтальная ориентация)
 @media (max-width: 768px) and (orientation: landscape) {
+    .a11y-toggle {
+        bottom: 70px;
+    }
+
     .a11y-panel {
-        max-height: 350px;
-        bottom: 110px;
+        max-height: 75vh;
+        bottom: 130px;
     }
 
     .a11y-content {
-        max-height: 250px;
+        max-height: calc(75vh - 70px);
+        padding: 12px 14px;
+    }
+
+    .a11y-item {
+        padding: 9px 11px;
+        margin-bottom: 7px;
+        min-height: 44px;
+    }
+}
+
+// Very small screens (< 360px width)
+@media (max-width: 360px) {
+    .a11y-toggle {
+        width: 46px;
+        height: 46px;
+        font-size: 22px;
+        left: 8px;
+        bottom: 80px;
+    }
+
+    .a11y-panel {
+        left: 6px;
+        right: 6px;
+        width: calc(100% - 12px);
+        bottom: 138px;
+        max-height: 400px;
+    }
+
+    .a11y-header {
+        padding: 12px 14px;
+
+        h3 {
+            font-size: 14px;
+        }
+
+        .a11y-close {
+            font-size: 18px;
+            padding: 3px;
+        }
+    }
+
+    .a11y-content {
+        padding: 10px 12px;
+        max-height: 320px;
+    }
+
+    .a11y-item {
+        padding: 8px 10px;
+        margin-bottom: 8px;
+
+        .a11y-label {
+            font-size: 11px;
+            gap: 7px;
+
+            svg {
+                font-size: 17px;
+            }
+        }
+    }
+
+    .a11y-size-ctrl {
+        gap: 7px;
+
+        button {
+            width: 32px;
+            height: 32px;
+
+            svg {
+                font-size: 17px;
+            }
+        }
+
+        .a11y-size-val {
+            min-width: 42px;
+            font-size: 13px;
+            padding: 5px 7px;
+        }
+    }
+
+    .a11y-switch {
+        width: 44px;
+        height: 22px;
+
+        .a11y-slider:before {
+            height: 16px;
+            width: 16px;
+        }
+
+        input:checked + .a11y-slider:before {
+            transform: translateX(22px);
+        }
+    }
+
+    .a11y-reset {
+        padding: 9px 10px;
+        font-size: 11px;
+
+        svg {
+            font-size: 17px;
+        }
+    }
+}
+
+// Tablet portrait (средние экраны - оставляем панель, не fullscreen)
+@media (min-width: 769px) and (max-width: 1024px) {
+    .a11y-toggle {
+        width: 52px;
+        height: 52px;
+        font-size: 27px;
+        bottom: 95px;
+    }
+
+    .a11y-panel {
+        left: 20px;
+        bottom: 160px;
+        width: 380px;
+        max-width: 380px;
+        max-height: 600px;
+        border-radius: 14px;
+        position: fixed;
+    }
+
+    .a11y-content {
+        max-height: 500px;
     }
 }
 
