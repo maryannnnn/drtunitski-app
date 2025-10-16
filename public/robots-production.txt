@@ -1,0 +1,12 @@
+# robots.txt - ДЛЯ ПРОДАКШЕНА
+# ЭТОТ ФАЙЛ ПЕРЕИМЕНОВАТЬ В robots.txt ПЕРЕД ЗАПУСКОМ!
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://drtunitski.neo-lines.bond/sitemap.xml
+
+# Дополнительные настройки
+Crawl-delay: 1
+
