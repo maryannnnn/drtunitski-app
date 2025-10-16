@@ -95,6 +95,31 @@ const MediaPage = ({initialData}) => {
                         <>
                             <h1 className="media__title">{cleanHtmlFull(media?.AcfMedia?.titleLong)}</h1>
                             <Breadcrumbs material={media} typeMaterial={typeMaterial}/>
+                            
+                            {/* Категории 2-го и 3-го уровня */}
+                            {media?.trees?.edges && media.trees.edges.length > 0 && (() => {
+                                // Фильтруем категории по уровню (считаем слеши в URI)
+                                const categoriesLevel2And3 = media.trees.edges
+                                    .filter(tree => {
+                                        const uri = tree.node.uri || '';
+                                        // Убираем начальный и конечный слеши и считаем оставшиеся
+                                        const cleanUri = uri.replace(/^\/|\/$/g, '');
+                                        const slashCount = (cleanUri.match(/\//g) || []).length;
+                                        // Уровень 2: 1 слеш, Уровень 3: 2 слеша
+                                        return slashCount === 1 || slashCount === 2;
+                                    })
+                                    .map(tree => tree.node.name);
+                                
+                                // Убираем дубликаты
+                                const uniqueCategories = [...new Set(categoriesLevel2And3)];
+                                
+                                return uniqueCategories.length > 0 ? (
+                                    <div className="media__categories">
+                                        {uniqueCategories.join(' • ')}
+                                    </div>
+                                ) : null;
+                            })()}
+                            
                             <div className="media__personal">
                                 <div
                                     className="media__personal-name">{cleanHtmlFull(media?.AcfMedia?.groupInfoPost?.fullName)}

@@ -312,6 +312,30 @@
     "noPosts": "No posts available at the moment.",
     "allCategories": "All"
   },
+  "mediaNews": {
+    "title": "Medical News",
+    "seoTitle": "Latest Medical News | Dr. Serge Tunitski Clinic",
+    "seoDescription": "Stay updated with the latest medical news, health insights, and breakthrough treatments in gynecology and surgery.",
+    "noPosts": "No news available at the moment."
+  },
+  "mediaExpert": {
+    "title": "Expert Opinion",
+    "seoTitle": "Expert Medical Opinion | Dr. Serge Tunitski",
+    "seoDescription": "Professional medical insights and expert opinions from Dr. Serge Tunitski on gynecological health and surgical treatments.",
+    "noPosts": "No expert articles available at the moment."
+  },
+  "mediaVideo": {
+    "title": "Video Gallery",
+    "seoTitle": "Medical Videos | Dr. Serge Tunitski Clinic",
+    "seoDescription": "Watch educational medical videos, patient testimonials, and surgical procedure explanations from Dr. Serge Tunitski.",
+    "noPosts": "No videos available at the moment."
+  },
+  "mediaFaq": {
+    "title": "Frequently Asked Questions",
+    "seoTitle": "Medical FAQ | Dr. Serge Tunitski Clinic",
+    "seoDescription": "Find answers to common questions about gynecological health, surgical procedures, and treatments at Dr. Serge Tunitski Clinic.",
+    "noPosts": "No questions available at the moment."
+  },
   "pagination": {
     "prev": "Previous",
     "next": "Next"

@@ -296,6 +296,30 @@
     "noPosts": "Derzeit sind keine Beiträge verfügbar.",
     "allCategories": "Alle"
   },
+  "mediaNews": {
+    "title": "Medizinische Nachrichten",
+    "seoTitle": "Aktuelle medizinische Nachrichten | Klinik von Dr. Serge Tunitski",
+    "seoDescription": "Bleiben Sie auf dem Laufenden mit den neuesten medizinischen Nachrichten, Gesundheitseinblicken und bahnbrechenden Behandlungen in Gynäkologie und Chirurgie.",
+    "noPosts": "Derzeit sind keine Nachrichten verfügbar."
+  },
+  "mediaExpert": {
+    "title": "Expertenmeinung",
+    "seoTitle": "Medizinische Expertenmeinung | Dr. Serge Tunitski",
+    "seoDescription": "Professionelle medizinische Einblicke und Expertenmeinungen von Dr. Serge Tunitski zur gynäkologischen Gesundheit und chirurgischen Behandlungen.",
+    "noPosts": "Derzeit sind keine Expertenartikel verfügbar."
+  },
+  "mediaVideo": {
+    "title": "Videogalerie",
+    "seoTitle": "Medizinische Videos | Klinik von Dr. Serge Tunitski",
+    "seoDescription": "Sehen Sie sich Lehrvideos, Patientenberichte und Erklärungen chirurgischer Verfahren von Dr. Serge Tunitski an.",
+    "noPosts": "Derzeit sind keine Videos verfügbar."
+  },
+  "mediaFaq": {
+    "title": "Häufig gestellte Fragen",
+    "seoTitle": "Medizinische FAQ | Klinik von Dr. Serge Tunitski",
+    "seoDescription": "Finden Sie Antworten auf häufige Fragen zur gynäkologischen Gesundheit, chirurgischen Eingriffen und Behandlungen in der Klinik von Dr. Serge Tunitski.",
+    "noPosts": "Derzeit sind keine Fragen verfügbar."
+  },
   "pagination": {
     "prev": "Zurück",
     "next": "Weiter"

@@ -77,7 +77,7 @@
         {
           "node": {
             "id": "cG9zdDoxNTgz2g",
-            "path": "/about/reviews-testimonials",
+            "path": "/media/video",
             "parentId": "cG9zdDoxNTgz2",
             "order": 6,
             "label": "Reviews & Testimonials"
@@ -538,7 +538,7 @@
         {
           "node": {
             "id": "cG9zdDozNjYy9c",
-            "path": "/media/expert-articles",
+            "path": "/media/expert",
             "parentId": "cG9zdDozNjYy9",
             "order": 2,
             "label": "Expert Articles"
@@ -547,7 +547,7 @@
         {
           "node": {
             "id": "cG9zdDozNjYy9d",
-            "path": "/media/success-stories",
+            "path": "/story/main",
             "parentId": "cG9zdDozNjYy9",
             "order": 3,
             "label": "Success Stories"
@@ -556,7 +556,7 @@
         {
           "node": {
             "id": "cG9zdDozNjYy9e",
-            "path": "/media/reviews-testimonials",
+            "path": "/media/video",
             "parentId": "cG9zdDozNjYy9",
             "order": 4,
             "label": "Reviews & Testimonials"

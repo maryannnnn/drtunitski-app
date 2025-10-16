@@ -26,6 +26,16 @@ export const GET_MEDIA_BY_SLUG = gql`
           metaDesc
           title
       }
+      trees {
+        edges {
+            node {
+                id
+                name
+                slug
+                 uri
+            }
+        }
+      }  
       AcfMedia {
         faqContent
         faqTitle
