@@ -262,6 +262,24 @@
       "description": "Extracción de pólipos endometriales y cervicales mediante técnicas quirúrgicas histeroscópicas y otras mínimamente invasivas."
     }
   },
+  "gynecologyPlanned": {
+    "mainTitle": "Ginecólogo en Israel ofrece diagnóstico profesional, tratamiento y consultas con cuidado de la salud femenina",
+    "mainDescription": "Cita con un ginecólogo experimentado en Israel: diagnóstico, tratamiento, prevención y apoyo a la salud femenina. Métodos modernos, ecografía, análisis, tratamiento de inflamaciones, trastornos hormonales y planificación del embarazo. Enfoque individual, delicadeza y confianza: práctica privada del médico.",
+    "seoTitle": "Atención y Cirugía Ginecológica - Clínica del Dr. Serge Tunitski",
+    "seoDescription": "Atención ginecológica integral que incluye cirugías planificadas, de riesgo moderado y de emergencia. Diagnóstico profesional y tratamiento con métodos modernos.",
+    "plannedSurgeries": {
+      "title": "Cirugías Planificadas",
+      "description": "Las cirugías ginecológicas planificadas son procedimientos cuidadosamente programados para tratar afecciones crónicas que afectan significativamente la calidad de vida. Estas cirugías incluyen el tratamiento de fibromas uterinos, endometriosis, enfermedades ováricas, prolapso de órganos pélvicos y displasia cervical grave. Cada caso requiere una preparación preoperatoria exhaustiva, incluido un diagnóstico completo y la evaluación del estado de salud general de la paciente. Nuestro enfoque garantiza el momento óptimo para la cirugía y los mejores resultados posibles con un tiempo de recuperación mínimo."
+    },
+    "moderateRiskSurgeries": {
+      "title": "Cirugías de Riesgo Moderado",
+      "description": "Las cirugías ginecológicas de riesgo moderado abordan afecciones que pueden afectar la fertilidad y requieren experiencia especializada. Estos procedimientos incluyen el tratamiento de hidrosalpinx crónico, enfermedad adhesiva de órganos pélvicos que causa infertilidad, escisión del tabique vaginal y extracción de pólipos. Estas cirugías requieren una planificación cuidadosa y una ejecución precisa para preservar la función reproductiva mientras se trata eficazmente la afección subyacente. Utilizamos técnicas laparoscópicas e histeroscópicas avanzadas para minimizar la invasividad."
+    },
+    "emergencySurgeries": {
+      "title": "Cirugías de Emergencia",
+      "description": "Las cirugías ginecológicas de emergencia se realizan para afecciones agudas que requieren intervención inmediata para preservar la vida y la salud. Estas incluyen el tratamiento de quistes ováricos rotos, perforación uterina, piosalpinx, absceso tubo-ovárico y embarazo ectópico. El tiempo es crítico en estos casos, y nuestro equipo está equipado para proporcionar diagnóstico rápido y tratamiento quirúrgico inmediato las 24 horas del día, los 7 días de la semana. Priorizamos la seguridad de las pacientes y utilizamos técnicas mínimamente invasivas siempre que sea posible, incluso en situaciones de emergencia."
+    }
+  },
   "stories": {
     "title": "Historias de éxito",
     "fertility": {

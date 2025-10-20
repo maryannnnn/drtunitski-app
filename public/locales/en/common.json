@@ -278,6 +278,24 @@
       "description": "Removal of endometrial and cervical polyps through hysteroscopic and other minimally invasive surgical techniques."
     }
   },
+  "gynecologyPlanned": {
+    "mainTitle": "Gynecologist in Israel offers professional diagnostics, treatment, and consultations with care for women's health",
+    "mainDescription": "Appointment with an experienced gynecologist in Israel: diagnostics, treatment, prevention, and support for women's health. Modern methods, ultrasound, tests, treatment of inflammations, hormonal disorders, and pregnancy planning. Individual approach, delicacy, and trust — private practice of the doctor.",
+    "seoTitle": "Gynecological Care and Surgery - Dr. Serge Tunitski Clinic",
+    "seoDescription": "Comprehensive gynecological care including planned, moderate-risk, and emergency surgeries. Professional diagnostics and treatment with modern methods.",
+    "plannedSurgeries": {
+      "title": "Planned Surgeries",
+      "description": "Planned gynecological surgeries are carefully scheduled procedures for treating chronic conditions that significantly impact quality of life. These surgeries include treatment of uterine fibroids, endometriosis, ovarian diseases, pelvic organ prolapse, and severe cervical dysplasia. Each case requires thorough pre-operative preparation, including comprehensive diagnostics and evaluation of the patient's overall health. Our approach ensures optimal timing for surgery and best possible outcomes with minimal recovery time."
+    },
+    "moderateRiskSurgeries": {
+      "title": "Moderate-Risk Surgeries",
+      "description": "Moderate-risk gynecological surgeries address conditions that may affect fertility and require specialized expertise. These procedures include treatment of chronic hydrosalpinx, adhesive disease of pelvic organs causing infertility, vaginal septum excision, and polyp removal. These surgeries require careful planning and precise execution to preserve reproductive function while effectively treating the underlying condition. We use advanced laparoscopic and hysteroscopic techniques to minimize invasiveness."
+    },
+    "emergencySurgeries": {
+      "title": "Emergency Surgeries",
+      "description": "Emergency gynecological surgeries are performed for acute conditions requiring immediate intervention to preserve life and health. These include treatment of ruptured ovarian cysts, uterine perforation, pyosalpinx, tubo-ovarian abscess, and ectopic pregnancy. Time is critical in these cases, and our team is equipped to provide rapid diagnosis and immediate surgical treatment 24/7. We prioritize patient safety and use minimally invasive techniques whenever possible, even in emergency situations."
+    }
+  },
   "stories": {
     "title": "Success Stories",
     "fertility": {

@@ -262,6 +262,24 @@
       "description": "Ablation des polypes endométriaux et cervicaux par des techniques chirurgicales hystéroscopiques et autres minimalement invasives."
     }
   },
+  "gynecologyPlanned": {
+    "mainTitle": "Gynécologue en Israël offre diagnostic professionnel, traitement et consultations avec soin de la santé féminine",
+    "mainDescription": "Rendez-vous avec un gynécologue expérimenté en Israël : diagnostic, traitement, prévention et accompagnement de la santé féminine. Méthodes modernes, échographie, analyses, traitement des inflammations, troubles hormonaux et planification de grossesse. Approche individuelle, délicatesse et confiance - pratique privée du médecin.",
+    "seoTitle": "Soins et Chirurgie Gynécologiques - Clinique du Dr. Serge Tunitski",
+    "seoDescription": "Soins gynécologiques complets comprenant des chirurgies planifiées, à risque modéré et d'urgence. Diagnostic professionnel et traitement avec des méthodes modernes.",
+    "plannedSurgeries": {
+      "title": "Chirurgies Planifiées",
+      "description": "Les chirurgies gynécologiques planifiées sont des procédures soigneusement programmées pour traiter les affections chroniques qui affectent considérablement la qualité de vie. Ces chirurgies comprennent le traitement des fibromes utérins, de l'endométriose, des maladies ovariennes, du prolapsus des organes pelviens et de la dysplasie cervicale sévère. Chaque cas nécessite une préparation préopératoire minutieuse, y compris un diagnostic complet et une évaluation de l'état de santé général de la patiente. Notre approche garantit un timing optimal pour la chirurgie et les meilleurs résultats possibles avec un temps de récupération minimal."
+    },
+    "moderateRiskSurgeries": {
+      "title": "Chirurgies à Risque Modéré",
+      "description": "Les chirurgies gynécologiques à risque modéré traitent les affections qui peuvent affecter la fertilité et nécessitent une expertise spécialisée. Ces procédures comprennent le traitement de l'hydrosalpinx chronique, de la maladie adhésive des organes pelviens causant l'infertilité, l'excision du septum vaginal et l'ablation de polypes. Ces chirurgies nécessitent une planification minutieuse et une exécution précise pour préserver la fonction reproductive tout en traitant efficacement la condition sous-jacente. Nous utilisons des techniques laparoscopiques et hystéroscopiques avancées pour minimiser l'invasivité."
+    },
+    "emergencySurgeries": {
+      "title": "Chirurgies d'Urgence",
+      "description": "Les chirurgies gynécologiques d'urgence sont réalisées pour des affections aiguës nécessitant une intervention immédiate pour préserver la vie et la santé. Celles-ci comprennent le traitement des kystes ovariens rompus, de la perforation utérine, du pyosalpinx, de l'abcès tubo-ovarien et de la grossesse extra-utérine. Le temps est critique dans ces cas, et notre équipe est équipée pour fournir un diagnostic rapide et un traitement chirurgical immédiat 24h/24 et 7j/7. Nous priorisons la sécurité des patientes et utilisons des techniques minimalement invasives dans la mesure du possible, même dans les situations d'urgence."
+    }
+  },
   "stories": {
     "title": "Histoires de succès",
     "fertility": {

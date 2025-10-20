@@ -262,6 +262,24 @@
       "description": "Entfernung von Endometrium- und Zervixpolypen durch hysteroskopische und andere minimalinvasive chirurgische Techniken."
     }
   },
+  "gynecologyPlanned": {
+    "mainTitle": "Gynäkologe in Israel bietet professionelle Diagnostik, Behandlung und Beratung mit Sorge um die Frauengesundheit",
+    "mainDescription": "Termin bei einem erfahrenen Gynäkologen in Israel: Diagnostik, Behandlung, Prävention und Begleitung der Frauengesundheit. Moderne Methoden, Ultraschall, Analysen, Behandlung von Entzündungen, hormonellen Störungen und Schwangerschaftsplanung. Individueller Ansatz, Feinfühligkeit und Vertrauen - private Praxis des Arztes.",
+    "seoTitle": "Gynäkologische Versorgung und Chirurgie - Klinik von Dr. Serge Tunitski",
+    "seoDescription": "Umfassende gynäkologische Versorgung einschließlich geplanter, mittlerer Risiko- und Notfalloperationen. Professionelle Diagnostik und Behandlung mit modernen Methoden.",
+    "plannedSurgeries": {
+      "title": "Geplante Operationen",
+      "description": "Geplante gynäkologische Operationen sind sorgfältig geplante chirurgische Eingriffe zur Behandlung chronischer Erkrankungen, die die Lebensqualität erheblich beeinträchtigen. Diese Operationen umfassen die Behandlung von Uterusmyomen, Endometriose, Eierstockerkrankungen, Beckenorganprolaps und schwerer Zervixdysplasie. Jeder Fall erfordert eine gründliche präoperative Vorbereitung, einschließlich umfassender Diagnostik und Bewertung der allgemeinen Gesundheit der Patientin. Unser Ansatz gewährleistet den optimalen Zeitpunkt für die Operation und bestmögliche Ergebnisse mit minimaler Erholungszeit."
+    },
+    "moderateRiskSurgeries": {
+      "title": "Operationen mit mittlerem Risiko",
+      "description": "Gynäkologische Operationen mit mittlerem Risiko behandeln Zustände, die die Fruchtbarkeit beeinträchtigen können und spezialisierte Expertise erfordern. Diese Verfahren umfassen die Behandlung chronischer Hydrosalpinx, Adhäsionserkrankungen der Beckenorgane, die Unfruchtbarkeit verursachen, Vaginalseptumexzision und Polypenentfernung. Diese Operationen erfordern sorgfältige Planung und präzise Ausführung, um die Fortpflanzungsfunktion zu erhalten und gleichzeitig den zugrunde liegenden Zustand effektiv zu behandeln. Wir verwenden fortgeschrittene laparoskopische und hysteroskopische Techniken, um die Invasivität zu minimieren."
+    },
+    "emergencySurgeries": {
+      "title": "Notfalloperationen",
+      "description": "Gynäkologische Notfalloperationen werden bei akuten Zuständen durchgeführt, die sofortige Intervention erfordern, um Leben und Gesundheit zu erhalten. Dazu gehören die Behandlung von geplatzten Eierstockzysten, Uterusperforation, Pyosalpinx, tuboovarialem Abszess und Eileiterschwangerschaft. Zeit ist in diesen Fällen kritisch, und unser Team ist ausgestattet, um rund um die Uhr schnelle Diagnose und sofortige chirurgische Behandlung zu bieten. Wir priorisieren die Sicherheit der Patientin und verwenden wann immer möglich minimalinvasive Techniken, auch in Notfallsituationen."
+    }
+  },
   "stories": {
     "title": "Erfolgsgeschichten",
     "fertility": {

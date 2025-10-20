@@ -1,0 +1,209 @@
+@import '../../app/scss/colors';
+@import '../../app/scss/mixins';
+@import '../../app/scss/fonts';
+
+.gynecology-planned {
+    background-color: $white;
+    padding: 40px 0 80px;
+    min-height: 60vh;
+    
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    // Main Header Section
+    &__main-header {
+        text-align: left;
+        margin-bottom: 60px;
+        padding-top: 20px;
+        
+        [dir="rtl"] & {
+            text-align: right;
+        }
+    }
+
+    &__main-title {
+        @include title-h1;
+        color: $primary;
+        margin-bottom: 25px;
+        line-height: 1.3;
+        
+        @media (max-width: 768px) {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+    }
+
+    &__main-description {
+        @include body-lg;
+        color: $grey-1;
+        line-height: 1.8;
+        max-width: 900px;
+        text-align: justify;
+        
+        [dir="rtl"] & {
+            text-align: justify;
+        }
+        
+        @media (max-width: 768px) {
+            font-size: 1rem;
+        }
+    }
+
+    // Section Styling
+    &__section {
+        padding: 60px 0;
+        
+        &:first-of-type {
+            background-color: $white-full;
+        }
+        
+        &:nth-of-type(2) {
+            background-color: $grey-3;
+        }
+        
+        &:nth-of-type(3) {
+            background-color: $white-full;
+        }
+        
+        @media (max-width: 768px) {
+            padding: 50px 0;
+        }
+    }
+    
+    &__section-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    &__section-header {
+        text-align: left;
+        margin-bottom: 40px;
+        
+        [dir="rtl"] & {
+            text-align: right;
+        }
+    }
+
+    &__section-title {
+        @include title-h2;
+        color: $primary;
+        margin-bottom: 20px;
+        
+        @media (max-width: 768px) {
+            font-size: 1.75rem;
+            margin-bottom: 15px;
+        }
+    }
+
+    &__section-description {
+        @include body-lg;
+        color: $grey-2;
+        line-height: 1.7;
+        max-width: 900px;
+        text-align: justify;
+        
+        [dir="rtl"] & {
+            text-align: justify;
+        }
+        
+        @media (max-width: 768px) {
+            font-size: 0.95rem;
+        }
+    }
+
+    // Grid Layout
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+        
+        @media (max-width: 1200px) {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+        
+        @media (max-width: 480px) {
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+    }
+
+    // Item Cards
+    &__item {
+        background: $gradient-rose;
+        border-radius: 12px;
+        padding: 30px 25px;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        min-height: 140px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        cursor: pointer;
+        
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        @media (max-width: 768px) {
+            padding: 25px 20px;
+            min-height: 130px;
+        }
+        
+        @media (max-width: 480px) {
+            padding: 20px 15px;
+            min-height: 120px;
+        }
+    }
+
+    &__item-title {
+        @include title-h3;
+        color: $black;
+        margin: 0;
+        line-height: 1.3;
+        font-size: 1.1rem;
+        font-weight: 600;
+        
+        @media (max-width: 768px) {
+            font-size: 1rem;
+        }
+        
+        @media (max-width: 480px) {
+            font-size: 0.95rem;
+        }
+    }
+
+    // RTL Support
+    &[dir="rtl"] {
+        .gynecology-planned__main-title,
+        .gynecology-planned__section-title {
+            text-align: right;
+        }
+        
+        .gynecology-planned__item-title {
+            text-align: center;
+        }
+    }
+
+    // Mobile Styles
+    @media (max-width: 768px) {
+        padding: 30px 0 60px;
+        
+        &__main-header {
+            margin-bottom: 40px;
+        }
+    }
+}
+
