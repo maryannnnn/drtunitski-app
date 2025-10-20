@@ -36,6 +36,13 @@
     }
   }
 
+  &__categories {
+    font-size: 14px;
+    color: $grey-4;
+    padding: 8px 0 12px 0;
+    line-height: 1.4;
+  }
+
   &__anons {
     display: block;
     padding-bottom: 20px;

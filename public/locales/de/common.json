@@ -296,6 +296,12 @@
     "noPosts": "Derzeit sind keine Beiträge verfügbar.",
     "allCategories": "Alle"
   },
+  "storyMain": {
+    "title": "Erfolgsgeschichten",
+    "seoTitle": "Erfolgsgeschichten - Klinik von Dr. Serge Tunitski",
+    "seoDescription": "Lesen Sie inspirierende Erfolgsgeschichten unserer Patienten, die in der Klinik von Dr. Serge Tunitski behandelt wurden. Echte Erfahrungen und positive Ergebnisse.",
+    "noPosts": "Derzeit sind keine Geschichten verfügbar."
+  },
   "mediaNews": {
     "title": "Medizinische Nachrichten",
     "seoTitle": "Aktuelle medizinische Nachrichten | Klinik von Dr. Serge Tunitski",

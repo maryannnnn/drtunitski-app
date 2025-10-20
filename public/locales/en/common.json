@@ -312,6 +312,12 @@
     "noPosts": "No posts available at the moment.",
     "allCategories": "All"
   },
+  "storyMain": {
+    "title": "Success Stories",
+    "seoTitle": "Success Stories - Dr. Serge Tunitski Clinic",
+    "seoDescription": "Read inspiring success stories from our patients who have undergone treatment at Dr. Serge Tunitski Clinic. Real experiences and positive outcomes.",
+    "noPosts": "No stories available at the moment."
+  },
   "mediaNews": {
     "title": "Medical News",
     "seoTitle": "Latest Medical News | Dr. Serge Tunitski Clinic",

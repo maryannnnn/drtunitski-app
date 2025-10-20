@@ -1,0 +1,174 @@
+@import '../../app/scss/colors';
+@import '../../app/scss/mixins';
+
+.story-main {
+    background-color: $white;
+    padding: 40px 0 80px;
+    min-height: 60vh;
+    
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    &__title {
+        @include title-h1;
+        color: $primary;
+        text-align: left;
+        margin: 0 0 15px 0;
+        line-height: 1.2;
+        padding-top: 15px;
+        
+        @media (max-width: 768px) {
+            font-size: 2rem;
+        }
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        margin: 40px 0;
+        
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+    }
+
+    &__card {
+        display: block;
+        text-decoration: none;
+        background: $white-full;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        position: relative;
+        height: 100%;
+        color: inherit;
+        
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            
+            .story-main__card-image {
+                img {
+                    transform: scale(1.05);
+                }
+            }
+        }
+    }
+
+    &__card-image {
+        position: relative;
+        width: 100%;
+        height: 240px;
+        overflow: hidden;
+        background-color: $grey-4;
+        
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        @media (max-width: 768px) {
+            height: 200px;
+        }
+        
+        @media (max-width: 480px) {
+            height: 180px;
+        }
+    }
+
+    &__card-placeholder {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, $grey-4 0%, $grey-3 100%);
+        
+        svg {
+            opacity: 0.3;
+        }
+    }
+
+    &__card-content {
+        padding: 25px 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        
+        @media (max-width: 768px) {
+            padding: 20px 15px;
+        }
+    }
+
+    &__card-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: $primary;
+        margin: 0;
+        line-height: 1.4;
+        text-align: left;
+        min-height: 50px;
+        
+        @media (max-width: 768px) {
+            font-size: 1.25rem;
+            min-height: auto;
+        }
+    }
+
+    &__card-excerpt {
+        font-size: 0.95rem;
+        color: $grey-2;
+        line-height: 1.5;
+        text-align: justify;
+    }
+
+    &__pagination {
+        margin-top: 60px;
+        display: flex;
+        justify-content: center;
+        
+        @media (max-width: 768px) {
+            margin-top: 40px;
+        }
+    }
+
+    &__error,
+    &__empty {
+        text-align: center;
+        padding: 60px 20px;
+        
+        p {
+            font-size: 1.2rem;
+            color: $grey-2;
+        }
+    }
+
+    // RTL Support
+    &[dir="rtl"] {
+        .story-main__title {
+            text-align: right;
+        }
+        
+        .story-main__card-title {
+            text-align: right;
+        }
+        
+        .story-main__card-excerpt {
+            text-align: justify;
+        }
+    }
+
+    // Mobile Styles
+    @media (max-width: 768px) {
+        padding: 20px 0 60px;
+    }
+}
+
