@@ -280,6 +280,81 @@
       "description": "Las cirugías ginecológicas de emergencia se realizan para afecciones agudas que requieren intervención inmediata para preservar la vida y la salud. Estas incluyen el tratamiento de quistes ováricos rotos, perforación uterina, piosalpinx, absceso tubo-ovárico y embarazo ectópico. El tiempo es crítico en estos casos, y nuestro equipo está equipado para proporcionar diagnóstico rápido y tratamiento quirúrgico inmediato las 24 horas del día, los 7 días de la semana. Priorizamos la seguridad de las pacientes y utilizamos técnicas mínimamente invasivas siempre que sea posible, incluso en situaciones de emergencia."
     }
   },
+  "surgeryCancer": {
+    "mainTitle": "Oncología Ginecológica - Diagnóstico, Cirugías Oncológicas y Tratamiento del Cáncer por un Cirujano Ginecólogo Experimentado",
+    "mainDescription": "Atención oncológica ginecológica integral por un ginecólogo y cirujano experimentado. Diagnóstico, prevención y tratamiento de cánceres femeninos incluyendo cáncer de endometrio, cuello uterino, útero, vagina, vulva y trompas de Falopio. Cirugías oncológicas avanzadas, planes de tratamiento personalizados y atención compasiva dirigida a preservar la salud, la fertilidad y la calidad de vida.",
+    "seoTitle": "Oncología Ginecológica y Cirugía del Cáncer - Dr. Serge Tunitski",
+    "seoDescription": "Atención experta en oncología ginecológica: diagnóstico y tratamiento quirúrgico de cáncer de endometrio, cuello uterino, útero, vagina, vulva y otras neoplasias ginecológicas.",
+    "cancerTypes": {
+      "endometrialCancer": "Cáncer de Endometrio",
+      "cervicalCancer": "Cáncer de Cuello Uterino",
+      "uterineSarcoma": "Sarcoma Uterino",
+      "fallopianTubeCancer": "Cáncer de Trompas de Falopio",
+      "vaginalCancer": "Cáncer de Vagina",
+      "vulvarCancer": "Cáncer de Vulva",
+      "choriocarcinoma": "Coriocarcinoma",
+      "metastaticTumors": "Tumores Metastásicos",
+      "molarPregnancy": "Embarazo Molar"
+    }
+  },
+  "surgeryImportant": {
+    "mainTitle": "Cirugía Ginecológica - Laparoscopia, Histeroscopia y Procedimientos Reconstructivos Complejos por un Cirujano Ginecólogo Experto",
+    "mainDescription": "Servicios integrales de cirugía ginecológica incluyendo procedimientos laparoscópicos e histeroscópicos realizados por un cirujano ginecólogo experimentado. Experiencia en cistectomía ovárica, miomectomía, histerectomía, escisión de endometriosis y tratamiento de condiciones uterinas y cervicales. Técnicas mínimamente invasivas, precisión y atención personalizada enfocada en restaurar la salud de las mujeres y mejorar la calidad de vida.",
+    "seoTitle": "Cirugía y Procedimientos Ginecológicos - Dr. Serge Tunitski",
+    "seoDescription": "Cirugía ginecológica experta: laparoscopia, histeroscopia, miomectomía, histerectomía y procedimientos reconstructivos complejos por un cirujano experimentado.",
+    "importantSurgeries": {
+      "title": "Cirugías Importantes",
+      "description": "Procedimientos ginecológicos esenciales que abordan condiciones comunes que afectan la salud reproductiva de las mujeres. Estas cirugías incluyen técnicas laparoscópicas e histeroscópicas para tratar quistes ováricos, miomas uterinos, pólipos endometriales y embarazos ectópicos. Cada procedimiento se realiza con precisión utilizando métodos mínimamente invasivos.",
+      "laparoscopicCystectomy": "Cistectomía Ovárica Laparoscópica",
+      "hysteroscopyPolyp": "Histeroscopia con Extracción de Pólipo Endometrial",
+      "laparoscopicMyomectomy": "Miomectomía Laparoscópica",
+      "hysteroscopicResection": "Resección Histeroscópica de Mioma Submucoso",
+      "laparoscopicSalpingectomy": "Salpingectomía Laparoscópica para Embarazo Ectópico",
+      "laparoscopicAdhesiolysis": "Adhesiolisis Laparoscópica",
+      "diagnosticLaparoscopy": "Laparoscopia Diagnóstica",
+      "vacuumAspiration": "Aspiración por Vacío de la Cavidad Uterina",
+      "medicalTermination": "Terminación Médica del Embarazo",
+      "cervicalConization": "Conización Cervical"
+    },
+    "complexSurgeries": {
+      "title": "Cirugías Complejas",
+      "description": "Procedimientos quirúrgicos avanzados que requieren experiencia y conocimientos especializados. Estas operaciones abordan condiciones ginecológicas complejas incluyendo endometriosis severa, prolapso de órganos pélvicos, incontinencia por estrés y trastornos ováricos. Cada cirugía se planifica y ejecuta cuidadosamente utilizando técnicas y equipos de vanguardia.",
+      "hysterectomy": "Histerectomía",
+      "ovarianResection": "Resección Ovárica para SOP",
+      "endometriosisExcision": "Escisión Laparoscópica de Focos de Endometriosis",
+      "sacrocolpopexy": "Sacrocolpopexia",
+      "colporrhaphy": "Colporrafia Anterior/Posterior",
+      "tvtoProcedure": "Procedimiento TVT-O",
+      "cervicalLaser": "Vaporización Cervical con Láser"
+    },
+    "specializedSurgeries": {
+      "title": "Cirugías Especializadas",
+      "description": "Procedimientos altamente especializados para el tratamiento de patologías complejas y condiciones oncológicas. Estas cirugías requieren formación extensiva, habilidades avanzadas y conocimiento integral de la anatomía ginecológica. Los procedimientos incluyen operaciones radicales para tratamiento del cáncer, extracción de quistes endometriósicos grandes y reconstrucción de estructuras anatómicas.",
+      "radicalHysterectomy": "Histerectomía Radical",
+      "lymphadenectomy": "Linfadenectomía",
+      "largeCysts": "Extracción de Quistes Endometriósicos Grandes (>5 cm)",
+      "vaginalStrictures": "Escisión de Estenosis Cicatriciales Vaginales",
+      "radicalVulvectomy": "Vulvectomía Radical"
+    },
+    "plasticSurgery": {
+      "title": "Cirugía Plástica",
+      "description": "Procedimientos estéticos y reconstructivos del área genital femenina realizados con precisión y cuidado. Estas cirugías abordan tanto preocupaciones funcionales como cosméticas, ayudando a las mujeres a sentirse más cómodas y seguras. Los procedimientos se realizan utilizando técnicas modernas que minimizan las cicatrices y aseguran resultados de aspecto natural.",
+      "labiaplasty": "Labioplastia (Cirugía de los Labios Menores)",
+      "hymenoplasty": "Himenoplastia (Restauración del Himen)"
+    }
+  },
+  "surgeryPlastic": {
+    "mainTitle": "Ginecología Plástica y Estética - Labioplastia, Himenoplastia, Botox y Procedimientos de Rejuvenecimiento por un Cirujano Ginecólogo",
+    "mainDescription": "Ginecología estética y plástica realizada por un cirujano ginecólogo experimentado. Cirugías íntimas profesionales incluyendo labioplastia e himenoplastia, así como tratamientos estéticos avanzados como rejuvenecimiento vaginal, Botox y restauración de tejidos. Enfoque personalizado, seguro y discreto dirigido a mejorar la comodidad, confianza y salud femenina.",
+    "seoTitle": "Ginecología Plástica y Estética - Dr. Serge Tunitski",
+    "seoDescription": "Ginecología estética: labioplastia, himenoplastia, rejuvenecimiento vaginal, Botox y cirugía plástica íntima por un cirujano experimentado.",
+    "plasticSurgeries": {
+      "title": "Cirugías Importantes",
+      "description": "Procedimientos de cirugía plástica íntima realizados con experiencia, precisión y completa discreción. Estas cirugías están diseñadas para mejorar tanto la apariencia estética como la comodidad funcional del área íntima. Cada procedimiento se adapta a las necesidades y preocupaciones individuales, utilizando técnicas quirúrgicas avanzadas que aseguran cicatrices mínimas, recuperación rápida y resultados naturales. Proporcionamos consulta preoperatoria integral, información detallada sobre los procedimientos y atención postoperatoria atenta para garantizar curación óptima y satisfacción del paciente.",
+      "labiaplasty": "Labioplastia (Cirugía de los Labios Menores)",
+      "hymenoplasty": "Himenoplastia (Restauración del Himen)"
+    }
+  },
   "stories": {
     "title": "Historias de éxito",
     "fertility": {

@@ -280,6 +280,81 @@
       "description": "Gynäkologische Notfalloperationen werden bei akuten Zuständen durchgeführt, die sofortige Intervention erfordern, um Leben und Gesundheit zu erhalten. Dazu gehören die Behandlung von geplatzten Eierstockzysten, Uterusperforation, Pyosalpinx, tuboovarialem Abszess und Eileiterschwangerschaft. Zeit ist in diesen Fällen kritisch, und unser Team ist ausgestattet, um rund um die Uhr schnelle Diagnose und sofortige chirurgische Behandlung zu bieten. Wir priorisieren die Sicherheit der Patientin und verwenden wann immer möglich minimalinvasive Techniken, auch in Notfallsituationen."
     }
   },
+  "surgeryCancer": {
+    "mainTitle": "Gynäkologische Onkologie - Diagnose, onkologische Operationen und Krebsbehandlung durch einen erfahrenen Gynäkologen-Chirurgen",
+    "mainDescription": "Umfassende gynäkologische onkologische Versorgung durch einen erfahrenen Gynäkologen und Chirurgen. Diagnose, Prävention und Behandlung von Frauenkrebserkrankungen einschließlich Endometrium-, Gebärmutterhals-, Gebärmutter-, Vaginal-, Vulva- und Eileiterkrebs. Fortgeschrittene onkologische Operationen, personalisierte Behandlungspläne und mitfühlende Betreuung mit dem Ziel, Gesundheit, Fruchtbarkeit und Lebensqualität zu erhalten.",
+    "seoTitle": "Gynäkologische Onkologie und Krebschirurgie - Dr. Serge Tunitski",
+    "seoDescription": "Expertenvversorgung in gynäkologischer Onkologie: Diagnose und chirurgische Behandlung von Endometrium-, Gebärmutterhals-, Gebärmutter-, Vaginal-, Vulvakrebs und anderen gynäkologischen Malignomen.",
+    "cancerTypes": {
+      "endometrialCancer": "Endometriumkrebs",
+      "cervicalCancer": "Gebärmutterhalskrebs",
+      "uterineSarcoma": "Gebärmuttersarkom",
+      "fallopianTubeCancer": "Eileiterkrebs",
+      "vaginalCancer": "Vaginalkrebs",
+      "vulvarCancer": "Vulvakrebs",
+      "choriocarcinoma": "Chorionkarzinom",
+      "metastaticTumors": "Metastatische Tumoren",
+      "molarPregnancy": "Blasenmole"
+    }
+  },
+  "surgeryImportant": {
+    "mainTitle": "Gynäkologische Chirurgie - Laparoskopie, Hysteroskopie und komplexe rekonstruktive Eingriffe durch einen erfahrenen Gynäkologen-Chirurgen",
+    "mainDescription": "Umfassende gynäkologische Chirurgiedienste einschließlich laparoskopischer und hysteroskopischer Eingriffe durch einen erfahrenen Gynäkologen-Chirurgen. Expertise in Ovariozystektomie, Myomektomie, Hysterektomie, Endometrioseexzision und Behandlung von Gebärmutter- und Zervixerkrankungen. Minimalinvasive Techniken, Präzision und personalisierte Betreuung zur Wiederherstellung der Frauengesundheit und Verbesserung der Lebensqualität.",
+    "seoTitle": "Gynäkologische Chirurgie und Eingriffe - Dr. Serge Tunitski",
+    "seoDescription": "Experten-gynäkologische Chirurgie: Laparoskopie, Hysteroskopie, Myomektomie, Hysterektomie und komplexe rekonstruktive Eingriffe durch einen erfahrenen Chirurgen.",
+    "importantSurgeries": {
+      "title": "Wichtige Operationen",
+      "description": "Wesentliche gynäkologische Eingriffe zur Behandlung häufiger Erkrankungen der weiblichen Reproduktionsgesundheit. Diese Operationen umfassen laparoskopische und hysteroskopische Techniken zur Behandlung von Ovarialzysten, Uterusmyomen, Endometriumpolypen und Eileiterschwangerschaften. Jeder Eingriff wird präzise unter Verwendung minimalinvasiver Methoden durchgeführt.",
+      "laparoscopicCystectomy": "Laparoskopische Ovariozystektomie",
+      "hysteroscopyPolyp": "Hysteroskopie mit Endometriumpolypenentfernung",
+      "laparoscopicMyomectomy": "Laparoskopische Myomektomie",
+      "hysteroscopicResection": "Hysteroskopische Resektion des submukös Myoms",
+      "laparoscopicSalpingectomy": "Laparoskopische Salpingektomie bei Eileiterschwangerschaft",
+      "laparoscopicAdhesiolysis": "Laparoskopische Adhäsiolyse",
+      "diagnosticLaparoscopy": "Diagnostische Laparoskopie",
+      "vacuumAspiration": "Vakuumaspiration der Gebärmutterhöhle",
+      "medicalTermination": "Medizinischer Schwangerschaftsabbruch",
+      "cervicalConization": "Zervixkonisation"
+    },
+    "complexSurgeries": {
+      "title": "Komplexe Operationen",
+      "description": "Fortgeschrittene chirurgische Eingriffe, die spezialisierte Expertise und Erfahrung erfordern. Diese Operationen behandeln komplexe gynäkologische Zustände einschließlich schwerer Endometriose, Beckenorganprolaps, Stressinkontinenz und Eierstockerkrankungen. Jede Operation wird sorgfältig geplant und mit modernsten Techniken und Geräten durchgeführt.",
+      "hysterectomy": "Hysterektomie",
+      "ovarianResection": "Ovarialresektion bei PCOS",
+      "endometriosisExcision": "Laparoskopische Exzision von Endometrioseherden",
+      "sacrocolpopexy": "Sakrokolpopexie",
+      "colporrhaphy": "Anterior/Posterior Kolporrhaphie",
+      "tvtoProcedure": "TVT-O-Verfahren",
+      "cervicalLaser": "Zervikale Laservaporisation"
+    },
+    "specializedSurgeries": {
+      "title": "Spezialisierte Operationen",
+      "description": "Hochspezialisierte Eingriffe zur Behandlung komplexer Pathologien und onkologischer Erkrankungen. Diese Operationen erfordern umfangreiche Ausbildung, fortgeschrittene Fähigkeiten und umfassendes Wissen der gynäkologischen Anatomie. Verfahren umfassen radikale Operationen zur Krebsbehandlung, Entfernung großer endometriotischer Zysten und Rekonstruktion anatomischer Strukturen.",
+      "radicalHysterectomy": "Radikale Hysterektomie",
+      "lymphadenectomy": "Lymphadenektomie",
+      "largeCysts": "Entfernung großer endometriotischer Zysten (>5 cm)",
+      "vaginalStrictures": "Exzision vaginaler Narbenstricturen",
+      "radicalVulvectomy": "Radikale Vulvektomie"
+    },
+    "plasticSurgery": {
+      "title": "Plastische Chirurgie",
+      "description": "Ästhetische und rekonstruktive Eingriffe im weiblichen Genitalbereich mit Präzision und Sorgfalt durchgeführt. Diese Operationen behandeln sowohl funktionelle als auch kosmetische Anliegen und helfen Frauen, sich wohler und selbstbewusster zu fühlen. Verfahren werden mit modernen Techniken durchgeführt, die Narbenbildung minimieren und natürlich aussehende Ergebnisse gewährleisten.",
+      "labiaplasty": "Labioplastik (Operation der kleinen Schamlippen)",
+      "hymenoplasty": "Hymenoplastik (Wiederherstellung des Jungfernhäutchens)"
+    }
+  },
+  "surgeryPlastic": {
+    "mainTitle": "Plastische und Ästhetische Gynäkologie - Labioplastik, Hymenoplastik, Botox und Verjüngungsverfahren durch einen Gynäkologen-Chirurgen",
+    "mainDescription": "Ästhetische und plastische Gynäkologie durchgeführt von einem erfahrenen Gynäkologen-Chirurgen. Professionelle intime Operationen einschließlich Labioplastik und Hymenoplastik sowie fortgeschrittene ästhetische Behandlungen wie vaginale Verjüngung, Botox und Gewebewiederherstellung. Personalisierter, sicherer und diskreter Ansatz zur Verbesserung von Komfort, Selbstvertrauen und Frauengesundheit.",
+    "seoTitle": "Plastische und Ästhetische Gynäkologie - Dr. Serge Tunitski",
+    "seoDescription": "Ästhetische Gynäkologie: Labioplastik, Hymenoplastik, vaginale Verjüngung, Botox und intime plastische Chirurgie durch einen erfahrenen Chirurgen.",
+    "plasticSurgeries": {
+      "title": "Wichtige Operationen",
+      "description": "Intime plastische Chirurgieverfahren durchgeführt mit Expertise, Präzision und völliger Diskretion. Diese Operationen sind darauf ausgelegt, sowohl das ästhetische Erscheinungsbild als auch den funktionellen Komfort des intimen Bereichs zu verbessern. Jedes Verfahren wird auf individuelle Bedürfnisse und Anliegen zugeschnitten, unter Verwendung fortgeschrittener chirurgischer Techniken, die minimale Narbenbildung, schnelle Genesung und natürliche Ergebnisse gewährleisten. Wir bieten umfassende präoperative Beratung, detaillierte Informationen über die Verfahren und aufmerksame postoperative Betreuung zur optimalen Heilung und Patientenzufriedenheit.",
+      "labiaplasty": "Labioplastik (Operation der kleinen Schamlippen)",
+      "hymenoplasty": "Hymenoplastik (Wiederherstellung des Jungfernhäutchens)"
+    }
+  },
   "stories": {
     "title": "Erfolgsgeschichten",
     "fertility": {

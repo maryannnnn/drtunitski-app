@@ -1,13 +1,16 @@
 import './planned.scss';
-import React from 'react';
-import { useRouter } from 'next/router';
-import { useTranslation } from 'next-i18next';
+import React, { useState } from 'react';
+import {useRouter} from 'next/router';
+import {useTranslation} from 'next-i18next';
 import LeftLayout from '../../app/layouts/LeftLayout';
+import ButtonBrown from '../../shared/button-brown/ButtonBrown';
+import Modal from '../../shared/modal/Modal';
 
 const GynecologyPlannedPage = () => {
-    const { t } = useTranslation('common');
+    const {t} = useTranslation('common');
     const router = useRouter();
-    const { locale } = router;
+    const {locale} = router;
+    const [isModalActive, setIsModalActive] = useState(false);
 
     // Fallback function if translation is not available
     const safeT = (key) => {
@@ -30,30 +33,30 @@ const GynecologyPlannedPage = () => {
 
     // Planned Surgeries items
     const plannedItems = [
-        { title: safeT('navigation.gynecologyItems.uterineFibroids') },
-        { title: safeT('navigation.gynecologyItems.endometriosis') },
-        { title: safeT('navigation.gynecologyItems.ovarianDiseases') },
-        { title: safeT('navigation.gynecologyItems.rectoceleCystocele') },
-        { title: safeT('navigation.gynecologyItems.cinIII') },
-        { title: safeT('navigation.gynecologyItems.uterineProlapse') },
-        { title: safeT('navigation.gynecologyItems.genitalProlapse') }
+        {title: safeT('navigation.gynecologyItems.uterineFibroids')},
+        {title: safeT('navigation.gynecologyItems.endometriosis')},
+        {title: safeT('navigation.gynecologyItems.ovarianDiseases')},
+        {title: safeT('navigation.gynecologyItems.rectoceleCystocele')},
+        {title: safeT('navigation.gynecologyItems.cinIII')},
+        {title: safeT('navigation.gynecologyItems.uterineProlapse')},
+        {title: safeT('navigation.gynecologyItems.genitalProlapse')}
     ];
 
     // Moderate-Risk Surgeries items
     const moderateRiskItems = [
-        { title: safeT('navigation.gynecologyItems.chronicHydrosalpinx') },
-        { title: safeT('navigation.gynecologyItems.adhesiveDisease') },
-        { title: safeT('navigation.gynecologyItems.vaginalSeptum') },
-        { title: safeT('navigation.gynecologyItems.polyps') }
+        {title: safeT('navigation.gynecologyItems.chronicHydrosalpinx')},
+        {title: safeT('navigation.gynecologyItems.adhesiveDisease')},
+        {title: safeT('navigation.gynecologyItems.vaginalSeptum')},
+        {title: safeT('navigation.gynecologyItems.polyps')}
     ];
 
     // Emergency Surgeries items
     const emergencyItems = [
-        { title: safeT('navigation.gynecologyItems.ovarianCyst') },
-        { title: safeT('navigation.gynecologyItems.uterinePerforation') },
-        { title: safeT('navigation.gynecologyItems.pyosalpinx') },
-        { title: safeT('navigation.gynecologyItems.tuboOvarianAbscess') },
-        { title: safeT('navigation.gynecologyItems.ectopicPregnancy') }
+        {title: safeT('navigation.gynecologyItems.ovarianCyst')},
+        {title: safeT('navigation.gynecologyItems.uterinePerforation')},
+        {title: safeT('navigation.gynecologyItems.pyosalpinx')},
+        {title: safeT('navigation.gynecologyItems.tuboOvarianAbscess')},
+        {title: safeT('navigation.gynecologyItems.ectopicPregnancy')}
     ];
 
     return (
@@ -73,90 +76,128 @@ const GynecologyPlannedPage = () => {
 
                 {/* Planned Surgeries Block */}
                 <div className="gynecology-planned__section">
-                        <div className="gynecology-planned__section-container">
-                            <div className="gynecology-planned__section-header">
-                                <h2 className="gynecology-planned__section-title">
-                                    {safeT('gynecologyPlanned.plannedSurgeries.title')}
-                                </h2>
-                                <p className="gynecology-planned__section-description">
-                                    {safeT('gynecologyPlanned.plannedSurgeries.description')}
-                                </p>
-                            </div>
-                            <div className="gynecology-planned__grid">
-                                {plannedItems.map((item, index) => (
-                                    <div 
-                                        key={index}
-                                        className="gynecology-planned__item"
-                                    >
-                                        <h3 className="gynecology-planned__item-title">
-                                            {item.title}
-                                        </h3>
-                                    </div>
-                                ))}
-                            </div>
+                    <div className="gynecology-planned__section-container">
+                        <div className="gynecology-planned__section-header">
+                            <h2 className="gynecology-planned__section-title">
+                                {safeT('gynecologyPlanned.plannedSurgeries.title')}
+                            </h2>
+                            <p className="gynecology-planned__section-description">
+                                {safeT('gynecologyPlanned.plannedSurgeries.description')}
+                            </p>
                         </div>
-                    </div>
+                        <div className="gynecology-planned__grid">
+                            {plannedItems.map((item, index) => (
+                                <div
+                                    key={index}
+                                    className="gynecology-planned__item"
+                                >
+                                    <h3 className="gynecology-planned__item-title">
+                                        {item.title}
+                                    </h3>
+                                </div>
+                            ))}
+                        </div>
 
-                    {/* Moderate-Risk Surgeries Block */}
-                    <div className="gynecology-planned__section">
-                        <div className="gynecology-planned__section-container">
-                            <div className="gynecology-planned__section-header">
-                                <h2 className="gynecology-planned__section-title">
-                                    {safeT('gynecologyPlanned.moderateRiskSurgeries.title')}
-                                </h2>
-                                <p className="gynecology-planned__section-description">
-                                    {safeT('gynecologyPlanned.moderateRiskSurgeries.description')}
-                                </p>
-                            </div>
-                            <div className="gynecology-planned__grid">
-                                {moderateRiskItems.map((item, index) => (
-                                    <div 
-                                        key={index}
-                                        className="gynecology-planned__item"
-                                    >
-                                        <h3 className="gynecology-planned__item-title">
-                                            {item.title}
-                                        </h3>
-                                    </div>
-                                ))}
-                            </div>
+                        {/* Appointment Button */}
+                        <div className="gynecology-planned__appointment-btn">
+                            <ButtonBrown
+                                onClick={() => setIsModalActive(true)}
+                                className="gynecology-planned__appointment-button"
+                            >
+                                {safeT('buttons.bookAppointment')}
+                            </ButtonBrown>
                         </div>
                     </div>
+                </div>
 
-                    {/* Emergency Surgeries Block */}
-                    <div className="gynecology-planned__section">
-                        <div className="gynecology-planned__section-container">
-                            <div className="gynecology-planned__section-header">
-                                <h2 className="gynecology-planned__section-title">
-                                    {safeT('gynecologyPlanned.emergencySurgeries.title')}
-                                </h2>
-                                <p className="gynecology-planned__section-description">
-                                    {safeT('gynecologyPlanned.emergencySurgeries.description')}
-                                </p>
-                            </div>
-                            <div className="gynecology-planned__grid">
-                                {emergencyItems.map((item, index) => (
-                                    <div 
-                                        key={index}
-                                        className="gynecology-planned__item"
-                                    >
-                                        <h3 className="gynecology-planned__item-title">
-                                            {item.title}
-                                        </h3>
-                                    </div>
-                                ))}
-                            </div>
+                {/* Moderate-Risk Surgeries Block */}
+                <div className="gynecology-planned__section">
+                    <div className="gynecology-planned__section-container">
+                        <div className="gynecology-planned__section-header">
+                            <h2 className="gynecology-planned__section-title">
+                                {safeT('gynecologyPlanned.moderateRiskSurgeries.title')}
+                            </h2>
+                            <p className="gynecology-planned__section-description">
+                                {safeT('gynecologyPlanned.moderateRiskSurgeries.description')}
+                            </p>
+                        </div>
+                        <div className="gynecology-planned__grid">
+                            {moderateRiskItems.map((item, index) => (
+                                <div
+                                    key={index}
+                                    className="gynecology-planned__item"
+                                >
+                                    <h3 className="gynecology-planned__item-title">
+                                        {item.title}
+                                    </h3>
+                                </div>
+                            ))}
+                        </div>
+
+                        {/* Appointment Button */}
+                        <div className="gynecology-planned__appointment-btn">
+                            <ButtonBrown
+                                onClick={() => setIsModalActive(true)}
+                                className="gynecology-planned__appointment-button"
+                            >
+                                {safeT('buttons.bookAppointment')}
+                            </ButtonBrown>
                         </div>
                     </div>
+                </div>
+
+                {/* Emergency Surgeries Block */}
+                <div className="gynecology-planned__section">
+                    <div className="gynecology-planned__section-container">
+                        <div className="gynecology-planned__section-header">
+                            <h2 className="gynecology-planned__section-title">
+                                {safeT('gynecologyPlanned.emergencySurgeries.title')}
+                            </h2>
+                            <p className="gynecology-planned__section-description">
+                                {safeT('gynecologyPlanned.emergencySurgeries.description')}
+                            </p>
+                        </div>
+                        <div className="gynecology-planned__grid">
+                            {emergencyItems.map((item, index) => (
+                                <div
+                                    key={index}
+                                    className="gynecology-planned__item"
+                                >
+                                    <h3 className="gynecology-planned__item-title">
+                                        {item.title}
+                                    </h3>
+                                </div>
+                            ))}
+                        </div>
+
+                        {/* Appointment Button */}
+                        <div className="gynecology-planned__appointment-btn">
+                            <ButtonBrown
+                                onClick={() => setIsModalActive(true)}
+                                className="gynecology-planned__appointment-button"
+                            >
+                                {safeT('buttons.bookAppointment')}
+                            </ButtonBrown>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+            {/* Modal */}
+            <Modal
+                active={isModalActive}
+                setActive={setIsModalActive}
+                title={safeT('buttons.bookAppointment')}
+            />
         </LeftLayout>
+
     );
 };
 
-export async function getStaticProps({ locale }) {
+export async function getStaticProps({locale}) {
     return {
         props: {
-            ...(await import('next-i18next/serverSideTranslations').then(({ serverSideTranslations }) =>
+            ...(await import('next-i18next/serverSideTranslations').then(({serverSideTranslations}) =>
                 serverSideTranslations(locale, ['common'])
             )),
         },

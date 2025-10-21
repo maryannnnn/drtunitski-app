@@ -2,9 +2,7 @@
 @import '../../app/scss/mixins';
 @import '../../app/scss/fonts';
 
-.gynecology-planned {
-    background-color: $white;
-    padding: 40px 0 80px;
+.surgery-cancer {
     min-height: 60vh;
     
     .container {
@@ -13,11 +11,11 @@
         padding: 0 20px;
     }
 
-    // Main Header Section
+    // Main Header Section with white background
     &__main-header {
+        background-color: $white; // #FFF9F0
+        padding: 40px 0 60px;
         text-align: left;
-        margin-bottom: 60px;
-        padding-top: 20px;
         
         [dir="rtl"] & {
             text-align: right;
@@ -52,24 +50,13 @@
         }
     }
 
-    // Section Styling
+    // Section with white-full background
     &__section {
-        padding: 60px 0;
-        
-        &:first-of-type {
-            background-color: $white-full;
-        }
-        
-        &:nth-of-type(2) {
-            background-color: $grey-3;
-        }
-        
-        &:nth-of-type(3) {
-            background-color: $white-full;
-        }
+        background-color: $white-full; // #ffffff
+        padding: 60px 0 80px;
         
         @media (max-width: 768px) {
-            padding: 50px 0;
+            padding: 50px 0 60px;
         }
     }
     
@@ -79,46 +66,10 @@
         padding: 0 20px;
     }
 
-    &__section-header {
-        text-align: left;
-        margin-bottom: 40px;
-        
-        [dir="rtl"] & {
-            text-align: right;
-        }
-    }
-
-    &__section-title {
-        @include title-h2;
-        color: $primary;
-        margin-bottom: 20px;
-        
-        @media (max-width: 768px) {
-            font-size: 1.75rem;
-            margin-bottom: 15px;
-        }
-    }
-
-    &__section-description {
-        @include body-lg;
-        color: $grey-2;
-        line-height: 1.7;
-        max-width: 900px;
-        text-align: justify;
-        
-        [dir="rtl"] & {
-            text-align: justify;
-        }
-        
-        @media (max-width: 768px) {
-            font-size: 0.95rem;
-        }
-    }
-
     // Grid Layout
     &__grid {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 25px;
         
         @media (max-width: 1200px) {
@@ -137,9 +88,9 @@
         }
     }
 
-    // Item Cards
+    // Item Cards with blue gradient
     &__item {
-        background: $gradient-rose;
+        background: $gradient-rose; // linear-gradient(90deg, #FFFFFF 0%, #8181DA 60%, #0303B5 100%)
         border-radius: 12px;
         padding: 30px 25px;
         transition: all 0.3s ease;
@@ -175,11 +126,11 @@
         line-height: 1.3;
         font-size: 1.1rem;
         font-weight: 600;
-        
+
         @media (max-width: 768px) {
             font-size: 1rem;
         }
-        
+
         @media (max-width: 480px) {
             font-size: 0.95rem;
         }
@@ -207,22 +158,12 @@
 
     // RTL Support
     &[dir="rtl"] {
-        .gynecology-planned__main-title,
-        .gynecology-planned__section-title {
+        .surgery-cancer__main-title {
             text-align: right;
         }
         
-        .gynecology-planned__item-title {
+        .surgery-cancer__item-title {
             text-align: center;
-        }
-    }
-
-    // Mobile Styles
-    @media (max-width: 768px) {
-        padding: 30px 0 60px;
-        
-        &__main-header {
-            margin-bottom: 40px;
         }
     }
 }

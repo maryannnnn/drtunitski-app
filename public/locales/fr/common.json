@@ -280,6 +280,81 @@
       "description": "Les chirurgies gynécologiques d'urgence sont réalisées pour des affections aiguës nécessitant une intervention immédiate pour préserver la vie et la santé. Celles-ci comprennent le traitement des kystes ovariens rompus, de la perforation utérine, du pyosalpinx, de l'abcès tubo-ovarien et de la grossesse extra-utérine. Le temps est critique dans ces cas, et notre équipe est équipée pour fournir un diagnostic rapide et un traitement chirurgical immédiat 24h/24 et 7j/7. Nous priorisons la sécurité des patientes et utilisons des techniques minimalement invasives dans la mesure du possible, même dans les situations d'urgence."
     }
   },
+  "surgeryCancer": {
+    "mainTitle": "Oncologie Gynécologique - Diagnostic, Chirurgies Oncologiques et Traitement du Cancer par un Chirurgien Gynécologue Expérimenté",
+    "mainDescription": "Soins oncologiques gynécologiques complets par un gynécologue et chirurgien expérimenté. Diagnostic, prévention et traitement des cancers féminins incluant les cancers de l'endomètre, du col de l'utérus, de l'utérus, du vagin, de la vulve et des trompes de Fallope. Chirurgies oncologiques avancées, plans de traitement personnalisés et soins compatissants visant à préserver la santé, la fertilité et la qualité de vie.",
+    "seoTitle": "Oncologie Gynécologique et Chirurgie du Cancer - Dr. Serge Tunitski",
+    "seoDescription": "Soins experts en oncologie gynécologique : diagnostic et traitement chirurgical des cancers de l'endomètre, du col de l'utérus, de l'utérus, du vagin, de la vulve et autres tumeurs malignes gynécologiques.",
+    "cancerTypes": {
+      "endometrialCancer": "Cancer de l'Endomètre",
+      "cervicalCancer": "Cancer du Col de l'Utérus",
+      "uterineSarcoma": "Sarcome Utérin",
+      "fallopianTubeCancer": "Cancer des Trompes de Fallope",
+      "vaginalCancer": "Cancer du Vagin",
+      "vulvarCancer": "Cancer de la Vulve",
+      "choriocarcinoma": "Choriocarcinome",
+      "metastaticTumors": "Tumeurs Métastatiques",
+      "molarPregnancy": "Grossesse Môlaire"
+    }
+  },
+  "surgeryImportant": {
+    "mainTitle": "Chirurgie Gynécologique - Laparoscopie, Hystéroscopie et Procédures Reconstructives Complexes par un Chirurgien Gynécologue Qualifié",
+    "mainDescription": "Services de chirurgie gynécologique complets incluant des procédures laparoscopiques et hystéroscopiques réalisées par un chirurgien gynécologue expérimenté. Expertise en cystectomie ovarienne, myomectomie, hystérectomie, excision d'endométriose et traitement des conditions utérines et cervicales. Techniques minimalement invasives, précision et soins personnalisés axés sur la restauration de la santé des femmes et l'amélioration de la qualité de vie.",
+    "seoTitle": "Chirurgie et Procédures Gynécologiques - Dr. Serge Tunitski",
+    "seoDescription": "Chirurgie gynécologique experte : laparoscopie, hystéroscopie, myomectomie, hystérectomie et procédures reconstructives complexes par un chirurgien expérimenté.",
+    "importantSurgeries": {
+      "title": "Chirurgies Importantes",
+      "description": "Procédures gynécologiques essentielles traitant des conditions courantes affectant la santé reproductive des femmes. Ces chirurgies incluent des techniques laparoscopiques et hystéroscopiques pour traiter les kystes ovariens, les fibromes utérins, les polypes endométriaux et les grossesses ectopiques. Chaque procédure est réalisée avec précision en utilisant des méthodes minimalement invasives.",
+      "laparoscopicCystectomy": "Cystectomie Ovarienne Laparoscopique",
+      "hysteroscopyPolyp": "Hystéroscopie avec Ablation de Polype Endométrial",
+      "laparoscopicMyomectomy": "Myomectomie Laparoscopique",
+      "hysteroscopicResection": "Résection Hystéroscopique de Myome Sous-Muqueux",
+      "laparoscopicSalpingectomy": "Salpingectomie Laparoscopique pour Grossesse Ectopique",
+      "laparoscopicAdhesiolysis": "Adhésiolyse Laparoscopique",
+      "diagnosticLaparoscopy": "Laparoscopie Diagnostique",
+      "vacuumAspiration": "Aspiration par Vide de la Cavité Utérine",
+      "medicalTermination": "Interruption Médicale de Grossesse",
+      "cervicalConization": "Conisation Cervicale"
+    },
+    "complexSurgeries": {
+      "title": "Chirurgies Complexes",
+      "description": "Procédures chirurgicales avancées nécessitant une expertise et une expérience spécialisées. Ces opérations traitent des conditions gynécologiques complexes incluant l'endométriose sévère, le prolapsus des organes pelviens, l'incontinence d'effort et les troubles ovariens. Chaque chirurgie est soigneusement planifiée et exécutée en utilisant des techniques et équipements de pointe.",
+      "hysterectomy": "Hystérectomie",
+      "ovarianResection": "Résection Ovarienne pour SOPK",
+      "endometriosisExcision": "Excision Laparoscopique des Foyers d'Endométriose",
+      "sacrocolpopexy": "Sacro-colpopexie",
+      "colporrhaphy": "Colporraphie Antérieure/Postérieure",
+      "tvtoProcedure": "Procédure TVT-O",
+      "cervicalLaser": "Vaporisation Cervicale au Laser"
+    },
+    "specializedSurgeries": {
+      "title": "Chirurgies Spécialisées",
+      "description": "Procédures hautement spécialisées pour le traitement de pathologies complexes et de conditions oncologiques. Ces chirurgies nécessitent une formation approfondie, des compétences avancées et une connaissance complète de l'anatomie gynécologique. Les procédures incluent des opérations radicales pour le traitement du cancer, l'ablation de grands kystes endométriosiques et la reconstruction de structures anatomiques.",
+      "radicalHysterectomy": "Hystérectomie Radicale",
+      "lymphadenectomy": "Lymphadénectomie",
+      "largeCysts": "Ablation de Grands Kystes Endométriosiques (>5 cm)",
+      "vaginalStrictures": "Excision des Sténoses Cicatricielles Vaginales",
+      "radicalVulvectomy": "Vulvectomie Radicale"
+    },
+    "plasticSurgery": {
+      "title": "Chirurgie Plastique",
+      "description": "Procédures esthétiques et reconstructives de la zone génitale féminine réalisées avec précision et soin. Ces chirurgies traitent à la fois des préoccupations fonctionnelles et cosmétiques, aidant les femmes à se sentir plus à l'aise et confiantes. Les procédures sont réalisées en utilisant des techniques modernes qui minimisent les cicatrices et assurent des résultats d'apparence naturelle.",
+      "labiaplasty": "Labiaplastie (Chirurgie des Petites Lèvres)",
+      "hymenoplasty": "Hyménoplastie (Restauration de l'Hymen)"
+    }
+  },
+  "surgeryPlastic": {
+    "mainTitle": "Gynécologie Plastique et Esthétique - Labiaplastie, Hyménoplastie, Botox et Procédures de Rajeunissement par un Chirurgien Gynécologue",
+    "mainDescription": "Gynécologie esthétique et plastique réalisée par un chirurgien gynécologue expérimenté. Chirurgies intimes professionnelles incluant labiaplastie et hyménoplastie, ainsi que des traitements esthétiques avancés tels que rajeunissement vaginal, Botox et restauration tissulaire. Approche personnalisée, sûre et discrète visant à améliorer le confort, la confiance et la santé féminine.",
+    "seoTitle": "Gynécologie Plastique et Esthétique - Dr. Serge Tunitski",
+    "seoDescription": "Gynécologie esthétique : labiaplastie, hyménoplastie, rajeunissement vaginal, Botox et chirurgie plastique intime par un chirurgien expérimenté.",
+    "plasticSurgeries": {
+      "title": "Chirurgies Importantes",
+      "description": "Procédures de chirurgie plastique intime réalisées avec expertise, précision et discrétion complète. Ces chirurgies sont conçues pour améliorer à la fois l'apparence esthétique et le confort fonctionnel de la zone intime. Chaque procédure est adaptée aux besoins et préoccupations individuels, utilisant des techniques chirurgicales avancées qui assurent des cicatrices minimales, une récupération rapide et des résultats naturels. Nous fournissons une consultation préopératoire complète, des informations détaillées sur les procédures et des soins postopératoires attentifs pour assurer une guérison optimale et la satisfaction du patient.",
+      "labiaplasty": "Labiaplastie (Chirurgie des Petites Lèvres)",
+      "hymenoplasty": "Hyménoplastie (Restauration de l'Hymen)"
+    }
+  },
   "stories": {
     "title": "Histoires de succès",
     "fertility": {

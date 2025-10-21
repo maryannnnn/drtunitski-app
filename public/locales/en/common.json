@@ -296,6 +296,81 @@
       "description": "Emergency gynecological surgeries are performed for acute conditions requiring immediate intervention to preserve life and health. These include treatment of ruptured ovarian cysts, uterine perforation, pyosalpinx, tubo-ovarian abscess, and ectopic pregnancy. Time is critical in these cases, and our team is equipped to provide rapid diagnosis and immediate surgical treatment 24/7. We prioritize patient safety and use minimally invasive techniques whenever possible, even in emergency situations."
     }
   },
+  "surgeryCancer": {
+    "mainTitle": "Gynecologic Oncology — Diagnosis, Oncological Surgeries, and Cancer Treatment by an Experienced Gynecologist Surgeon",
+    "mainDescription": "Comprehensive gynecologic oncology care by an experienced gynecologist and surgeon. Diagnosis, prevention, and treatment of female cancers including endometrial, cervical, uterine, vaginal, vulvar, and fallopian tube cancers. Advanced oncological surgeries, personalized treatment plans, and compassionate care aimed at preserving health, fertility, and quality of life.",
+    "seoTitle": "Gynecologic Oncology and Cancer Surgery - Dr. Serge Tunitski",
+    "seoDescription": "Expert gynecologic oncology care: diagnosis and surgical treatment of endometrial, cervical, uterine, vaginal, vulvar cancers and other gynecological malignancies.",
+    "cancerTypes": {
+      "endometrialCancer": "Endometrial Cancer",
+      "cervicalCancer": "Cervical Cancer",
+      "uterineSarcoma": "Uterine Sarcoma",
+      "fallopianTubeCancer": "Fallopian Tube Cancer",
+      "vaginalCancer": "Vaginal Cancer",
+      "vulvarCancer": "Vulvar Cancer",
+      "choriocarcinoma": "Choriocarcinoma",
+      "metastaticTumors": "Metastatic Tumors",
+      "molarPregnancy": "Molar Pregnancy"
+    }
+  },
+  "surgeryImportant": {
+    "mainTitle": "Gynecologic Surgery — Laparoscopy, Hysteroscopy, and Complex Reconstructive Procedures by a Skilled Gynecologist Surgeon",
+    "mainDescription": "Comprehensive gynecologic surgery services including laparoscopic and hysteroscopic procedures performed by an experienced gynecologist surgeon. Expertise in ovarian cystectomy, myomectomy, hysterectomy, endometriosis excision, and treatment of uterine and cervical conditions. Minimally invasive techniques, precision, and personalized care focused on restoring women's health and improving quality of life.",
+    "seoTitle": "Gynecologic Surgery and Procedures - Dr. Serge Tunitski",
+    "seoDescription": "Expert gynecologic surgery: laparoscopy, hysteroscopy, myomectomy, hysterectomy, and complex reconstructive procedures by an experienced surgeon.",
+    "importantSurgeries": {
+      "title": "Important Surgeries",
+      "description": "Essential gynecological procedures addressing common conditions affecting women's reproductive health. These surgeries include laparoscopic and hysteroscopic techniques for treating ovarian cysts, uterine fibroids, endometrial polyps, and ectopic pregnancies. Each procedure is performed with precision using minimally invasive methods to reduce recovery time and improve outcomes. Our approach prioritizes patient safety, comfort, and preservation of fertility whenever possible.",
+      "laparoscopicCystectomy": "Laparoscopic Ovarian Cystectomy",
+      "hysteroscopyPolyp": "Hysteroscopy with Endometrial Polyp Removal",
+      "laparoscopicMyomectomy": "Laparoscopic Myomectomy",
+      "hysteroscopicResection": "Hysteroscopic Resection of Submucous Myoma",
+      "laparoscopicSalpingectomy": "Laparoscopic Salpingectomy for Ectopic Pregnancy",
+      "laparoscopicAdhesiolysis": "Laparoscopic Adhesiolysis",
+      "diagnosticLaparoscopy": "Diagnostic Laparoscopy",
+      "vacuumAspiration": "Vacuum Aspiration of the Uterine Cavity",
+      "medicalTermination": "Medical Termination of Pregnancy",
+      "cervicalConization": "Cervical Conization"
+    },
+    "complexSurgeries": {
+      "title": "Complex Surgeries",
+      "description": "Advanced surgical procedures requiring specialized expertise and experience. These operations address complex gynecological conditions including severe endometriosis, pelvic organ prolapse, stress incontinence, and ovarian disorders. Each surgery is carefully planned and executed using state-of-the-art techniques and equipment. We combine surgical precision with comprehensive pre and post-operative care to ensure optimal results and patient satisfaction.",
+      "hysterectomy": "Hysterectomy",
+      "ovarianResection": "Ovarian Resection for PCOS",
+      "endometriosisExcision": "Laparoscopic Excision of Endometriosis Foci",
+      "sacrocolpopexy": "Sacrocolpopexy",
+      "colporrhaphy": "Anterior/Posterior Colporrhaphy",
+      "tvtoProcedure": "TVT-O Procedure",
+      "cervicalLaser": "Cervical Laser Vaporization"
+    },
+    "specializedSurgeries": {
+      "title": "Specialized Surgeries",
+      "description": "Highly specialized procedures for treating complex pathologies and oncological conditions. These surgeries require extensive training, advanced skills, and comprehensive knowledge of gynecological anatomy. Procedures include radical operations for cancer treatment, removal of large endometriotic cysts, and reconstruction of anatomical structures. Each case receives individualized attention with detailed consultation, thorough planning, and expert surgical execution.",
+      "radicalHysterectomy": "Radical Hysterectomy",
+      "lymphadenectomy": "Lymphadenectomy",
+      "largeCysts": "Removal of Large Endometriotic Cysts (>5 cm)",
+      "vaginalStrictures": "Excision of Vaginal Scar Strictures",
+      "radicalVulvectomy": "Radical Vulvectomy"
+    },
+    "plasticSurgery": {
+      "title": "Plastic Surgery",
+      "description": "Aesthetic and reconstructive procedures of the female genital area performed with precision and care. These surgeries address both functional and cosmetic concerns, helping women feel more comfortable and confident. Procedures are performed using modern techniques that minimize scarring and ensure natural-looking results. We provide comprehensive consultation, detailed explanation of procedures, and attentive follow-up care to ensure patient satisfaction and optimal healing.",
+      "labiaplasty": "Labiaplasty (Surgery of the Labia Minora)",
+      "hymenoplasty": "Hymenoplasty (Restoration of the Hymen)"
+    }
+  },
+  "surgeryPlastic": {
+    "mainTitle": "Plastic and Aesthetic Gynecology — Labiaplasty, Hymenoplasty, Botox, and Rejuvenation Procedures by a Gynecologist Surgeon",
+    "mainDescription": "Aesthetic and plastic gynecology performed by an experienced gynecologist surgeon. Professional intimate surgeries including labiaplasty and hymenoplasty, as well as advanced aesthetic treatments such as vaginal rejuvenation, Botox, and tissue restoration. Personalized, safe, and discreet approach aimed at improving comfort, confidence, and feminine health.",
+    "seoTitle": "Plastic and Aesthetic Gynecology - Dr. Serge Tunitski",
+    "seoDescription": "Aesthetic gynecology: labiaplasty, hymenoplasty, vaginal rejuvenation, Botox, and intimate plastic surgery by an experienced surgeon.",
+    "plasticSurgeries": {
+      "title": "Important Surgeries",
+      "description": "Intimate plastic surgery procedures performed with expertise, precision, and complete discretion. These surgeries are designed to enhance both aesthetic appearance and functional comfort of the intimate area. Each procedure is tailored to individual needs and concerns, using advanced surgical techniques that ensure minimal scarring, quick recovery, and natural results. We provide comprehensive pre-operative consultation, detailed information about the procedures, and attentive post-operative care to ensure optimal healing and patient satisfaction.",
+      "labiaplasty": "Labiaplasty (Surgery of the Labia Minora)",
+      "hymenoplasty": "Hymenoplasty (Restoration of the Hymen)"
+    }
+  },
   "stories": {
     "title": "Success Stories",
     "fertility": {
