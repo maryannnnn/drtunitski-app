@@ -72,6 +72,15 @@ const GynecologyPlannedPage = () => {
                             {safeT('gynecologyPlanned.mainDescription')}
                         </p>
                     </div>
+                    {/* Appointment Button */}
+                    <div className="gynecology-planned__appointment-btn">
+                        <ButtonBrown
+                            onClick={() => setIsModalActive(true)}
+                            className="gynecology-planned__appointment-button"
+                        >
+                            {safeT('buttons.bookAppointment')}
+                        </ButtonBrown>
+                    </div>
                 </div>
 
                 {/* Planned Surgeries Block */}

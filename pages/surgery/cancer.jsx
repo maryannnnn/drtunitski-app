@@ -57,6 +57,15 @@ const SurgeryCancerPage = () => {
                             {safeT('surgeryCancer.mainDescription')}
                         </p>
                     </div>
+                    {/* Appointment Button */}
+                    <div className="surgery-cancer__appointment-btn">
+                        <ButtonBrown
+                            onClick={() => setIsModalActive(true)}
+                            className="surgery-cancer__appointment-button"
+                        >
+                            {safeT('buttons.bookAppointment')}
+                        </ButtonBrown>
+                    </div>
                 </div>
 
                 {/* Cancer Types Block */}

@@ -63,8 +63,8 @@ export const numberItems = {
 export const contentType = {
     abouts: 'abouts',
     bonuses: 'bonuses',
-    massages: 'massages',
-    courses: 'courses',
+    massages: 'gynecology',
+    courses: 'surgery',
     stories: 'stories',
     medias: 'medias',
     category: 'category',
@@ -102,9 +102,9 @@ export const getBreadcrumbType = (t) => [
         url: '/gynecology/planned'
     },
     {
-        id: 'course',
+        id: 'surgery',
         title: t('common:info.breadcrumbs.surgery'),
-        url: '/surgery'
+        url: '/surgery/important'
     },
     {
         id: 'media',

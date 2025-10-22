@@ -42,7 +42,7 @@ const MainGynecology = () => {
         },
         {
             title: safeT('gynecology.oncologicalSurgeries.title'),
-            url: getLocalizedUrl('/surgery/surgery'),
+            url: getLocalizedUrl('/surgery/cancer'),
             description: safeT('gynecology.oncologicalSurgeries.description')
         },
         {

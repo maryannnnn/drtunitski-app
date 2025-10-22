@@ -50,6 +50,15 @@ const SurgeryPlasticPage = () => {
                             {safeT('surgeryPlastic.mainDescription')}
                         </p>
                     </div>
+                    {/* Appointment Button */}
+                    <div className="surgery-plastic__appointment-btn">
+                        <ButtonBrown
+                            onClick={() => setIsModalActive(true)}
+                            className="surgery-plastic__appointment-button"
+                        >
+                            {safeT('buttons.bookAppointment')}
+                        </ButtonBrown>
+                    </div>
                 </div>
 
                 {/* Plastic Surgeries Block */}
