@@ -159,7 +159,7 @@ const MainLayout = ({
                     }}
                 />
             </Head>
-            {/* <LanguageDetectionBanner /> - ОТКЛЮЧЕНО для удобства разработки */}
+            <LanguageDetectionBanner />
             <Header />
             <div className="main">
                 {children}

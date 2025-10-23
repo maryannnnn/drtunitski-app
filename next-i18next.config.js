@@ -1,7 +1,8 @@
 module.exports = {
   i18n: {
     defaultLocale: 'en',
-    locales: ['en', 'ru', 'he', 'de', 'fr', 'es', 'ar'],
+    locales: ['en', 'ru', 'he'], // Активны только 3 языка
+    // Временно отключены: 'de', 'fr', 'es', 'ar'
     localeDetection: false,
   },
   fallbackLng: {
@@ -9,8 +10,8 @@ module.exports = {
     he: ['en'],
     ar: ['en'],
   },
-  // RTL languages
-  rtl: ['he', 'ar'],
+  // RTL languages (только иврит активен)
+  rtl: ['he'],
   // Namespaces
   ns: ['common', 'privacyPolicy', 'accessibilityStatement', 'sitemap'],
   defaultNS: 'common',

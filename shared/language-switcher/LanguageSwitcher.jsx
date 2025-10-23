@@ -16,11 +16,12 @@ import './language-switcher.scss';
 const languages = [
     { code: 'en', name: 'English', short: 'EN' },
     { code: 'ru', name: 'Русский', short: 'RU' },
-    { code: 'de', name: 'Deutsch', short: 'DE' },
-    { code: 'fr', name: 'Français', short: 'FR' },
-    { code: 'es', name: 'Español', short: 'ES' },
     { code: 'he', name: 'עברית', short: 'HE' },
-    { code: 'ar', name: 'العربية', short: 'AR' },
+    // Временно скрыты:
+    // { code: 'de', name: 'Deutsch', short: 'DE' },
+    // { code: 'fr', name: 'Français', short: 'FR' },
+    // { code: 'es', name: 'Español', short: 'ES' },
+    // { code: 'ar', name: 'العربية', short: 'AR' },
 ];
 
 const LanguageSwitcher = ({ variant = 'dropdown', showLabel = false }) => {
@@ -30,16 +31,16 @@ const LanguageSwitcher = ({ variant = 'dropdown', showLabel = false }) => {
     const [open, setOpen] = useState(false);
     const ref = useRef(null);
 
-    // Auto-detect language on first visit - ОТКЛЮЧЕНО для удобства разработки
-    // useEffect(() => {
-    //     if (typeof window !== 'undefined' && !localStorage.getItem('language-set')) {
-    //         const detectedLang = detectUserLanguage();
-    //         if (detectedLang !== locale) {
-    //             router.push(router.asPath, router.asPath, { locale: detectedLang });
-    //             localStorage.setItem('language-set', 'true');
-    //         }
-    //     }
-    // }, []);
+    // Auto-detect language on first visit
+    useEffect(() => {
+        if (typeof window !== 'undefined' && !localStorage.getItem('language-set')) {
+            const detectedLang = detectUserLanguage();
+            if (detectedLang !== locale) {
+                router.push(router.asPath, router.asPath, { locale: detectedLang });
+                localStorage.setItem('language-set', 'true');
+            }
+        }
+    }, []);
 
     const handleLanguageChange = (newLocale) => {
         // Обрабатываем URL с учетом новой логики

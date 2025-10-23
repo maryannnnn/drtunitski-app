@@ -10,8 +10,8 @@ export const detectUserLanguage = () => {
   // Get browser language preferences
   const browserLanguages = navigator.languages || [navigator.language];
   
-  // Supported languages in your app
-  const supportedLanguages = ['en', 'ru', 'he', 'de', 'fr', 'es', 'ar'];
+  // Supported languages in your app (только 3 активных языка)
+  const supportedLanguages = ['en', 'ru', 'he'];
   
   // Find first supported language
   for (const lang of browserLanguages) {

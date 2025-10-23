@@ -144,75 +144,10 @@
             ]
           }
         },
-        {
-          "node": {
-            "id": "cG9zdDozNjc43b",
-            "path": null,
-            "parentId": "cG9zdDozNjc43",
-            "order": 1,
-            "label": "Moderate-risk surgeries",
-            "isColumnHeader": true,
-            "columnItems": [
-              {
-                "id": "cG9zdDozNjc43b1",
-                "path": "/gynecology/chronic-hydrosalpinx",
-                "label": "Chronic hydrosalpinx in infertility"
-              },
-              {
-                "id": "cG9zdDozNjc43b2",
-                "path": "/gynecology/adhesive-disease",
-                "label": "Adhesive disease of the pelvic organs with infertility"
-              },
-              {
-                "id": "cG9zdDozNjc43b3",
-                "path": "/gynecology/vaginal-septum",
-                "label": "Vaginal septum (excision)"
-              },
-              {
-                "id": "cG9zdDozNjc43b4",
-                "path": "/gynecology/polyps",
-                "label": "Polyps"
-              }
-            ]
-          }
-        },
-        {
-          "node": {
-            "id": "cG9zdDozNjc43c",
-            "path": null,
-            "parentId": "cG9zdDozNjc43",
-            "order": 2,
-            "label": "Emergency surgeries",
-            "isColumnHeader": true,
-            "columnItems": [
-              {
-                "id": "cG9zdDozNjc43c1",
-                "path": "/gynecology/ovarian-cyst",
-                "label": "Ovarian cyst"
-              },
-              {
-                "id": "cG9zdDozNjc43c2",
-                "path": "/gynecology/uterine-perforation",
-                "label": "Uterine perforation"
-              },
-              {
-                "id": "cG9zdDozNjc43c3",
-                "path": "/gynecology/pyosalpinx",
-                "label": "Pyosalpinx"
-              },
-              {
-                "id": "cG9zdDozNjc43c4",
-                "path": "/gynecology/tubo-ovarian-abscess",
-                "label": "Tubo-ovarian abscess"
-              },
-              {
-                "id": "cG9zdDozNjc43c5",
-                "path": "/gynecology/ectopic-pregnancy",
-                "label": "Ectopic pregnancy"
-              }
-            ]
-          }
-        },
+
+
+
+
         {
           "node": {
             "id": "cG9zdDozNjc44",
@@ -388,90 +323,11 @@
             ]
           }
         },
-        {
-          "node": {
-            "id": "cG9zdDozNjc55b",
-            "path": null,
-            "parentId": "cG9zdDozNjc55",
-            "order": 1,
-            "label": "Complex Surgeries",
-            "isColumnHeader": true,
-            "columnItems": [
-              {
-                "id": "cG9zdDozNjc55b1",
-                "path": "/surgery/hysterectomy",
-                "label": "Hysterectomy"
-              },
-              {
-                "id": "cG9zdDozNjc55b2",
-                "path": "/surgery/ovarian-resection-pcos",
-                "label": "Ovarian resection for PCOS"
-              },
-              {
-                "id": "cG9zdDozNjc55b3",
-                "path": "/surgery/laparoscopic-endometriosis",
-                "label": "Laparoscopic excision of endometriosis foci"
-              },
-              {
-                "id": "cG9zdDozNjc55b4",
-                "path": "/surgery/sacrocolpopexy",
-                "label": "Sacrocolpopexy"
-              },
-              {
-                "id": "cG9zdDozNjc55b5",
-                "path": "/surgery/colporrhaphy",
-                "label": "Anterior/posterior colporrhaphy"
-              },
-              {
-                "id": "cG9zdDozNjc55b6",
-                "path": "/surgery/tvt-o-procedure",
-                "label": "TVT-O procedure"
-              },
-              {
-                "id": "cG9zdDozNjc55b7",
-                "path": "/surgery/cervical-laser-vaporization",
-                "label": "Cervical laser vaporization"
-              }
-            ]
-          }
-        },
-        {
-          "node": {
-            "id": "cG9zdDozNjc55c",
-            "path": null,
-            "parentId": "cG9zdDozNjc55",
-            "order": 2,
-            "label": "Specialized Surgeries",
-            "isColumnHeader": true,
-            "columnItems": [
-              {
-                "id": "cG9zdDozNjc55c1",
-                "path": "/surgery/radical-hysterectomy",
-                "label": "Radical hysterectomy"
-              },
-              {
-                "id": "cG9zdDozNjc55c2",
-                "path": "/surgery/lymphadenectomy",
-                "label": "Lymphadenectomy"
-              },
-              {
-                "id": "cG9zdDozNjc55c4",
-                "path": "/surgery/endometriotic-cysts",
-                "label": "Removal of large endometriotic cysts (>5 cm)"
-              },
-              {
-                "id": "cG9zdDozNjc55c6",
-                "path": "/surgery/vaginal-scar-strictures",
-                "label": "Excision of vaginal scar strictures"
-              },
-              {
-                "id": "cG9zdDozNjc55c7",
-                "path": "/surgery/radical-vulvectomy",
-                "label": "Radical vulvectomy"
-              }
-            ]
-          }
-        },
+
+
+
+
+
         {
           "node": {
             "id": "cG9zdDozNjc55d",
