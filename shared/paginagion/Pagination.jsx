@@ -1,10 +1,10 @@
 import './pagination.scss'
 import PaginationNumbers from "./PaginationItem";
 import React from "react";
-import { useTranslation } from 'next-i18next';
+import { useSafeTranslation } from '../hooks/useSafeTranslation';
 
 const Pagination = ({totalPages, currentPage, setPageNumber}) => {
-    const { t } = useTranslation('common');
+    const { t } = useSafeTranslation('common');
     const pages = Array.from({length: totalPages}, (_, index) => index + 1);
 
     return (

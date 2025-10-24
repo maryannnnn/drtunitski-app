@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { useTranslation } from 'next-i18next';
+import { useSafeTranslation } from './useSafeTranslation';
 import { isRTL, getDirection, getTextAlign, getFlexDirection } from '../utils/rtl-utils';
 
 /**
@@ -7,7 +7,7 @@ import { isRTL, getDirection, getTextAlign, getFlexDirection } from '../utils/rt
  */
 export const useI18n = () => {
     const router = useRouter();
-    const { t, i18n } = useTranslation();
+    const { t, i18n } = useSafeTranslation();
     const { locale } = router;
 
     return {

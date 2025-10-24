@@ -1,9 +1,9 @@
 import './modal.scss'
-import { useTranslation } from 'next-i18next';
+import { useSafeTranslation } from '../hooks/useSafeTranslation';
 import ContactForm from '../contact-form/ContactForm';
 
 const Modal = ({active, setActive, children, title}) => {
-    const { t } = useTranslation();
+    const { t } = useSafeTranslation();
     
     return (
         <div className={active ? "modal active" : "modal"} onClick={() => setActive(false)}>

@@ -1,11 +1,11 @@
 import React from 'react';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { useTranslation } from 'next-i18next';
+import { useSafeTranslation } from '../shared/hooks/useSafeTranslation';
 import MainLayout from '../app/layouts/MainLayout';
 import { Box, Typography, Container, Paper, List, ListItem, ListItemText } from '@mui/material';
 
 const AccessibilityStatement = () => {
-    const { t } = useTranslation('accessibilityStatement');
+    const { t } = useSafeTranslation('accessibilityStatement');
 
     const renderList = (items) => {
         return (

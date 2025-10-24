@@ -1,6 +1,6 @@
 import React from 'react';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { useTranslation } from 'next-i18next';
+import { useSafeTranslation } from '../shared/hooks/useSafeTranslation';
 import MainLayout from '../app/layouts/MainLayout';
 import { Box, Typography, Container, Paper, List, ListItem, ListItemText, Divider } from '@mui/material';
 import Link from 'next/link';
@@ -8,7 +8,7 @@ import { useRouter } from 'next/router';
 import { processMenuUrl } from '../shared/utils/utils-url';
 
 const Sitemap = () => {
-    const { t } = useTranslation();
+    const { t } = useSafeTranslation();
     const router = useRouter();
     const isRTL = router.locale === 'he' || router.locale === 'ar';
     const currentLocale = router.locale || 'en';

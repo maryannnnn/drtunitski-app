@@ -1,10 +1,10 @@
 import './button-brown.scss'
 import './media.scss'
-import { useTranslation } from 'next-i18next';
+import { useSafeTranslation } from '../hooks/useSafeTranslation';
 import { useRouter } from 'next/router';
 
 const ButtonBrown = ({type, onClick, children, variant = 'default', href, className = ''}) => {
-    const { t } = useTranslation();
+    const { t } = useSafeTranslation();
     const router = useRouter();
     
     const handleClick = () => {

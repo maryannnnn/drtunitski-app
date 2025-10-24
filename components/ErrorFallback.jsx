@@ -1,11 +1,11 @@
 import React from 'react';
 import { Box, Typography, Container, Paper, Button } from '@mui/material';
 import { useRouter } from 'next/router';
-import { useTranslation } from 'next-i18next';
+import { useSafeTranslation } from '../shared/hooks/useSafeTranslation';
 
 const ErrorFallback = ({ error, resetError }) => {
     const router = useRouter();
-    const { t } = useTranslation();
+    const { t } = useSafeTranslation();
 
     const handleGoHome = () => {
         router.push('/');

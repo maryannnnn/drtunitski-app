@@ -14,13 +14,13 @@ import ListItemText from "@mui/material/ListItemText";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import { useI18n } from "../hooks/useI18n";
-import { useTranslation } from 'next-i18next';
+import { useSafeTranslation } from '../hooks/useSafeTranslation';
 import { useRouter } from 'next/router';
 
 const MenuMainMobile = ({ initialData }) => {
     const { data } = menuMainMobile;
     const { isRTL, textAlign } = useI18n();
-    const { t } = useTranslation();
+    const { t, isLoading } = useSafeTranslation();
     const router = useRouter();
     const [forceUpdate, setForceUpdate] = useState(0);
 
@@ -30,6 +30,25 @@ const MenuMainMobile = ({ initialData }) => {
     useEffect(() => {
         setForceUpdate(prev => prev + 1);
     }, [router.locale]);
+
+    // Показываем скелетон, пока переводы загружаются
+    if (isLoading) {
+        return (
+            <List>
+                {[1, 2, 3, 4, 5, 6, 7].map((i) => (
+                    <ListItem key={i}>
+                        <div style={{ 
+                            width: '100%', 
+                            height: '40px', 
+                            background: 'rgba(139, 69, 19, 0.1)',
+                            borderRadius: '4px',
+                            animation: 'pulse 1.5s ease-in-out infinite'
+                        }} />
+                    </ListItem>
+                ))}
+            </List>
+        );
+    }
 
     // Функция для получения переведенного названия меню
     const getTranslatedLabel = (label, itemId) => {

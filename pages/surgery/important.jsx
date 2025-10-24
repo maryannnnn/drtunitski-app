@@ -1,26 +1,19 @@
 import './important.scss';
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
-import { useTranslation } from 'next-i18next';
+import { useSafeTranslation } from '../../shared/hooks/useSafeTranslation';
 import LeftLayout from '../../app/layouts/LeftLayout';
 import ButtonBrown from '../../shared/button-brown/ButtonBrown';
 import Modal from '../../shared/modal/Modal';
 
 const SurgeryImportantPage = () => {
-    const { t } = useTranslation('common');
+    const { t } = useSafeTranslation('common');
     const router = useRouter();
     const { locale } = router;
     const [isModalActive, setIsModalActive] = useState(false);
 
-    // Fallback function if translation is not available
-    const safeT = (key) => {
-        try {
-            return t(key) || key;
-        } catch (error) {
-            console.warn('Translation error:', error);
-            return key;
-        }
-    };
+    // Теперь используем useSafeTranslation, поэтому safeT не нужен
+    const safeT = t;
 
     // Determine text direction based on locale
     const isRTL = locale === 'he' || locale === 'ar';

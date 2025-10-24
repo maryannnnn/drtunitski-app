@@ -1,11 +1,11 @@
 import './index.scss';
 import './media.scss';
 import {useRouter} from 'next/router';
-import { useTranslation } from 'next-i18next';
+import { useSafeTranslation } from '../../shared/hooks/useSafeTranslation';
 import VideoDisplay from '../../shared/video-display/VideoDisplay';
 import {useQuery} from "@apollo/client";
 import apolloClient from "../../app/graphql/apollo-client";
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import LeftLayout from "../../app/layouts/LeftLayout";
 import Stack from "@mui/material/Stack";
 import Alert from "@mui/material/Alert";
@@ -28,13 +28,8 @@ import "lightgallery/css/lg-share.css";
 
 
 const SurgeryPage = ({initialData}) => {
-    const { t } = useTranslation();
-    const [isClient, setIsClient] = useState(false);
+    const { t } = useSafeTranslation();
     const [isModalActive, setIsModalActive] = useState(false);
-
-    useEffect(() => {
-        setIsClient(true);
-    }, []);
 
     const router = useRouter();
     const {slug} = router.query;
@@ -66,10 +61,6 @@ const SurgeryPage = ({initialData}) => {
                 </Alert>
             </Stack>
         );
-    }
-
-    if (!isClient) {
-        return <div>Loading...</div>;
     }
 
     const surgery = data?.surgeryBy || initialData?.surgeryBy;

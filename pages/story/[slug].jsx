@@ -11,7 +11,7 @@ import Alert from "@mui/material/Alert";
 import {cleanHtmlFull} from "../../shared/utils/utils-content";
 import Image from "next/image";
 import Breadcrumbs from "../../shared/breadcrumbs-page/BreadcrumbsPage";
-import { useTranslation } from 'next-i18next';
+import { useSafeTranslation } from '../../shared/hooks/useSafeTranslation';
 import { filterByLanguage } from '../../shared/utils/language-filter';
 import VideoDisplay from '../../shared/video-display/VideoDisplay';
 import ButtonBrown from '../../shared/button-brown/ButtonBrown';
@@ -29,13 +29,8 @@ import "lightgallery/css/lg-zoom.css";
 import "lightgallery/css/lg-share.css";
 
 const StoryPage = ({initialData}) => {
-    const { t } = useTranslation();
-    const [isClient, setIsClient] = useState(false);
+    const { t } = useSafeTranslation();
     const [isModalActive, setIsModalActive] = useState(false);
-
-    useEffect(() => {
-        setIsClient(true);
-    }, []);
 
     const router = useRouter();
     const {slug, locale} = router.query;
@@ -64,10 +59,6 @@ const StoryPage = ({initialData}) => {
 
     if (error) {
         return <div>Error: {error.message}</div>;
-    }
-
-    if (!isClient) {
-        return <div>Loading...</div>;
     }
 
     const story = data?.storyBy || initialData?.storyBy;

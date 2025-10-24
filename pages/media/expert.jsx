@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { useQuery } from '@apollo/client';
 import { GET_MEDIA_ALL } from '../../entities/media/actions/mediaActions';
 import apolloClient from '../../app/graphql/apollo-client';
-import { useTranslation } from 'next-i18next';
+import { useSafeTranslation } from '../../shared/hooks/useSafeTranslation';
 import { filterByLanguage } from '../../shared/utils/language-filter';
 import LeftLayout from '../../app/layouts/LeftLayout';
 import Breadcrumbs from '../../shared/breadcrumbs-page/BreadcrumbsPage';
@@ -17,15 +17,10 @@ import { removeLanguageSuffix } from '../../shared/utils/utils-url';
 const POSTS_PER_PAGE = 12;
 
 const MediaExpertPage = ({ initialData }) => {
-    const { t } = useTranslation('common');
+    const { t } = useSafeTranslation('common');
     const router = useRouter();
     const { locale } = router;
     const [currentPage, setCurrentPage] = useState(1);
-    const [isClient, setIsClient] = useState(false);
-
-    useEffect(() => {
-        setIsClient(true);
-    }, []);
 
     useEffect(() => {
         setCurrentPage(1);
@@ -47,10 +42,6 @@ const MediaExpertPage = ({ initialData }) => {
                 </div>
             </LeftLayout>
         );
-    }
-
-    if (!isClient) {
-        return <div>Loading...</div>;
     }
 
     const allMedias = data?.medias?.edges || initialData?.medias?.edges || [];

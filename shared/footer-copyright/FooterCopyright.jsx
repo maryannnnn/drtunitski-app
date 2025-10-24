@@ -1,11 +1,11 @@
 import './footer-copyright.scss'
 import './media.scss'
 import {LiaCopyrightSolid} from "react-icons/lia";
-import { useTranslation } from 'next-i18next';
+import { useSafeTranslation } from '../hooks/useSafeTranslation';
 import Link from 'next/link';
 
 const FooterCopyright = () => {
-    const { t } = useTranslation();
+    const { t } = useSafeTranslation();
 
     return (
         <div className="footer-copyright">

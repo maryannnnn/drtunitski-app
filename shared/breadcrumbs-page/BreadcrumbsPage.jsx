@@ -3,12 +3,12 @@ import Breadcrumbs from '@mui/material/Breadcrumbs';
 import {getBreadcrumbType} from "../../app/info/info";
 import React from "react";
 import Link from "next/link";
-import { useTranslation } from 'next-i18next';
+import { useSafeTranslation } from '../hooks/useSafeTranslation';
 import { useRouter } from 'next/router';
 import { processMenuUrl } from '../utils/utils-url';
 
 const BreadcrumbsPage = ({material, typeMaterial}) => {
-    const { t } = useTranslation();
+    const { t } = useSafeTranslation();
     const router = useRouter();
     const currentLocale = router.locale || 'en';
     const breadcrumbType = getBreadcrumbType(t);

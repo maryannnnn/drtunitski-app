@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
-import { useTranslation } from 'next-i18next';
+import { useSafeTranslation } from '../hooks/useSafeTranslation';
 import { 
     FormControl, 
     Select, 
@@ -26,7 +26,7 @@ const languages = [
 
 const LanguageSwitcher = ({ variant = 'dropdown', showLabel = false }) => {
     const router = useRouter();
-    const { t } = useTranslation();
+    const { t } = useSafeTranslation();
     const { locale, asPath } = router;
     const [open, setOpen] = useState(false);
     const ref = useRef(null);

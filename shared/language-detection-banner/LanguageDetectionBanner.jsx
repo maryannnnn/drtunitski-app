@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { useTranslation } from 'next-i18next';
+import { useSafeTranslation } from '../hooks/useSafeTranslation';
 import { 
     Alert, 
     AlertTitle, 
@@ -20,7 +20,7 @@ import './language-detection-banner.scss';
 
 const LanguageDetectionBanner = () => {
     const router = useRouter();
-    const { t } = useTranslation();
+    const { t } = useSafeTranslation();
     const { locale } = router;
     const [showBanner, setShowBanner] = useState(false);
     const [detectedLanguage, setDetectedLanguage] = useState(null);

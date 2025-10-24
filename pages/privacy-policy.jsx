@@ -1,12 +1,12 @@
 import React from 'react';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { useTranslation } from 'next-i18next';
+import { useSafeTranslation } from '../shared/hooks/useSafeTranslation';
 import MainLayout from '../app/layouts/MainLayout';
 import { Box, Typography, Container, Paper, Divider, List, ListItem, ListItemText } from '@mui/material';
 import './privacy-policy.scss';
 
 const PrivacyPolicy = () => {
-    const { t } = useTranslation('privacyPolicy');
+    const { t } = useSafeTranslation('privacyPolicy');
 
     return (
         <MainLayout

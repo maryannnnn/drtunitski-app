@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './menu-nain.scss';
 import './media.scss';
 import Link from "next/link";
-import { useTranslation } from 'next-i18next';
+import { useSafeTranslation } from '../hooks/useSafeTranslation';
 import { useRouter } from 'next/router';
 import {checkMenuItem} from "../utils/utils-menu";
 import { processMenuUrl } from "../utils/utils-url";
@@ -12,7 +12,7 @@ const MenuMain = () => {
     const {data} = menuMain;
     const [activeMenu, setActiveMenu] = useState(null);
     const [forceUpdate, setForceUpdate] = useState(0);
-    const { t } = useTranslation();
+    const { t, isLoading } = useSafeTranslation();
     const router = useRouter();
     const currentLocale = router.locale || 'en';
 
@@ -20,6 +20,27 @@ const MenuMain = () => {
     useEffect(() => {
         setForceUpdate(prev => prev + 1);
     }, [currentLocale]);
+
+    // Показываем скелетон, пока переводы загружаются
+    if (isLoading) {
+        return (
+            <nav className="navigation-menu">
+                <ul className="navigation-menu-list">
+                    {[1, 2, 3, 4, 5, 6, 7].map((i) => (
+                        <li key={i} className="navigation-menu-item">
+                            <div style={{ 
+                                width: '80px', 
+                                height: '20px', 
+                                background: 'rgba(139, 69, 19, 0.1)',
+                                borderRadius: '4px',
+                                animation: 'pulse 1.5s ease-in-out infinite'
+                            }} />
+                        </li>
+                    ))}
+                </ul>
+            </nav>
+        );
+    }
 
     // Функция для получения переведенного названия меню
     const getTranslatedLabel = (label, itemId) => {

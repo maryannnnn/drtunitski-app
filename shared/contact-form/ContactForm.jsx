@@ -1,7 +1,7 @@
 import './contact-form.scss';
 import './media.scss';
 import { useState } from 'react';
-import { useTranslation } from 'next-i18next';
+import { useSafeTranslation } from '../hooks/useSafeTranslation';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { useForm } from 'react-hook-form';
@@ -13,7 +13,7 @@ import { FiMail } from 'react-icons/fi';
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
 const ContactForm = () => {
-    const { t } = useTranslation();
+    const { t, isLoading } = useSafeTranslation();
     const router = useRouter();
     const { locale } = router;
     const [showEmailForm, setShowEmailForm] = useState(false);

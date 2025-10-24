@@ -12,7 +12,7 @@ import Breadcrumbs from '@/shared/breadcrumbs-page/BreadcrumbsPage';
 import VideoDisplay from '@/shared/video-display/VideoDisplay';
 import ButtonBrown from '@/shared/button-brown/ButtonBrown';
 import Modal from '@/shared/modal/Modal';
-import { useTranslation } from 'next-i18next';
+import { useSafeTranslation } from '@/shared/hooks/useSafeTranslation';
 import './index.scss';
 import './media.scss';
 
@@ -27,7 +27,7 @@ import "lightgallery/css/lg-zoom.css";
 import "lightgallery/css/lg-share.css";
 
 const AboutPage = ({initialData, isRequestAppointment}) => {
-    const { t } = useTranslation();
+    const { t } = useSafeTranslation();
     const [isModalActive, setIsModalActive] = useState(isRequestAppointment || false);
     const router = useRouter();
     const {slug} = router.query;

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useTranslation } from 'next-i18next';
+import { useSafeTranslation } from '../hooks/useSafeTranslation';
 import { 
     Box, 
     Button, 
@@ -23,7 +23,7 @@ import Link from 'next/link';
 import './cookie-consent-banner.scss';
 
 const CookieConsentBanner = () => {
-    const { t } = useTranslation('common');
+    const { t } = useSafeTranslation('common');
     const [showBanner, setShowBanner] = useState(false);
     const [showSettings, setShowSettings] = useState(false);
     const [consent, setConsent] = useState({

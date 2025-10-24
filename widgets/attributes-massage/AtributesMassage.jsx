@@ -4,10 +4,10 @@ import {getAttributePriceMassage, contentType, getTestimonialTitleMassage} from 
 import React from "react";
 import AttributesContent from "../../shared/attributes-content/AttributesContent";
 import AttributesPrice from "../../shared/attributes-price/AttributesPrice";
-import { useTranslation } from 'next-i18next';
+import { useSafeTranslation } from '../../shared/hooks/useSafeTranslation';
 
 const AttributesMassage = ({massage}) => {
-    const { t } = useTranslation();
+    const { t } = useSafeTranslation();
 
     const attributesArray = [
         {

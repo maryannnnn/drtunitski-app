@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useTranslation } from 'next-i18next';
+import { useSafeTranslation } from '../../shared/hooks/useSafeTranslation';
 import { useRouter } from 'next/router';
 import { useQuery } from '@apollo/client';
 import { GET_MEDIA_ALL } from '../../entities/media/actions/mediaActions';
@@ -14,7 +14,7 @@ import testimonial2 from '../../app/assets/images/testimonial/5.jpg';
 import testimonial3 from '../../app/assets/images/testimonial/7.jpg';
 
 const MainVideoTestimonials = () => {
-    const { t } = useTranslation('common');
+    const { t } = useSafeTranslation('common');
     const router = useRouter();
     const { locale } = router;
 
@@ -24,15 +24,8 @@ const MainVideoTestimonials = () => {
         nextFetchPolicy: "cache-and-network"
     });
 
-    // Fallback function if translation is not available
-    const safeT = (key) => {
-        try {
-            return t(key) || key;
-        } catch (error) {
-            console.warn('Translation error:', error);
-            return key;
-        }
-    };
+    // Теперь используем useSafeTranslation, поэтому safeT не нужен
+    const safeT = t;
 
     const getLocalizedUrl = (slug) => {
         // Для английского языка URL остается без изменений

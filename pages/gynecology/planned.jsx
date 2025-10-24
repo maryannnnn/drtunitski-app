@@ -1,13 +1,13 @@
 import './planned.scss';
 import React, { useState } from 'react';
 import {useRouter} from 'next/router';
-import {useTranslation} from 'next-i18next';
+import {useSafeTranslation} from '../../shared/hooks/useSafeTranslation';
 import LeftLayout from '../../app/layouts/LeftLayout';
 import ButtonBrown from '../../shared/button-brown/ButtonBrown';
 import Modal from '../../shared/modal/Modal';
 
 const GynecologyPlannedPage = () => {
-    const {t} = useTranslation('common');
+    const {t} = useSafeTranslation('common');
     const router = useRouter();
     const {locale} = router;
     const [isModalActive, setIsModalActive] = useState(false);

@@ -2,7 +2,7 @@ import React from 'react';
 import '../app/scss/app.scss';
 import {SpeedInsights} from "@vercel/speed-insights/next";
 import MainLayout from "../app/layouts/MainLayout";
-import { useTranslation } from 'next-i18next';
+import { useSafeTranslation } from '@/shared/hooks/useSafeTranslation';
 import MainTitle from "@/widgets/main-title/MainTitle";
 import MainGynecology from "@/widgets/main-gynecology/MainGynecology";
 import MainStories from "@/widgets/main-stories/MainStories";
@@ -12,7 +12,7 @@ import FooterAssociations from "@/shared/footer-associations/FooterAssociations"
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 const Index = () => {
-    const { t } = useTranslation('common');
+    const { t } = useSafeTranslation('common');
     
     const PageProps = {
         title: t('common:navigation.home'),

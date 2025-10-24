@@ -1,7 +1,7 @@
 import './media.scss'
 import './main-title.scss'
 import {getMainTitle} from "../../app/info/info";
-import {useTranslation} from 'next-i18next';
+import {useSafeTranslation} from '../../shared/hooks/useSafeTranslation';
 import {useRouter} from 'next/router';
 import ButtonBrown from '../../shared/button-brown/ButtonBrown';
 import Image from 'next/image';
@@ -10,7 +10,7 @@ import Modal from '../../shared/modal/Modal';
 import doctorImage from "../../app/assets/images/doctor/dr_serge_tunitski_2.jpg";
 
 const MainTitle = () => {
-    const {t} = useTranslation();
+    const {t} = useSafeTranslation();
     const router = useRouter();
     const {locale} = router;
     const mainTitle = getMainTitle(t);

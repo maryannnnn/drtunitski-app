@@ -2,10 +2,10 @@ import './contact-us-block.scss';
 import './media.scss';
 import ContactInfoBlock from '../contact-info-block/ContactInfoBlock';
 import ContactForm from '../contact-form/ContactForm';
-import { useTranslation } from 'next-i18next';
+import { useSafeTranslation } from '../hooks/useSafeTranslation';
 
 const ContactUsBlock = () => {
-    const { t } = useTranslation();
+    const { t } = useSafeTranslation();
 
     return (
         <section className="contact-us-block">

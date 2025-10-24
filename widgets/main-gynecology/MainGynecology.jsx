@@ -1,23 +1,16 @@
 import React from 'react';
 import Link from 'next/link';
-import { useTranslation } from 'next-i18next';
+import { useSafeTranslation } from '../../shared/hooks/useSafeTranslation';
 import { useRouter } from 'next/router';
 import './main-gynecology.scss';
 
 const MainGynecology = () => {
-    const { t } = useTranslation('common');
+    const { t } = useSafeTranslation('common');
     const router = useRouter();
     const { locale } = router;
 
-    // Fallback function if translation is not available
-    const safeT = (key) => {
-        try {
-            return t(key) || key;
-        } catch (error) {
-            console.warn('Translation error:', error);
-            return key;
-        }
-    };
+    // Теперь используем useSafeTranslation, поэтому safeT не нужен
+    const safeT = t;
 
     const getLocalizedUrl = (url) => {
         // Для английского языка URL остается без изменений
@@ -32,22 +25,22 @@ const MainGynecology = () => {
     const gynecologyItems = [
         {
             title: safeT('gynecology.gynecologicalDiseases.title'),
-            url: getLocalizedUrl('/gynecology/planned'),
+            url: '/gynecology/planned',
             description: safeT('gynecology.gynecologicalDiseases.description')
         },
         {
             title: safeT('gynecology.gynecologicalSurgery.title'),
-            url: getLocalizedUrl('/surgery/important'),
+            url: '/surgery/important',
             description: safeT('gynecology.gynecologicalSurgery.description')
         },
         {
             title: safeT('gynecology.oncologicalSurgeries.title'),
-            url: getLocalizedUrl('/surgery/cancer'),
+            url: '/surgery/cancer',
             description: safeT('gynecology.oncologicalSurgeries.description')
         },
         {
             title: safeT('gynecology.plasticSurgery.title'),
-            url: getLocalizedUrl('/surgery/plastic-surgery'),
+            url: '/surgery/plastic-surgery',
             description: safeT('gynecology.plasticSurgery.description')
         },
         {
