@@ -40,15 +40,6 @@
         },
         {
           "node": {
-            "id": "cG9zdDoxNTgz2c",
-            "path": "/about/request-appointment",
-            "parentId": "cG9zdDoxNTgz2",
-            "order": 2,
-            "label": "Request Appointment"
-          }
-        },
-        {
-          "node": {
             "id": "cG9zdDoxNTgz2d",
             "path": "/about/preparation",
             "parentId": "cG9zdDoxNTgz2",
