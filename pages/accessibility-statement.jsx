@@ -8,6 +8,12 @@ const AccessibilityStatement = () => {
     const { t } = useSafeTranslation('accessibilityStatement');
 
     const renderList = (items) => {
+        // Safety check: ensure items is an array before mapping
+        if (!Array.isArray(items)) {
+            console.warn('renderList: items is not an array', items);
+            return null;
+        }
+        
         return (
             <List sx={{ listStyleType: 'disc', pl: 4 }}>
                 {items.map((item, index) => (
