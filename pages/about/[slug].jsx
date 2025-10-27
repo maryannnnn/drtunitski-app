@@ -25,6 +25,7 @@ const LightGallery = dynamic(() => import("lightgallery/react"), {ssr: false});
 import "lightgallery/css/lightgallery.css";
 import "lightgallery/css/lg-zoom.css";
 import "lightgallery/css/lg-share.css";
+import MainConsultation from "../../widgets/main-consultation";
 
 const AboutPage = ({initialData, isRequestAppointment}) => {
     const { t } = useSafeTranslation();
@@ -173,6 +174,7 @@ const AboutPage = ({initialData, isRequestAppointment}) => {
                                 {t('common:buttons.bookAppointment')}
                             </ButtonBrown>
                         </div>
+                        <MainConsultation />
                         {about?.content && (
                             <div className="about-block-center">
                                 <div className="container">

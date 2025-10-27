@@ -27,6 +27,7 @@ const LightGallery = dynamic(() => import("lightgallery/react"), {ssr: false});
 import "lightgallery/css/lightgallery.css";
 import "lightgallery/css/lg-zoom.css";
 import "lightgallery/css/lg-share.css";
+import MainConsultation from "../../widgets/main-consultation";
 
 const StoryPage = ({initialData}) => {
     const { t } = useSafeTranslation();
@@ -148,6 +149,7 @@ const StoryPage = ({initialData}) => {
                                     {t('common:buttons.bookAppointment')}
                                 </ButtonBrown>
                             </div>
+                            <MainConsultation />
                             {story?.content && (
                                 <div className="story-block-center">
                                     <div className="container">

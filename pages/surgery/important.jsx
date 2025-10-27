@@ -5,6 +5,7 @@ import { useSafeTranslation } from '../../shared/hooks/useSafeTranslation';
 import LeftLayout from '../../app/layouts/LeftLayout';
 import ButtonBrown from '../../shared/button-brown/ButtonBrown';
 import Modal from '../../shared/modal/Modal';
+import MainConsultation from "../../widgets/main-consultation";
 
 const SurgeryImportantPage = () => {
     const { t } = useSafeTranslation('common');
@@ -87,6 +88,7 @@ const SurgeryImportantPage = () => {
                         </ButtonBrown>
                     </div>
                 </div>
+                <MainConsultation />
 
                 {/* Important Surgeries Block */}
                 <div className="surgery-important__section surgery-important__section--white">

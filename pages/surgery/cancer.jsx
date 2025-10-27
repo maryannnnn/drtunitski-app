@@ -5,6 +5,7 @@ import { useSafeTranslation } from '../../shared/hooks/useSafeTranslation';
 import LeftLayout from '../../app/layouts/LeftLayout';
 import ButtonBrown from '../../shared/button-brown/ButtonBrown';
 import Modal from '../../shared/modal/Modal';
+import MainConsultation from "../../widgets/main-consultation";
 
 const SurgeryCancerPage = () => {
     const { t } = useSafeTranslation('common');
@@ -67,6 +68,7 @@ const SurgeryCancerPage = () => {
                         </ButtonBrown>
                     </div>
                 </div>
+                <MainConsultation />
 
                 {/* Cancer Types Block */}
                 <div className="surgery-cancer__section">
