@@ -1,0 +1,53 @@
+@import '../../app/scss/media';
+
+@media (max-width: 1200px) {
+    .main-gynecology {
+        padding: 70px 0;
+        
+        &__header {
+            margin-bottom: 50px;
+        }
+        
+        &__title {
+            font-size: 32px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .main-gynecology {
+        padding: 60px 0;
+        
+        &__header {
+            margin-bottom: 40px;
+        }
+        
+        &__title {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+        
+        &__description {
+            font-size: 16px;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .main-gynecology {
+        padding: 50px 0;
+        
+        &__header {
+            margin-bottom: 30px;
+        }
+        
+        &__title {
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+        
+        &__description {
+            font-size: 14px;
+        }
+    }
+}

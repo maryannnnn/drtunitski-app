@@ -10,6 +10,7 @@ import MainVideoTestimonials from "@/widgets/main-video-testimonials/MainVideoTe
 import TrustCareBanner from "@/shared/trust-care-banner/TrustCareBanner";
 import FooterAssociations from "@/shared/footer-associations/FooterAssociations";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import MainConsultation from "../widgets/main-consultation";
 
 const Index = () => {
     const { t } = useSafeTranslation('common');
@@ -23,6 +24,7 @@ const Index = () => {
         <MainLayout title={PageProps.title} description={PageProps.description}>
             <TrustCareBanner />
             <MainTitle/>
+            <MainConsultation />
             <MainGynecology />
             <MainStories />
             <MainVideoTestimonials />

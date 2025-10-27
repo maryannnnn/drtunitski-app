@@ -40,10 +40,37 @@
         },
         {
           "node": {
+            "id": "cG9zdDoxNTgz2b12",
+            "path": "/about/in-person-consultation",
+            "parentId": "cG9zdDoxNTgz2",
+            "order": 2,
+            "label": "In-person consultation"
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDoxNTgz2b22",
+            "path": "/about/online-consultation",
+            "parentId": "cG9zdDoxNTgz2",
+            "order": 3,
+            "label": "Online-consultation"
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDoxNTgz2b32",
+            "path": "/about/second-opinion",
+            "parentId": "cG9zdDoxNTgz2",
+            "order": 4,
+            "label": "Second opinion"
+          }
+        },
+        {
+          "node": {
             "id": "cG9zdDoxNTgz2d",
             "path": "/about/preparation",
             "parentId": "cG9zdDoxNTgz2",
-            "order": 3,
+            "order": 5,
             "label": "Preparation"
           }
         },
@@ -52,7 +79,7 @@
             "id": "cG9zdDoxNTgz2e",
             "path": "/about/prices-payment",
             "parentId": "cG9zdDoxNTgz2",
-            "order": 4,
+            "order": 6,
             "label": "Prices & Payment"
           }
         },
@@ -61,7 +88,7 @@
             "id": "cG9zdDoxNTgz2f",
             "path": "/about/medical-tourism",
             "parentId": "cG9zdDoxNTgz2",
-            "order": 5,
+            "order": 7,
             "label": "Medical tourism"
           }
         },
@@ -70,7 +97,7 @@
             "id": "cG9zdDoxNTgz2g",
             "path": "/media/video",
             "parentId": "cG9zdDoxNTgz2",
-            "order": 6,
+            "order": 8,
             "label": "Reviews & Testimonials"
           }
         },

@@ -11,7 +11,9 @@
     "aboutItems": {
       "drSergeTunitski": "ד\"ר סרג'י טוניצקי",
       "clinicTeam": "המרפאה והצוות שלנו",
-      "requestAppointment": "בקש תור",
+      "inPersonConsultation": "ייעוץ פרונטלי",
+      "onlineConsultation": "ייעוץ אונליין",
+      "secondOpinion": "חוות דעת שנייה",
       "preparation": "הכנה",
       "pricesPayment": "מחירים ותשלום",
       "medicalTourism": "תיירות רפואית",
@@ -111,7 +113,7 @@
     "contactInfo": "פרטי קשר",
     "getInTouch": "צור קשר",
     "formTitle": "קבע ייעוץ בדרך הנוחה לך",
-    "formPromo": "בהזמנה מקוונת כעת — הנחה של 10%, ייעוץ מ-500$ - 800$ + אולטרסאונד חינם",
+    "formPromo": "הזמינו עכשיו וקבלו הנחה של \u200E10%\u200E ובדיקת אולטרסאונד חינם: 1. ייעוץ פרונטלי \u200E400–720\u200E דולר,2. ייעוץ אונליין \u200E300–500\u200E דולר,3. חוות דעת שנייה \u200E500–900\u200E דולר.",
     "formDisclaimer": "המידע אינו מהווה הצעה ציבורית",
     "name": "שם",
     "firstName": "שם פרטי",
@@ -261,6 +263,21 @@
     "polyps": {
       "title": "פוליפים",
       "description": "הסרת פוליפים של רירית הרחם וצוואר הרחם באמצעות טכניקות כירורגיות היסטרוסקופיות ופולשניות מינימלית אחרות."
+    },
+    "cinThree": {
+      "title": "CIN III",
+      "description": "CIN III (דיספלזיה צווארית חמורה)"
+    }
+  },
+  "consultation": {
+    "inPersonConsultation": {
+      "title": "ייעוץ פרונטלי"
+    },
+    "onlineConsultation": {
+      "title": "ייעוץ אונליין"
+    },
+    "secondOpinion": {
+      "title": "חוות דעת רפואית שנייה"
     }
   },
   "gynecologyPlanned": {

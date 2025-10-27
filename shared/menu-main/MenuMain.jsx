@@ -70,7 +70,9 @@ const MenuMain = () => {
         const aboutKeys = {
             'Dr. Serge Tunitski': 'navigation.aboutItems.drSergeTunitski',
             'Clinic & Our Team': 'navigation.aboutItems.clinicTeam',
-            'Request Appointment': 'navigation.aboutItems.requestAppointment',
+            'In-person consultation': 'navigation.aboutItems.inPersonConsultation',
+            'Online-consultation': 'navigation.aboutItems.onlineConsultation',
+            'Second opinion': 'navigation.aboutItems.secondOpinion',
             'Preparation': 'navigation.aboutItems.preparation',
             'Prices & Payment': 'navigation.aboutItems.pricesPayment',
             'Medical tourism': 'navigation.aboutItems.medicalTourism',

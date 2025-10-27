@@ -11,6 +11,9 @@
     "aboutItems": {
       "drSergeTunitski": "Dr. Serge Tunitski",
       "clinicTeam": "Clinic & Our Team",
+      "inPersonConsultation": "In-person consultation",
+      "onlineConsultation": "Online-consultation",
+      "secondOpinion": "Second opinion",
       "requestAppointment": "Request Appointment",
       "preparation": "Preparation",
       "pricesPayment": "Prices & Payment",
@@ -117,7 +120,7 @@
     "contactInfo": "Contact Information",
     "getInTouch": "Get In Touch",
     "formTitle": "Book a Consultation in a Convenient Way",
-    "formPromo": "When booking online right now — 10% discount, consultation from $500 - $800 + free ultrasound",
+    "formPromo": "Book now and get a 10% discount plus a free ultrasound: 1. In-person consultation $400–720, 2. Online consultation $300–500, 3. Second opinion $500–900.",
     "formDisclaimer": "Information is not a public offer",
     "name": "Name",
     "firstName": "First Name",
@@ -276,6 +279,21 @@
     "polyps": {
       "title": "Polyps",
       "description": "Removal of endometrial and cervical polyps through hysteroscopic and other minimally invasive surgical techniques."
+    },
+    "cinThree": {
+      "title": "CIN III",
+      "description": "CIN III (severe cervical dysplasia)"
+    }
+  },
+  "consultation": {
+    "inPersonConsultation": {
+      "title": "In-person consultation"
+    },
+    "onlineConsultation": {
+      "title": "Online-consultation"
+    },
+    "secondOpinion": {
+      "title": "Second medical opinion"
     }
   },
   "gynecologyPlanned": {

@@ -59,9 +59,9 @@ const MainGynecology = () => {
             description: safeT('gynecology.ovarianDiseases.description')
         },
         {
-            title: safeT('gynecology.polyps.title'),
-            url: getLocalizedUrl('/gynecology/polyps'),
-            description: safeT('gynecology.polyps.description')
+            title: safeT('gynecology.cinThree.title'),
+            url: getLocalizedUrl('/gynecology/cin-iii'),
+            description: safeT('gynecology.cinThree.description')
         }
     ];
 

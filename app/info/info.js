@@ -65,7 +65,7 @@ export const contentType = {
     bonuses: 'bonuses',
     massages: 'gynecology',
     courses: 'surgery',
-    stories: 'stories',
+    stories: 'story',
     medias: 'medias',
     category: 'category',
     methodology: 'methodology',
@@ -114,7 +114,7 @@ export const getBreadcrumbType = (t) => [
     {
         id: 'story',
         title: t('common:info.breadcrumbs.story'),
-        url: '/stories/main'
+        url: '/story/main'
     },
     {
         id: 'bonus',

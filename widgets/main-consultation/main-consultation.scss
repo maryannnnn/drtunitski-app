@@ -1,0 +1,119 @@
+@import '../../app/scss/colors';
+@import '../../app/scss/mixins';
+@import '../../app/scss/fonts';
+
+.main-consultation {
+    background-color: $white;
+    padding: 34px 0;
+    
+    &__header {
+        text-align: left;
+        margin-bottom: 60px;
+        
+        [dir="rtl"] & {
+            text-align: right;
+        }
+    }
+    
+    &__title {
+        @include title-h2;
+        color: $primary;
+        margin-bottom: 20px;
+    }
+    
+    &__description {
+        @include body-lg;
+        color: $grey-1;
+        text-align: left;
+        
+        [dir="rtl"] & {
+            text-align: right;
+        }
+    }
+    
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        
+        @media (max-width: 1200px) {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+        
+        @media (max-width: 768px) {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        
+        @media (max-width: 480px) {
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+    }
+    
+    &__item {
+        background: $gradient-yellow;
+        border-radius: 12px;
+        padding: 30px 25px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        height: 80px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        overflow: hidden;
+        
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        @media (max-width: 768px) {
+            padding: 25px 20px;
+            height: 80px;
+        }
+        
+        @media (max-width: 480px) {
+            padding: 20px 15px;
+            height: 80px;
+        }
+    }
+    
+    &__item-title {
+        @include title-h4;
+        color: $primary;
+        margin-bottom: 12px;
+        flex-shrink: 0;
+        line-height: 1.2;
+        
+        @media (max-width: 768px) {
+            margin-bottom: 10px;
+        }
+        
+        @media (max-width: 480px) {
+            margin-bottom: 8px;
+        }
+    }
+    
+    &__item-description {
+        @include body-lg;
+        color: $grey-1;
+        margin: 0;
+        flex: 1;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        line-height: 1.4;
+        
+        @media (max-width: 768px) {
+            -webkit-line-clamp: 4;
+        }
+        
+        @media (max-width: 480px) {
+            -webkit-line-clamp: 4;
+        }
+    }
+}
