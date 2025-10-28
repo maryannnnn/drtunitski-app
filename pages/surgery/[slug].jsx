@@ -237,7 +237,6 @@ export async function getStaticProps({params, locale}) {
                 ...(await import('next-i18next/serverSideTranslations').then(({ serverSideTranslations }) => 
                     serverSideTranslations(locale, ['common'])
                 )),
-                _timestamp: Date.now(), // ← ДОБАВЬТЕ ЭТУ СТРОЧКУ
             },
             revalidate: 86400, // 24 hours
         };
@@ -251,7 +250,6 @@ export async function getStaticProps({params, locale}) {
                 ...(await import('next-i18next/serverSideTranslations').then(({ serverSideTranslations }) => 
                     serverSideTranslations(locale, ['common'])
                 )),
-                _timestamp: Date.now(), // ← ДОБАВЬТЕ ЭТУ СТРОЧКУ
             },
             revalidate: 3600,
         };
