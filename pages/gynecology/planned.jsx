@@ -205,13 +205,15 @@ const GynecologyPlannedPage = () => {
     );
 };
 
-export async function getStaticProps({locale}) {
+export async function getStaticProps({ locale }) {
     return {
         props: {
-            ...(await import('next-i18next/serverSideTranslations').then(({serverSideTranslations}) =>
+            ...(await import('next-i18next/serverSideTranslations').then(({ serverSideTranslations }) =>
                 serverSideTranslations(locale, ['common'])
             )),
+            _timestamp: Date.now(), // ← ДОБАВЬТЕ ЭТУ СТРОЧКУ
         },
+        revalidate: 60, // ← ДОБАВЬТЕ ЭТУ СТРОЧКУ (60 секунд)
     };
 }
 

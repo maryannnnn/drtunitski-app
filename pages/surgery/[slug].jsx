@@ -25,6 +25,7 @@ const LightGallery = dynamic(() => import("lightgallery/react"), { ssr: false })
 import "lightgallery/css/lightgallery.css";
 import "lightgallery/css/lg-zoom.css";
 import "lightgallery/css/lg-share.css";
+import MainConsultation from "../../widgets/main-consultation";
 
 
 const SurgeryPage = ({initialData}) => {
@@ -115,6 +116,7 @@ const SurgeryPage = ({initialData}) => {
                                 {t('common:buttons.bookAppointment')}
                             </ButtonBrown>
                         </div>
+                        <MainConsultation />
                         {surgery?.content && (
                             <>
                                 <div className="surgery-block-center">
@@ -235,6 +237,7 @@ export async function getStaticProps({params, locale}) {
                 ...(await import('next-i18next/serverSideTranslations').then(({ serverSideTranslations }) => 
                     serverSideTranslations(locale, ['common'])
                 )),
+                _timestamp: Date.now(), // ← ДОБАВЬТЕ ЭТУ СТРОЧКУ
             },
             revalidate: 86400, // 24 hours
         };
@@ -248,6 +251,7 @@ export async function getStaticProps({params, locale}) {
                 ...(await import('next-i18next/serverSideTranslations').then(({ serverSideTranslations }) => 
                     serverSideTranslations(locale, ['common'])
                 )),
+                _timestamp: Date.now(), // ← ДОБАВЬТЕ ЭТУ СТРОЧКУ
             },
             revalidate: 3600,
         };

@@ -38,7 +38,9 @@ export async function getStaticProps({ locale }) {
     return {
         props: {
             ...(await serverSideTranslations(locale, ['common'])),
+            _timestamp: Date.now(), // ← ДОБАВЬТЕ ЭТУ СТРОЧКУ
         },
+        revalidate: 60, // ← ДОБАВЬТЕ ЭТУ СТРОЧКУ (60 секунд)
     };
 }
 
