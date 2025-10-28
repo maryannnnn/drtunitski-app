@@ -43,9 +43,9 @@ export const useSafeTranslation = (namespace = 'common') => {
      */
     const safeTrans = (key, options = {}) => {
         // Если переводы не готовы, возвращаем пустую строку или дефолт
-        if (!isReady) {
-            return options.defaultValue || '';
-        }
+        // if (!isReady) {
+        //     return options.defaultValue || '';
+        // }
         
         // Переводы готовы - возвращаем перевод
         return t(key, options);
