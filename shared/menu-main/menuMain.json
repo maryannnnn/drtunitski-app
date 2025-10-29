@@ -184,87 +184,11 @@
             "label": "Oncological surgeries"
           }
         },
-        {
-          "node": {
-            "id": "cG9zdDozNjc44b",
-            "path": "/surgery/endometrial-cancer",
-            "parentId": "cG9zdDozNjc44",
-            "order": 1,
-            "label": "Endometrial cancer"
-          }
-        },
-        {
-          "node": {
-            "id": "cG9zdDozNjc44c",
-            "path": "/surgery/cervical-cancer",
-            "parentId": "cG9zdDozNjc44",
-            "order": 2,
-            "label": "Cervical cancer"
-          }
-        },
-        {
-          "node": {
-            "id": "cG9zdDozNjc44d",
-            "path": "/surgery/uterine-sarcoma",
-            "parentId": "cG9zdDozNjc44",
-            "order": 3,
-            "label": "Uterine sarcoma"
-          }
-        },
-        {
-          "node": {
-            "id": "cG9zdDozNjc44e",
-            "path": "/surgery/fallopian-tube-cancer",
-            "parentId": "cG9zdDozNjc44",
-            "order": 4,
-            "label": "Fallopian tube cancer"
-          }
-        },
-        {
-          "node": {
-            "id": "cG9zdDozNjc44f",
-            "path": "/surgery/vaginal-cancer",
-            "parentId": "cG9zdDozNjc44",
-            "order": 5,
-            "label": "Vaginal cancer"
-          }
-        },
-        {
-          "node": {
-            "id": "cG9zdDozNjc44g",
-            "path": "/surgery/vulvar-cancer",
-            "parentId": "cG9zdDozNjc44",
-            "order": 6,
-            "label": "Vulvar cancer"
-          }
-        },
-        {
-          "node": {
-            "id": "cG9zdDozNjc44h",
-            "path": "/surgery/choriocarcinoma",
-            "parentId": "cG9zdDozNjc44",
-            "order": 7,
-            "label": "Choriocarcinoma"
-          }
-        },
-        {
-          "node": {
-            "id": "cG9zdDozNjc44i",
-            "path": "/surgery/metastatic-tumors",
-            "parentId": "cG9zdDozNjc44",
-            "order": 8,
-            "label": "Metastatic tumors"
-          }
-        },
-        {
-          "node": {
-            "id": "cG9zdDozNjc44j",
-            "path": "/surgery/molar-pregnancy",
-            "parentId": "cG9zdDozNjc44",
-            "order": 9,
-            "label": "Molar pregnancy"
-          }
-        },
+
+
+
+
+
         {
           "node": {
             "id": "cG9zdDozNjc55",
@@ -287,57 +211,10 @@
                 "id": "cG9zdDozNjc55a1",
                 "path": "/surgery/important",
                 "label": "Gynecological Surgery"
-              },
-              {
-                "id": "cG9zdDozNjc55a2",
-                "path": "/surgery/laparoscopic-ovarian-cystectomy",
-                "label": "Laparoscopic ovarian cystectomy"
-              },
-              {
-                "id": "cG9zdDozNjc55a3",
-                "path": "/surgery/hysteroscopy-polyp-removal",
-                "label": "Hysteroscopy with endometrial polyp removal"
-              },
-              {
-                "id": "cG9zdDozNjc55a4",
-                "path": "/surgery/laparoscopic-myomectomy",
-                "label": "Laparoscopic myomectomy"
-              },
-              {
-                "id": "cG9zdDozNjc55a5",
-                "path": "/surgery/hysteroscopic-resection",
-                "label": "Hysteroscopic resection of submucous myoma"
-              },
-              {
-                "id": "cG9zdDozNjc55a6",
-                "path": "/surgery/laparoscopic-salpingectomy",
-                "label": "Laparoscopic salpingectomy for ectopic pregnancy"
-              },
-              {
-                "id": "cG9zdDozNjc55a7",
-                "path": "/surgery/laparoscopic-adhesiolysis",
-                "label": "Laparoscopic adhesiolysis"
-              },
-              {
-                "id": "cG9zdDozNjc55a8",
-                "path": "/surgery/diagnostic-laparoscopy",
-                "label": "Diagnostic laparoscopy"
-              },
-              {
-                "id": "cG9zdDozNjc55a9",
-                "path": "/surgery/vacuum-aspiration",
-                "label": "Vacuum aspiration of the uterine cavity"
-              },
-              {
-                "id": "cG9zdDozNjc55a10",
-                "path": "/surgery/medical-termination",
-                "label": "Medical termination of pregnancy"
-              },
-              {
-                "id": "cG9zdDozNjc55a11",
-                "path": "/surgery/cervical-conization",
-                "label": "Cervical conization"
               }
+
+
+
             ]
           }
         },
@@ -359,17 +236,11 @@
                 "id": "cG9zdDozNjc55d1",
                 "path": "/surgery/plastic-surgery",
                 "label": "Plastic Surgery"
-              },
-              {
-                "id": "cG9zdDozNjc55d2",
-                "path": "/surgery/labiaplasty-surgery",
-                "label": "Labiaplasty (surgery of the labia minora)"
-              },
-              {
-                "id": "cG9zdDozNjc55d3",
-                "path": "/surgery/hymenoplasty-restoration",
-                "label": "Hymenoplasty (restoration of the hymen)"
               }
+
+
+
+
             ]
           }
         },
