@@ -26,8 +26,8 @@ const Index = () => {
             <MainTitle/>
             <MainConsultation />
             <MainGynecology />
-            <MainStories />
-            <MainVideoTestimonials />
+            {/*<MainStories />*/}
+            {/*<MainVideoTestimonials />*/}
             <FooterAssociations />
             <SpeedInsights/>
         </MainLayout>
