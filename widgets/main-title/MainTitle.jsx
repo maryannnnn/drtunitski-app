@@ -66,17 +66,17 @@ const MainTitle = () => {
                             </>
                         )}
                         <div className="main-title__buttons">
-                            <a
-                                href={getAboutUrl()}
-                                className="main-title__learn-more-btn"
-                            >
-                                <ButtonBrown
-                                    variant="primary"
-                                    className="main-title__button-inner"
-                                >
-                                    {mainTitle.learnMore}
-                                </ButtonBrown>
-                            </a>
+                            {/*<a*/}
+                            {/*    href={getAboutUrl()}*/}
+                            {/*    className="main-title__learn-more-btn"*/}
+                            {/*>*/}
+                            {/*    <ButtonBrown*/}
+                            {/*        variant="primary"*/}
+                            {/*        className="main-title__button-inner"*/}
+                            {/*    >*/}
+                            {/*        {mainTitle.learnMore}*/}
+                            {/*    </ButtonBrown>*/}
+                            {/*</a>*/}
                             <ButtonBrown 
                                 onClick={() => setIsModalActive(true)}
                                 className="main-title__button-inner"

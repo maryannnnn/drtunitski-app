@@ -6,6 +6,14 @@ const nextConfig = {
     images: {
         domains: ['drtunitski.neo-lines.bond'],
     },
+
+    // ✅ ДОБАВЬТЕ для Cloudflare
+    trailingSlash: false,
+    compress: true,
+
+    // ✅ Важно для Next.js с Cloudflare
+    poweredByHeader: false,
+    generateEtags: false,
 };
 
 module.exports = nextConfig;
