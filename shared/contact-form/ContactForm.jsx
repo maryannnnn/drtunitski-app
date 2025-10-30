@@ -124,10 +124,10 @@ const ContactForm = () => {
                     <FaTelegram />
                     Telegram
                 </a>
-                <a href="https://m.me/YourFacebookPage" target="_blank" rel="noopener noreferrer" className="contact-form__messenger contact-form__messenger--messenger">
-                    <FaFacebookMessenger />
-                    Messenger
-                </a>
+                {/*<a href="https://m.me/drtunitski" target="_blank" rel="noopener noreferrer" className="contact-form__messenger contact-form__messenger--messenger">*/}
+                {/*    <FaFacebookMessenger />*/}
+                {/*    Messenger*/}
+                {/*</a>*/}
                 <button 
                     type="button" 
                     onClick={() => setShowEmailForm(!showEmailForm)} 
