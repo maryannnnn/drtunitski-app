@@ -1,14 +1,12 @@
 module.exports = {
   i18n: {
     defaultLocale: 'en',
-    locales: ['en', 'ru', 'he'], // Активны только 3 языка
-    // Временно отключены: 'de', 'fr', 'es', 'ar'
-    localeDetection: false,
+    locales: ['en', 'ru', 'he'],
+    localeDetection: true, // ← ВКЛЮЧАЕМ автоопределение
   },
   fallbackLng: {
     default: ['en'],
     he: ['en'],
-    ar: ['en'],
   },
   // RTL languages (только иврит активен)
   rtl: ['he'],
@@ -23,6 +21,17 @@ module.exports = {
   react: {
     useSuspense: false,
   },
+
+  // ✅ ДОБАВЬТЕ эти настройки для умного определения языка
+  detection: {
+    order: ['cookie', 'localStorage', 'path', 'navigator', 'htmlTag'],
+    caches: ['cookie', 'localStorage'],
+    lookupCookie: 'NEXT_LOCALE',
+    lookupLocalStorage: 'i18n-locale',
+    // Автоопределение работает только если нет сохраненного выбора
+    excludeCacheFor: ['navigator'],
+  },
+
   // Server-side rendering
   serverLanguageDetection: false,
   // Disable strict mode for build

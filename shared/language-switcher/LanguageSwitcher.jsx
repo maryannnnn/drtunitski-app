@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
 import { useSafeTranslation } from '../hooks/useSafeTranslation';
-import { 
-    FormControl, 
-    Select, 
-    MenuItem, 
+import {
+    FormControl,
+    Select,
+    MenuItem,
     Box,
     Typography
 } from '@mui/material';
@@ -17,11 +17,6 @@ const languages = [
     { code: 'en', name: 'English', short: 'EN' },
     { code: 'ru', name: 'Русский', short: 'RU' },
     { code: 'he', name: 'עברית', short: 'HE' },
-    // Временно скрыты:
-    // { code: 'de', name: 'Deutsch', short: 'DE' },
-    // { code: 'fr', name: 'Français', short: 'FR' },
-    // { code: 'es', name: 'Español', short: 'ES' },
-    // { code: 'ar', name: 'العربية', short: 'AR' },
 ];
 
 const LanguageSwitcher = ({ variant = 'dropdown', showLabel = false }) => {
@@ -31,21 +26,36 @@ const LanguageSwitcher = ({ variant = 'dropdown', showLabel = false }) => {
     const [open, setOpen] = useState(false);
     const ref = useRef(null);
 
-    // Auto-detect language on first visit
+    // ← ОБНОВЛЕННАЯ ЛОГИКА: автоопределение только при первом посещении
     useEffect(() => {
-        if (typeof window !== 'undefined' && !localStorage.getItem('language-set')) {
-            const detectedLang = detectUserLanguage();
-            if (detectedLang !== locale) {
-                router.push(router.asPath, router.asPath, { locale: detectedLang });
-                localStorage.setItem('language-set', 'true');
+        if (typeof window !== 'undefined') {
+            const userMadeChoice = localStorage.getItem('user-language-choice');
+
+            // Если пользователь еще не делал выбор - определяем язык
+            if (!userMadeChoice) {
+                const detectedLang = detectUserLanguage();
+                if (detectedLang && detectedLang !== locale) {
+                    // Сохраняем автоопределенный язык
+                    localStorage.setItem('i18n-locale', detectedLang);
+                    localStorage.setItem('user-language-choice', 'true');
+
+                    // Меняем язык без перезагрузки
+                    router.push(router.asPath, router.asPath, {
+                        locale: detectedLang,
+                        shallow: true
+                    });
+                }
             }
         }
     }, []);
 
     const handleLanguageChange = (newLocale) => {
+        // ← ПОМЕЧАЕМ ЧТО ПОЛЬЗОВАТЕЛЬ СДЕЛАЛ ЯВНЫЙ ВЫБОР
+        localStorage.setItem('user-language-choice', 'true');
+
         // Обрабатываем URL с учетом новой логики
         const currentPath = removeLanguageSuffix(router.asPath);
-        
+
         // Если это статический путь, не добавляем суффикс
         if (isStaticPath(currentPath)) {
             router.push(currentPath, undefined, { locale: newLocale });
@@ -54,10 +64,12 @@ const LanguageSwitcher = ({ variant = 'dropdown', showLabel = false }) => {
             const newPath = addLanguageSuffix(currentPath, newLocale);
             router.push(newPath, undefined, { locale: newLocale });
         }
-        
+
         setOpen(false);
         saveUserLanguagePreference(newLocale);
-        localStorage.setItem('language-set', 'true');
+
+        // ← СОХРАНЯЕМ ВЫБОР ДЛЯ i18n
+        localStorage.setItem('i18n-locale', newLocale);
     };
 
     const currentLanguage = languages.find(lang => lang.code === locale) || languages[0];
@@ -85,14 +97,14 @@ const LanguageSwitcher = ({ variant = 'dropdown', showLabel = false }) => {
                         {t('common:language')}
                     </Typography>
                 )}
-                <Box 
+                <Box
                     className="language-switcher__current"
                     onClick={() => setOpen(!open)}
                 >
                     <span className="language-switcher__short">{currentLanguage.short}</span>
                 </Box>
                 {open && (
-                    <Box 
+                    <Box
                         className="language-switcher__dropdown"
                         style={{
                             position: 'absolute',
@@ -153,7 +165,6 @@ const LanguageSwitcher = ({ variant = 'dropdown', showLabel = false }) => {
                     {languages.map((language) => (
                         <MenuItem key={language.code} value={language.code}>
                             <Box className="language-switcher__option">
-                                <span className="language-switcher__flag">{language.flag}</span>
                                 <span className="language-switcher__name">{language.name}</span>
                             </Box>
                         </MenuItem>
