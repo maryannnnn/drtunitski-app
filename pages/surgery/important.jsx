@@ -6,6 +6,7 @@ import LeftLayout from '../../app/layouts/LeftLayout';
 import ButtonBrown from '../../shared/button-brown/ButtonBrown';
 import Modal from '../../shared/modal/Modal';
 import MainConsultation from "../../widgets/main-consultation";
+import MedreviewsBlock from "../../shared/medreviews-block/MedreviewsBlock";
 
 const SurgeryImportantPage = () => {
     const { t } = useSafeTranslation('common');
@@ -89,6 +90,7 @@ const SurgeryImportantPage = () => {
                     </div>
                 </div>
                 <MainConsultation />
+                <MedreviewsBlock />
 
                 {/* Important Surgeries Block */}
                 <div className="surgery-important__section surgery-important__section--white">

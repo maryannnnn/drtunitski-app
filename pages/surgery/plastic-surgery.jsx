@@ -6,6 +6,7 @@ import LeftLayout from '../../app/layouts/LeftLayout';
 import ButtonBrown from '../../shared/button-brown/ButtonBrown';
 import Modal from '../../shared/modal/Modal';
 import MainConsultation from "../../widgets/main-consultation";
+import MedreviewsBlock from "../../shared/medreviews-block/MedreviewsBlock";
 
 const SurgeryPlasticPage = () => {
     const { t } = useSafeTranslation('common');
@@ -62,6 +63,7 @@ const SurgeryPlasticPage = () => {
                     </div>
                 </div>
                 <MainConsultation />
+                <MedreviewsBlock />
 
                 {/* Plastic Surgeries Block */}
                 <div className="surgery-plastic__section">

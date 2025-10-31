@@ -11,6 +11,7 @@ import TrustCareBanner from "@/shared/trust-care-banner/TrustCareBanner";
 import FooterAssociations from "@/shared/footer-associations/FooterAssociations";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import MainConsultation from "../widgets/main-consultation";
+import MedreviewsBlock from "../shared/medreviews-block/MedreviewsBlock";
 
 const Index = () => {
     const { t } = useSafeTranslation('common');
@@ -25,6 +26,7 @@ const Index = () => {
             <TrustCareBanner />
             <MainTitle/>
             <MainConsultation />
+            <MedreviewsBlock />
             <MainGynecology />
             {/*<MainStories />*/}
             {/*<MainVideoTestimonials />*/}

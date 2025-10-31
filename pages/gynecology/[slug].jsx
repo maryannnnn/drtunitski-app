@@ -26,6 +26,7 @@ import "lightgallery/css/lightgallery.css";
 import "lightgallery/css/lg-zoom.css";
 import "lightgallery/css/lg-share.css";
 import MainConsultation from "../../widgets/main-consultation";
+import MedreviewsBlock from "../../shared/medreviews-block/MedreviewsBlock";
 
 
 const GynecologyPage = ({initialData}) => {
@@ -117,6 +118,7 @@ const GynecologyPage = ({initialData}) => {
                             </ButtonBrown>
                         </div>
                         <MainConsultation />
+                        <MedreviewsBlock />
                         {gynecology?.content && (
                             <>
                                 <div className="gynecology-block-center">

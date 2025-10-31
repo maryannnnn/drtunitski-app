@@ -52,6 +52,35 @@
         }
     }
 
+    &__item {
+        background: $gradient-rose;
+        border-radius: 12px;
+        padding: 30px 25px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        height: 160px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        overflow: hidden;
+
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        @media (max-width: 768px) {
+            padding: 25px 20px;
+            height: 180px;
+        }
+
+        @media (max-width: 480px) {
+            padding: 20px 15px;
+            height: 170px;
+        }
+    }
+
     // Section Styling
     &__section {
         padding: 60px 0;

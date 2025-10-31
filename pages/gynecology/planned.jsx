@@ -6,6 +6,8 @@ import LeftLayout from '../../app/layouts/LeftLayout';
 import ButtonBrown from '../../shared/button-brown/ButtonBrown';
 import Modal from '../../shared/modal/Modal';
 import MainConsultation from "../../widgets/main-consultation";
+import MedreviewsBlock from "../../shared/medreviews-block/MedreviewsBlock";
+import Link from "next/link";
 
 const GynecologyPlannedPage = () => {
     const {t} = useSafeTranslation('common');
@@ -32,15 +34,32 @@ const GynecologyPlannedPage = () => {
         description: safeT('gynecologyPlanned.seoDescription')
     };
 
+    const getLocalizedUrl = (url) => {
+        // Для английского языка URL остается без изменений
+        if (locale === 'en') {
+            return url;
+        }
+
+        // Для всех slug страниц добавляем языковой суффикс к концу URL
+        return `${url}-${locale}`;
+    };
+
     // Planned Surgeries items
     const plannedItems = [
-        {title: safeT('navigation.gynecologyItems.uterineFibroids')},
-        {title: safeT('navigation.gynecologyItems.endometriosis')},
-        {title: safeT('navigation.gynecologyItems.ovarianDiseases')},
-        {title: safeT('navigation.gynecologyItems.rectoceleCystocele')},
-        {title: safeT('navigation.gynecologyItems.cinIII')},
-        {title: safeT('navigation.gynecologyItems.uterineProlapse')},
-        {title: safeT('navigation.gynecologyItems.genitalProlapse')}
+        {title: safeT('navigation.gynecologyItems.uterineFibroids'),
+            url: getLocalizedUrl('/gynecology/uterine-fibroids')},
+        {title: safeT('navigation.gynecologyItems.endometriosis'),
+            url: getLocalizedUrl('/gynecology/endometriosis')},
+        {title: safeT('navigation.gynecologyItems.ovarianDiseases'),
+            url: getLocalizedUrl('/gynecology/ovarian-diseases')},
+        {title: safeT('navigation.gynecologyItems.rectoceleCystocele'),
+            url: getLocalizedUrl('/gynecology/rectocele-cystocele')},
+        {title: safeT('navigation.gynecologyItems.cinIII'),
+            url: getLocalizedUrl('/gynecology/cin-iii')},
+        {title: safeT('navigation.gynecologyItems.uterineProlapse'),
+            url: getLocalizedUrl('/gynecology/uterine-prolapse')},
+        {title: safeT('navigation.gynecologyItems.genitalProlapse'),
+            url: getLocalizedUrl('/gynecology/genital-prolapse')}
     ];
 
     // Moderate-Risk Surgeries items
@@ -84,6 +103,7 @@ const GynecologyPlannedPage = () => {
                     </div>
                 </div>
                 <MainConsultation />
+                <MedreviewsBlock />
 
                 {/* Planned Surgeries Block */}
                 <div className="gynecology-planned__section">
@@ -98,14 +118,15 @@ const GynecologyPlannedPage = () => {
                         </div>
                         <div className="gynecology-planned__grid">
                             {plannedItems.map((item, index) => (
-                                <div
+                                <Link
                                     key={index}
+                                    href={item.url}
                                     className="gynecology-planned__item"
                                 >
                                     <h3 className="gynecology-planned__item-title">
                                         {item.title}
                                     </h3>
-                                </div>
+                                </Link>
                             ))}
                         </div>
 
