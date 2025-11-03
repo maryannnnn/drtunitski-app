@@ -4,6 +4,7 @@ import { Link as MuiLink} from '@mui/material';
 import theme from "../../material.config";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
+import { processMenuUrl } from "./utils-url"; // ← ДОБАВЬТЕ ИМПОРТ
 
 export const checkMenuItem = (linkId, menuMain) => {
     const menuUp = menuMain.filter(item => item.node.parentId === linkId);
@@ -36,7 +37,16 @@ export const getMenuItems = (linkId, menuMain) => {
     )
 };
 
-export const getMenuItemsMobile = (linkId, menuMain, isRTL = false, textAlign = 'left', getTranslatedLabel = null) => {
+
+
+export const getMenuItemsMobile = (
+    linkId,
+    menuMain,
+    isRTL = false,
+    textAlign = 'left',
+    getTranslatedLabel = null,
+    currentLocale = 'en' // ← ДОБАВЬТЕ ПАРАМЕТР ЯЗЫКА
+) => {
     return (
         <>
             {menuMain.filter(item => item.node.parentId === linkId)
@@ -68,8 +78,9 @@ export const getMenuItemsMobile = (linkId, menuMain, isRTL = false, textAlign = 
                                     {submenu.node.columnItems.map((columnItem) => (
                                         <ListItem
                                             key={columnItem.id}
-                                            component="a"
-                                            href={columnItem.path}
+                                            button
+                                            component={Link} // ← ИЗМЕНИТЕ НА Next.js Link
+                                            href={processMenuUrl(columnItem.path, currentLocale)} // ← ОБРАБОТАЙТЕ URL
                                             sx={{
                                                 display: 'block',
                                                 color: theme.palette.primary.dark,
@@ -79,21 +90,20 @@ export const getMenuItemsMobile = (linkId, menuMain, isRTL = false, textAlign = 
                                                 cursor: 'pointer',
                                                 '&:hover': {
                                                     textDecoration: 'none !important',
-                                                    color: '#E57900 !important', // Оранжевый цвет при наведении
-                                                    backgroundColor: '#F6F6F6 !important', // Серый фон при наведении
+                                                    color: '#E57900 !important',
+                                                    backgroundColor: '#F6F6F6 !important',
                                                 },
                                                 padding: '1px 16px',
-                                                paddingLeft: '32px', // Отступ для подэлементов
+                                                paddingLeft: '32px',
                                                 '& .MuiListItemText-primary': {
                                                     textAlign: textAlign,
                                                 },
-                                                // Переопределяем стили Material-UI
                                                 '&.MuiListItem-root:hover': {
-                                                    backgroundColor: '#F6F6F6 !important', // Серый фон при наведении
+                                                    backgroundColor: '#F6F6F6 !important',
                                                 },
                                                 '&.MuiListItem-root': {
                                                     '&:hover .MuiListItemText-primary': {
-                                                        color: '#E57900 !important', // Оранжевый цвет при наведении
+                                                        color: '#E57900 !important',
                                                     },
                                                 },
                                             }}
@@ -104,13 +114,14 @@ export const getMenuItemsMobile = (linkId, menuMain, isRTL = false, textAlign = 
                                 </div>
                             );
                         }
-                        
+
                         // Обычные элементы подменю
                         return (
                             <ListItem
                                 key={submenu.node.id}
-                                component="a"
-                                href={submenu.node.path}
+                                button
+                                component={Link} // ← ИЗМЕНИТЕ НА Next.js Link
+                                href={processMenuUrl(submenu.node.path, currentLocale)} // ← ОБРАБОТАЙТЕ URL
                                 sx={{
                                     display: 'block',
                                     color: theme.palette.primary.dark,
@@ -120,20 +131,19 @@ export const getMenuItemsMobile = (linkId, menuMain, isRTL = false, textAlign = 
                                     cursor: 'pointer',
                                     '&:hover': {
                                         textDecoration: 'none !important',
-                                        color: '#E57900 !important', // Оранжевый цвет при наведении
-                                        backgroundColor: '#F6F6F6 !important', // Серый фон при наведении
+                                        color: '#E57900 !important',
+                                        backgroundColor: '#F6F6F6 !important',
                                     },
                                     padding: '1px 16px',
                                     '& .MuiListItemText-primary': {
                                         textAlign: textAlign,
                                     },
-                                    // Переопределяем стили Material-UI
                                     '&.MuiListItem-root:hover': {
-                                        backgroundColor: '#F6F6F6 !important', // Серый фон при наведении
+                                        backgroundColor: '#F6F6F6 !important',
                                     },
                                     '&.MuiListItem-root': {
                                         '&:hover .MuiListItemText-primary': {
-                                            color: '#E57900 !important', // Оранжевый цвет при наведении
+                                            color: '#E57900 !important',
                                         },
                                     },
                                 }}

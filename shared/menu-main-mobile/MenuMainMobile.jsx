@@ -17,14 +17,18 @@ import { useI18n } from "../hooks/useI18n";
 import { useSafeTranslation } from '../hooks/useSafeTranslation';
 import { useRouter } from 'next/router';
 
+// ← ДОБАВЬТЕ ИМПОРТ
+import { processMenuUrl } from "../utils/utils-url";
+
 const MenuMainMobile = ({ initialData }) => {
     const { data } = menuMainMobile;
     const { isRTL, textAlign } = useI18n();
     const { t, isLoading } = useSafeTranslation();
     const router = useRouter();
     const [forceUpdate, setForceUpdate] = useState(0);
+    const currentLocale = router.locale || 'en'; // ← ДОБАВЬТЕ ТЕКУЩИЙ ЯЗЫК
 
-    const [openSubmenu, setOpenSubmenu] = useState(null); // Состояние для подменю (только одно может быть открыто)
+    const [openSubmenu, setOpenSubmenu] = useState(null);
 
     // Принудительное обновление при изменении языка
     useEffect(() => {
@@ -37,9 +41,9 @@ const MenuMainMobile = ({ initialData }) => {
             <List>
                 {[1, 2, 3, 4, 5, 6, 7].map((i) => (
                     <ListItem key={i}>
-                        <div style={{ 
-                            width: '100%', 
-                            height: '40px', 
+                        <div style={{
+                            width: '100%',
+                            height: '40px',
                             background: 'rgba(139, 69, 19, 0.1)',
                             borderRadius: '4px',
                             animation: 'pulse 1.5s ease-in-out infinite'
@@ -194,8 +198,8 @@ const MenuMainMobile = ({ initialData }) => {
 
     // Открытие/закрытие подменю (accordion поведение)
     const handleSubmenuToggle = (id) => (event) => {
-        event.stopPropagation(); // Предотвращает закрытие Drawer или аккордеона
-        setOpenSubmenu(openSubmenu === id ? null : id); // Если уже открыто - закрываем, иначе открываем
+        event.stopPropagation();
+        setOpenSubmenu(openSubmenu === id ? null : id);
     };
 
     return (
@@ -205,49 +209,48 @@ const MenuMainMobile = ({ initialData }) => {
                     .filter((link) => link.node.parentId === null)
                     .sort((a, b) => a.node.order - b.node.order)
                     .map((link) => {
-                        // Проверяем, есть ли у пункта подменю
                         const hasSubmenu = checkMenuItem(link.node.id, data.menuItems.edges);
 
                         return !hasSubmenu ? (
-                                <ListItem
-                                    key={link.node.id}
-                                    button
-                                    component="a"
-                                    href={link.node.path}
-                                    sx={{
-                                        display: 'block',
-                                        color: theme.palette.primary.dark,
+                            // ← ИСПРАВЬТЕ ПРОСТЫЕ ССЫЛКИ
+                            <ListItem
+                                key={link.node.id}
+                                button
+                                component={Link} // ← ИЗМЕНИТЕ НА Link
+                                href={processMenuUrl(link.node.path, currentLocale)} // ← ОБРАБОТАЙТЕ URL
+                                sx={{
+                                    display: 'block',
+                                    color: theme.palette.primary.dark,
+                                    textDecoration: 'none',
+                                    direction: isRTL ? 'rtl' : 'ltr',
+                                    '&:hover': {
                                         textDecoration: 'none',
-                                        direction: isRTL ? 'rtl' : 'ltr', // Направление текста
-                                        '&:hover': {
-                                            textDecoration: 'none',
-                                            color: theme.palette.primary.light,
-                                        },
-                                        padding: '1px 16px',
-                                        '& .MuiListItemText-primary': {
-                                            textAlign: textAlign, // Выравнивание текста
-                                        },
-                                    }}
-                                >
-                                    <ListItemText primary={getTranslatedLabel(link.node.label, link.node.id)} />
-                                </ListItem>
-
+                                        color: theme.palette.primary.light,
+                                    },
+                                    padding: '1px 16px',
+                                    '& .MuiListItemText-primary': {
+                                        textAlign: textAlign,
+                                    },
+                                }}
+                            >
+                                <ListItemText primary={getTranslatedLabel(link.node.label, link.node.id)} />
+                            </ListItem>
                         ) : (
                             <Accordion
                                 key={link.node.id}
-                                expanded={openSubmenu === link.node.id} // Управление состоянием аккордеона (только один открыт)
-                                onChange={handleSubmenuToggle(link.node.id)} // Открытие/закрытие подменю
+                                expanded={openSubmenu === link.node.id}
+                                onChange={handleSubmenuToggle(link.node.id)}
                                 sx={{
                                     color: theme.palette.primary.dark,
                                     textDecoration: 'none',
-                                    direction: isRTL ? 'rtl' : 'ltr', // Направление текста
+                                    direction: isRTL ? 'rtl' : 'ltr',
                                     '&:hover': {
                                         textDecoration: 'none',
                                         color: theme.palette.primary.light,
                                     },
                                     padding: '1px 16px',
                                     '& .MuiAccordionSummary-content': {
-                                        textAlign: textAlign, // Выравнивание текста
+                                        textAlign: textAlign,
                                     },
                                 }}
                             >
@@ -261,8 +264,15 @@ const MenuMainMobile = ({ initialData }) => {
                                 <AccordionDetails>
                                     {checkMenuItem(link.node.id, data.menuItems.edges) ? (
                                         <div>
-                                            {/* Рендеринг подменю */}
-                                            {getMenuItemsMobile(link.node.id, data.menuItems.edges, isRTL, textAlign, getTranslatedLabel)}
+                                            {/* ← ПЕРЕДАЙТЕ currentLocale В getMenuItemsMobile */}
+                                            {getMenuItemsMobile(
+                                                link.node.id,
+                                                data.menuItems.edges,
+                                                isRTL,
+                                                textAlign,
+                                                getTranslatedLabel,
+                                                currentLocale // ← ДОБАВЬТЕ ЭТОТ ПАРАМЕТР
+                                            )}
                                         </div>
                                     ) : (
                                         <Typography>Нет подменю</Typography>
@@ -279,12 +289,7 @@ const MenuMainMobile = ({ initialData }) => {
 };
 
 export async function getStaticProps() {
-    // const { data } = await client.query({
-    //     query: GET_MENU_MAIN
-    // });
-
     const {data} = menuMainMobile
-
     return {
         props: {
             initialData: data
@@ -293,4 +298,3 @@ export async function getStaticProps() {
 }
 
 export default MenuMainMobile;
-
