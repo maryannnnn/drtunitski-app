@@ -1,41 +1,38 @@
+// hooks/useSafeTranslation.js
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
-/**
- * Упрощенный безопасный хук для переводов
- * Работает без лоадера, показывает fallback пока переводы не готовы
- */
 export const useSafeTranslation = (namespace = 'common') => {
     const { t, i18n, ready } = useTranslation(namespace);
     const router = useRouter();
-    const [showFallback, setShowFallback] = useState(false);
+    const [forceReady, setForceReady] = useState(false);
 
     useEffect(() => {
-        // Если переводы не загрузились за 1.5 секунды - показываем fallback
-        const timer = setTimeout(() => {
-            if (!ready) {
-                setShowFallback(true);
-            }
-        }, 1500);
-
-        return () => clearTimeout(timer);
-    }, [ready]);
-
-    /**
-     * Умная функция перевода
-     * Показывает fallback вместо ключей пока переводы не готовы
-     */
-    const safeTrans = (key, options = {}) => {
-        // Если переводы не готовы - показываем плейсхолдер или defaultValue
-        if (!ready && showFallback) {
-            return options.defaultValue || '...';
+        // Принудительно загружаем переводы при прямом заходе
+        if (typeof window !== 'undefined' && window.i18n && !ready) {
+            const loadTranslations = async () => {
+                try {
+                    await window.i18n.reloadResources([router.locale], [namespace]);
+                } catch (error) {
+                    console.log('Translation load failed:', error);
+                }
+            };
+            loadTranslations();
         }
 
-        // Если переводы не готовы но fallback еще не включен - возвращаем ключ
-        // (это временное состояние на 1.5 секунды)
-        if (!ready) {
-            return key;
+        // Fallback: если переводы не загрузились за 3 секунды - показываем страницу
+        const timer = setTimeout(() => {
+            setForceReady(true);
+        }, 3000);
+
+        return () => clearTimeout(timer);
+    }, [ready, router.locale, namespace]);
+
+    const safeTrans = (key, options = {}) => {
+        // Если переводы не готовы - показываем красивый плейсхолдер
+        if (!ready && !forceReady) {
+            return options.defaultValue || '...';
         }
 
         const translation = t(key, options);
@@ -51,8 +48,7 @@ export const useSafeTranslation = (namespace = 'common') => {
     return {
         t: safeTrans,
         i18n,
-        ready: ready || showFallback, // Считаем готовым если включен fallback
-        isLoading: !ready && !showFallback,
+        ready: ready || forceReady,
         currentLanguage: router.locale || 'en'
     };
 };

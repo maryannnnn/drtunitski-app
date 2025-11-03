@@ -13,6 +13,7 @@ import VideoDisplay from '@/shared/video-display/VideoDisplay';
 import ButtonBrown from '@/shared/button-brown/ButtonBrown';
 import Modal from '@/shared/modal/Modal';
 import { useSafeTranslation } from '@/shared/hooks/useSafeTranslation';
+import WordPressContent from '@/components/WordPressContent'; // ← ИМПОРТ
 import './index.scss';
 import './media.scss';
 
@@ -43,7 +44,7 @@ const AboutPage = ({initialData, isRequestAppointment}) => {
 
     const {loading, error, data} = useQuery(GET_ABOUT_BY_SLUG, {
         variables: {slug},
-        skip: !slug || isRequestAppointment, // Пропускаем GraphQL запрос для request-appointment
+        skip: !slug || isRequestAppointment,
         fetchPolicy: 'cache-and-network',
     });
 
@@ -88,22 +89,22 @@ const AboutPage = ({initialData, isRequestAppointment}) => {
                     <div className="container">
                         <h1 className="about__title">{t('common:navigation.aboutItems.requestAppointment')}</h1>
                         <Breadcrumbs material={breadcrumbsMaterial} typeMaterial="about" />
-                        
-                        <div style={{ 
-                            padding: '40px 20px', 
+
+                        <div style={{
+                            padding: '40px 20px',
                             textAlign: 'center',
                             maxWidth: '800px',
                             margin: '0 auto'
                         }}>
-                            <p style={{ 
-                                fontSize: '18px', 
-                                lineHeight: '1.6', 
+                            <p style={{
+                                fontSize: '18px',
+                                lineHeight: '1.6',
                                 marginBottom: '30px',
                                 color: '#333'
                             }}>
                                 {t('common:modal.appointmentText')}
                             </p>
-                            
+
                             <ButtonBrown
                                 onClick={() => setIsModalActive(true)}
                                 className="about__appointment-button"
@@ -113,7 +114,7 @@ const AboutPage = ({initialData, isRequestAppointment}) => {
                         </div>
                     </div>
                 </div>
-                
+
                 <Modal
                     active={isModalActive}
                     setActive={setIsModalActive}
@@ -124,7 +125,6 @@ const AboutPage = ({initialData, isRequestAppointment}) => {
     }
 
     const about = data?.aboutBy || initialData?.aboutBy;
-
     const typeMaterial = "about";
 
     const PageProps = {
@@ -161,9 +161,11 @@ const AboutPage = ({initialData, isRequestAppointment}) => {
                                             </LightGallery>
                                         </div>
                                     )}
-                                    <div className="about__anons-text"
-                                         dangerouslySetInnerHTML={{__html: about?.AcfAbout?.descriptionAnons || ''}}>
-                                    </div>
+                                    {/* ЗАМЕНИЛИ dangerouslySetInnerHTML на WordPressContent */}
+                                    <WordPressContent
+                                        content={about?.AcfAbout?.descriptionAnons}
+                                        className="about__anons-text"
+                                    />
                                 </div>
                             </>
                         )}
@@ -201,9 +203,11 @@ const AboutPage = ({initialData, isRequestAppointment}) => {
                                                 </LightGallery>
                                             </div>
                                         )}
-                                        <div className="about__description-text"
-                                             dangerouslySetInnerHTML={{__html: about?.content || ''}}>
-                                        </div>
+                                        {/* ЗАМЕНИЛИ dangerouslySetInnerHTML на WordPressContent */}
+                                        <WordPressContent
+                                            content={about?.content}
+                                            className="about__description-text"
+                                        />
                                     </div>
                                 </div>
                             </div>
@@ -227,9 +231,11 @@ const AboutPage = ({initialData, isRequestAppointment}) => {
                                         title={cleanHtmlFull(about?.AcfAbout?.videoTitle || '')}
                                     />
                                 </div>
-                                <div className="about__video-text"
-                                     dangerouslySetInnerHTML={{__html: about?.AcfAbout?.videoDescription || ''}}>
-                                </div>
+                                {/* ЗАМЕНИЛИ dangerouslySetInnerHTML на WordPressContent */}
+                                <WordPressContent
+                                    content={about?.AcfAbout?.videoDescription}
+                                    className="about__video-text"
+                                />
                             </div>
                         )}
                         {about?.AcfAbout?.video && (
@@ -247,9 +253,11 @@ const AboutPage = ({initialData, isRequestAppointment}) => {
                                 <div className="container">
                                     <h2 className="about__title-faq">{cleanHtmlFull(about?.AcfAbout?.faqTitle || '')}</h2>
                                     <div className="about__faq">
-                                        <div className="about__faq-content"
-                                             dangerouslySetInnerHTML={{__html: about?.AcfAbout?.faqContent || ''}}>
-                                        </div>
+                                        {/* ЗАМЕНИЛИ dangerouslySetInnerHTML на WordPressContent */}
+                                        <WordPressContent
+                                            content={about?.AcfAbout?.faqContent}
+                                            className="about__faq-content"
+                                        />
                                     </div>
                                 </div>
                             </div>
@@ -258,7 +266,7 @@ const AboutPage = ({initialData, isRequestAppointment}) => {
                 </div>
             </div>
             <Modal
-                active={isModalActive} 
+                active={isModalActive}
                 setActive={setIsModalActive}
                 title={t('common:buttons.bookAppointment')}
             />
@@ -268,10 +276,12 @@ const AboutPage = ({initialData, isRequestAppointment}) => {
 
 export default AboutPage;
 
+// getStaticPaths и getStaticProps остаются БЕЗ ИЗМЕНЕНИЙ
+
 export async function getStaticPaths({ locales }) {
     // TEMPORARY FIX: Skip GraphQL during build, generate pages on-demand
     console.log("⚠️ Skipping GraphQL fetch during build - using fallback: true");
-    
+
     return {
         paths: [], // Пустой массив - страницы будут генерироваться по требованию
         fallback: true // Включаем ISR - страницы генерируются при первом запросе
@@ -282,10 +292,10 @@ export async function getStaticProps({params, locale}) {
     try {
         // Удаляем языковой суффикс из slug для проверки
         const cleanSlug = params.slug.replace(/-ru$|-he$|-de$|-fr$|-es$|-ar$/, '');
-        
+
         // Проверяем, является ли это страницей request-appointment
         const isRequestAppointment = cleanSlug === 'request-appointment';
-        
+
         // Если это request-appointment, не делаем GraphQL запрос
         if (isRequestAppointment) {
             return {
