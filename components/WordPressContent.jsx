@@ -1,68 +1,42 @@
 // components/WordPressContent.jsx
 import { useEffect, useState } from 'react';
-import { useSafeTranslation } from '@/shared/hooks/useSafeTranslation';
+import { useForceTranslations } from '@/shared/hooks/useForceTranslations';
 
 export default function WordPressContent({
                                              content,
                                              className = "",
-                                             fallbackDelay = 2000,
-                                             forceRefresh = true // ← Новая опция
+                                             fallbackDelay = 1500
                                          }) {
-    const { t, ready, i18n } = useSafeTranslation();
+    const translationsForced = useForceTranslations();
     const [showContent, setShowContent] = useState(false);
-    const [translationChecked, setTranslationChecked] = useState(false);
 
     useEffect(() => {
-        const checkTranslations = async () => {
-            // Если переводы готовы - сразу показываем
-            if (ready) {
-                setShowContent(true);
-                return;
-            }
-
-            // Если переводы не готовы, проверяем есть ли проблема
-            if (forceRefresh && !ready) {
-                // Проверяем, не показываются ли ключи вместо текста
-                const testKey = 'common:buttons.bookAppointment';
-                const testTranslation = t(testKey);
-
-                // Если перевод возвращает ключ (значит переводы не загружены)
-                if (testTranslation === testKey) {
-                    console.log('Translations missing, attempting to reload...');
-
-                    // Пытаемся перезагрузить языковые файлы
-                    try {
-                        await i18n.reloadResources();
-                    } catch (error) {
-                        console.log('Failed to reload translations:', error);
-                    }
-                }
-            }
-
-            // Fallback: показываем контент через задержку
+        // Показываем контент когда:
+        // - Переводы принудительно загружены И
+        // - Прошла минимальная задержка
+        if (translationsForced) {
             const timer = setTimeout(() => {
                 setShowContent(true);
             }, fallbackDelay);
 
             return () => clearTimeout(timer);
-        };
-
-        checkTranslations();
-    }, [ready, forceRefresh, t, i18n, fallbackDelay]);
+        }
+    }, [translationsForced, fallbackDelay]);
 
     if (!showContent) {
         return (
             <div
                 className={className}
                 style={{
-                    minHeight: '100px',
+                    minHeight: '80px',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    opacity: 0.6
+                    background: '#f5f5f5',
+                    borderRadius: '4px'
                 }}
             >
-                <div>Loading content...</div>
+                <div style={{ color: '#666', fontSize: '14px' }}>Loading content...</div>
             </div>
         );
     }
