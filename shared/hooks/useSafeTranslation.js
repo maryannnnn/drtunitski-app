@@ -3,62 +3,58 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
 /**
- * Безопасный хук для работы с переводами на Vercel
- * 
- * Решает проблему race condition между серверной и клиентской гидратацией
- * Предотвращает показ ключей переводов или английских fallback значений
- * 
- * @param {string} namespace - пространство имен для переводов (по умолчанию 'common')
- * @returns {object} - объект с безопасной функцией t, состоянием загрузки и i18n
+ * Упрощенный безопасный хук для переводов
+ * Работает без лоадера, показывает fallback пока переводы не готовы
  */
 export const useSafeTranslation = (namespace = 'common') => {
     const { t, i18n, ready } = useTranslation(namespace);
     const router = useRouter();
-    const [isReady, setIsReady] = useState(false);
-    const [mounted, setMounted] = useState(false);
-
-    // Проверяем монтирование компонента
-    useEffect(() => {
-        setMounted(true);
-    }, []);
+    const [showFallback, setShowFallback] = useState(false);
 
     useEffect(() => {
-        // Ждем, пока все условия будут выполнены:
-        // 1. i18n готов (ready === true)
-        // 2. роутер готов (router.locale существует)
-        // 3. язык i18n соответствует языку роутера
-        // 4. компонент смонтирован
-        if (mounted && ready && router.locale && i18n.language === router.locale) {
-            setIsReady(true);
-        }
-    }, [mounted, ready, router.locale, i18n.language]);
+        // Если переводы не загрузились за 1.5 секунды - показываем fallback
+        const timer = setTimeout(() => {
+            if (!ready) {
+                setShowFallback(true);
+            }
+        }, 1500);
+
+        return () => clearTimeout(timer);
+    }, [ready]);
 
     /**
-     * Безопасная функция перевода
-     * Возвращает пустую строку или дефолтное значение, пока переводы не готовы
-     * 
-     * @param {string} key - ключ перевода
-     * @param {object} options - опции для t() функции
-     * @returns {string} - переведенная строка или fallback
+     * Умная функция перевода
+     * Показывает fallback вместо ключей пока переводы не готовы
      */
     const safeTrans = (key, options = {}) => {
-        // Если переводы не готовы, возвращаем пустую строку или дефолт
-        // if (!isReady) {
-        //     return options.defaultValue || '';
-        // }
-        
-        // Переводы готовы - возвращаем перевод
-        return t(key, options);
+        // Если переводы не готовы - показываем плейсхолдер или defaultValue
+        if (!ready && showFallback) {
+            return options.defaultValue || '...';
+        }
+
+        // Если переводы не готовы но fallback еще не включен - возвращаем ключ
+        // (это временное состояние на 1.5 секунды)
+        if (!ready) {
+            return key;
+        }
+
+        const translation = t(key, options);
+
+        // Если перевод не найден - используем fallback
+        if (translation === key) {
+            return options.defaultValue || key;
+        }
+
+        return translation;
     };
 
     return {
         t: safeTrans,
         i18n,
-        ready: isReady,
-        isLoading: !isReady,
+        ready: ready || showFallback, // Считаем готовым если включен fallback
+        isLoading: !ready && !showFallback,
         currentLanguage: router.locale || 'en'
     };
 };
 
 export default useSafeTranslation;
-
