@@ -113,11 +113,11 @@ const StoryPage = ({initialData}) => {
                                 ) : null;
                             })()}
                             
-                            <div className="story__personal">
-                                <div
-                                    className="story__personal-name">{cleanHtmlFull(story?.AcfStory?.groupInfoPost?.fullName)}
-                                </div>
-                            </div>
+                            {/*<div className="story__personal">*/}
+                            {/*    <div*/}
+                            {/*        className="story__personal-name">{cleanHtmlFull(story?.AcfStory?.groupInfoPost?.fullName)}*/}
+                            {/*    </div>*/}
+                            {/*</div>*/}
                             <div className="story__anons">
                                 {story?.AcfStory?.imageAnons && (
                                     <div className="story__anons-img">
