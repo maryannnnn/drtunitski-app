@@ -63,14 +63,28 @@ function TranslationInitializer({ children }) {
                         await i18n.loadNamespaces('common');
                     }
 
-                    console.log('✅ Translations initialized successfully');
+                    // ✅ ПРОВЕРЯЕМ ЧТО ПЕРЕВОДЫ ДЕЙСТВИТЕЛЬНО ЗАГРУЖЕНЫ
+                    const hasTranslations = !!i18n.getResourceBundle?.(router.locale, 'common');
+                    
+                    if (hasTranslations) {
+                        console.log('✅ Translations loaded successfully with', 
+                            Object.keys(i18n.getResourceBundle(router.locale, 'common')).length, 'keys');
+                        setTranslationsReady(true);  // ← ТОЛЬКО ЕСЛИ ЕСТЬ ПЕРЕВОДЫ
+                    } else {
+                        console.warn('⚠️ Translations loaded but empty, trying manual load...');
+                        // Пытаемся загрузить вручную
+                        await i18n.changeLanguage(router.locale);
+                        setTranslationsReady(true);
+                    }
                 } catch (error) {
                     console.warn('⚠️ Translation initialization failed:', error);
+                    setTranslationsReady(true);  // Разрешаем рендер при ошибке
                 }
+            } else {
+                console.warn('⚠️ i18n instance not available');
+                // Если нет i18n - разрешаем рендер
+                setTranslationsReady(true);
             }
-
-            // Разрешаем рендеринг (даже если переводы не загрузились)
-            setTranslationsReady(true);
         };
 
         initializeTranslations();
