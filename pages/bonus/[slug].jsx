@@ -182,8 +182,7 @@ export async function getStaticProps({params, locale}) {
         return {
             props: {
                 initialData: data,
-                ...(await import('next-i18next/serverSideTranslations').then(({ serverSideTranslations }) => 
-                    serverSideTranslations(locale, ['common'])),
+                ...(await serverSideTranslations(locale, ['common'])),
             },
             revalidate: 86400, // 24 hours
         };
@@ -192,8 +191,7 @@ export async function getStaticProps({params, locale}) {
         return {
             props: {
                 initialData: { bonusBy: null },
-                ...(await import('next-i18next/serverSideTranslations').then(({ serverSideTranslations }) => 
-                    serverSideTranslations(locale, ['common'])),
+                ...(await serverSideTranslations(locale, ['common'])),
             },
             revalidate: 3600,
         };

@@ -217,8 +217,7 @@ export async function getStaticProps({ locale }) {
                 initialData: data || {
                     medias: { edges: [] }
                 },
-                ...(await import('next-i18next/serverSideTranslations').then(({ serverSideTranslations }) =>
-                    serverSideTranslations(locale, ['common'])),
+                ...(await serverSideTranslations(locale, ['common'])),
             },
             revalidate: 3600,
         };
@@ -227,8 +226,7 @@ export async function getStaticProps({ locale }) {
         return {
             props: {
                 initialData: { medias: { edges: [] } },
-                ...(await import('next-i18next/serverSideTranslations').then(({ serverSideTranslations }) =>
-                    serverSideTranslations(locale, ['common'])),
+                ...(await serverSideTranslations(locale, ['common'])),
             },
             revalidate: 3600,
         };

@@ -318,9 +318,7 @@ export async function getStaticProps({params, locale}) {
             props: {
                 initialData: data || { aboutBy: null },
                 isRequestAppointment: false,
-                ...(await import('next-i18next/serverSideTranslations').then(({ serverSideTranslations }) =>
-                    serverSideTranslations(locale, ['common'])
-                )),
+                ...(await serverSideTranslations(locale, ['common'])),
             },
             revalidate: 86400, // 24 hours - страница перегенерируется раз в сутки
         };
@@ -330,9 +328,7 @@ export async function getStaticProps({params, locale}) {
             props: {
                 initialData: { aboutBy: null },
                 isRequestAppointment: false,
-                ...(await import('next-i18next/serverSideTranslations').then(({ serverSideTranslations }) =>
-                    serverSideTranslations(locale, ['common'])
-                )),
+                ...(await serverSideTranslations(locale, ['common'])),
             },
             revalidate: 3600, // 1 час - повторить попытку быстрее при ошибке
         };

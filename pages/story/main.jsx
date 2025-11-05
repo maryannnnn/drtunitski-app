@@ -203,8 +203,7 @@ export async function getStaticProps({ locale }) {
                 initialData: data || {
                     stories: { edges: [] }
                 },
-                ...(await import('next-i18next/serverSideTranslations').then(({ serverSideTranslations }) =>
-                    serverSideTranslations(locale, ['common'])),
+                ...(await serverSideTranslations(locale, ['common'])),
             },
             revalidate: 3600, // Revalidate every hour
         };
@@ -213,8 +212,7 @@ export async function getStaticProps({ locale }) {
         return {
             props: {
                 initialData: { stories: { edges: [] } },
-                ...(await import('next-i18next/serverSideTranslations').then(({ serverSideTranslations }) =>
-                    serverSideTranslations(locale, ['common'])),
+                ...(await serverSideTranslations(locale, ['common'])),
             },
             revalidate: 3600,
         };

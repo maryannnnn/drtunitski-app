@@ -116,8 +116,7 @@ const SurgeryCancerPage = () => {
 export async function getStaticProps({ locale }) {
     return {
         props: {
-            ...(await import('next-i18next/serverSideTranslations').then(({ serverSideTranslations }) =>
-                serverSideTranslations(locale, ['common'])),
+            ...(await serverSideTranslations(locale, ['common'])),
         },
     };
 }
