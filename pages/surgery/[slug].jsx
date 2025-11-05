@@ -15,6 +15,7 @@ import {GET_SURGERY_BY_SLUG} from "../../entities/surgery/actions/surgeryActions
 import Breadcrumbs from "../../shared/breadcrumbs-page/BreadcrumbsPage";
 import ButtonBrown from '../../shared/button-brown/ButtonBrown';
 import Modal from '../../shared/modal/Modal';
+import WordPressContent from '../../components/WordPressContent'; // ← ИМПОРТ
 
 import lgZoom from "lightgallery/plugins/zoom";
 import lgShare from "lightgallery/plugins/share";
@@ -41,7 +42,7 @@ const SurgeryPage = ({initialData}) => {
         skip: !slug,
         fetchPolicy: 'cache-and-network',
     });
-    
+
     // ISR loading state or data loading
     if (router.isFallback || loading) {
         return (
@@ -103,9 +104,11 @@ const SurgeryPage = ({initialData}) => {
                                             </LightGallery>
                                         </div>
                                     )}
-                                    <div className="surgery__anons-text"
-                                         dangerouslySetInnerHTML={{__html: surgery?.AcfSurgery?.descriptionAnons || ''}}>
-                                    </div>
+                                    {/* ЗАМЕНА: dangerouslySetInnerHTML → WordPressContent */}
+                                    <WordPressContent
+                                        content={surgery?.AcfSurgery?.descriptionAnons}
+                                        className="surgery__anons-text"
+                                    />
                                 </div>
                             </>
                         )}
@@ -125,28 +128,30 @@ const SurgeryPage = ({initialData}) => {
                                     <div className="container">
                                         <h2 className="surgery__title-main">{cleanHtmlFull(surgery?.AcfSurgery?.titleCenter || '')}</h2>
                                         <div className="surgery__description">
-                                        {surgery?.featuredImage?.node?.sourceUrl && (
-                                            <div className="surgery__description-img">
-                                                <LightGallery
-                                                    elementClassNames={'masonry-gallery-demo'}
-                                                    plugins={[lgZoom, lgShare, lgHash]}
-                                                    speed={500}
-                                                >
-                                                    <a href={surgery?.featuredImage?.node?.sourceUrl}>
-                                                        <Image
-                                                            src={surgery?.featuredImage?.node?.sourceUrl}
-                                                            alt={cleanHtmlFull(surgery?.AcfSurgery?.titleCenter || '')}
-                                                            width={400}
-                                                            height={400}
-                                                            layout="intrinsic"
-                                                        />
-                                                    </a>
-                                                </LightGallery>
-                                            </div>
-                                        )}
-                                        <div className="surgery__description-text"
-                                             dangerouslySetInnerHTML={{__html: surgery?.content || ''}}>
-                                        </div>
+                                            {surgery?.featuredImage?.node?.sourceUrl && (
+                                                <div className="surgery__description-img">
+                                                    <LightGallery
+                                                        elementClassNames={'masonry-gallery-demo'}
+                                                        plugins={[lgZoom, lgShare, lgHash]}
+                                                        speed={500}
+                                                    >
+                                                        <a href={surgery?.featuredImage?.node?.sourceUrl}>
+                                                            <Image
+                                                                src={surgery?.featuredImage?.node?.sourceUrl}
+                                                                alt={cleanHtmlFull(surgery?.AcfSurgery?.titleCenter || '')}
+                                                                width={400}
+                                                                height={400}
+                                                                layout="intrinsic"
+                                                            />
+                                                        </a>
+                                                    </LightGallery>
+                                                </div>
+                                            )}
+                                            {/* ЗАМЕНА: dangerouslySetInnerHTML → WordPressContent */}
+                                            <WordPressContent
+                                                content={surgery?.content}
+                                                className="surgery__description-text"
+                                            />
                                         </div>
                                     </div>
                                 </div>
@@ -172,9 +177,11 @@ const SurgeryPage = ({initialData}) => {
                                         title={cleanHtmlFull(surgery?.AcfSurgery?.videoTitle || '')}
                                     />
                                 </div>
-                                <div className="surgery__video-text"
-                                     dangerouslySetInnerHTML={{__html: surgery?.AcfSurgery?.videoDescription || ''}}>
-                                </div>
+                                {/* ЗАМЕНА: dangerouslySetInnerHTML → WordPressContent */}
+                                <WordPressContent
+                                    content={surgery?.AcfSurgery?.videoDescription}
+                                    className="surgery__video-text"
+                                />
                             </div>
                         )}
                         {surgery?.AcfSurgery?.video && (
@@ -192,9 +199,11 @@ const SurgeryPage = ({initialData}) => {
                                 <div className="container">
                                     <h2 className="surgery__title-faq">{cleanHtmlFull(surgery?.AcfSurgery?.faqTitle || '')}</h2>
                                     <div className="surgery__faq">
-                                        <div className="surgery__faq-content"
-                                         dangerouslySetInnerHTML={{__html: surgery?.AcfSurgery?.faqContent || ''}}>
-                                        </div>
+                                        {/* ЗАМЕНА: dangerouslySetInnerHTML → WordPressContent */}
+                                        <WordPressContent
+                                            content={surgery?.AcfSurgery?.faqContent}
+                                            className="surgery__faq-content"
+                                        />
                                     </div>
                                 </div>
                             </div>

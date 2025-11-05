@@ -10,11 +10,12 @@ import LeftLayout from "../../app/layouts/LeftLayout";
 import Stack from "@mui/material/Stack";
 import Alert from "@mui/material/Alert";
 import {cleanHtmlFull} from "../../shared/utils/utils-content";
-import Image from "next/image";
+import NextImage from "next/image"; // ← ИЗМЕНИЛИ ИМЯ НА NextImage
 import {GET_GYNECOLOGY_BY_SLUG} from "../../entities/gynecology/actions/gynecologyActions";
 import Breadcrumbs from "../../shared/breadcrumbs-page/BreadcrumbsPage";
 import ButtonBrown from '../../shared/button-brown/ButtonBrown';
 import Modal from '../../shared/modal/Modal';
+import WordPressContent from '../../components/WordPressContent';
 
 import lgZoom from "lightgallery/plugins/zoom";
 import lgShare from "lightgallery/plugins/share";
@@ -41,7 +42,7 @@ const GynecologyPage = ({initialData}) => {
         skip: !slug,
         fetchPolicy: 'cache-and-network',
     });
-    
+
     // ISR loading state or data loading
     if (router.isFallback || loading) {
         return (
@@ -92,7 +93,7 @@ const GynecologyPage = ({initialData}) => {
                                                 speed={500}
                                             >
                                                 <a href={gynecology?.AcfGynecology?.imageAnonsPage?.sourceUrl}>
-                                                    <Image
+                                                    <NextImage // ← ИСПОЛЬЗУЕМ NextImage
                                                         src={gynecology?.AcfGynecology?.imageAnonsPage?.sourceUrl}
                                                         alt={cleanHtmlFull(gynecology?.AcfGynecology?.titleLong || '')}
                                                         width={400}
@@ -103,9 +104,10 @@ const GynecologyPage = ({initialData}) => {
                                             </LightGallery>
                                         </div>
                                     )}
-                                    <div className="gynecology__anons-text"
-                                         dangerouslySetInnerHTML={{__html: gynecology?.AcfGynecology?.descriptionAnons || ''}}>
-                                    </div>
+                                    <WordPressContent
+                                        content={gynecology?.AcfGynecology?.descriptionAnons}
+                                        className="gynecology__anons-text"
+                                    />
                                 </div>
                             </>
                         )}
@@ -125,28 +127,29 @@ const GynecologyPage = ({initialData}) => {
                                     <div className="container">
                                         <h2 className="gynecology__title-main">{cleanHtmlFull(gynecology?.AcfGynecology?.titleCenter || '')}</h2>
                                         <div className="gynecology__description">
-                                        {gynecology?.featuredImage?.node?.sourceUrl && (
-                                            <div className="gynecology__description-img">
-                                                <LightGallery
-                                                    elementClassNames={'masonry-gallery-demo'}
-                                                    plugins={[lgZoom, lgShare, lgHash]}
-                                                    speed={500}
-                                                >
-                                                    <a href={gynecology?.featuredImage?.node?.sourceUrl}>
-                                                        <Image
-                                                            src={gynecology?.featuredImage?.node?.sourceUrl}
-                                                            alt={cleanHtmlFull(gynecology?.AcfGynecology?.titleCenter || '')}
-                                                            width={400}
-                                                            height={400}
-                                                            layout="intrinsic"
-                                                        />
-                                                    </a>
-                                                </LightGallery>
-                                            </div>
-                                        )}
-                                        <div className="gynecology__description-text"
-                                             dangerouslySetInnerHTML={{__html: gynecology?.content || ''}}>
-                                        </div>
+                                            {gynecology?.featuredImage?.node?.sourceUrl && (
+                                                <div className="gynecology__description-img">
+                                                    <LightGallery
+                                                        elementClassNames={'masonry-gallery-demo'}
+                                                        plugins={[lgZoom, lgShare, lgHash]}
+                                                        speed={500}
+                                                    >
+                                                        <a href={gynecology?.featuredImage?.node?.sourceUrl}>
+                                                            <NextImage // ← ИСПОЛЬЗУЕМ NextImage
+                                                                src={gynecology?.featuredImage?.node?.sourceUrl}
+                                                                alt={cleanHtmlFull(gynecology?.AcfGynecology?.titleCenter || '')}
+                                                                width={400}
+                                                                height={400}
+                                                                layout="intrinsic"
+                                                            />
+                                                        </a>
+                                                    </LightGallery>
+                                                </div>
+                                            )}
+                                            <WordPressContent
+                                                content={gynecology?.content}
+                                                className="gynecology__description-text"
+                                            />
                                         </div>
                                     </div>
                                 </div>
@@ -172,9 +175,10 @@ const GynecologyPage = ({initialData}) => {
                                         title={cleanHtmlFull(gynecology?.AcfGynecology?.videoTitle || '')}
                                     />
                                 </div>
-                                <div className="gynecology__video-text"
-                                     dangerouslySetInnerHTML={{__html: gynecology?.AcfGynecology?.videoDescription || ''}}>
-                                </div>
+                                <WordPressContent
+                                    content={gynecology?.AcfGynecology?.videoDescription}
+                                    className="gynecology__video-text"
+                                />
                             </div>
                         )}
                         {gynecology?.AcfGynecology?.video && (
@@ -192,9 +196,10 @@ const GynecologyPage = ({initialData}) => {
                                 <div className="container">
                                     <h2 className="gynecology__title-faq">{cleanHtmlFull(gynecology?.AcfGynecology?.faqTitle || '')}</h2>
                                     <div className="gynecology__faq">
-                                        <div className="gynecology__faq-content"
-                                         dangerouslySetInnerHTML={{__html: gynecology?.AcfGynecology?.faqContent || ''}}>
-                                        </div>
+                                        <WordPressContent
+                                            content={gynecology?.AcfGynecology?.faqContent}
+                                            className="gynecology__faq-content"
+                                        />
                                     </div>
                                 </div>
                             </div>
@@ -210,6 +215,7 @@ const GynecologyPage = ({initialData}) => {
         </LeftLayout>
     );
 };
+
 
 export async function getStaticPaths({ locales }) {
     console.log("⚠️ ISR enabled: gynecology pages generated on-demand");

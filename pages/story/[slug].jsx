@@ -17,6 +17,7 @@ import VideoDisplay from '../../shared/video-display/VideoDisplay';
 import ButtonBrown from '../../shared/button-brown/ButtonBrown';
 import Modal from '../../shared/modal/Modal';
 import ContactUsBlock from '../../shared/contact-us-block/ContactUsBlock';
+import WordPressContent from '../../components/WordPressContent'; // ← ИМПОРТ
 
 import lgZoom from "lightgallery/plugins/zoom";
 import lgShare from "lightgallery/plugins/share";
@@ -47,7 +48,7 @@ const StoryPage = ({initialData}) => {
         skip: !slug,
         fetchPolicy: 'cache-and-network',
     });
-    
+
     // Show loading state while page is being generated (ISR fallback) or data loading
     if (router.isFallback || loading) {
         return (
@@ -88,7 +89,7 @@ const StoryPage = ({initialData}) => {
                         <>
                             <h1 className="story__title">{cleanHtmlFull(story?.AcfStory?.titleLong)}</h1>
                             <Breadcrumbs material={story} typeMaterial={typeMaterial}/>
-                            
+
                             {/* Категории 2-го и 3-го уровня */}
                             {story?.trees?.edges && story.trees.edges.length > 0 && (() => {
                                 // Фильтруем категории по уровню (считаем слеши в URI)
@@ -102,17 +103,17 @@ const StoryPage = ({initialData}) => {
                                         return slashCount === 1 || slashCount === 2;
                                     })
                                     .map(tree => tree.node.name);
-                                
+
                                 // Убираем дубликаты
                                 const uniqueCategories = [...new Set(categoriesLevel2And3)];
-                                
+
                                 return uniqueCategories.length > 0 ? (
                                     <div className="story__categories">
                                         {uniqueCategories.join(' • ')}
                                     </div>
                                 ) : null;
                             })()}
-                            
+
                             {/*<div className="story__personal">*/}
                             {/*    <div*/}
                             {/*        className="story__personal-name">{cleanHtmlFull(story?.AcfStory?.groupInfoPost?.fullName)}*/}
@@ -138,9 +139,11 @@ const StoryPage = ({initialData}) => {
                                         </LightGallery>
                                     </div>
                                 )}
-                                <div className="story__anons-text"
-                                     dangerouslySetInnerHTML={{__html: story?.AcfStory?.descriptionAnons || ''}}>
-                                </div>
+                                {/* ЗАМЕНА: dangerouslySetInnerHTML → WordPressContent */}
+                                <WordPressContent
+                                    content={story?.AcfStory?.descriptionAnons}
+                                    className="story__anons-text"
+                                />
                             </div>
                             <div className="story__appointment-btn">
                                 <ButtonBrown
@@ -176,9 +179,11 @@ const StoryPage = ({initialData}) => {
                                                     </LightGallery>
                                                 </div>
                                             )}
-                                            <div className="story__description-text"
-                                                 dangerouslySetInnerHTML={{__html: story?.content}}>
-                                            </div>
+                                            {/* ЗАМЕНА: dangerouslySetInnerHTML → WordPressContent */}
+                                            <WordPressContent
+                                                content={story?.content}
+                                                className="story__description-text"
+                                            />
                                         </div>
                                     </div>
                                 </div>
@@ -204,9 +209,11 @@ const StoryPage = ({initialData}) => {
                                             mobileStyle={{ width: '370px', height: '208px' }}
                                         />
                                     </div>
-                                    <div className="story__video-text"
-                                         dangerouslySetInnerHTML={{__html: story?.AcfStory?.videoDescription}}>
-                                    </div>
+                                    {/* ЗАМЕНА: dangerouslySetInnerHTML → WordPressContent */}
+                                    <WordPressContent
+                                        content={story?.AcfStory?.videoDescription}
+                                        className="story__video-text"
+                                    />
                                 </div>
                             )}
                             {story?.AcfStory?.video && (
@@ -224,9 +231,11 @@ const StoryPage = ({initialData}) => {
                                     <div className="container">
                                         <h2 className="story__title-faq">{cleanHtmlFull(story?.AcfStory?.faqTitle)}</h2>
                                         <div className="story__faq">
-                                            <div className="story__faq-content"
-                                                 dangerouslySetInnerHTML={{__html: story?.AcfStory?.faqContent}}>
-                                            </div>
+                                            {/* ЗАМЕНА: dangerouslySetInnerHTML → WordPressContent */}
+                                            <WordPressContent
+                                                content={story?.AcfStory?.faqContent}
+                                                className="story__faq-content"
+                                            />
                                         </div>
                                     </div>
                                 </div>
@@ -236,7 +245,7 @@ const StoryPage = ({initialData}) => {
                 </div>
             </div>
             <Modal
-                active={isModalActive} 
+                active={isModalActive}
                 setActive={setIsModalActive}
                 title={t('common:buttons.bookAppointment')}
             />
@@ -247,7 +256,7 @@ const StoryPage = ({initialData}) => {
 export async function getStaticPaths({ locales }) {
     // ISR FIX: Skip GraphQL during build - pages generated on-demand
     console.log("⚠️ ISR enabled: pages will be generated on first request");
-    
+
     return {
         paths: [],
         fallback: true // Pages generated on-demand, then cached
