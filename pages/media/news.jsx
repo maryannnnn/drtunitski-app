@@ -13,6 +13,7 @@ import Image from 'next/image';
 import Pagination from '../../shared/paginagion/Pagination';
 import { cleanHtmlFull } from '../../shared/utils/utils-content';
 import { removeLanguageSuffix } from '../../shared/utils/utils-url';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 const POSTS_PER_PAGE = 12;
 
@@ -224,8 +225,7 @@ export async function getStaticProps({ locale }) {
                     medias: { edges: [] }
                 },
                 ...(await import('next-i18next/serverSideTranslations').then(({ serverSideTranslations }) =>
-                    serverSideTranslations(locale, ['common'])
-                )),
+                    serverSideTranslations(locale, ['common'])),
             },
             revalidate: 3600,
         };
@@ -235,8 +235,7 @@ export async function getStaticProps({ locale }) {
             props: {
                 initialData: { medias: { edges: [] } },
                 ...(await import('next-i18next/serverSideTranslations').then(({ serverSideTranslations }) =>
-                    serverSideTranslations(locale, ['common'])
-                )),
+                    serverSideTranslations(locale, ['common'])),
             },
             revalidate: 3600,
         };

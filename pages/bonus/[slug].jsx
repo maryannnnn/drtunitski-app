@@ -16,6 +16,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Breadcrumbs from "../../shared/breadcrumbs-page/BreadcrumbsPage";
 import ContactUsBlock from '../../shared/contact-us-block/ContactUsBlock';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 import lgZoom from "lightgallery/plugins/zoom";
 import lgShare from "lightgallery/plugins/share";
@@ -182,8 +183,7 @@ export async function getStaticProps({params, locale}) {
             props: {
                 initialData: data,
                 ...(await import('next-i18next/serverSideTranslations').then(({ serverSideTranslations }) => 
-                    serverSideTranslations(locale, ['common'])
-                )),
+                    serverSideTranslations(locale, ['common'])),
             },
             revalidate: 86400, // 24 hours
         };
@@ -193,8 +193,7 @@ export async function getStaticProps({params, locale}) {
             props: {
                 initialData: { bonusBy: null },
                 ...(await import('next-i18next/serverSideTranslations').then(({ serverSideTranslations }) => 
-                    serverSideTranslations(locale, ['common'])
-                )),
+                    serverSideTranslations(locale, ['common'])),
             },
             revalidate: 3600,
         };

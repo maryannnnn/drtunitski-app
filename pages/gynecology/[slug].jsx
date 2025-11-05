@@ -16,6 +16,7 @@ import Breadcrumbs from "../../shared/breadcrumbs-page/BreadcrumbsPage";
 import ButtonBrown from '../../shared/button-brown/ButtonBrown';
 import Modal from '../../shared/modal/Modal';
 import WordPressContent from '../../components/WordPressContent';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 import lgZoom from "lightgallery/plugins/zoom";
 import lgShare from "lightgallery/plugins/share";
@@ -242,9 +243,7 @@ export async function getStaticProps({params, locale}) {
         return {
             props: {
                 initialData: safeData,
-                ...(await import('next-i18next/serverSideTranslations').then(({ serverSideTranslations }) => 
-                    serverSideTranslations(locale, ['common'])
-                )),
+                ...(await serverSideTranslations(locale, ['common'])),
             },
             revalidate: 86400, // 24 hours
         };
@@ -255,9 +254,7 @@ export async function getStaticProps({params, locale}) {
                 initialData: { 
                     gynecologyBy: null,
                 },
-                ...(await import('next-i18next/serverSideTranslations').then(({ serverSideTranslations }) => 
-                    serverSideTranslations(locale, ['common'])
-                )),
+                ...(await serverSideTranslations(locale, ['common'])),
             },
             revalidate: 3600,
         };

@@ -8,6 +8,7 @@ import Modal from '../../shared/modal/Modal';
 import MainConsultation from "../../widgets/main-consultation";
 import MedreviewsBlock from "../../shared/medreviews-block/MedreviewsBlock";
 import Link from "next/link";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 const GynecologyPlannedPage = () => {
     const {t} = useSafeTranslation('common');
@@ -230,8 +231,7 @@ export async function getStaticProps({locale}) {
     return {
         props: {
             ...(await import('next-i18next/serverSideTranslations').then(({serverSideTranslations}) =>
-                serverSideTranslations(locale, ['common'])
-            )),
+                serverSideTranslations(locale, ['common'])),
         },
     };
 }

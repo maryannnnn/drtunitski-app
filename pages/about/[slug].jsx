@@ -14,6 +14,7 @@ import ButtonBrown from '@/shared/button-brown/ButtonBrown';
 import Modal from '@/shared/modal/Modal';
 import { useSafeTranslation } from '@/shared/hooks/useSafeTranslation';
 import WordPressContent from '@/components/WordPressContent'; // ← ИМПОРТ
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import './index.scss';
 import './media.scss';
 
@@ -302,9 +303,7 @@ export async function getStaticProps({params, locale}) {
                 props: {
                     initialData: { aboutBy: null },
                     isRequestAppointment: true,
-                    ...(await import('next-i18next/serverSideTranslations').then(({ serverSideTranslations }) =>
-                        serverSideTranslations(locale, ['common'])
-                    )),
+                    ...(await serverSideTranslations(locale, ['common'])),
                 },
                 revalidate: 86400,
             };

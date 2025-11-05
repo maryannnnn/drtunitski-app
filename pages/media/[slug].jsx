@@ -18,6 +18,7 @@ import ButtonBrown from '../../shared/button-brown/ButtonBrown';
 import Modal from '../../shared/modal/Modal';
 import ContactUsBlock from '../../shared/contact-us-block/ContactUsBlock';
 import WordPressContent from '../../components/WordPressContent'; // ← ИМПОРТ
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 import lgZoom from "lightgallery/plugins/zoom";
 import lgShare from "lightgallery/plugins/share";
@@ -274,8 +275,7 @@ export async function getStaticProps({params, locale}) {
                     mediaBy: null
                 },
                 ...(await import('next-i18next/serverSideTranslations').then(({ serverSideTranslations }) =>
-                    serverSideTranslations(locale, ['common'])
-                )),
+                    serverSideTranslations(locale, ['common'])),
             },
             revalidate: 86400,
         };
@@ -285,8 +285,7 @@ export async function getStaticProps({params, locale}) {
             props: {
                 initialData: { mediaBy: null },
                 ...(await import('next-i18next/serverSideTranslations').then(({ serverSideTranslations }) =>
-                    serverSideTranslations(locale, ['common'])
-                )),
+                    serverSideTranslations(locale, ['common'])),
             },
             revalidate: 3600,
         };
