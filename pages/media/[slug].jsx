@@ -17,6 +17,7 @@ import VideoDisplay from '../../shared/video-display/VideoDisplay';
 import ButtonBrown from '../../shared/button-brown/ButtonBrown';
 import Modal from '../../shared/modal/Modal';
 import ContactUsBlock from '../../shared/contact-us-block/ContactUsBlock';
+import WordPressContent from '../../components/WordPressContent'; // ← ИМПОРТ
 
 import lgZoom from "lightgallery/plugins/zoom";
 import lgShare from "lightgallery/plugins/share";
@@ -47,7 +48,7 @@ const MediaPage = ({initialData}) => {
         skip: !slug,
         fetchPolicy: 'cache-and-network',
     });
-    
+
     // ISR loading state or data loading
     if (router.isFallback || loading) {
         return (
@@ -88,7 +89,7 @@ const MediaPage = ({initialData}) => {
                         <>
                             <h1 className="media__title">{cleanHtmlFull(media?.AcfMedia?.titleLong)}</h1>
                             <Breadcrumbs material={media} typeMaterial={typeMaterial}/>
-                            
+
                             {/* Категории 2-го и 3-го уровня */}
                             {media?.trees?.edges && media.trees.edges.length > 0 && (() => {
                                 // Фильтруем категории по уровню (считаем слеши в URI)
@@ -102,17 +103,17 @@ const MediaPage = ({initialData}) => {
                                         return slashCount === 1 || slashCount === 2;
                                     })
                                     .map(tree => tree.node.name);
-                                
+
                                 // Убираем дубликаты
                                 const uniqueCategories = [...new Set(categoriesLevel2And3)];
-                                
+
                                 return uniqueCategories.length > 0 ? (
                                     <div className="media__categories">
                                         {uniqueCategories.join(' • ')}
                                     </div>
                                 ) : null;
                             })()}
-                            
+
                             <div className="media__personal">
                                 <div
                                     className="media__personal-name">{cleanHtmlFull(media?.AcfMedia?.groupInfoPost?.fullName)}
@@ -138,9 +139,11 @@ const MediaPage = ({initialData}) => {
                                         </LightGallery>
                                     </div>
                                 )}
-                                <div className="media__anons-text"
-                                     dangerouslySetInnerHTML={{__html: media?.AcfMedia?.descriptionAnons || ''}}>
-                                </div>
+                                {/* ЗАМЕНА: dangerouslySetInnerHTML → WordPressContent */}
+                                <WordPressContent
+                                    content={media?.AcfMedia?.descriptionAnons}
+                                    className="media__anons-text"
+                                />
                             </div>
                             <div className="media__appointment-btn">
                                 <ButtonBrown
@@ -176,9 +179,11 @@ const MediaPage = ({initialData}) => {
                                                     </LightGallery>
                                                 </div>
                                             )}
-                                            <div className="media__description-text"
-                                                 dangerouslySetInnerHTML={{__html: media?.content}}>
-                                            </div>
+                                            {/* ЗАМЕНА: dangerouslySetInnerHTML → WordPressContent */}
+                                            <WordPressContent
+                                                content={media?.content}
+                                                className="media__description-text"
+                                            />
                                         </div>
                                     </div>
                                 </div>
@@ -204,9 +209,11 @@ const MediaPage = ({initialData}) => {
                                             mobileStyle={{ width: '370px', height: '208px' }}
                                         />
                                     </div>
-                                    <div className="media__video-text"
-                                         dangerouslySetInnerHTML={{__html: media?.AcfMedia?.videoDescription}}>
-                                    </div>
+                                    {/* ЗАМЕНА: dangerouslySetInnerHTML → WordPressContent */}
+                                    <WordPressContent
+                                        content={media?.AcfMedia?.videoDescription}
+                                        className="media__video-text"
+                                    />
                                 </div>
                             )}
                             {media?.AcfMedia?.video && (
@@ -224,9 +231,11 @@ const MediaPage = ({initialData}) => {
                                     <div className="container">
                                         <h2 className="media__title-faq">{cleanHtmlFull(media?.AcfMedia?.faqTitle)}</h2>
                                         <div className="media__faq">
-                                            <div className="media__faq-content"
-                                                 dangerouslySetInnerHTML={{__html: media?.AcfMedia?.faqContent}}>
-                                            </div>
+                                            {/* ЗАМЕНА: dangerouslySetInnerHTML → WordPressContent */}
+                                            <WordPressContent
+                                                content={media?.AcfMedia?.faqContent}
+                                                className="media__faq-content"
+                                            />
                                         </div>
                                     </div>
                                 </div>
