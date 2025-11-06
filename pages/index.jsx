@@ -28,7 +28,7 @@ const Index = () => {
             <MainConsultation />
             <MedreviewsBlock />
             <MainGynecology />
-            {/*<MainStories />*/}
+            <MainStories />
             {/*<MainVideoTestimonials />*/}
             <FooterAssociations />
             <SpeedInsights/>

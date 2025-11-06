@@ -29,6 +29,7 @@ import "lightgallery/css/lg-zoom.css";
 import "lightgallery/css/lg-share.css";
 import MainConsultation from "../../widgets/main-consultation";
 import MedreviewsBlock from "../../shared/medreviews-block/MedreviewsBlock";
+import MainStories from "../../widgets/main-stories/MainStories";
 
 const AboutPage = ({initialData, isRequestAppointment}) => {
     const { t } = useSafeTranslation();
@@ -179,6 +180,7 @@ const AboutPage = ({initialData, isRequestAppointment}) => {
                             </ButtonBrown>
                         </div>
                         <MainConsultation />
+                        <MainStories />
                         <MedreviewsBlock />
                         {about?.content && (
                             <div className="about-block-center">

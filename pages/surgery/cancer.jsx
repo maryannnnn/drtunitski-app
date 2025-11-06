@@ -8,6 +8,7 @@ import Modal from '../../shared/modal/Modal';
 import MainConsultation from "../../widgets/main-consultation";
 import MedreviewsBlock from "../../shared/medreviews-block/MedreviewsBlock";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import MainStories from "../../widgets/main-stories/MainStories";
 
 const SurgeryCancerPage = () => {
     const { t } = useSafeTranslation('common');
@@ -72,6 +73,7 @@ const SurgeryCancerPage = () => {
                 </div>
                 <MainConsultation />
                 <MedreviewsBlock />
+                <MainStories />
 
                 {/* Cancer Types Block */}
                 <div className="surgery-cancer__section">

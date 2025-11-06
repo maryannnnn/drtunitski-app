@@ -9,6 +9,7 @@ import MainConsultation from "../../widgets/main-consultation";
 import MedreviewsBlock from "../../shared/medreviews-block/MedreviewsBlock";
 import Link from "next/link";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import MainStories from "../../widgets/main-stories/MainStories";
 
 const GynecologyPlannedPage = () => {
     const {t} = useSafeTranslation('common');
@@ -105,6 +106,7 @@ const GynecologyPlannedPage = () => {
                 </div>
                 <MainConsultation />
                 <MedreviewsBlock />
+                <MainStories />
 
                 {/* Planned Surgeries Block */}
                 <div className="gynecology-planned__section">

@@ -31,6 +31,7 @@ import "lightgallery/css/lg-zoom.css";
 import "lightgallery/css/lg-share.css";
 import MainConsultation from "../../widgets/main-consultation";
 import MedreviewsBlock from "../../shared/medreviews-block/MedreviewsBlock";
+import MainStories from "../../widgets/main-stories/MainStories";
 
 const MediaPage = ({initialData}) => {
     const { t } = useSafeTranslation();
@@ -156,6 +157,7 @@ const MediaPage = ({initialData}) => {
                             </div>
                             <MainConsultation />
                             <MedreviewsBlock />
+                            <MainStories />
                             {media?.content && (
                                 <div className="media-block-center">
                                     <div className="container">
