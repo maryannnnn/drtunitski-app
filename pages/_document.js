@@ -9,43 +9,16 @@ class MyDocument extends Document {
         return (
             <Html lang={currentLocale} translate="no">
                 <Head>
-                    {/* ← ДОБАВЬТЕ META ТЕГИ ДЛЯ БЛОКИРОВКИ ПЕРЕВОДЧИКА */}
                     <meta name="google" content="notranslate" />
                     <meta name="googlebot" content="notranslate" />
 
-                    {/* ← УЛУЧШЕННЫЙ PRELOAD: ВСЕГДА PRELOAD ТЕКУЩИЙ ЯЗЫК ПЕРВЫМ */}
                     <link
                         rel="preload"
                         href={`/locales/${currentLocale}/common.json`}
                         as="fetch"
                         crossOrigin="anonymous"
-                        key={`preload-current-${currentLocale}`}
                     />
 
-                    {/* ← PRELOAD ОСНОВНЫХ ЯЗЫКОВ */}
-                    <link
-                        rel="preload"
-                        href="/locales/ru/common.json"
-                        as="fetch"
-                        crossOrigin="anonymous"
-                        key="preload-ru"
-                    />
-                    <link
-                        rel="preload"
-                        href="/locales/he/common.json"
-                        as="fetch"
-                        crossOrigin="anonymous"
-                        key="preload-he"
-                    />
-                    <link
-                        rel="preload"
-                        href="/locales/en/common.json"
-                        as="fetch"
-                        crossOrigin="anonymous"
-                        key="preload-en"
-                    />
-
-                    {/* ← ДОПОЛНИТЕЛЬНЫЕ META ДЛЯ SEO И ЯЗЫКА */}
                     <meta httpEquiv="Content-Language" content={currentLocale} />
                     <meta property="og:locale" content={currentLocale} />
                 </Head>
@@ -53,47 +26,68 @@ class MyDocument extends Document {
                 <Main />
                 <NextScript />
 
-                {/* ← FALLBACK СКРИПТ ДЛЯ ПРЯМЫХ ССЫЛОК */}
                 <script
                     dangerouslySetInnerHTML={{
                         __html: `
-                                // Экстренная перезагрузка переводов для прямых ссылок
-                                (function() {
-                                    var startTime = Date.now();
-                                    var maxWait = 4000; // 4 секунды
-                                    
-                                    function checkTranslations() {
-                                        // Если i18n доступен и есть переводы
-                                        if (window.i18n && 
-                                            window.i18n.isInitialized && 
-                                            Object.keys(window.i18n.store.data).length > 0) {
-                                            return true;
-                                        }
-                                        
-                                        // Если прошло слишком много времени - выходим
-                                        if (Date.now() - startTime > maxWait) {
-                                            console.log('Translation load timeout');
-                                            return false;
-                                        }
-                                        
-                                        // Пытаемся принудительно загрузить
-                                        if (window.i18n && !window.i18n.isInitialized) {
-                                            var lang = '${currentLocale}' || 'en';
-                                            window.i18n.reloadResources([lang], ['common'])
-                                                .catch(function(err) {
-                                                    console.log('Emergency translation load failed:', err);
-                                                });
-                                        }
-                                        
-                                        // Проверяем снова через 200ms
-                                        setTimeout(checkTranslations, 200);
-                                        return false;
-                                    }
-                                    
-                                    // Запускаем проверку
-                                    setTimeout(checkTranslations, 100);
-                                })();
-                            `,
+                // РАННЯЯ ИНИЦИАЛИЗАЦИЯ ЯЗЫКА С СОХРАНЕНИЕМ
+                (function() {
+                  console.log('🚀 Early language setup with persistence');
+                  
+                  function initLanguage() {
+                    if (!window.i18n) return;
+                    
+                    // Пытаемся восстановить сохраненный язык
+                    function getSavedLanguage() {
+                      try {
+                        var saved = localStorage.getItem('user-language');
+                        if (saved) return saved;
+                        
+                        var cookieMatch = document.cookie.match(/NEXT_LOCALE=([^;]+)/);
+                        if (cookieMatch) return cookieMatch[1];
+                        
+                        return null;
+                      } catch(e) {
+                        return null;
+                      }
+                    }
+                    
+                    var savedLang = getSavedLanguage();
+                    var targetLang = '${currentLocale}';
+                    
+                    // Если есть сохраненный язык И он отличается от текущего
+                    if (savedLang && savedLang !== targetLang) {
+                      console.log('🔄 Using saved language:', savedLang);
+                      window.i18n.changeLanguage(savedLang);
+                    } else {
+                      // Сохраняем текущий язык
+                      console.log('💾 Saving current language:', targetLang);
+                      try {
+                        localStorage.setItem('user-language', targetLang);
+                        localStorage.setItem('user-language-choice', 'true');
+                        document.cookie = 'NEXT_LOCALE=' + targetLang + '; path=/; max-age=31536000';
+                      } catch(e) {}
+                    }
+                    
+                    // Слушаем будущие изменения языка
+                    window.i18n.on('languageChanged', function(lng) {
+                      try {
+                        localStorage.setItem('user-language', lng);
+                        document.cookie = 'NEXT_LOCALE=' + lng + '; path=/; max-age=31536000';
+                      } catch(e) {}
+                    });
+                  }
+                  
+                  // Запускаем инициализацию
+                  if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', initLanguage);
+                  } else {
+                    initLanguage();
+                  }
+                  
+                  // Дополнительная проверка
+                  setTimeout(initLanguage, 100);
+                })();
+              `,
                     }}
                 />
                 </body>

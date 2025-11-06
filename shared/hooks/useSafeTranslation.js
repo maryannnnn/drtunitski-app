@@ -9,7 +9,6 @@ export const useSafeTranslation = (namespace = 'common') => {
     const [forceReady, setForceReady] = useState(false);
 
     useEffect(() => {
-        // Принудительно загружаем переводы при прямом заходе
         if (typeof window !== 'undefined' && window.i18n && !ready) {
             const loadTranslations = async () => {
                 try {
@@ -21,7 +20,6 @@ export const useSafeTranslation = (namespace = 'common') => {
             loadTranslations();
         }
 
-        // Fallback: если переводы не загрузились за 3 секунды - показываем страницу
         const timer = setTimeout(() => {
             setForceReady(true);
         }, 3000);
@@ -30,14 +28,11 @@ export const useSafeTranslation = (namespace = 'common') => {
     }, [ready, router.locale, namespace]);
 
     const safeTrans = (key, options = {}) => {
-        // Если переводы не готовы - показываем красивый плейсхолдер
         if (!ready && !forceReady) {
             return options.defaultValue || '...';
         }
 
         const translation = t(key, options);
-
-        // Если перевод не найден - используем fallback
         if (translation === key) {
             return options.defaultValue || key;
         }
@@ -52,5 +47,3 @@ export const useSafeTranslation = (namespace = 'common') => {
         currentLanguage: router.locale || 'en'
     };
 };
-
-export default useSafeTranslation;

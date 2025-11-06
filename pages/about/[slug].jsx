@@ -32,7 +32,8 @@ import MedreviewsBlock from "../../shared/medreviews-block/MedreviewsBlock";
 import MainStories from "../../widgets/main-stories/MainStories";
 
 const AboutPage = ({initialData, isRequestAppointment}) => {
-    const { t } = useSafeTranslation();
+    // const { t } = useSafeTranslation();
+    const { t, i18n } = useSafeTranslation();
     const [isModalActive, setIsModalActive] = useState(isRequestAppointment || false);
     const router = useRouter();
     const {slug} = router.query;
@@ -43,6 +44,16 @@ const AboutPage = ({initialData, isRequestAppointment}) => {
             setIsModalActive(true);
         }
     }, [isRequestAppointment]);
+
+    useEffect(() => {
+        console.log('🔍 LANGUAGE DEBUG:', {
+            routerLocale: router.locale,
+            i18nLanguage: i18n.language,
+            i18nInitialized: i18n.isInitialized,
+            availableLanguages: i18n.languages,
+            currentTranslation: t('common:buttons.bookAppointment')
+        });
+    }, [router.locale, i18n.language, i18n.isInitialized]);
 
     const {loading, error, data} = useQuery(GET_ABOUT_BY_SLUG, {
         variables: {slug},
