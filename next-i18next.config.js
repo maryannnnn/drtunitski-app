@@ -11,6 +11,9 @@ module.exports = {
   // ✅ ПРАВИЛЬНЫЕ настройки для next-i18next
   reloadOnPrerender: process.env.NODE_ENV === 'development',
 
+  // Указываем абсолютный путь к папке с локалями
+  localePath: path.resolve('./public/locales'),
+
   // Namespaces
   ns: ['common', 'privacyPolicy', 'accessibilityStatement', 'sitemap'],
   defaultNS: 'common',
