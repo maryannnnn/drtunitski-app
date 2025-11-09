@@ -10,7 +10,7 @@ import LeftLayout from "../../app/layouts/LeftLayout";
 import Stack from "@mui/material/Stack";
 import Alert from "@mui/material/Alert";
 import {cleanHtmlFull} from "../../shared/utils/utils-content";
-import NextImage from "next/image"; // ← ИЗМЕНИЛИ ИМЯ НА NextImage
+import Image from "next/image";
 import {GET_GYNECOLOGY_BY_SLUG} from "../../entities/gynecology/actions/gynecologyActions";
 import Breadcrumbs from "../../shared/breadcrumbs-page/BreadcrumbsPage";
 import ButtonBrown from '../../shared/button-brown/ButtonBrown';
@@ -95,7 +95,7 @@ const GynecologyPage = ({initialData}) => {
                                                 speed={500}
                                             >
                                                 <a href={gynecology?.AcfGynecology?.imageAnonsPage?.sourceUrl}>
-                                                    <NextImage // ← ИСПОЛЬЗУЕМ NextImage
+                                                    <Image
                                                         src={gynecology?.AcfGynecology?.imageAnonsPage?.sourceUrl}
                                                         alt={cleanHtmlFull(gynecology?.AcfGynecology?.titleLong || '')}
                                                         width={400}
@@ -106,10 +106,9 @@ const GynecologyPage = ({initialData}) => {
                                             </LightGallery>
                                         </div>
                                     )}
-                                    <WordPressContent
-                                        content={gynecology?.AcfGynecology?.descriptionAnons}
-                                        className="gynecology__anons-text"
-                                    />
+                                    <div className="gynecology__anons-text"
+                                         dangerouslySetInnerHTML={{__html: gynecology?.AcfGynecology?.descriptionAnons || ''}}>
+                                    </div>
                                 </div>
                             </>
                         )}
@@ -138,7 +137,7 @@ const GynecologyPage = ({initialData}) => {
                                                         speed={500}
                                                     >
                                                         <a href={gynecology?.featuredImage?.node?.sourceUrl}>
-                                                            <NextImage // ← ИСПОЛЬЗУЕМ NextImage
+                                                            <Image
                                                                 src={gynecology?.featuredImage?.node?.sourceUrl}
                                                                 alt={cleanHtmlFull(gynecology?.AcfGynecology?.titleCenter || '')}
                                                                 width={400}
@@ -149,10 +148,9 @@ const GynecologyPage = ({initialData}) => {
                                                     </LightGallery>
                                                 </div>
                                             )}
-                                            <WordPressContent
-                                                content={gynecology?.content}
-                                                className="gynecology__description-text"
-                                            />
+                                            <div className="gynecology__description-text"
+                                                 dangerouslySetInnerHTML={{__html: gynecology?.content || ''}}>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -178,10 +176,9 @@ const GynecologyPage = ({initialData}) => {
                                         title={cleanHtmlFull(gynecology?.AcfGynecology?.videoTitle || '')}
                                     />
                                 </div>
-                                <WordPressContent
-                                    content={gynecology?.AcfGynecology?.videoDescription}
-                                    className="gynecology__video-text"
-                                />
+                                <div className="gynecology__video-text"
+                                     dangerouslySetInnerHTML={{__html: gynecology?.AcfGynecology?.videoDescription || ''}}>
+                                </div>
                             </div>
                         )}
                         {gynecology?.AcfGynecology?.video && (
@@ -199,10 +196,9 @@ const GynecologyPage = ({initialData}) => {
                                 <div className="container">
                                     <h2 className="gynecology__title-faq">{cleanHtmlFull(gynecology?.AcfGynecology?.faqTitle || '')}</h2>
                                     <div className="gynecology__faq">
-                                        <WordPressContent
-                                            content={gynecology?.AcfGynecology?.faqContent}
-                                            className="gynecology__faq-content"
-                                        />
+                                        <div className="gynecology__faq-content"
+                                             dangerouslySetInnerHTML={{__html: gynecology?.AcfGynecology?.faqContent || ''}}>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -219,6 +215,7 @@ const GynecologyPage = ({initialData}) => {
     );
 };
 
+export default GynecologyPage;
 
 export async function getStaticPaths({ locales }) {
     console.log("⚠️ ISR enabled: gynecology pages generated on-demand");
@@ -263,7 +260,7 @@ export async function getStaticProps({params, locale}) {
     }
 }
 
-export default GynecologyPage;
+
 
 
 

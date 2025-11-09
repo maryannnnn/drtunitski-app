@@ -116,11 +116,6 @@ const StoryPage = ({initialData}) => {
                                 ) : null;
                             })()}
 
-                            {/*<div className="story__personal">*/}
-                            {/*    <div*/}
-                            {/*        className="story__personal-name">{cleanHtmlFull(story?.AcfStory?.groupInfoPost?.fullName)}*/}
-                            {/*    </div>*/}
-                            {/*</div>*/}
                             <div className="story__anons">
                                 {story?.AcfStory?.imageAnons && (
                                     <div className="story__anons-img">
@@ -141,11 +136,9 @@ const StoryPage = ({initialData}) => {
                                         </LightGallery>
                                     </div>
                                 )}
-                                {/* ЗАМЕНА: dangerouslySetInnerHTML → WordPressContent */}
-                                <WordPressContent
-                                    content={story?.AcfStory?.descriptionAnons}
-                                    className="story__anons-text"
-                                />
+                                <div className="story__anons-text"
+                                     dangerouslySetInnerHTML={{__html: story?.AcfStory?.descriptionAnons || ''}}>
+                                </div>
                             </div>
                             <div className="story__appointment-btn">
                                 <ButtonBrown
@@ -182,11 +175,9 @@ const StoryPage = ({initialData}) => {
                                                     </LightGallery>
                                                 </div>
                                             )}
-                                            {/* ЗАМЕНА: dangerouslySetInnerHTML → WordPressContent */}
-                                            <WordPressContent
-                                                content={story?.content}
-                                                className="story__description-text"
-                                            />
+                                            <div className="story__description-text"
+                                                 dangerouslySetInnerHTML={{__html: story?.content}}>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -212,11 +203,9 @@ const StoryPage = ({initialData}) => {
                                             mobileStyle={{ width: '370px', height: '208px' }}
                                         />
                                     </div>
-                                    {/* ЗАМЕНА: dangerouslySetInnerHTML → WordPressContent */}
-                                    <WordPressContent
-                                        content={story?.AcfStory?.videoDescription}
-                                        className="story__video-text"
-                                    />
+                                    <div className="story__video-text"
+                                         dangerouslySetInnerHTML={{__html: story?.AcfStory?.videoDescription}}>
+                                    </div>
                                 </div>
                             )}
                             {story?.AcfStory?.video && (
@@ -234,11 +223,9 @@ const StoryPage = ({initialData}) => {
                                     <div className="container">
                                         <h2 className="story__title-faq">{cleanHtmlFull(story?.AcfStory?.faqTitle)}</h2>
                                         <div className="story__faq">
-                                            {/* ЗАМЕНА: dangerouslySetInnerHTML → WordPressContent */}
-                                            <WordPressContent
-                                                content={story?.AcfStory?.faqContent}
-                                                className="story__faq-content"
-                                            />
+                                            <div className="story__faq-content"
+                                                 dangerouslySetInnerHTML={{__html: story?.AcfStory?.faqContent}}>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -255,6 +242,8 @@ const StoryPage = ({initialData}) => {
         </LeftLayout>
     );
 };
+
+export default StoryPage;
 
 export async function getStaticPaths({ locales }) {
     // ISR FIX: Skip GraphQL during build - pages generated on-demand
@@ -294,7 +283,7 @@ export async function getStaticProps({params, locale}) {
     }
 }
 
-export default StoryPage;
+
 
 
 

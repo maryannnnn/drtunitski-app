@@ -141,11 +141,9 @@ const MediaPage = ({initialData}) => {
                                         </LightGallery>
                                     </div>
                                 )}
-                                {/* ЗАМЕНА: dangerouslySetInnerHTML → WordPressContent */}
-                                <WordPressContent
-                                    content={media?.AcfMedia?.descriptionAnons}
-                                    className="media__anons-text"
-                                />
+                                <div className="media__anons-text"
+                                     dangerouslySetInnerHTML={{__html: media?.AcfMedia?.descriptionAnons || ''}}>
+                                </div>
                             </div>
                             <div className="media__appointment-btn">
                                 <ButtonBrown
@@ -182,11 +180,9 @@ const MediaPage = ({initialData}) => {
                                                     </LightGallery>
                                                 </div>
                                             )}
-                                            {/* ЗАМЕНА: dangerouslySetInnerHTML → WordPressContent */}
-                                            <WordPressContent
-                                                content={media?.content}
-                                                className="media__description-text"
-                                            />
+                                            <div className="media__description-text"
+                                                 dangerouslySetInnerHTML={{__html: media?.content}}>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -212,11 +208,9 @@ const MediaPage = ({initialData}) => {
                                             mobileStyle={{ width: '370px', height: '208px' }}
                                         />
                                     </div>
-                                    {/* ЗАМЕНА: dangerouslySetInnerHTML → WordPressContent */}
-                                    <WordPressContent
-                                        content={media?.AcfMedia?.videoDescription}
-                                        className="media__video-text"
-                                    />
+                                    <div className="media__video-text"
+                                         dangerouslySetInnerHTML={{__html: media?.AcfMedia?.videoDescription}}>
+                                    </div>
                                 </div>
                             )}
                             {media?.AcfMedia?.video && (
@@ -234,11 +228,9 @@ const MediaPage = ({initialData}) => {
                                     <div className="container">
                                         <h2 className="media__title-faq">{cleanHtmlFull(media?.AcfMedia?.faqTitle)}</h2>
                                         <div className="media__faq">
-                                            {/* ЗАМЕНА: dangerouslySetInnerHTML → WordPressContent */}
-                                            <WordPressContent
-                                                content={media?.AcfMedia?.faqContent}
-                                                className="media__faq-content"
-                                            />
+                                            <div className="media__faq-content"
+                                                 dangerouslySetInnerHTML={{__html: media?.AcfMedia?.faqContent}}>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -255,6 +247,8 @@ const MediaPage = ({initialData}) => {
         </LeftLayout>
     );
 };
+
+export default MediaPage;
 
 export async function getStaticPaths({ locales }) {
     console.log("⚠️ ISR enabled: media pages generated on-demand");
@@ -292,4 +286,3 @@ export async function getStaticProps({params, locale}) {
     }
 }
 
-export default MediaPage;

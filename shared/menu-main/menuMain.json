@@ -211,10 +211,47 @@
                 "id": "cG9zdDozNjc55a1",
                 "path": "/surgery/important",
                 "label": "Gynecological Surgery"
+              },
+              {
+                "id": "cG9zdDozNjc55a2",
+                "path": "/surgery/laparoscopic-ovarian-cystectomy",
+                "label": "Laparoscopic ovarian cystectomy"
+              },
+              {
+                "id": "cG9zdDozNjc55a3",
+                "path": "/surgery/hysteroscopy-polyp-removal",
+                "label": "Hysteroscopy with endometrial polyp removal"
+              },
+              {
+                "id": "cG9zdDozNjc55a4",
+                "path": "/surgery/laparoscopic-myomectomy",
+                "label": "Laparoscopic myomectomy"
+              },
+              {
+                "id": "cG9zdDozNjc55a5",
+                "path": "/surgery/hysteroscopic-resection",
+                "label": "Hysteroscopic resection of submucous myoma"
+              },
+              {
+                "id": "cG9zdDozNjc55a6",
+                "path": "/surgery/laparoscopic-salpingectomy",
+                "label": "Laparoscopic salpingectomy for ectopic pregnancy"
+              },
+              {
+                "id": "cG9zdDozNjc55a7",
+                "path": "/surgery/laparoscopic-adhesiolysis",
+                "label": "Laparoscopic adhesiolysis"
+              },
+              {
+                "id": "cG9zdDozNjc55a8",
+                "path": "/surgery/diagnostic-laparoscopy",
+                "label": "Diagnostic laparoscopy"
+              },
+              {
+                "id": "cG9zdDozNjc55a9",
+                "path": "/surgery/vacuum-aspiration",
+                "label": "Vacuum aspiration of the uterine cavity"
               }
-
-
-
             ]
           }
         },

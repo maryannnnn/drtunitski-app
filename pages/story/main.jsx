@@ -162,7 +162,7 @@ const StoryMainPage = ({ initialData }) => {
                                             </div>
                                             <div className="story-main__card-content">
                                                 <h3 className="story-main__card-title">
-                                                    {cleanHtmlFull(story?.AcfStory?.titleLong || story.title)}
+                                                    {cleanHtmlFull(story?.AcfStory?.titleShort || story.title)}
                                                 </h3>
                                                 {story?.AcfStory?.descriptionAnons && (
                                                     <div className="story-main__card-excerpt">

@@ -13,7 +13,6 @@ import VideoDisplay from '@/shared/video-display/VideoDisplay';
 import ButtonBrown from '@/shared/button-brown/ButtonBrown';
 import Modal from '@/shared/modal/Modal';
 import { useSafeTranslation } from '@/shared/hooks/useSafeTranslation';
-import WordPressContent from '@/components/WordPressContent'; // ← ИМПОРТ
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import './index.scss';
 import './media.scss';
@@ -32,8 +31,7 @@ import MedreviewsBlock from "../../shared/medreviews-block/MedreviewsBlock";
 import MainStories from "../../widgets/main-stories/MainStories";
 
 const AboutPage = ({initialData, isRequestAppointment}) => {
-    // const { t } = useSafeTranslation();
-    const { t, i18n } = useSafeTranslation();
+    const { t } = useSafeTranslation();
     const [isModalActive, setIsModalActive] = useState(isRequestAppointment || false);
     const router = useRouter();
     const {slug} = router.query;
@@ -45,19 +43,9 @@ const AboutPage = ({initialData, isRequestAppointment}) => {
         }
     }, [isRequestAppointment]);
 
-    useEffect(() => {
-        console.log('🔍 LANGUAGE DEBUG:', {
-            routerLocale: router.locale,
-            i18nLanguage: i18n.language,
-            i18nInitialized: i18n.isInitialized,
-            availableLanguages: i18n.languages,
-            currentTranslation: t('common:buttons.bookAppointment')
-        });
-    }, [router.locale, i18n.language, i18n.isInitialized]);
-
     const {loading, error, data} = useQuery(GET_ABOUT_BY_SLUG, {
         variables: {slug},
-        skip: !slug || isRequestAppointment,
+        skip: !slug || isRequestAppointment, // Пропускаем GraphQL запрос для request-appointment
         fetchPolicy: 'cache-and-network',
     });
 
@@ -138,6 +126,7 @@ const AboutPage = ({initialData, isRequestAppointment}) => {
     }
 
     const about = data?.aboutBy || initialData?.aboutBy;
+
     const typeMaterial = "about";
 
     const PageProps = {
@@ -174,11 +163,9 @@ const AboutPage = ({initialData, isRequestAppointment}) => {
                                             </LightGallery>
                                         </div>
                                     )}
-                                    {/* ЗАМЕНИЛИ dangerouslySetInnerHTML на WordPressContent */}
-                                    <WordPressContent
-                                        content={about?.AcfAbout?.descriptionAnons}
-                                        className="about__anons-text"
-                                    />
+                                    <div className="about__anons-text"
+                                         dangerouslySetInnerHTML={{__html: about?.AcfAbout?.descriptionAnons || ''}}>
+                                    </div>
                                 </div>
                             </>
                         )}
@@ -191,8 +178,8 @@ const AboutPage = ({initialData, isRequestAppointment}) => {
                             </ButtonBrown>
                         </div>
                         <MainConsultation />
-                        <MainStories />
                         <MedreviewsBlock />
+                        <MainStories />
                         {about?.content && (
                             <div className="about-block-center">
                                 <div className="container">
@@ -217,11 +204,9 @@ const AboutPage = ({initialData, isRequestAppointment}) => {
                                                 </LightGallery>
                                             </div>
                                         )}
-                                        {/* ЗАМЕНИЛИ dangerouslySetInnerHTML на WordPressContent */}
-                                        <WordPressContent
-                                            content={about?.content}
-                                            className="about__description-text"
-                                        />
+                                        <div className="about__description-text"
+                                             dangerouslySetInnerHTML={{__html: about?.content || ''}}>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -245,11 +230,9 @@ const AboutPage = ({initialData, isRequestAppointment}) => {
                                         title={cleanHtmlFull(about?.AcfAbout?.videoTitle || '')}
                                     />
                                 </div>
-                                {/* ЗАМЕНИЛИ dangerouslySetInnerHTML на WordPressContent */}
-                                <WordPressContent
-                                    content={about?.AcfAbout?.videoDescription}
-                                    className="about__video-text"
-                                />
+                                <div className="about__video-text"
+                                     dangerouslySetInnerHTML={{__html: about?.AcfAbout?.videoDescription || ''}}>
+                                </div>
                             </div>
                         )}
                         {about?.AcfAbout?.video && (
@@ -267,11 +250,9 @@ const AboutPage = ({initialData, isRequestAppointment}) => {
                                 <div className="container">
                                     <h2 className="about__title-faq">{cleanHtmlFull(about?.AcfAbout?.faqTitle || '')}</h2>
                                     <div className="about__faq">
-                                        {/* ЗАМЕНИЛИ dangerouslySetInnerHTML на WordPressContent */}
-                                        <WordPressContent
-                                            content={about?.AcfAbout?.faqContent}
-                                            className="about__faq-content"
-                                        />
+                                        <div className="about__faq-content"
+                                             dangerouslySetInnerHTML={{__html: about?.AcfAbout?.faqContent || ''}}>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

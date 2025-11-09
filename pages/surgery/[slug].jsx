@@ -106,11 +106,9 @@ const SurgeryPage = ({initialData}) => {
                                             </LightGallery>
                                         </div>
                                     )}
-                                    {/* ЗАМЕНА: dangerouslySetInnerHTML → WordPressContent */}
-                                    <WordPressContent
-                                        content={surgery?.AcfSurgery?.descriptionAnons}
-                                        className="surgery__anons-text"
-                                    />
+                                    <div className="surgery__anons-text"
+                                         dangerouslySetInnerHTML={{__html: surgery?.AcfSurgery?.descriptionAnons || ''}}>
+                                    </div>
                                 </div>
                             </>
                         )}
@@ -150,11 +148,9 @@ const SurgeryPage = ({initialData}) => {
                                                     </LightGallery>
                                                 </div>
                                             )}
-                                            {/* ЗАМЕНА: dangerouslySetInnerHTML → WordPressContent */}
-                                            <WordPressContent
-                                                content={surgery?.content}
-                                                className="surgery__description-text"
-                                            />
+                                            <div className="surgery__description-text"
+                                                 dangerouslySetInnerHTML={{__html: surgery?.content || ''}}>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -180,11 +176,9 @@ const SurgeryPage = ({initialData}) => {
                                         title={cleanHtmlFull(surgery?.AcfSurgery?.videoTitle || '')}
                                     />
                                 </div>
-                                {/* ЗАМЕНА: dangerouslySetInnerHTML → WordPressContent */}
-                                <WordPressContent
-                                    content={surgery?.AcfSurgery?.videoDescription}
-                                    className="surgery__video-text"
-                                />
+                                <div className="surgery__video-text"
+                                     dangerouslySetInnerHTML={{__html: surgery?.AcfSurgery?.videoDescription || ''}}>
+                                </div>
                             </div>
                         )}
                         {surgery?.AcfSurgery?.video && (
@@ -202,11 +196,9 @@ const SurgeryPage = ({initialData}) => {
                                 <div className="container">
                                     <h2 className="surgery__title-faq">{cleanHtmlFull(surgery?.AcfSurgery?.faqTitle || '')}</h2>
                                     <div className="surgery__faq">
-                                        {/* ЗАМЕНА: dangerouslySetInnerHTML → WordPressContent */}
-                                        <WordPressContent
-                                            content={surgery?.AcfSurgery?.faqContent}
-                                            className="surgery__faq-content"
-                                        />
+                                        <div className="surgery__faq-content"
+                                             dangerouslySetInnerHTML={{__html: surgery?.AcfSurgery?.faqContent || ''}}>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -222,6 +214,8 @@ const SurgeryPage = ({initialData}) => {
         </LeftLayout>
     );
 };
+
+export default SurgeryPage;
 
 export async function getStaticPaths({ locales }) {
     console.log("⚠️ ISR enabled: surgery pages generated on-demand");
@@ -266,7 +260,7 @@ export async function getStaticProps({params, locale}) {
     }
 }
 
-export default SurgeryPage;
+
 
 
 
