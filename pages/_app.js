@@ -25,63 +25,6 @@ function SafeReCaptchaProvider({ children, locale }) {
     );
 }
 
-// ← УПРОЩЕННЫЙ КОМПОНЕНТ - только принудительная установка языка
-function LanguageSync({ children }) {
-    const router = useRouter();
-    const [languageSynced, setLanguageSynced] = useState(false);
-
-    useEffect(() => {
-        const syncLanguage = () => {
-            if (typeof window !== 'undefined' && window.i18n) {
-                const i18n = window.i18n;
-                const targetLanguage = router.locale || 'en';
-
-                console.log('🌐 LanguageSync: Setting language to', targetLanguage);
-
-                // КРИТИЧЕСКИ ВАЖНО: Принудительно устанавливаем язык
-                if (i18n.language !== targetLanguage) {
-                    i18n.changeLanguage(targetLanguage).then(() => {
-                        console.log('✅ LanguageSync: Successfully changed to', targetLanguage);
-                        setLanguageSynced(true);
-                    }).catch(error => {
-                        console.warn('⚠️ LanguageSync: Change failed', error);
-                        setLanguageSynced(true); // Все равно продолжаем
-                    });
-                } else {
-                    console.log('✅ LanguageSync: Language already correct', targetLanguage);
-                    setLanguageSynced(true);
-                }
-            } else {
-                // Если i18n не доступен - продолжаем без блокировки
-                console.warn('⚠️ LanguageSync: i18n not available');
-                setLanguageSynced(true);
-            }
-        };
-
-        // Ждем немного чтобы i18n успел инициализироваться
-        const timer = setTimeout(syncLanguage, 50);
-
-        return () => clearTimeout(timer);
-    }, [router.locale]);
-
-    // Очень короткая блокировка - только для синхронизации языка
-    if (!languageSynced) {
-        return (
-            <div style={{
-                width: '100%',
-                height: '100vh',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center'
-            }}>
-                <div>Syncing language...</div>
-            </div>
-        );
-    }
-
-    return children;
-}
-
 function MyApp({Component, pageProps}) {
     const router = useRouter();
 
@@ -119,10 +62,7 @@ function MyApp({Component, pageProps}) {
             <ErrorBoundary>
                 <ApolloProvider client={client}>
                     <ThemeProvider theme={theme}>
-                        {/* ← ТОЛЬКО СИНХРОНИЗАЦИЯ ЯЗЫКА */}
-                        <LanguageSync>
-                            <Component {...pageProps} />
-                        </LanguageSync>
+                        <Component {...pageProps} />
                     </ThemeProvider>
                 </ApolloProvider>
             </ErrorBoundary>
