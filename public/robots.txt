@@ -1,3 +1,10 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:/
+Allow: /
+
+# Запрещаем индексацию служебных директорий
+Disallow: /api/
+Disallow: /_next/
+
+# Sitemap для всех языков
+Sitemap: https://drtunitski.co.il/sitemap.xml

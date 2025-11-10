@@ -9,6 +9,7 @@ import MainConsultation from "../../widgets/main-consultation";
 import MedreviewsBlock from "../../shared/medreviews-block/MedreviewsBlock";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import MainStories from "../../widgets/main-stories/MainStories";
+import MainLayout from "../../app/layouts/MainLayout";
 
 const SurgeryCancerPage = () => {
     const { t } = useSafeTranslation('common');
@@ -49,7 +50,7 @@ const SurgeryCancerPage = () => {
     ];
 
     return (
-        <LeftLayout title={PageProps.title} description={PageProps.description}>
+        <MainLayout title={PageProps.title} description={PageProps.description}>
             <div className="surgery-cancer" dir={dir}>
                 {/* Main header */}
                 <div className="surgery-cancer__main-header">
@@ -110,7 +111,7 @@ const SurgeryCancerPage = () => {
                 setActive={setIsModalActive}
                 title={safeT('buttons.bookAppointment')}
             />
-        </LeftLayout>
+        </MainLayout>
 
     );
 };

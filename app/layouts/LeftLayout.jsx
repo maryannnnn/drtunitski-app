@@ -4,23 +4,28 @@ import Head from "next/head";
 import { useRouter } from 'next/router';
 import Header from "../../widgets/header/Header";
 import Footer from "../../widgets/footer/Footer";
-import {BASIS_URL} from "../config/config.js";
+import {BASIS_URL} from "../config/config.js"; // ← БЭКЕНД (WordPress)
+import {BASIS_URL_MAIN} from "../config/config"; // ← ФРОНТЕНД (Next.js)
 import DrawerLeft from "../../shared/drawer-left/DrawerLeft";
 import { isRTL } from "../../shared/utils/rtl-utils";
 import ContactUsBlock from "../../shared/contact-us-block/ContactUsBlock";
 import AccessibilityWidget from "../../shared/accessibility-widget/AccessibilityWidget";
 import CookieConsentBanner from "../../shared/cookie-consent-banner/CookieConsentBanner";
+import logoImage from "../../app/assets/images/logo/logo_3.png";
+import STsmall from "../../app/assets/images/logo/st_small.png";
 
 const LeftLayout = ({
-           children,
-           title,
-           description,
-           ogImage,
-           schemaType = "Article"
-       }) => {
+                        children,
+                        title,
+                        description,
+                        ogImage,
+                        schemaType = "Article"
+                    }) => {
     const router = useRouter();
     const { locale } = router;
-    const canonicalUrl = `${BASIS_URL}${router.asPath}`;
+
+    // ✅ ИСПРАВЛЕНО: используем BASIS_URL_MAIN для фронтенда
+    const canonicalUrl = `${BASIS_URL_MAIN}${router.asPath}`;
     const isRTLDirection = isRTL(locale);
 
     // Локали для разных языков
@@ -34,11 +39,10 @@ const LeftLayout = ({
         ar: 'ar_SA'
     };
 
-    // Все языки для hreflang
     const languages = ['en', 'ru', 'he', 'de', 'fr', 'es', 'ar'];
 
-    // Open Graph изображение
-    const defaultOgImage = `${BASIS_URL}/images/og-image.jpg`;
+    // ✅ ИСПРАВЛЕНО: используем BASIS_URL_MAIN для OG изображений
+    const defaultOgImage = `${BASIS_URL_MAIN}/images/og-image.jpg`;
     const ogImageUrl = ogImage || defaultOgImage;
 
     return (
@@ -48,55 +52,36 @@ const LeftLayout = ({
                 <title>{title + ` | Clinic of Dr. Serge Tunitski in Israel`}</title>
                 <meta name="description" content={description} />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-                <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
-                <meta name="author" content="Dr. Serge Tunitski" />
-                {/* Robots: управление индексацией через переменную окружения */}
-                <meta name="robots" content={process.env.NEXT_PUBLIC_ENABLE_INDEXING === 'true' ? "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" : "noindex, nofollow"} />
-                
-                {/* Canonical и языковые альтернативы */}
+
+                {/* ✅ ИСПРАВЛЕНО: Canonical и языковые альтернативы - BASIS_URL_MAIN */}
                 <link rel="canonical" href={canonicalUrl} />
                 {languages.map(lang => (
-                    <link 
+                    <link
                         key={lang}
-                        rel="alternate" 
-                        hrefLang={lang} 
-                        href={`${BASIS_URL}${router.pathname === '/' ? '' : router.pathname}${lang !== 'en' ? `?lang=${lang}` : ''}`} 
+                        rel="alternate"
+                        hrefLang={lang}
+                        href={`${BASIS_URL_MAIN}${router.pathname === '/' ? '' : router.pathname}${lang !== 'en' ? `?lang=${lang}` : ''}`}
                     />
                 ))}
-                <link rel="alternate" hrefLang="x-default" href={`${BASIS_URL}${router.pathname}`} />
+                <link rel="alternate" hrefLang="x-default" href={`${BASIS_URL_MAIN}${router.pathname}`} />
 
-                {/* Favicon и иконки */}
-                <link rel="icon" href="/logo_6.png" />
-                <link rel="apple-touch-icon" href="/logo_6.png" />
-                <meta name="theme-color" content="#8B4513" />
+                {/* Favicon */}
+                <link rel="icon" href={STsmall} />
 
-                {/* Open Graph мета-теги */}
+                {/* ✅ ИСПРАВЛЕНО: Open Graph - BASIS_URL_MAIN */}
                 <meta property="og:title" content={`${title} | Clinic of Dr. Serge Tunitski in Israel`} />
                 <meta property="og:description" content={description} />
                 <meta property="og:url" content={canonicalUrl} />
-                <meta property="og:type" content="article" />
-                <meta property="og:locale" content={localeMap[locale] || 'en_US'} />
-                {languages.filter(lang => lang !== locale).map(lang => (
-                    <meta key={lang} property="og:locale:alternate" content={localeMap[lang]} />
-                ))}
-                <meta property="og:site_name" content="Clinic of Dr. Serge Tunitski" />
                 <meta property="og:image" content={ogImageUrl} />
-                <meta property="og:image:secure_url" content={ogImageUrl} />
-                <meta property="og:image:width" content="1200" />
-                <meta property="og:image:height" content="630" />
-                <meta property="og:image:alt" content={title} />
-                <meta property="og:image:type" content="image/jpeg" />
 
-                {/* Twitter Card мета-теги */}
+                {/* ✅ ИСПРАВЛЕНО: Twitter Card - BASIS_URL_MAIN */}
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content={`${title} | Clinic of Dr. Serge Tunitski`} />
-                <meta name="twitter:description" content={description} />
                 <meta name="twitter:url" content={canonicalUrl} />
                 <meta name="twitter:image" content={ogImageUrl} />
-                <meta name="twitter:image:alt" content={title} />
 
-                {/* Schema.org JSON-LD для статей и страниц */}
-                <script 
+                {/* ✅ ИСПРАВЛЕНО: Schema.org - BASIS_URL_MAIN */}
+                <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{
                         __html: JSON.stringify({
@@ -113,22 +98,15 @@ const LeftLayout = ({
                             "publisher": {
                                 "@type": "Organization",
                                 "name": "Clinic of Dr. Serge Tunitski",
-                                "logo": {
-                                    "@type": "ImageObject",
-                                    "url": `${BASIS_URL}/logo_6.png`
-                                }
-                            },
-                            "mainEntityOfPage": {
-                                "@type": "WebPage",
-                                "@id": canonicalUrl
+                                "logo": `${BASIS_URL_MAIN}${logoImage}` // ← ФРОНТЕНД для лого
                             },
                             "inLanguage": locale
                         })
                     }}
                 />
 
-                {/* Breadcrumb Schema для навигации */}
-                <script 
+                {/* ✅ ИСПРАВЛЕНО: Breadcrumb - BASIS_URL_MAIN */}
+                <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{
                         __html: JSON.stringify({
@@ -139,13 +117,13 @@ const LeftLayout = ({
                                     "@type": "ListItem",
                                     "position": 1,
                                     "name": "Home",
-                                    "item": BASIS_URL
+                                    "item": BASIS_URL_MAIN // ← ФРОНТЕНД
                                 },
                                 {
                                     "@type": "ListItem",
                                     "position": 2,
                                     "name": title,
-                                    "item": canonicalUrl
+                                    "item": canonicalUrl // ← ФРОНТЕНД
                                 }
                             ]
                         })

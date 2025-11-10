@@ -1,6 +1,5 @@
 import apolloClient from '@/app/graphql/apollo-client';
 import {GET_ABOUTS_ALL, GET_ABOUT_BY_SLUG} from '@/entities/about/actions/aboutActions';
-import LeftLayout from '@/app/layouts/LeftLayout';
 import { useRouter } from 'next/router';
 import { useQuery } from '@apollo/client';
 import React, { useState, useEffect } from 'react';
@@ -29,19 +28,13 @@ import "lightgallery/css/lg-share.css";
 import MainConsultation from "../../widgets/main-consultation";
 import MedreviewsBlock from "../../shared/medreviews-block/MedreviewsBlock";
 import MainStories from "../../widgets/main-stories/MainStories";
+import MainLayout from "../../app/layouts/MainLayout";
 
 const AboutPage = ({initialData, isRequestAppointment}) => {
     const { t } = useSafeTranslation();
     const [isModalActive, setIsModalActive] = useState(isRequestAppointment || false);
     const router = useRouter();
     const {slug} = router.query;
-
-    // Автоматически открываем модальное окно для request-appointment
-    useEffect(() => {
-        if (isRequestAppointment) {
-            setIsModalActive(true);
-        }
-    }, [isRequestAppointment]);
 
     const {loading, error, data} = useQuery(GET_ABOUT_BY_SLUG, {
         variables: {slug},
@@ -52,11 +45,11 @@ const AboutPage = ({initialData, isRequestAppointment}) => {
     // Show loading state while page is being generated (ISR fallback) or data loading
     if (router.isFallback || loading) {
         return (
-            <LeftLayout>
+            <MainLayout>
                 <div style={{padding: '60px 0', textAlign: 'center'}}>
                     <h1>Loading...</h1>
                 </div>
-            </LeftLayout>
+            </MainLayout>
         );
     }
 
@@ -72,59 +65,6 @@ const AboutPage = ({initialData, isRequestAppointment}) => {
         );
     }
 
-    // Если это страница request-appointment, показываем специальный контент
-    if (isRequestAppointment) {
-        const PageProps = {
-            title: t('common:navigation.aboutItems.requestAppointment') || 'Request Appointment',
-            description: t('common:modal.appointmentText') || 'Schedule your appointment with Dr. Serge Tunitski'
-        };
-
-        const breadcrumbsMaterial = {
-            title: t('common:navigation.aboutItems.requestAppointment') || 'Request Appointment',
-            slug: 'request-appointment'
-        };
-
-        return (
-            <LeftLayout title={PageProps.title} description={PageProps.description}>
-                <div className="about">
-                    <div className="container">
-                        <h1 className="about__title">{t('common:navigation.aboutItems.requestAppointment')}</h1>
-                        <Breadcrumbs material={breadcrumbsMaterial} typeMaterial="about" />
-
-                        <div style={{
-                            padding: '40px 20px',
-                            textAlign: 'center',
-                            maxWidth: '800px',
-                            margin: '0 auto'
-                        }}>
-                            <p style={{
-                                fontSize: '18px',
-                                lineHeight: '1.6',
-                                marginBottom: '30px',
-                                color: '#333'
-                            }}>
-                                {t('common:modal.appointmentText')}
-                            </p>
-
-                            <ButtonBrown
-                                onClick={() => setIsModalActive(true)}
-                                className="about__appointment-button"
-                            >
-                                {t('common:buttons.bookAppointment')}
-                            </ButtonBrown>
-                        </div>
-                    </div>
-                </div>
-
-                <Modal
-                    active={isModalActive}
-                    setActive={setIsModalActive}
-                    title={t('common:buttons.bookAppointment')}
-                />
-            </LeftLayout>
-        );
-    }
-
     const about = data?.aboutBy || initialData?.aboutBy;
 
     const typeMaterial = "about";
@@ -135,7 +75,7 @@ const AboutPage = ({initialData, isRequestAppointment}) => {
     };
 
     return (
-        <LeftLayout title={PageProps.title} description={PageProps.description}>
+        <MainLayout title={PageProps.title} description={PageProps.description}>
             <div className="about">
                 <div className="container">
                     <>
@@ -265,7 +205,7 @@ const AboutPage = ({initialData, isRequestAppointment}) => {
                 setActive={setIsModalActive}
                 title={t('common:buttons.bookAppointment')}
             />
-        </LeftLayout>
+        </MainLayout>
     );
 };
 
@@ -288,22 +228,7 @@ export async function getStaticProps({params, locale}) {
         // Удаляем языковой суффикс из slug для проверки
         const cleanSlug = params.slug.replace(/-ru$|-he$|-de$|-fr$|-es$|-ar$/, '');
 
-        // Проверяем, является ли это страницей request-appointment
-        const isRequestAppointment = cleanSlug === 'request-appointment';
-
-        // Если это request-appointment, не делаем GraphQL запрос
-        if (isRequestAppointment) {
-            return {
-                props: {
-                    initialData: { aboutBy: null },
-                    isRequestAppointment: true,
-                    ...(await serverSideTranslations(locale, ['common'])),
-                },
-                revalidate: 86400,
-            };
-        }
-
-        const {data} = await apolloClient.query({
+          const {data} = await apolloClient.query({
             query: GET_ABOUT_BY_SLUG,
             variables: {slug: params.slug},
         });
@@ -311,20 +236,18 @@ export async function getStaticProps({params, locale}) {
         return {
             props: {
                 initialData: data || { aboutBy: null },
-                isRequestAppointment: false,
                 ...(await serverSideTranslations(locale, ['common'])),
             },
-            revalidate: 86400, // 24 hours - страница перегенерируется раз в сутки
+            revalidate: 86400,
         };
     } catch (error) {
         console.error(`Error fetching data for about slug ${params.slug}:`, error);
         return {
             props: {
                 initialData: { aboutBy: null },
-                isRequestAppointment: false,
                 ...(await serverSideTranslations(locale, ['common'])),
             },
-            revalidate: 3600, // 1 час - повторить попытку быстрее при ошибке
+            revalidate: 3600,
         };
     }
 }

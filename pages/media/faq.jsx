@@ -14,6 +14,7 @@ import Pagination from '../../shared/paginagion/Pagination';
 import { cleanHtmlFull } from '../../shared/utils/utils-content';
 import { removeLanguageSuffix } from '../../shared/utils/utils-url';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import MainLayout from "../../app/layouts/MainLayout";
 
 const POSTS_PER_PAGE = 12;
 
@@ -105,7 +106,7 @@ const MediaFaqPage = ({ initialData }) => {
     };
 
     return (
-        <LeftLayout title={PageProps.title} description={PageProps.description} schemaType="FAQPage">
+        <MainLayout title={PageProps.title} description={PageProps.description} schemaType="FAQPage">
             <div className="media-blog" dir={dir}>
                 <div className="container">
                     <h1 className="media-blog__title">{t('mediaFaq.title') || 'Frequently Asked Questions'}</h1>
@@ -202,7 +203,7 @@ const MediaFaqPage = ({ initialData }) => {
                     )}
                 </div>
             </div>
-        </LeftLayout>
+        </MainLayout>
     );
 };
 

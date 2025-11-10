@@ -10,6 +10,7 @@ import MedreviewsBlock from "../../shared/medreviews-block/MedreviewsBlock";
 import Link from "next/link";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import MainStories from "../../widgets/main-stories/MainStories";
+import MainLayout from "../../app/layouts/MainLayout";
 
 const GynecologyPlannedPage = () => {
     const {t} = useSafeTranslation('common');
@@ -82,7 +83,7 @@ const GynecologyPlannedPage = () => {
     ];
 
     return (
-        <LeftLayout title={PageProps.title} description={PageProps.description}>
+        <MainLayout title={PageProps.title} description={PageProps.description}>
             <div className="gynecology-planned" dir={dir}>
                 <div className="container">
                     {/* Main header */}
@@ -224,7 +225,7 @@ const GynecologyPlannedPage = () => {
                 setActive={setIsModalActive}
                 title={safeT('buttons.bookAppointment')}
             />
-        </LeftLayout>
+        </MainLayout>
 
     );
 };

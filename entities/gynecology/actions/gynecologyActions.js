@@ -112,7 +112,7 @@ export const GET_GYNECOLOGY_BY_SLUG = gql`
 
 export const GET_GYNECOLOGY_ALL = gql`
 query  GetGynecologyAll {
-  gynecologies {
+  gynecologies(first: 1000, where: { status: PUBLISH }) {
     edges {
         node {
           id

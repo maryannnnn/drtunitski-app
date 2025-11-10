@@ -32,6 +32,7 @@ import "lightgallery/css/lg-share.css";
 import MainConsultation from "../../widgets/main-consultation";
 import MedreviewsBlock from "../../shared/medreviews-block/MedreviewsBlock";
 import MainStories from "../../widgets/main-stories/MainStories";
+import MainLayout from "../../app/layouts/MainLayout";
 
 const StoryPage = ({initialData}) => {
     const { t } = useSafeTranslation();
@@ -76,7 +77,7 @@ const StoryPage = ({initialData}) => {
     };
 
     return (
-        <LeftLayout title={PageProps.title} description={PageProps.description}>
+        <MainLayout title={PageProps.title} description={PageProps.description}>
             <div className="story">
                 <div className="container">
                     {error ? (
@@ -239,7 +240,7 @@ const StoryPage = ({initialData}) => {
                 setActive={setIsModalActive}
                 title={t('common:buttons.bookAppointment')}
             />
-        </LeftLayout>
+        </MainLayout>
     );
 };
 

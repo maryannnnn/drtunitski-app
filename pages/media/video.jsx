@@ -14,6 +14,7 @@ import Pagination from '../../shared/paginagion/Pagination';
 import { cleanHtmlFull } from '../../shared/utils/utils-content';
 import { removeLanguageSuffix } from '../../shared/utils/utils-url';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import MainLayout from "../../app/layouts/MainLayout";
 
 const POSTS_PER_PAGE = 12;
 
@@ -104,7 +105,7 @@ const MediaVideoPage = ({ initialData }) => {
     };
 
     return (
-        <LeftLayout title={PageProps.title} description={PageProps.description}>
+        <MainLayout title={PageProps.title} description={PageProps.description}>
             <div className="media-blog" dir={dir}>
                 <div className="container">
                     <h1 className="media-blog__title">{t('mediaVideo.title') || 'Video Gallery'}</h1>
@@ -201,7 +202,7 @@ const MediaVideoPage = ({ initialData }) => {
                     )}
                 </div>
             </div>
-        </LeftLayout>
+        </MainLayout>
     );
 };
 

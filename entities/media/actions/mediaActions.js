@@ -57,7 +57,7 @@ export const GET_MEDIA_BY_SLUG = gql`
 
 export const GET_MEDIA_ALL = gql`
   query GetMediaAll {
-    medias(first: 1000) {
+    medias(first: 1000, where: { status: PUBLISH }) {
       pageInfo {
         hasNextPage
         hasPreviousPage

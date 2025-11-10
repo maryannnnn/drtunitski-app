@@ -30,6 +30,7 @@ import "lightgallery/css/lg-share.css";
 import MainConsultation from "../../widgets/main-consultation";
 import MedreviewsBlock from "../../shared/medreviews-block/MedreviewsBlock";
 import MainStories from "../../widgets/main-stories/MainStories";
+import MainLayout from "../../app/layouts/MainLayout";
 
 
 const SurgeryPage = ({initialData}) => {
@@ -78,7 +79,7 @@ const SurgeryPage = ({initialData}) => {
     };
 
     return (
-        <LeftLayout title={PageProps.title} description={PageProps.description}>
+        <MainLayout title={PageProps.title} description={PageProps.description}>
             <div className="surgery">
                 <div className="container">
                     <>
@@ -211,7 +212,7 @@ const SurgeryPage = ({initialData}) => {
                 setActive={setIsModalActive}
                 title={t('common:buttons.bookAppointment')}
             />
-        </LeftLayout>
+        </MainLayout>
     );
 };
 

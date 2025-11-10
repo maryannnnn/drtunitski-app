@@ -69,7 +69,7 @@ export const GET_STORY_BY_SLUG = gql`
 
 export const GET_STORY_ALL = gql`
   query GetStoryAll {
-    stories {
+    stories(first: 1000, where: { status: PUBLISH }) {
       edges {
         node {
           id

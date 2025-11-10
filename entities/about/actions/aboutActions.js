@@ -45,7 +45,7 @@ export const GET_ABOUT_BY_SLUG = gql`
 
 export const GET_ABOUT_ALL = gql`
 query  GetAboutAll {
-  abouts {
+  abouts(first: 1000, where: { status: PUBLISH }) {
     edges {
         node {
           id

@@ -1,22 +1,35 @@
 // pages/sitemap.xml.js
-import { apolloClient } from '../app/graphql/apollo-client';
+import { createServerApolloClient } from '../app/graphql/apollo-client';
 import { GET_ABOUT_ALL } from '../entities/about/actions/aboutActions';
 import { GET_GYNECOLOGY_ALL } from '../entities/gynecology/actions/gynecologyActions';
 import { GET_SURGERY_ALL } from '../entities/surgery/actions/surgeryActions';
 import { GET_STORY_ALL } from '../entities/story/actions/storyActions';
 import { GET_MEDIA_ALL } from '../entities/media/actions/mediaActions';
+import {BASIS_URL_MAIN} from "../app/config/config";
 
-const SITE_URL = 'https://drtunitski.co.il';
+// Создаем серверный Apollo Client для каждого запроса
+const getApolloClient = () => createServerApolloClient();
+
+// Маппинг WordPress language codes на префиксы URL
+const LANGUAGE_MAP = {
+    'RU': 'ru',
+    'EN': 'en', 
+    'HE': 'he',
+    'AR': 'ar',
+    'DE': 'de',
+    'ES': 'es',
+    'FR': 'fr'
+};
 
 function generateSiteMap(staticPages, dynamicPages) {
     return `<?xml version="1.0" encoding="UTF-8"?>
-   <urlset xmlns="http://www.sitemap.org/schemas/sitemap/0.9">
+   <urlset xmlns="http://www.sitemap.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
      <!-- Статические страницы -->
      ${staticPages
         .map(({ path, priority, changefreq }) => {
             return `
        <url>
-           <loc>${SITE_URL}${path}</loc>
+           <loc>${BASIS_URL_MAIN}${path}</loc>
            <lastmod>${new Date().toISOString()}</lastmod>
            <changefreq>${changefreq}</changefreq>
            <priority>${priority}</priority>
@@ -27,11 +40,12 @@ function generateSiteMap(staticPages, dynamicPages) {
      
      <!-- Динамические страницы -->
      ${dynamicPages
-        .map(({ slug, modified, type }) => {
+        .map(({ slug, type, langCode }) => {
+            const langPrefix = LANGUAGE_MAP[langCode] || 'he';
             return `
        <url>
-           <loc>${SITE_URL}/${type}/${slug}</loc>
-           <lastmod>${modified || new Date().toISOString()}</lastmod>
+           <loc>${BASIS_URL_MAIN}/${langPrefix}/${type}/${slug}</loc>
+           <lastmod>${new Date().toISOString()}</lastmod>
            <changefreq>weekly</changefreq>
            <priority>0.7</priority>
        </url>
@@ -42,69 +56,186 @@ function generateSiteMap(staticPages, dynamicPages) {
  `;
 }
 
-// Статические страницы
+// Статические страницы - с префиксами языков (ru, en, he)
 const staticPages = [
-    { path: '', priority: '1.0', changefreq: 'daily' },
-    { path: '/gynecology/planned', priority: '0.8', changefreq: 'monthly' },
-    { path: '/surgery/important', priority: '0.8', changefreq: 'monthly' },
-    { path: '/surgery/cancer', priority: '0.8', changefreq: 'monthly' },
-    { path: '/surgery/plastic-surgery', priority: '0.8', changefreq: 'monthly' },
-    { path: '/story/main', priority: '0.8', changefreq: 'monthly' },
-    { path: '/media/blog', priority: '0.8', changefreq: 'monthly' },
-    { path: '/media/expert', priority: '0.8', changefreq: 'monthly' },
-    { path: '/media/faq', priority: '0.8', changefreq: 'monthly' },
-    { path: '/media/news', priority: '0.8', changefreq: 'monthly' },
-    { path: '/media/video', priority: '0.8', changefreq: 'monthly' },
+    // Главная страница для всех языков
+    { path: '/ru', priority: '1.0', changefreq: 'daily' },
+    { path: '/en', priority: '1.0', changefreq: 'daily' },
+    { path: '/he', priority: '1.0', changefreq: 'daily' },
+    
+    // Gynecology - основные страницы
+    { path: '/ru/gynecology/planned', priority: '0.8', changefreq: 'monthly' },
+    { path: '/en/gynecology/planned', priority: '0.8', changefreq: 'monthly' },
+    { path: '/he/gynecology/planned', priority: '0.8', changefreq: 'monthly' },
+    
+    // Surgery - основные страницы
+    { path: '/ru/surgery/important', priority: '0.8', changefreq: 'monthly' },
+    { path: '/en/surgery/important', priority: '0.8', changefreq: 'monthly' },
+    { path: '/he/surgery/important', priority: '0.8', changefreq: 'monthly' },
+    
+    { path: '/ru/surgery/cancer', priority: '0.8', changefreq: 'monthly' },
+    { path: '/en/surgery/cancer', priority: '0.8', changefreq: 'monthly' },
+    { path: '/he/surgery/cancer', priority: '0.8', changefreq: 'monthly' },
+    
+    { path: '/ru/surgery/plastic-surgery', priority: '0.8', changefreq: 'monthly' },
+    { path: '/en/surgery/plastic-surgery', priority: '0.8', changefreq: 'monthly' },
+    { path: '/he/surgery/plastic-surgery', priority: '0.8', changefreq: 'monthly' },
+    
+    // Story - основные страницы
+    { path: '/ru/story/main', priority: '0.8', changefreq: 'monthly' },
+    { path: '/en/story/main', priority: '0.8', changefreq: 'monthly' },
+    { path: '/he/story/main', priority: '0.8', changefreq: 'monthly' },
+    
+    // Media - категории
+    { path: '/ru/media/blog', priority: '0.8', changefreq: 'weekly' },
+    { path: '/en/media/blog', priority: '0.8', changefreq: 'weekly' },
+    { path: '/he/media/blog', priority: '0.8', changefreq: 'weekly' },
+    
+    { path: '/ru/media/expert', priority: '0.8', changefreq: 'weekly' },
+    { path: '/en/media/expert', priority: '0.8', changefreq: 'weekly' },
+    { path: '/he/media/expert', priority: '0.8', changefreq: 'weekly' },
+    
+    { path: '/ru/media/faq', priority: '0.8', changefreq: 'monthly' },
+    { path: '/en/media/faq', priority: '0.8', changefreq: 'monthly' },
+    { path: '/he/media/faq', priority: '0.8', changefreq: 'monthly' },
+    
+    { path: '/ru/media/news', priority: '0.8', changefreq: 'daily' },
+    { path: '/en/media/news', priority: '0.8', changefreq: 'daily' },
+    { path: '/he/media/news', priority: '0.8', changefreq: 'daily' },
+    
+    { path: '/ru/media/video', priority: '0.8', changefreq: 'weekly' },
+    { path: '/en/media/video', priority: '0.8', changefreq: 'weekly' },
+    { path: '/he/media/video', priority: '0.8', changefreq: 'weekly' },
+    
+    // Дополнительные страницы
+    { path: '/ru/privacy-policy', priority: '0.3', changefreq: 'yearly' },
+    { path: '/en/privacy-policy', priority: '0.3', changefreq: 'yearly' },
+    { path: '/he/privacy-policy', priority: '0.3', changefreq: 'yearly' },
+    
+    { path: '/ru/accessibility-statement', priority: '0.3', changefreq: 'yearly' },
+    { path: '/en/accessibility-statement', priority: '0.3', changefreq: 'yearly' },
+    { path: '/he/accessibility-statement', priority: '0.3', changefreq: 'yearly' },
 ];
 
 export async function getServerSideProps({ res }) {
     try {
+        console.log('🔄 Generating sitemap...');
+        console.log('📍 WordPress API URL:', process.env.NEXT_PUBLIC_BACKEND_API_URL);
+        console.log('🌍 Environment:', process.env.NODE_ENV);
+
+        const client = getApolloClient();
+        console.log('✅ Apollo Client created');
+
         // Запрашиваем ВСЕ материалы из WordPress
+        console.log('🔍 Fetching data from WordPress...');
+        
         const [aboutData, gynecologyData, surgeryData, storyData, mediaData] = await Promise.all([
-            apolloClient.query({ query: GET_ABOUT_ALL }),
-            apolloClient.query({ query: GET_GYNECOLOGY_ALL }),
-            apolloClient.query({ query: GET_SURGERY_ALL }),
-            apolloClient.query({ query: GET_STORY_ALL }),
-            apolloClient.query({ query: GET_MEDIA_ALL }),
+            client.query({ query: GET_ABOUT_ALL }).catch(err => {
+                console.error('❌ GET_ABOUT_ALL error:', err.message);
+                return { data: null, errors: [err] };
+            }),
+            client.query({ query: GET_GYNECOLOGY_ALL }).catch(err => {
+                console.error('❌ GET_GYNECOLOGY_ALL error:', err.message);
+                return { data: null, errors: [err] };
+            }),
+            client.query({ query: GET_SURGERY_ALL }).catch(err => {
+                console.error('❌ GET_SURGERY_ALL error:', err.message);
+                return { data: null, errors: [err] };
+            }),
+            client.query({ query: GET_STORY_ALL }).catch(err => {
+                console.error('❌ GET_STORY_ALL error:', err.message);
+                return { data: null, errors: [err] };
+            }),
+            client.query({ query: GET_MEDIA_ALL }).catch(err => {
+                console.error('❌ GET_MEDIA_ALL error:', err.message);
+                return { data: null, errors: [err] };
+            }),
         ]);
 
+        console.log('📊 Data fetched:', {
+            about: aboutData.data?.abouts?.edges?.length || 0,
+            gynecology: gynecologyData.data?.gynecologies?.edges?.length || 0,
+            surgery: surgeryData.data?.surgeries?.edges?.length || 0,
+            story: storyData.data?.stories?.edges?.length || 0,
+            media: mediaData.data?.medias?.edges?.length || 0,
+        });
+
+        // Проверяем на ошибки
+        if (aboutData.errors) console.error('⚠️ About has errors:', aboutData.errors);
+        if (gynecologyData.errors) console.error('⚠️ Gynecology has errors:', gynecologyData.errors);
+        if (surgeryData.errors) console.error('⚠️ Surgery has errors:', surgeryData.errors);
+        if (storyData.errors) console.error('⚠️ Story has errors:', storyData.errors);
+        if (mediaData.errors) console.error('⚠️ Media has errors:', mediaData.errors);
+
         // Формируем динамические страницы
-        const dynamicPages = [
-            // About pages
-            ...aboutData.data.abouts.edges.map(edge => ({
-                slug: edge.node.slug,
-                modified: edge.node.modified,
-                type: 'about'
-            })),
+        const dynamicPages = [];
 
-            // Gynecology pages
-            ...gynecologyData.data.gynecologies.edges.map(edge => ({
-                slug: edge.node.slug,
-                modified: edge.node.modified,
-                type: 'gynecology'
-            })),
+        // About pages - с учетом языка
+        if (aboutData.data?.abouts?.edges) {
+            aboutData.data.abouts.edges.forEach(edge => {
+                if (edge.node?.slug && edge.node?.language?.code) {
+                    dynamicPages.push({
+                        slug: edge.node.slug,
+                        type: 'about',
+                        langCode: edge.node.language.code
+                    });
+                }
+            });
+        }
 
-            // Surgery pages
-            ...surgeryData.data.surgeries.edges.map(edge => ({
-                slug: edge.node.slug,
-                modified: edge.node.modified,
-                type: 'surgery'
-            })),
+        // Gynecology pages - с учетом языка
+        if (gynecologyData.data?.gynecologies?.edges) {
+            gynecologyData.data.gynecologies.edges.forEach(edge => {
+                if (edge.node?.slug && edge.node?.language?.code) {
+                    dynamicPages.push({
+                        slug: edge.node.slug,
+                        type: 'gynecology',
+                        langCode: edge.node.language.code
+                    });
+                }
+            });
+        }
 
-            // Story pages
-            ...storyData.data.stories.edges.map(edge => ({
-                slug: edge.node.slug,
-                modified: edge.node.modified,
-                type: 'story'
-            })),
+        // Surgery pages - с учетом языка
+        if (surgeryData.data?.surgeries?.edges) {
+            surgeryData.data.surgeries.edges.forEach(edge => {
+                if (edge.node?.slug && edge.node?.language?.code) {
+                    dynamicPages.push({
+                        slug: edge.node.slug,
+                        type: 'surgery',
+                        langCode: edge.node.language.code
+                    });
+                }
+            });
+        }
 
-            // Media pages
-            ...mediaData.data.medias.edges.map(edge => ({
-                slug: edge.node.slug,
-                modified: edge.node.modified,
-                type: 'media'
-            })),
-        ];
+        // Story pages - с учетом языка
+        if (storyData.data?.stories?.edges) {
+            storyData.data.stories.edges.forEach(edge => {
+                if (edge.node?.slug && edge.node?.language?.code) {
+                    dynamicPages.push({
+                        slug: edge.node.slug,
+                        type: 'story',
+                        langCode: edge.node.language.code
+                    });
+                }
+            });
+        }
+
+        // Media pages - с учетом языка
+        if (mediaData.data?.medias?.edges) {
+            mediaData.data.medias.edges.forEach(edge => {
+                if (edge.node?.slug && edge.node?.language?.code) {
+                    dynamicPages.push({
+                        slug: edge.node.slug,
+                        type: 'media',
+                        langCode: edge.node.language.code
+                    });
+                }
+            });
+        }
+
+        console.log('✅ Total dynamic pages:', dynamicPages.length);
 
         const sitemap = generateSiteMap(staticPages, dynamicPages);
 
@@ -116,7 +247,7 @@ export async function getServerSideProps({ res }) {
             props: {},
         };
     } catch (error) {
-        console.error('Sitemap generation error:', error);
+        console.error('❌ Sitemap generation error:', error);
 
         // Fallback - только статические страницы при ошибке
         const sitemap = generateSiteMap(staticPages, []);

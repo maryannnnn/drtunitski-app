@@ -112,7 +112,7 @@ export const GET_SURGERY_BY_SLUG = gql`
 
 export const GET_SURGERY_ALL = gql`
 query  GetSurgeryAll {
-  surgeries {
+  surgeries(first: 1000, where: { status: PUBLISH }) {
     edges {
         node {
           id

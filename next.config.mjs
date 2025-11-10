@@ -24,6 +24,7 @@ const nextConfig = {
     // 🔧 ДОПОЛНИТЕЛЬНЫЕ ОПТИМИЗАЦИИ:
     poweredByHeader: false, // Убрать заголовок X-Powered-By
     generateEtags: false, // Отключить ETags для статики
+
 };
 
 export default nextConfig;
