@@ -9,7 +9,7 @@
     "media": "Media",
     "contact": "Contact",
     "aboutItems": {
-      "drSergeTunitski": "Dr. Serge Tunitski",
+      "drSerge Tunitski": "Dr. Serge Tunitski",
       "clinicTeam": "Clinic & Our Team",
       "inPersonConsultation": "In-person consultation",
       "onlineConsultation": "Online-consultation",
@@ -185,10 +185,10 @@
       "address": "st. Eli Landau 7, Herzliya, Israel"
     },
     "mainTitle": {
-      "title": "Doctor Sergey Tunitsky - Modern Gynecology and Surgical Treatment",
-      "description": "Dr. Sergey Tunitsky is a renowned Israeli gynecologist, a specialist of the highest category, and a recognized expert in the treatment of all forms of female infertility and diseases of the female reproductive system. He applies modern clinical protocols, minimally invasive surgical techniques, and an individual approach to each patient.\n\nDr. Tunitsky's clinical experience exceeds 25 years. His expertise in diagnosis, surgical treatment, and prevention of gynecological diseases makes him one of the most sought-after specialists in Israel.",
+      "title": "Doctor Serge Tunitski - Modern Gynecology and Surgical Treatment",
+      "description": "Dr. Serge Tunitski is a renowned Israeli gynecologist, a specialist of the highest category, and a recognized expert in the treatment of all forms of female infertility and diseases of the female reproductive system. He applies modern clinical protocols, minimally invasive surgical techniques, and an individual approach to each patient.\n\nDr. Tunitsky's clinical experience exceeds 25 years. His expertise in diagnosis, surgical treatment, and prevention of gynecological diseases makes him one of the most sought-after specialists in Israel.",
       "biography": "Biography and Clinical Experience",
-      "biographyText": "Dr. Sergey Tunitsky has progressed from a medical institute graduate to chief physician of the gynecological department and leading surgeon.\n\nClinical Positions:\n• Chief Physician of the Gynecological Department at Hillel Yaffe Hospital\n• Leading Gynecologist at Herzliya Medical Center\n\nHe combines clinical practice, teaching activities, and participation in international gynecology conferences, constantly improving his professional skills.",
+      "biographyText": "Dr. Serge Tunitsku has progressed from a medical institute graduate to chief physician of the gynecological department and leading surgeon.\n\nClinical Positions:\n• Chief Physician of the Gynecological Department at Hillel Yaffe Hospital\n• Leading Gynecologist at Herzliya Medical Center\n\nHe combines clinical practice, teaching activities, and participation in international gynecology conferences, constantly improving his professional skills.",
       "subtitle": "Expert in Women's Health",
       "learnMore": "Learn More"
     },
@@ -247,7 +247,7 @@
   },
   "gynecology": {
     "title": "Gynecological Surgery",
-    "description": "Dr. Sergey Tunitsky specializes in modern gynecological surgery, offering comprehensive treatment for various women's health conditions. With over 25 years of experience, he performs both routine and complex surgical procedures using minimally invasive techniques. Our approach combines advanced medical technology with personalized care to ensure optimal outcomes for every patient. We treat a wide range of gynecological conditions including fibroids, endometriosis, ovarian diseases, and various forms of cancer. Each treatment plan is carefully tailored to meet individual needs and health goals.",
+    "description": "Dr. Serge Tunitsky specializes in modern gynecological surgery, offering comprehensive treatment for various women's health conditions. With over 25 years of experience, he performs both routine and complex surgical procedures using minimally invasive techniques. Our approach combines advanced medical technology with personalized care to ensure optimal outcomes for every patient. We treat a wide range of gynecological conditions including fibroids, endometriosis, ovarian diseases, and various forms of cancer. Each treatment plan is carefully tailored to meet individual needs and health goals.",
     "gynecologicalDiseases": {
       "title": "Gynecology",
       "description": "Comprehensive diagnosis and treatment of various gynecological conditions affecting women's reproductive health and overall well-being."
