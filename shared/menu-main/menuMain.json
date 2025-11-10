@@ -251,6 +251,16 @@
                 "id": "cG9zdDozNjc55a9",
                 "path": "/surgery/vacuum-aspiration",
                 "label": "Vacuum aspiration of the uterine cavity"
+              },
+              {
+                "id": "cG9zdDozNjc55a10",
+                "path": "/surgery/medical-termination",
+                "label": "Medical termination of pregnancy"
+              },
+              {
+                "id": "cG9zdDozNjc55a11",
+                "path": "/surgery/cervical-conization",
+                "label": "Cervical conization"
               }
             ]
           }

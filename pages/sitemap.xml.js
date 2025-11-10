@@ -11,9 +11,10 @@ import {BASIS_URL_MAIN} from "../app/config/config";
 const getApolloClient = () => createServerApolloClient();
 
 // Маппинг WordPress language codes на префиксы URL
+// EN - основной язык БЕЗ префикса, остальные - с префиксами
 const LANGUAGE_MAP = {
     'RU': 'ru',
-    'EN': 'en', 
+    'EN': '', // Английский - БЕЗ префикса (основной язык)
     'HE': 'he',
     'AR': 'ar',
     'DE': 'de',
@@ -41,10 +42,15 @@ function generateSiteMap(staticPages, dynamicPages) {
      <!-- Динамические страницы -->
      ${dynamicPages
         .map(({ slug, type, langCode }) => {
-            const langPrefix = LANGUAGE_MAP[langCode] || 'he';
+            const langPrefix = LANGUAGE_MAP[langCode] !== undefined ? LANGUAGE_MAP[langCode] : 'he';
+            // Для английского (пустой префикс) URL без языка: /about/slug
+            // Для других языков URL с префиксом: /ru/about/slug
+            const url = langPrefix 
+                ? `${BASIS_URL_MAIN}/${langPrefix}/${type}/${slug}`
+                : `${BASIS_URL_MAIN}/${type}/${slug}`;
             return `
        <url>
-           <loc>${BASIS_URL_MAIN}/${langPrefix}/${type}/${slug}</loc>
+           <loc>${url}</loc>
            <lastmod>${new Date().toISOString()}</lastmod>
            <changefreq>weekly</changefreq>
            <priority>0.7</priority>
@@ -60,60 +66,60 @@ function generateSiteMap(staticPages, dynamicPages) {
 const staticPages = [
     // Главная страница для всех языков
     { path: '/ru', priority: '1.0', changefreq: 'daily' },
-    { path: '/en', priority: '1.0', changefreq: 'daily' },
+    { path: '/', priority: '1.0', changefreq: 'daily' },
     { path: '/he', priority: '1.0', changefreq: 'daily' },
     
     // Gynecology - основные страницы
     { path: '/ru/gynecology/planned', priority: '0.8', changefreq: 'monthly' },
-    { path: '/en/gynecology/planned', priority: '0.8', changefreq: 'monthly' },
+    { path: '/gynecology/planned', priority: '0.8', changefreq: 'monthly' },
     { path: '/he/gynecology/planned', priority: '0.8', changefreq: 'monthly' },
     
     // Surgery - основные страницы
     { path: '/ru/surgery/important', priority: '0.8', changefreq: 'monthly' },
-    { path: '/en/surgery/important', priority: '0.8', changefreq: 'monthly' },
+    { path: '/surgery/important', priority: '0.8', changefreq: 'monthly' },
     { path: '/he/surgery/important', priority: '0.8', changefreq: 'monthly' },
     
     { path: '/ru/surgery/cancer', priority: '0.8', changefreq: 'monthly' },
-    { path: '/en/surgery/cancer', priority: '0.8', changefreq: 'monthly' },
+    { path: '/surgery/cancer', priority: '0.8', changefreq: 'monthly' },
     { path: '/he/surgery/cancer', priority: '0.8', changefreq: 'monthly' },
     
     { path: '/ru/surgery/plastic-surgery', priority: '0.8', changefreq: 'monthly' },
-    { path: '/en/surgery/plastic-surgery', priority: '0.8', changefreq: 'monthly' },
+    { path: '/surgery/plastic-surgery', priority: '0.8', changefreq: 'monthly' },
     { path: '/he/surgery/plastic-surgery', priority: '0.8', changefreq: 'monthly' },
     
     // Story - основные страницы
     { path: '/ru/story/main', priority: '0.8', changefreq: 'monthly' },
-    { path: '/en/story/main', priority: '0.8', changefreq: 'monthly' },
+    { path: '/story/main', priority: '0.8', changefreq: 'monthly' },
     { path: '/he/story/main', priority: '0.8', changefreq: 'monthly' },
     
     // Media - категории
     { path: '/ru/media/blog', priority: '0.8', changefreq: 'weekly' },
-    { path: '/en/media/blog', priority: '0.8', changefreq: 'weekly' },
+    { path: '/media/blog', priority: '0.8', changefreq: 'weekly' },
     { path: '/he/media/blog', priority: '0.8', changefreq: 'weekly' },
     
     { path: '/ru/media/expert', priority: '0.8', changefreq: 'weekly' },
-    { path: '/en/media/expert', priority: '0.8', changefreq: 'weekly' },
+    { path: '/media/expert', priority: '0.8', changefreq: 'weekly' },
     { path: '/he/media/expert', priority: '0.8', changefreq: 'weekly' },
     
     { path: '/ru/media/faq', priority: '0.8', changefreq: 'monthly' },
-    { path: '/en/media/faq', priority: '0.8', changefreq: 'monthly' },
+    { path: '/media/faq', priority: '0.8', changefreq: 'monthly' },
     { path: '/he/media/faq', priority: '0.8', changefreq: 'monthly' },
     
     { path: '/ru/media/news', priority: '0.8', changefreq: 'daily' },
-    { path: '/en/media/news', priority: '0.8', changefreq: 'daily' },
+    { path: '/media/news', priority: '0.8', changefreq: 'daily' },
     { path: '/he/media/news', priority: '0.8', changefreq: 'daily' },
     
     { path: '/ru/media/video', priority: '0.8', changefreq: 'weekly' },
-    { path: '/en/media/video', priority: '0.8', changefreq: 'weekly' },
+    { path: '/media/video', priority: '0.8', changefreq: 'weekly' },
     { path: '/he/media/video', priority: '0.8', changefreq: 'weekly' },
     
     // Дополнительные страницы
     { path: '/ru/privacy-policy', priority: '0.3', changefreq: 'yearly' },
-    { path: '/en/privacy-policy', priority: '0.3', changefreq: 'yearly' },
+    { path: '/privacy-policy', priority: '0.3', changefreq: 'yearly' },
     { path: '/he/privacy-policy', priority: '0.3', changefreq: 'yearly' },
     
     { path: '/ru/accessibility-statement', priority: '0.3', changefreq: 'yearly' },
-    { path: '/en/accessibility-statement', priority: '0.3', changefreq: 'yearly' },
+    { path: '/accessibility-statement', priority: '0.3', changefreq: 'yearly' },
     { path: '/he/accessibility-statement', priority: '0.3', changefreq: 'yearly' },
 ];
 

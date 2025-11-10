@@ -41,7 +41,7 @@ const Sitemaponsite = () => {
                 { label: t('sitemap:sections.about.items.preparation'), path: processSitemapPath('/about/preparation') },
                 { label: t('sitemap:sections.about.items.pricesPayment'), path: processSitemapPath('/about/prices-payment') },
                 { label: t('sitemap:sections.about.items.medicalTourism'), path: processSitemapPath('/about/medical-tourism') },
-                { label: t('sitemap:sections.about.items.reviewsTestimonials'), path: processSitemapPath('/about/reviews-testimonials') },
+                { label: t('sitemap:sections.about.items.reviewsTestimonials'), path: processSitemapPath('/media/reviews-testimonials') },
             ]
         },
         {
@@ -150,7 +150,7 @@ const Sitemaponsite = () => {
         {
             title: t('sitemap:sections.media.title'),
             items: [
-                { label: t('sitemap:sections.media.items.clinicBlog'), path: processSitemapPath('/media') },
+                { label: t('sitemap:sections.media.items.clinicBlog'), path: processSitemapPath('/media/blog') },
                 { label: t('sitemap:sections.media.items.news'), path: processSitemapPath('/media/news') },
                 { label: t('sitemap:sections.media.items.expertArticles'), path: processSitemapPath('/media/expert-articles') },
                 { label: t('sitemap:sections.media.items.successStories'), path: processSitemapPath('/media/success-stories') },

@@ -22,10 +22,10 @@ const FooterCopyright = () => {
                 <Link href="/accessibility-statement" className="footer-link">
                     {t('common:footer.accessibilityStatement')}
                 </Link>
-                {/*<span> | </span>*/}
-                {/*<Link href="/sitemap" className="footer-link">*/}
-                {/*    {t('common:footer.sitemap')}*/}
-                {/*</Link>*/}
+                <span> | </span>
+                <Link href="/sitemaponsite" className="footer-link">
+                    {t('common:footer.sitemap')}
+                </Link>
             </div>
             <div className="footer-copyright-row">
                 <div>
