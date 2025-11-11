@@ -46,7 +46,7 @@ export const addLanguageSuffix = (path, locale) => {
         '/story/main',
         '/privacy-policy',
         '/accessibility-statement',
-        '/sitemap'
+        '/sitemaponsite'
     ];
     
     if (staticPaths.includes(path)) {
@@ -169,7 +169,7 @@ export const isStaticPath = (path) => {
         '/story/main',
         '/privacy-policy',
         '/accessibility-statement',
-        '/sitemap'
+        '/sitemaponsite'
     ];
     
     return staticPaths.includes(path);
