@@ -4,9 +4,7 @@ import Head from "next/head";
 import { useRouter } from 'next/router';
 import Header from "../../widgets/header/Header";
 import Footer from "../../widgets/footer/Footer";
-import {BASIS_URL} from "../config/config.js"; // ← БЭКЕНД (WordPress)
 import {BASIS_URL_MAIN} from "../config/config"; // ← ФРОНТЕНД (Next.js)
-import DrawerLeft from "../../shared/drawer-left/DrawerLeft";
 import { isRTL } from "../../shared/utils/rtl-utils";
 import ContactUsBlock from "../../shared/contact-us-block/ContactUsBlock";
 import AccessibilityWidget from "../../shared/accessibility-widget/AccessibilityWidget";
@@ -24,7 +22,6 @@ const LeftLayout = ({
     const router = useRouter();
     const { locale } = router;
 
-    // ✅ ИСПРАВЛЕНО: используем BASIS_URL_MAIN для фронтенда
     const canonicalUrl = `${BASIS_URL_MAIN}${router.asPath}`;
     const isRTLDirection = isRTL(locale);
 
@@ -41,19 +38,16 @@ const LeftLayout = ({
 
     const languages = ['en', 'ru', 'he', 'de', 'fr', 'es', 'ar'];
 
-    // ✅ ИСПРАВЛЕНО: используем BASIS_URL_MAIN для OG изображений
     const defaultOgImage = `${BASIS_URL_MAIN}/images/og-image.jpg`;
     const ogImageUrl = ogImage || defaultOgImage;
 
     return (
         <div className="wrapper" dir={isRTLDirection ? 'rtl' : 'ltr'}>
             <Head>
-                {/* Основные мета-теги */}
                 <title>{title + ` | Clinic of Dr. Serge Tunitski in Israel`}</title>
                 <meta name="description" content={description} />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
 
-                {/* ✅ ИСПРАВЛЕНО: Canonical и языковые альтернативы - BASIS_URL_MAIN */}
                 <link rel="canonical" href={canonicalUrl} />
                 {languages.map(lang => {
                     const langPrefix = lang === 'en' ? '' : `/${lang}`;
@@ -71,19 +65,19 @@ const LeftLayout = ({
                 {/* Favicon */}
                 <link rel="icon" href={STsmall?.src || STsmall} />
 
-                {/* ✅ ИСПРАВЛЕНО: Open Graph - BASIS_URL_MAIN */}
+                {/* ✅ Open Graph - BASIS_URL_MAIN */}
                 <meta property="og:title" content={`${title} | Clinic of Dr. Serge Tunitski in Israel`} />
                 <meta property="og:description" content={description} />
                 <meta property="og:url" content={canonicalUrl} />
                 <meta property="og:image" content={ogImageUrl} />
 
-                {/* ✅ ИСПРАВЛЕНО: Twitter Card - BASIS_URL_MAIN */}
+                {/* ✅ Twitter Card - BASIS_URL_MAIN */}
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content={`${title} | Clinic of Dr. Serge Tunitski`} />
                 <meta name="twitter:url" content={canonicalUrl} />
                 <meta name="twitter:image" content={ogImageUrl} />
 
-                {/* ✅ ИСПРАВЛЕНО: Schema.org - BASIS_URL_MAIN */}
+                {/* ✅ Schema.org - BASIS_URL_MAIN */}
                 <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{
@@ -108,7 +102,7 @@ const LeftLayout = ({
                     }}
                 />
 
-                {/* ✅ ИСПРАВЛЕНО: Breadcrumb - BASIS_URL_MAIN */}
+                {/* ✅ Breadcrumb - BASIS_URL_MAIN */}
                 <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{
