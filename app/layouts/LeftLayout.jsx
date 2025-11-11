@@ -55,18 +55,21 @@ const LeftLayout = ({
 
                 {/* ✅ ИСПРАВЛЕНО: Canonical и языковые альтернативы - BASIS_URL_MAIN */}
                 <link rel="canonical" href={canonicalUrl} />
-                {languages.map(lang => (
-                    <link
-                        key={lang}
-                        rel="alternate"
-                        hrefLang={lang}
-                        href={`${BASIS_URL_MAIN}${router.pathname === '/' ? '' : router.pathname}${lang !== 'en' ? `?lang=${lang}` : ''}`}
-                    />
-                ))}
+                {languages.map(lang => {
+                    const langPrefix = lang === 'en' ? '' : `/${lang}`;
+                    return (
+                        <link
+                            key={lang}
+                            rel="alternate"
+                            hrefLang={lang}
+                            href={`${BASIS_URL_MAIN}${langPrefix}${router.pathname}`}
+                        />
+                    );
+                })}
                 <link rel="alternate" hrefLang="x-default" href={`${BASIS_URL_MAIN}${router.pathname}`} />
 
                 {/* Favicon */}
-                <link rel="icon" href={STsmall} />
+                <link rel="icon" href={STsmall?.src || STsmall} />
 
                 {/* ✅ ИСПРАВЛЕНО: Open Graph - BASIS_URL_MAIN */}
                 <meta property="og:title" content={`${title} | Clinic of Dr. Serge Tunitski in Israel`} />

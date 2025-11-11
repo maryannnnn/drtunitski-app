@@ -2,7 +2,8 @@
 import nextI18nextConfig from './next-i18next.config.js';
 
 const nextConfig = {
-    i18n: nextI18nextConfig.i18n,
+    // ⚠️ ЗАКОММЕНТИРОВАНО: конфликтует с middleware локализацией
+    // i18n: nextI18nextConfig.i18n,
 
     // 🚀 КРИТИЧЕСКИ ВАЖНЫЕ ОПТИМИЗАЦИИ:
     compress: true, // Включить GZIP сжатие
