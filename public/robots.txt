@@ -1,10 +1,77 @@
-# https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Allow: /
 
-# Запрещаем индексацию служебных директорий
-Disallow: /api/
+# СЛУЖЕБНЫЕ ПАПКИ NEXT.JS
 Disallow: /_next/
+Disallow: /api/
+Disallow: /_api/
+Disallow: /_error/
+Disallow: /_document/
+Disallow: /_app/
+Disallow: /404/
+Disallow: /500/
 
-# Sitemap для всех языков
+# NODE_MODULES И СБОРОЧНЫЕ ПАПКИ
+Disallow: /node_modules/
+Disallow: /.next/
+Disallow: /build/
+Disallow: /dist/
+Disallow: /out/
+
+# СИСТЕМНЫЕ ФАЙЛЫ
+Disallow: /.env
+Disallow: /.env.*
+Disallow: /.git/
+Disallow: /.github/
+Disallow: /.vscode/
+Disallow: /package.json
+Disallow: /package-lock.json
+Disallow: /yarn.lock
+
+# ПУТИ АДМИНИСТРИРОВАНИЯ И АВТОРИЗАЦИИ
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /login/
+Disallow: /signin/
+Disallow: /signup/
+Disallow: /register/
+Disallow: /account/
+Disallow: /profile/
+Disallow: /user/
+Disallow: /users/
+
+# СЛУЖЕБНЫЕ ПУТИ ПРИЛОЖЕНИЯ
+Disallow: /static/
+Disallow: /public/
+Disallow: /assets/
+Disallow: /uploads/
+Disallow: /images/
+Disallow: /img/
+Disallow: /css/
+Disallow: /js/
+Disallow: /fonts/
+
+# API И ДАННЫЕ
+Disallow: /graphql/
+Disallow: /wp-json/
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+Disallow: /json/
+Disallow: /data/
+
+# ПОИСК И ФИЛЬТРЫ
+Disallow: /search/
+Disallow: /filter/
+Disallow: /sort/
+
+# КОРЗИНА И ЗАКАЗЫ
+Disallow: /cart/
+Disallow: /checkout/
+Disallow: /order/
+Disallow: /orders/
+
+# Дополнительные для многоязычности
+Disallow: /locales/
+Disallow: /i18n/
+
 Sitemap: https://drtunitski.co.il/sitemap.xml
