@@ -14,6 +14,7 @@ import AccessibilityWidget from "../../shared/accessibility-widget/Accessibility
 import CookieConsentBanner from "../../shared/cookie-consent-banner/CookieConsentBanner";
 import logoImage from "../../app/assets/images/logo/logo_3.png";
 import STsmall from "../assets/images/logo/st_small.png";
+import GoogleTags from '../../components/GoogleTags';
 
 const MainLayout = ({
                         children,
@@ -132,7 +133,7 @@ const MainLayout = ({
 
             {/* Условный баннер */}
             {showLanguageBanner && <LanguageDetectionBanner />}
-
+            <GoogleTags />
             <Header />
             <div className="main">
                 {children}
