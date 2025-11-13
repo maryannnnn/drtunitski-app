@@ -23,8 +23,24 @@ const GoogleTags = () => {
                 }}
             />
 
-            {/* Google Analytics (если нужно) */}
-
+            {/* Google Analytics */}
+            <Script
+                id="google-analytics"
+                strategy="afterInteractive"
+                src="https://www.googletagmanager.com/gtag/js?id=G-V6ZF4RL4ST"
+            />
+            <Script
+                id="google-analytics-config"
+                strategy="afterInteractive"
+                dangerouslySetInnerHTML={{
+                    __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-V6ZF4RL4ST');
+          `,
+                }}
+            />
         </>
     );
 };

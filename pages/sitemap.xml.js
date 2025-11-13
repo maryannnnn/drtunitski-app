@@ -24,7 +24,7 @@ const LANGUAGE_MAP = {
 
 function generateSiteMap(staticPages, dynamicPages) {
     return `<?xml version="1.0" encoding="UTF-8"?>
-   <urlset xmlns="http://www.sitemap.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+   <urlset xmlns="http://www.sitemap.org/schemas/sitemap/0.9">
      <!-- Статические страницы -->
      ${staticPages
         .map(({ path, priority, changefreq }) => {
