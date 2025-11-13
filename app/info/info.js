@@ -2,7 +2,7 @@
 // Контактная информация - статичные данные, не требующие перевода
 export const contactClinic = {
     mobile: '0507377870',
-    email: 'drtunitski@gmail.com',
+    email: 'mirpaaherzliya@gmail.com',
     address_2: 'HaNadiv str 71, Herzliya, Israel',
     map: 'https://maps.app.goo.gl/BDxbYR6hJEHDeZXi6',
 }
