@@ -3,8 +3,8 @@
 export const contactClinic = {
     mobile: '0507377870',
     email: 'drtunitski@gmail.com',
-    address_2: 'Eli Landau 7, Herzliya, Israel',
-    map: 'https://maps.app.goo.gl/BS6RNh6mdi3mSTJv8',
+    address_2: 'HaNadiv str 71, Herzliya, Israel',
+    map: 'https://maps.app.goo.gl/BDxbYR6hJEHDeZXi6',
 }
 
 // Функции для получения переводов
