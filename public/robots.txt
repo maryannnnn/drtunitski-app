@@ -1,6 +1,12 @@
 User-agent: *
 Allow: /
 
+# СЯЗЫКИ
+Disallow: /ar/
+Disallow: /de/
+Disallow: /es/
+Disallow: /fr/
+
 # СЛУЖЕБНЫЕ ПАПКИ NEXT.JS
 Disallow: /_next/
 Disallow: /api/
