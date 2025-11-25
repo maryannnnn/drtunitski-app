@@ -107,13 +107,13 @@ const ContactForm = () => {
                 {t('common:contact.formTitle')}
             </h3>
             
-            <p className="contact-form__promo">
-                {t('common:contact.formPromo')}
-            </p>
+            {/*<p className="contact-form__promo">*/}
+            {/*    {t('common:contact.formPromo')}*/}
+            {/*</p>*/}
             
-            <p className="contact-form__disclaimer">
-                * {t('common:contact.formDisclaimer')}
-            </p>
+            {/*<p className="contact-form__disclaimer">*/}
+            {/*    * {t('common:contact.formDisclaimer')}*/}
+            {/*</p>*/}
 
             <div className="contact-form__messengers">
                 <a href="https://wa.me/972507377870" target="_blank" rel="noopener noreferrer" className="contact-form__messenger contact-form__messenger--whatsapp">
@@ -124,11 +124,7 @@ const ContactForm = () => {
                     <FaTelegram />
                     Telegram
                 </a>
-                {/*<a href="https://m.me/drtunitski" target="_blank" rel="noopener noreferrer" className="contact-form__messenger contact-form__messenger--messenger">*/}
-                {/*    <FaFacebookMessenger />*/}
-                {/*    Messenger*/}
-                {/*</a>*/}
-                <button 
+                 <button
                     type="button" 
                     onClick={() => setShowEmailForm(!showEmailForm)} 
                     className="contact-form__messenger contact-form__messenger--email"
