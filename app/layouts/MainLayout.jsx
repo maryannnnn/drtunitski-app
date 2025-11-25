@@ -89,6 +89,7 @@ const MainLayout = ({
                 <meta name="twitter:title" content={pageTitle} />
                 <meta name="twitter:description" content={pageDescription} />
                 <meta name="twitter:image" content={ogImageUrl} />
+                <meta name="yandex-verification" content="2fb6a14af61a8c12" />
 
                 {/* Schema.org - динамчиеская схема */}
                 <script

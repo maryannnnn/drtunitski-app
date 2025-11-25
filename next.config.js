@@ -14,17 +14,6 @@ const nextConfig = {
     // ✅ Важно для Next.js с Cloudflare
     poweredByHeader: false,
     generateEtags: false,
-
-    // ✅ ПРАВИЛЬНОЕ добавление для Яндекс
-    async redirects() {
-        return [
-            {
-                source: '/yandex_2fb6a14af61a8c12.html',
-                destination: '/api/yandex-verify',
-                permanent: false,
-            },
-        ];
-    },
 };
 
 module.exports = nextConfig;
