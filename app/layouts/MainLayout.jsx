@@ -6,7 +6,6 @@ import { useRouter } from 'next/router';
 import Header from "../../widgets/header/Header";
 import Footer from "../../widgets/footer/Footer";
 import LanguageDetectionBanner from "../../shared/language-detection-banner/LanguageDetectionBanner";
-import { BASIS_URL_MAIN } from "../config/config.js";
 import { isRTL } from "../../shared/utils/rtl-utils";
 import { useLanguageUrl } from "../../shared/hooks/useLanguageUrl";
 import ContactUsBlock from "../../shared/contact-us-block/ContactUsBlock";
@@ -24,6 +23,7 @@ const MainLayout = ({
                         schemaType = "Website", // ← Гибкая настройка типа схемы
                         showLanguageBanner = true // ← Опционально показывать баннер
                     }) => {
+    const BASIS_URL_MAIN = process.env.BASIS_URL_MAIN
     const router = useRouter();
     const { locale, pathname } = router;
     const canonicalUrl = `${BASIS_URL_MAIN}${router.asPath}`;

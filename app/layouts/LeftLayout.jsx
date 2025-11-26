@@ -4,7 +4,6 @@ import Head from "next/head";
 import { useRouter } from 'next/router';
 import Header from "../../widgets/header/Header";
 import Footer from "../../widgets/footer/Footer";
-import {BASIS_URL_MAIN} from "../config/config"; // ← ФРОНТЕНД (Next.js)
 import { isRTL } from "../../shared/utils/rtl-utils";
 import ContactUsBlock from "../../shared/contact-us-block/ContactUsBlock";
 import AccessibilityWidget from "../../shared/accessibility-widget/AccessibilityWidget";
@@ -19,6 +18,7 @@ const LeftLayout = ({
                         ogImage,
                         schemaType = "Article"
                     }) => {
+    const BASIS_URL_MAIN = process.env.BASIS_URL_MAIN
     const router = useRouter();
     const { locale } = router;
 

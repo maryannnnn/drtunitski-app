@@ -5,10 +5,11 @@ import { GET_GYNECOLOGY_ALL } from '../entities/gynecology/actions/gynecologyAct
 import { GET_SURGERY_ALL } from '../entities/surgery/actions/surgeryActions';
 import { GET_STORY_ALL } from '../entities/story/actions/storyActions';
 import { GET_MEDIA_ALL } from '../entities/media/actions/mediaActions';
-import {BASIS_URL_MAIN} from "../app/config/config";
 
 // Создаем серверный Apollo Client для каждого запроса
 const getApolloClient = () => createServerApolloClient();
+
+const BASIS_URL_MAIN = process.env.BASIS_URL_MAIN
 
 // Маппинг WordPress language codes на префиксы URL
 // EN - основной язык БЕЗ префикса, остальные - с префиксами

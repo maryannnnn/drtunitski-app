@@ -2,7 +2,6 @@ import './block-item-post.scss'
 import './media.scss'
 import Link from "next/link";
 import { useRouter } from 'next/router';
-import {BASIS_URL} from "../../app/config/config";
 import React from "react";
 import {normalizeDatetime, trimText, trimTextFullCleanedHTML} from "../utils/utils-content";
 import {sizeText} from "../../app/info/info";
@@ -29,8 +28,6 @@ const BlockItemPost = ({item}) => {
                     layout="intrinsic"
                 />
             </div>
-            {/*<img className='block-item-post__img' src={`${BASIS_URL}/${item?.node?.AcfPost?.imageAnons.uri}`}*/}
-            {/*     alt={item?.node?.AcfPost?.imageAnons?.altText}/>*/}
             <div className="block-item-post__info">
                 <div className="block-item-post__info-date">{normalizeDatetime(item?.node?.date)}</div>
                 <ul className='block-item-post__info-category'>

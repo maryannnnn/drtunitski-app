@@ -1,8 +1,9 @@
 import './bonus-block.scss'
 import './media.scss'
 import Link from "next/link";
-import {BASIS_URL} from "../../app/config/config";
 import React from "react";
+
+const BASIS_URL_MAIN = process.env.BASIS_URL_MAIN
 
 const BonusBlock = ({item}) => {
 
@@ -10,7 +11,7 @@ const BonusBlock = ({item}) => {
         <Link className="bonus-block"
               href={item.node.uri}>
             <div className="image-container">
-                <img src={`${BASIS_URL}/${item.node.AcfBonus.imageAnons.uri}`} alt={item.node.AcfBonus.imageAnons.altText}/>
+                <img src={`${BASIS_URL_MAIN}/${item.node.AcfBonus.imageAnons.uri}`} alt={item.node.AcfBonus.imageAnons.altText}/>
                 <div className="bonus-block-title">{item.node.title}</div>
                 <div className="bonus-block-title-short">{item.node.AcfBonus.titleShort}</div>
                 <div className="overlay"></div>
