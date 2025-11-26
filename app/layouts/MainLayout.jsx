@@ -140,9 +140,9 @@ const MainLayout = ({
                 {children}
             </div>
             <ContactUsBlock />
-            <AccessibilityWidget />
-            <Footer />
             <CookieConsentBanner />
+            <Footer />
+            <AccessibilityWidget />
         </div>
     );
 };
