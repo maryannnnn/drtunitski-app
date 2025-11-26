@@ -20,6 +20,107 @@
   }
 }
 
+// КОМПАКТНЫЙ РЕЖИМ - узкая полоска внизу
+.cookie-consent-banner.compact {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0;
+  max-width: 100%;
+  animation: slideUpCompact 0.4s ease-out;
+  
+  .cookie-banner-paper {
+    border-radius: 0 !important;
+    padding: 10px 20px !important;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  // На десктопе оставляем место справа для виджета WhatsApp
+  @media (min-width: 768px) {
+    right: 100px; // Место для будущего виджета
+    .cookie-banner-paper {
+      border-radius: 0 !important;
+    }
+  }
+}
+
+.cookie-banner-compact {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .compact-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    min-width: 0;
+
+    .cookie-icon-small {
+      font-size: 20px;
+      color: #ff9800;
+      flex-shrink: 0;
+    }
+
+    .compact-text {
+      font-size: 0.85rem;
+      line-height: 1.4;
+      color: #555;
+      
+      @media (max-width: 768px) {
+        font-size: 0.8rem;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        color: #ccc;
+      }
+    }
+  }
+
+  .compact-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+
+    @media (max-width: 768px) {
+      width: 100%;
+      justify-content: flex-end;
+    }
+
+    .settings-link {
+      text-transform: none;
+      font-size: 0.8rem;
+      padding: 4px 10px;
+      white-space: nowrap;
+    }
+
+    .accept-btn {
+      text-transform: none;
+      font-size: 0.8rem;
+      padding: 5px 14px;
+      white-space: nowrap;
+    }
+
+    .close-button-compact {
+      color: #999;
+      padding: 4px;
+
+      &:hover {
+        color: #666;
+      }
+    }
+  }
+}
+
 .cookie-banner-paper {
   padding: 20px !important;
   border-radius: 12px !important;
@@ -125,8 +226,29 @@
   }
 }
 
+@keyframes slideUpCompact {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 // RTL Support for Arabic and Hebrew
 [dir="rtl"] {
+  .cookie-banner-header,
+  .compact-content {
+    .cookie-icon,
+    .cookie-icon-small {
+      margin-left: 12px;
+      margin-right: 0;
+    }
+  }
+  
+  // Оригинальные RTL стили:
   .cookie-consent-banner {
     @media (min-width: 768px) {
       left: auto;

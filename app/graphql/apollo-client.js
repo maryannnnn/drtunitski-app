@@ -1,20 +1,16 @@
 import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
-// Custom fetch with extended timeout for Vercel
+// Custom fetch with timeout - УЛУЧШЕННАЯ версия
 const customFetch = (uri, options) => {
     const controller = new AbortController();
     const timeout = setTimeout(() => {
         controller.abort();
-    }, 30000); // 30 секунд для медленного GraphQL сервера
+    }, 15000); // ⚡ УМЕНЬШИТЬ до 15 секунд
 
     return fetch(uri, {
         ...options,
         signal: controller.signal,
-        headers: {
-            ...options.headers,
-            'Connection': 'keep-alive',
-        },
     }).finally(() => {
         clearTimeout(timeout);
     });
@@ -24,24 +20,29 @@ const customFetch = (uri, options) => {
 const httpLink = createHttpLink({
     uri: process.env.NEXT_PUBLIC_BACKEND_API_URL,
     fetch: customFetch,
-    fetchOptions: {
-        timeout: 30000, // 30 секунд timeout для Vercel build
-    },
+    // УБРАТЬ дублирующий timeout
 });
 
-console.log("GraphQL URL:", process.env.NEXT_PUBLIC_BACKEND_API_URL);
-console.log("Environment variables:", {
-    NODE_ENV: process.env.NODE_ENV,
-    NEXT_PUBLIC_BACKEND_API_URL: process.env.NEXT_PUBLIC_BACKEND_API_URL
-});
+// УБРАТЬ console.log в проде
+if (process.env.NODE_ENV === 'development') {
+    console.log("GraphQL URL:", process.env.NEXT_PUBLIC_BACKEND_API_URL);
+}
 
-// Create auth link to add language header
+// Create auth link - ОПТИМИЗИРОВАННАЯ версия
 const authLink = setContext((_, { headers }) => {
-    // Get language from localStorage or default to 'en'
-    const language = typeof window !== 'undefined' 
-        ? localStorage.getItem('i18nextLng') || 'en'
-        : 'en';
-    
+    // Проверка на серверный рендеринг
+    if (typeof window === 'undefined') {
+        return {
+            headers: {
+                ...headers,
+                'Accept-Language': 'en',
+            }
+        }
+    }
+
+    // Клиентская часть
+    const language = localStorage.getItem('i18nextLng') || 'en';
+
     return {
         headers: {
             ...headers,
@@ -50,107 +51,47 @@ const authLink = setContext((_, { headers }) => {
     }
 });
 
-// Server-side Apollo Client without localStorage dependency
-const createServerApolloClient = () => {
-    const serverAuthLink = setContext((_, { headers }) => {
-        return {
-            headers: {
-                ...headers,
-                'Accept-Language': 'en', // Default language for server-side
-            }
-        }
-    });
-
-    return new ApolloClient({
-        link: serverAuthLink.concat(httpLink),
-        cache: new InMemoryCache({
-            typePolicies: {
-                Query: {
-                    fields: {
-                        posts: {
-                            merge(existing, incoming) {
-                                return incoming;
-                            }
-                        }
+// Общий кеш конфиг для избежания дублирования
+const cacheConfig = new InMemoryCache({
+    typePolicies: {
+        Query: {
+            fields: {
+                posts: {
+                    merge(existing, incoming) {
+                        return incoming;
                     }
-                },
-                // Fix for Story ACF merge errors
-                Story_Acfstory: {
-                    keyFields: false,
-                    merge: true
-                },
-                Story_Acfstory_GroupInfoPost: {
-                    keyFields: false,
-                    merge: true
-                },
-                // Fix for Media ACF merge errors
-                Media_Acfmedia: {
-                    keyFields: false,
-                    merge: true
-                },
-                // Fix for Gynecology ACF merge errors
-                Gynecology_AcfGynecology: {
-                    keyFields: false,
-                    merge: true
                 }
             }
-        }),
-        defaultOptions: {
-            watchQuery: {
-                errorPolicy: 'all',
-            },
-            query: {
-                errorPolicy: 'all',
-            },
         },
-        assumeImmutableResults: true,
+        // Fix для ACF полей
+        Story_Acfstory: { keyFields: false, merge: true },
+        Story_Acfstory_GroupInfoPost: { keyFields: false, merge: true },
+        Media_Acfmedia: { keyFields: false, merge: true },
+        Gynecology_AcfGynecology: { keyFields: false, merge: true }
+    }
+});
+
+// Общие опции для клиентов
+const defaultOptions = {
+    watchQuery: { errorPolicy: 'all' },
+    query: { errorPolicy: 'all' },
+};
+
+// Server-side Apollo Client
+const createServerApolloClient = () => {
+    return new ApolloClient({
+        link: httpLink, // ⚡ УБРАТЬ лишний authLink для сервера
+        cache: cacheConfig,
+        defaultOptions,
         ssrMode: true
     });
 };
 
+// Client-side Apollo Client
 const apolloClient = new ApolloClient({
     link: authLink.concat(httpLink),
-    cache: new InMemoryCache({
-        typePolicies: {
-            Query: {
-                fields: {
-                    posts: {
-                        merge(existing, incoming) {
-                            return incoming;
-                        }
-                    }
-                }
-            },
-            // Fix for Story ACF merge errors
-            Story_Acfstory: {
-                keyFields: false,
-                merge: true
-            },
-            Story_Acfstory_GroupInfoPost: {
-                keyFields: false,
-                merge: true
-            },
-            // Fix for Media ACF merge errors
-            Media_Acfmedia: {
-                keyFields: false,
-                merge: true
-            },
-            // Fix for Gynecology ACF merge errors
-            Gynecology_AcfGynecology: {
-                keyFields: false,
-                merge: true
-            }
-        }
-    }),
-    defaultOptions: {
-        watchQuery: {
-            errorPolicy: 'all',
-        },
-        query: {
-            errorPolicy: 'all',
-        },
-    },
-    // Отключаем нормализацию кеша для избежания проблем с сериализацией
+    cache: cacheConfig,
+    defaultOptions,
     assumeImmutableResults: true
 });
 

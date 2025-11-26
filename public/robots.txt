@@ -79,5 +79,6 @@ Disallow: /orders/
 # Дополнительные для многоязычности
 Disallow: /locales/
 Disallow: /i18n/
+Disallow: /cdn-cgi/
 
 Sitemap: https://drtunitski.co.il/sitemap.xml
