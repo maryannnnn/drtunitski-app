@@ -19,6 +19,33 @@ const ContactForm = () => {
     const [showEmailForm, setShowEmailForm] = useState(false);
     const { executeRecaptcha } = useGoogleReCaptcha();
 
+    // Трекинг и уведомления для мессенджеров
+    const handleMessengerClick = (type, url) => {
+        // Google Analytics
+        if (typeof window !== 'undefined' && window.gtag) {
+            window.gtag('event', `${type}_click`, {
+                event_category: 'engagement',
+                event_label: 'contact_form',
+                url: url
+            });
+        }
+
+        // Telegram уведомление
+        fetch('/api/notify-telegram', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                type: `${type}_opened`,
+                source: 'contact_form',
+                url: window.location.href,
+                timestamp: new Date().toISOString()
+            })
+        }).catch(err => console.error('Telegram notification error:', err));
+
+        // Открыть мессенджер
+        window.open(url, '_blank', 'noopener,noreferrer');
+    };
+
     // Схема валидации Yup
     const validationSchema = yup.object().shape({
         name: yup
@@ -116,15 +143,23 @@ const ContactForm = () => {
             {/*</p>*/}
 
             <div className="contact-form__messengers">
-                <a href="https://wa.me/972507377870" target="_blank" rel="noopener noreferrer" className="contact-form__messenger contact-form__messenger--whatsapp">
+                <button
+                    type="button"
+                    onClick={() => handleMessengerClick('whatsapp', 'https://wa.me/972507377870')}
+                    className="contact-form__messenger contact-form__messenger--whatsapp"
+                >
                     <FaWhatsapp />
                     WhatsApp
-                </a>
-                <a href="https://t.me/+972507377870" target="_blank" rel="noopener noreferrer" className="contact-form__messenger contact-form__messenger--telegram">
+                </button>
+                <button
+                    type="button"
+                    onClick={() => handleMessengerClick('telegram', 'https://t.me/+972507377870')}
+                    className="contact-form__messenger contact-form__messenger--telegram"
+                >
                     <FaTelegram />
                     Telegram
-                </a>
-                 <button
+                </button>
+                <button
                     type="button" 
                     onClick={() => setShowEmailForm(!showEmailForm)} 
                     className="contact-form__messenger contact-form__messenger--email"

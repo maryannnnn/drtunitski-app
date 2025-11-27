@@ -1,15 +1,15 @@
 .whatsapp-widget {
   position: fixed;
-  bottom: 24px;
-  right: 24px;
+  bottom: 60px; // Поднято на ~3.5см (было 24px)
+  right: 32px; // Дальше от края (было 24px)
   z-index: 9998;
   display: flex;
   align-items: flex-end;
   gap: 16px;
 
   @media (max-width: 768px) {
-    bottom: 20px;
-    right: 20px;
+    bottom: 50px;
+    right: 24px;
   }
 }
 
@@ -74,19 +74,21 @@
   box-shadow: 0 2px 6px rgba(255, 68, 68, 0.5);
 }
 
-// Тултип (речевой пузырь)
+// Тултип (речевой пузырь) - кликабельный и зеленый
 .whatsapp-widget__tooltip {
   position: relative;
-  background: #fff;
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
   padding: 14px 18px;
   border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
   max-width: 220px;
   animation: slideInRight 0.4s ease-out;
+  cursor: pointer;
+  transition: all 0.3s ease;
   
-  @media (prefers-color-scheme: dark) {
-    background: #2d2d2d;
-    color: #fff;
+  &:hover {
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+    transform: translateY(-2px);
   }
 
   @media (max-width: 768px) {
@@ -96,14 +98,11 @@
 
   p {
     margin: 0;
+    padding-right: 20px; // Место для кнопки закрытия
     font-size: 14px;
     line-height: 1.5;
-    color: #333;
+    color: #fff;
     font-weight: 500;
-
-    @media (prefers-color-scheme: dark) {
-      color: #fff;
-    }
 
     @media (max-width: 768px) {
       font-size: 13px;
@@ -119,13 +118,9 @@
     transform: translateY(-50%);
     width: 0;
     height: 0;
-    border-left: 8px solid #fff;
+    border-left: 8px solid #128C7E;
     border-top: 8px solid transparent;
     border-bottom: 8px solid transparent;
-
-    @media (prefers-color-scheme: dark) {
-      border-left-color: #2d2d2d;
-    }
   }
 }
 
@@ -134,27 +129,22 @@
   position: absolute;
   top: 4px;
   right: 4px;
-  background: transparent;
+  background: rgba(255, 255, 255, 0.2);
   border: none;
   cursor: pointer;
   padding: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #999;
-  transition: color 0.2s;
+  color: #fff;
+  transition: all 0.2s;
   font-size: 14px;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
 
   &:hover {
-    color: #666;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    color: #777;
-    
-    &:hover {
-      color: #bbb;
-    }
+    background: rgba(255, 255, 255, 0.3);
   }
 }
 
@@ -212,11 +202,11 @@
 // RTL Support
 [dir="rtl"] {
   .whatsapp-widget {
-    left: 24px;
+    left: 32px;
     right: auto;
 
     @media (max-width: 768px) {
-      left: 20px;
+      left: 24px;
       right: auto;
     }
   }
@@ -231,11 +221,12 @@
       left: -8px;
       right: auto;
       border-left: none;
-      border-right: 8px solid #fff;
-
-      @media (prefers-color-scheme: dark) {
-        border-right-color: #2d2d2d;
-      }
+      border-right: 8px solid #128C7E;
+    }
+    
+    p {
+      padding-left: 20px;
+      padding-right: 0;
     }
   }
 

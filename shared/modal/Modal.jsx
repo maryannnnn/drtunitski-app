@@ -1,9 +1,36 @@
 import './modal.scss'
+import { useEffect } from 'react';
 import { useSafeTranslation } from '../hooks/useSafeTranslation';
 import ContactForm from '../contact-form/ContactForm';
 
 const Modal = ({active, setActive, children, title}) => {
     const { t } = useSafeTranslation();
+    
+    // Отслеживание открытия модального окна
+    useEffect(() => {
+        if (active) {
+            // Google Analytics
+            if (typeof window !== 'undefined' && window.gtag) {
+                window.gtag('event', 'modal_opened', {
+                    event_category: 'engagement',
+                    event_label: 'booking_appointment',
+                    modal_title: title
+                });
+            }
+
+            // Telegram уведомление
+            fetch('/api/notify-telegram', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    type: 'modal_opened',
+                    source: 'booking_appointment_modal',
+                    url: window.location.href,
+                    timestamp: new Date().toISOString()
+                })
+            }).catch(err => console.error('Telegram notification error:', err));
+        }
+    }, [active, title]);
     
     return (
         <div className={active ? "modal active" : "modal"} onClick={() => setActive(false)}>
