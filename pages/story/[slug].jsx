@@ -261,6 +261,13 @@ export async function getStaticPaths({ locales }) {
 }
 
 export async function getStaticProps({params, locale}) {
+    // Защита от невалидных slug (например [slug] как буквальный текст)
+    if (!params.slug || params.slug === '[slug]' || params.slug.includes('[') || params.slug.includes(']')) {
+        return {
+            notFound: true,
+        };
+    }
+
     try {
         const {data} = await apolloClient.query({
             query: GET_STORY_BY_SLUG,

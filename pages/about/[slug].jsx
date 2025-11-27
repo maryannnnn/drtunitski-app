@@ -226,6 +226,13 @@ export async function getStaticPaths({ locales }) {
 }
 
 export async function getStaticProps({params, locale}) {
+    // Защита от невалидных slug (например [slug] как буквальный текст)
+    if (!params.slug || params.slug === '[slug]' || params.slug.includes('[') || params.slug.includes(']')) {
+        return {
+            notFound: true,
+        };
+    }
+
     try {
         // Удаляем языковой суффикс из slug для проверки
         const cleanSlug = params.slug.replace(/-ru$|-he$|-de$|-fr$|-es$|-ar$/, '');
