@@ -11,6 +11,7 @@ import { useLanguageUrl } from "../../shared/hooks/useLanguageUrl";
 import ContactUsBlock from "../../shared/contact-us-block/ContactUsBlock";
 import AccessibilityWidget from "../../shared/accessibility-widget/AccessibilityWidget";
 import CookieConsentBanner from "../../shared/cookie-consent-banner/CookieConsentBanner";
+import WhatsAppWidget from "../../shared/whatsapp-widget/WhatsAppWidget";
 import logoImage from "../../app/assets/images/logo/logo_3.png";
 import STsmall from "../assets/images/logo/st_small.png";
 import GoogleTags from '../../components/GoogleTags';
@@ -142,6 +143,7 @@ const MainLayout = ({
             <ContactUsBlock />
             <CookieConsentBanner />
             <Footer />
+            <WhatsAppWidget />
             <AccessibilityWidget />
         </div>
     );

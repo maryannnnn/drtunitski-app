@@ -441,9 +441,13 @@
       "title": "📊 Analytische Cookies",
       "description": "Google Analytics (anonymisiert) - helfen uns, die Website zu verbessern"
     },
-    "marketing": {
-      "title": "🎯 Marketing-Cookies",
-      "description": "Werbung und Retargeting (Facebook, Google Ads)"
+        "marketing": {
+            "title": "🎯 Marketing-Cookies",
+            "description": "Werbung und Retargeting (Facebook, Google Ads)"
+        }
+    },
+    "whatsappWidget": {
+        "tooltip": "Können wir helfen? Schreiben Sie uns!",
+        "message": "Hallo! Ich möchte mich über die Möglichkeit einer Online-Beratung mit Dr. Tunitski erkundigen. Meine Frage: "
     }
-  }
 }

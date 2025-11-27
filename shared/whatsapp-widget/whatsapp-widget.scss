@@ -1,0 +1,269 @@
+.whatsapp-widget {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9998;
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+
+  @media (max-width: 768px) {
+    bottom: 20px;
+    right: 20px;
+  }
+}
+
+// Кнопка WhatsApp
+.whatsapp-widget__button {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: bounceIn 0.6s ease-out, pulse 2s infinite;
+
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  @media (max-width: 768px) {
+    width: 56px;
+    height: 56px;
+  }
+}
+
+// Иконка WhatsApp
+.whatsapp-widget__icon {
+  font-size: 32px;
+  color: #fff;
+  
+  @media (max-width: 768px) {
+    font-size: 28px;
+  }
+}
+
+// Notification Badge (красный кружок с цифрой)
+.whatsapp-widget__badge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  background: #ff4444;
+  color: #fff;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  border: 2px solid #fff;
+  animation: badgePulse 1.5s infinite;
+  box-shadow: 0 2px 6px rgba(255, 68, 68, 0.5);
+}
+
+// Тултип (речевой пузырь)
+.whatsapp-widget__tooltip {
+  position: relative;
+  background: #fff;
+  padding: 14px 18px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  max-width: 220px;
+  animation: slideInRight 0.4s ease-out;
+  
+  @media (prefers-color-scheme: dark) {
+    background: #2d2d2d;
+    color: #fff;
+  }
+
+  @media (max-width: 768px) {
+    max-width: 180px;
+    padding: 12px 14px;
+  }
+
+  p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #333;
+    font-weight: 500;
+
+    @media (prefers-color-scheme: dark) {
+      color: #fff;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 13px;
+    }
+  }
+
+  // Треугольник (стрелка)
+  &::after {
+    content: '';
+    position: absolute;
+    right: -8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid #fff;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+
+    @media (prefers-color-scheme: dark) {
+      border-left-color: #2d2d2d;
+    }
+  }
+}
+
+// Кнопка закрытия тултипа
+.whatsapp-widget__tooltip-close {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  transition: color 0.2s;
+  font-size: 14px;
+
+  &:hover {
+    color: #666;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    color: #777;
+    
+    &:hover {
+      color: #bbb;
+    }
+  }
+}
+
+// Анимации
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+  }
+  50% {
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.6),
+                0 0 0 8px rgba(37, 211, 102, 0.2);
+  }
+  100% {
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+  }
+}
+
+@keyframes badgePulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// RTL Support
+[dir="rtl"] {
+  .whatsapp-widget {
+    left: 24px;
+    right: auto;
+
+    @media (max-width: 768px) {
+      left: 20px;
+      right: auto;
+    }
+  }
+
+  .whatsapp-widget__badge {
+    left: -2px;
+    right: auto;
+  }
+
+  .whatsapp-widget__tooltip {
+    &::after {
+      left: -8px;
+      right: auto;
+      border-left: none;
+      border-right: 8px solid #fff;
+
+      @media (prefers-color-scheme: dark) {
+        border-right-color: #2d2d2d;
+      }
+    }
+  }
+
+  .whatsapp-widget__tooltip-close {
+    left: 4px;
+    right: auto;
+  }
+}
+
+// Accessibility
+@media (prefers-reduced-motion: reduce) {
+  .whatsapp-widget__button {
+    animation: none;
+  }
+
+  .whatsapp-widget__badge {
+    animation: none;
+  }
+
+  .whatsapp-widget__tooltip {
+    animation: none;
+  }
+}
+
+// Скрыть на печати
+@media print {
+  .whatsapp-widget {
+    display: none !important;
+  }
+}
+

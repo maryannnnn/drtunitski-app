@@ -441,9 +441,13 @@
       "title": "📊 Cookies analytiques",
       "description": "Google Analytics (anonymisé) - nous aident à améliorer le site"
     },
-    "marketing": {
-      "title": "🎯 Cookies marketing",
-      "description": "Publicité et reciblage (Facebook, Google Ads)"
+        "marketing": {
+            "title": "🎯 Cookies marketing",
+            "description": "Publicité et reciblage (Facebook, Google Ads)"
+        }
+    },
+    "whatsappWidget": {
+        "tooltip": "Peut-on vous aider ? Écrivez-nous !",
+        "message": "Bonjour ! Je souhaiterais me renseigner sur la possibilité d'une consultation en ligne avec le Dr Tunitski. Ma question : "
     }
-  }
 }

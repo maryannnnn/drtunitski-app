@@ -463,5 +463,9 @@
       "title": "🎯 עוגיות שיווק",
       "description": "פרסום וריטרגטינג (Facebook, Google Ads)"
     }
+  },
+  "whatsappWidget": {
+    "tooltip": "נוכל לעזור? כתבו לנו!",
+    "message": "שלום! הייתי רוצה לברר לגבי אפשרות להתייעצות מקוונת עם ד״ר טוניצקי. השאלה שלי: "
   }
 }
