@@ -26,8 +26,13 @@ const MainLayout = ({
                     }) => {
     const BASIS_URL_MAIN = process.env.BASIS_URL_MAIN
     const router = useRouter();
-    const { locale, pathname } = router;
-    const canonicalUrl = `${BASIS_URL_MAIN}${router.asPath}`;
+    const { locale, pathname, asPath } = router;
+    
+    // Убираем префикс локали из asPath для генерации правильных URL
+    const pathWithoutLocale = asPath.replace(/^\/(ru|he|de|fr|es|ar)/, '');
+    const cleanPath = pathWithoutLocale.split('?')[0].split('#')[0]; // Убираем query и hash
+    
+    const canonicalUrl = `${BASIS_URL_MAIN}${asPath}`;
     const isRTLDirection = isRTL(locale);
     const isHomePage = pathname === '/';
 
@@ -69,11 +74,11 @@ const MainLayout = ({
                             key={lang}
                             rel="alternate"
                             hrefLang={lang}
-                            href={`${BASIS_URL_MAIN}${langPrefix}${pathname}`}
+                            href={`${BASIS_URL_MAIN}${langPrefix}${cleanPath}`}
                         />
                     );
                 })}
-                <link rel="alternate" hrefLang="x-default" href={BASIS_URL_MAIN} />
+                <link rel="alternate" hrefLang="x-default" href={`${BASIS_URL_MAIN}${cleanPath}`} />
 
                 {/* Favicon */}
                 <link rel="icon" href={STsmall?.src || STsmall} />

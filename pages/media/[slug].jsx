@@ -34,7 +34,7 @@ import MedreviewsBlock from "../../shared/medreviews-block/MedreviewsBlock";
 import MainStories from "../../widgets/main-stories/MainStories";
 import MainLayout from "../../app/layouts/MainLayout";
 
-const MediaPage = ({initialData}) => {
+const MediaPage = ({initialData, seoData}) => {
     const { t } = useSafeTranslation();
     const [isModalActive, setIsModalActive] = useState(false);
 
@@ -53,18 +53,22 @@ const MediaPage = ({initialData}) => {
     });
 
     // ISR loading state or data loading
-    if (router.isFallback || loading) {
+    if (router.isFallback) {
         return (
-            <LeftLayout>
+            <MainLayout title={seoData?.title || 'Loading...'} description={seoData?.description || ''}>
                 <div style={{padding: '60px 0', textAlign: 'center'}}>
                     <h1>Loading...</h1>
                 </div>
-            </LeftLayout>
+            </MainLayout>
         );
     }
 
     if (error) {
-        return <div>Error: {error.message}</div>;
+        return (
+            <MainLayout title="Error" description="">
+                <div>Error: {error.message}</div>
+            </MainLayout>
+        );
     }
 
     const media = data?.mediaBy || initialData?.mediaBy;
@@ -72,8 +76,8 @@ const MediaPage = ({initialData}) => {
     const typeMaterial = "media"
 
     const PageProps = {
-        title: media?.seo?.title || t('common:navigation.home'),
-        description: media?.seo?.metaDesc || t('common:navigation.home')
+        title: seoData?.title || media?.seo?.title || t('common:navigation.home'),
+        description: seoData?.description || media?.seo?.metaDesc || t('common:navigation.home')
     };
 
     return (
@@ -266,11 +270,21 @@ export async function getStaticProps({params, locale}) {
             variables: {slug: params.slug},
         });
 
+        // Extract SEO data for immediate rendering
+        const seoData = data?.mediaBy ? {
+            title: data.mediaBy.seo?.title || data.mediaBy.title || 'Медиа',
+            description: data.mediaBy.seo?.metaDesc || 'Клиника доктора Туницкого'
+        } : {
+            title: 'Медиа',
+            description: 'Клиника доктора Туницкого'
+        };
+
         return {
             props: {
                 initialData: data || {
                     mediaBy: null
                 },
+                seoData,
                 ...(await serverSideTranslations(locale, ['common'])),
             },
             revalidate: 86400,
@@ -280,6 +294,10 @@ export async function getStaticProps({params, locale}) {
         return {
             props: {
                 initialData: { mediaBy: null },
+                seoData: {
+                    title: 'Медиа',
+                    description: 'Клиника доктора Туницкого'
+                },
                 ...(await serverSideTranslations(locale, ['common'])),
             },
             revalidate: 3600,

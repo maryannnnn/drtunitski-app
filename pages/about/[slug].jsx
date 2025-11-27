@@ -30,7 +30,7 @@ import MedreviewsBlock from "../../shared/medreviews-block/MedreviewsBlock";
 import MainStories from "../../widgets/main-stories/MainStories";
 import MainLayout from "../../app/layouts/MainLayout";
 
-const AboutPage = ({initialData, isRequestAppointment}) => {
+const AboutPage = ({initialData, seoData, isRequestAppointment}) => {
     const { t } = useSafeTranslation();
     const [isModalActive, setIsModalActive] = useState(isRequestAppointment || false);
     const router = useRouter();
@@ -43,9 +43,9 @@ const AboutPage = ({initialData, isRequestAppointment}) => {
     });
 
     // Show loading state while page is being generated (ISR fallback) or data loading
-    if (router.isFallback || loading) {
+    if (router.isFallback) {
         return (
-            <MainLayout>
+            <MainLayout title={seoData?.title || 'Loading...'} description={seoData?.description || ''}>
                 <div style={{padding: '60px 0', textAlign: 'center'}}>
                     <h1>Loading...</h1>
                 </div>
@@ -55,13 +55,15 @@ const AboutPage = ({initialData, isRequestAppointment}) => {
 
     if (error) {
         return (
-            <Stack sx={{width: '100%'}} spacing={2}>
-                <Alert severity="error">
-                    {error.graphQLErrors ? error.graphQLErrors.map((err, index) => (
-                        <div key={index}>{err.message}</div>
-                    )) : 'An error occurred'}
-                </Alert>
-            </Stack>
+            <MainLayout title="Error" description="">
+                <Stack sx={{width: '100%'}} spacing={2}>
+                    <Alert severity="error">
+                        {error.graphQLErrors ? error.graphQLErrors.map((err, index) => (
+                            <div key={index}>{err.message}</div>
+                        )) : 'An error occurred'}
+                    </Alert>
+                </Stack>
+            </MainLayout>
         );
     }
 
@@ -70,8 +72,8 @@ const AboutPage = ({initialData, isRequestAppointment}) => {
     const typeMaterial = "about";
 
     const PageProps = {
-        title: about?.seo?.title || 'О компании',
-        description: about?.seo?.metaDesc || 'О компании'
+        title: seoData?.title || about?.seo?.title || 'О компании',
+        description: seoData?.description || about?.seo?.metaDesc || 'Клиника доктора Туницкого'
     };
 
     return (
@@ -233,9 +235,19 @@ export async function getStaticProps({params, locale}) {
             variables: {slug: params.slug},
         });
 
+        // Extract SEO data for immediate rendering
+        const seoData = data?.aboutBy ? {
+            title: data.aboutBy.seo?.title || data.aboutBy.title || 'О компании',
+            description: data.aboutBy.seo?.metaDesc || 'Клиника доктора Туницкого'
+        } : {
+            title: 'О компании',
+            description: 'Клиника доктора Туницкого'
+        };
+
         return {
             props: {
                 initialData: data || { aboutBy: null },
+                seoData,
                 ...(await serverSideTranslations(locale, ['common'])),
             },
             revalidate: 86400,
@@ -245,6 +257,10 @@ export async function getStaticProps({params, locale}) {
         return {
             props: {
                 initialData: { aboutBy: null },
+                seoData: {
+                    title: 'О компании',
+                    description: 'Клиника доктора Туницкого'
+                },
                 ...(await serverSideTranslations(locale, ['common'])),
             },
             revalidate: 3600,

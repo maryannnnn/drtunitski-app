@@ -34,7 +34,7 @@ import MedreviewsBlock from "../../shared/medreviews-block/MedreviewsBlock";
 import MainStories from "../../widgets/main-stories/MainStories";
 import MainLayout from "../../app/layouts/MainLayout";
 
-const StoryPage = ({initialData}) => {
+const StoryPage = ({initialData, seoData}) => {
     const { t } = useSafeTranslation();
     const [isModalActive, setIsModalActive] = useState(false);
 
@@ -53,18 +53,22 @@ const StoryPage = ({initialData}) => {
     });
 
     // Show loading state while page is being generated (ISR fallback) or data loading
-    if (router.isFallback || loading) {
+    if (router.isFallback) {
         return (
-            <LeftLayout>
+            <MainLayout title={seoData?.title || 'Loading...'} description={seoData?.description || ''}>
                 <div style={{padding: '60px 0', textAlign: 'center'}}>
                     <h1>Loading...</h1>
                 </div>
-            </LeftLayout>
+            </MainLayout>
         );
     }
 
     if (error) {
-        return <div>Error: {error.message}</div>;
+        return (
+            <MainLayout title="Error" description="">
+                <div>Error: {error.message}</div>
+            </MainLayout>
+        );
     }
 
     const story = data?.storyBy || initialData?.storyBy;
@@ -72,8 +76,8 @@ const StoryPage = ({initialData}) => {
     const typeMaterial = "story"
 
     const PageProps = {
-        title: story?.seo?.title || t('common:navigation.home'),
-        description: story?.seo?.metaDesc || t('common:navigation.home')
+        title: seoData?.title || story?.seo?.title || t('common:navigation.home'),
+        description: seoData?.description || story?.seo?.metaDesc || t('common:navigation.home')
     };
 
     return (
@@ -263,11 +267,21 @@ export async function getStaticProps({params, locale}) {
             variables: {slug: params.slug},
         });
 
+        // Extract SEO data for immediate rendering
+        const seoData = data?.storyBy ? {
+            title: data.storyBy.seo?.title || data.storyBy.title || 'Истории пациентов',
+            description: data.storyBy.seo?.metaDesc || 'Клиника доктора Туницкого'
+        } : {
+            title: 'Истории пациентов',
+            description: 'Клиника доктора Туницкого'
+        };
+
         return {
             props: {
                 initialData: data || {
                     storyBy: null
                 },
+                seoData,
                 ...(await serverSideTranslations(locale, ['common'])),
             },
             revalidate: 86400, // 24 hours - page regenerated daily
@@ -277,6 +291,10 @@ export async function getStaticProps({params, locale}) {
         return {
             props: {
                 initialData: { storyBy: null },
+                seoData: {
+                    title: 'Истории пациентов',
+                    description: 'Клиника доктора Туницкого'
+                },
                 ...(await serverSideTranslations(locale, ['common'])),
             },
             revalidate: 3600, // 1 hour - retry faster on error

@@ -33,7 +33,7 @@ import MainStories from "../../widgets/main-stories/MainStories";
 import MainLayout from "../../app/layouts/MainLayout";
 
 
-const SurgeryPage = ({initialData}) => {
+const SurgeryPage = ({initialData, seoData}) => {
     const { t } = useSafeTranslation();
     const [isModalActive, setIsModalActive] = useState(false);
 
@@ -47,25 +47,27 @@ const SurgeryPage = ({initialData}) => {
     });
 
     // ISR loading state or data loading
-    if (router.isFallback || loading) {
+    if (router.isFallback) {
         return (
-            <LeftLayout>
+            <MainLayout title={seoData?.title || 'Loading...'} description={seoData?.description || ''}>
                 <div style={{padding: '60px 0', textAlign: 'center'}}>
                     <h1>Loading...</h1>
                 </div>
-            </LeftLayout>
+            </MainLayout>
         );
     }
 
     if (error) {
         return (
-            <Stack sx={{width: '100%'}} spacing={2}>
-                <Alert severity="error">
-                    {error.graphQLErrors ? error.graphQLErrors.map((err, index) => (
-                        <div key={index}>{err.message}</div>
-                    )) : 'An error occurred'}
-                </Alert>
-            </Stack>
+            <MainLayout title="Error" description="">
+                <Stack sx={{width: '100%'}} spacing={2}>
+                    <Alert severity="error">
+                        {error.graphQLErrors ? error.graphQLErrors.map((err, index) => (
+                            <div key={index}>{err.message}</div>
+                        )) : 'An error occurred'}
+                    </Alert>
+                </Stack>
+            </MainLayout>
         );
     }
 
@@ -74,8 +76,8 @@ const SurgeryPage = ({initialData}) => {
     const typeMaterial = "surgery"
 
     const PageProps = {
-        title: surgery?.seo?.title || 'Компания',
-        description: surgery?.seo?.metaDesc || 'Компания'
+        title: seoData?.title || surgery?.seo?.title || 'Хирургия',
+        description: seoData?.description || surgery?.seo?.metaDesc || 'Клиника доктора Туницкого'
     };
 
     return (
@@ -240,9 +242,19 @@ export async function getStaticProps({params, locale}) {
             surgeryBy: null,
         };
 
+        // Extract SEO data for immediate rendering
+        const seoData = data?.surgeryBy ? {
+            title: data.surgeryBy.seo?.title || data.surgeryBy.title || 'Хирургия',
+            description: data.surgeryBy.seo?.metaDesc || 'Клиника доктора Туницкого'
+        } : {
+            title: 'Хирургия',
+            description: 'Клиника доктора Туницкого'
+        };
+
         return {
             props: {
                 initialData: safeData,
+                seoData,
                 ...(await serverSideTranslations(locale, ['common'])),
             },
             revalidate: 86400, // 24 hours
@@ -253,6 +265,10 @@ export async function getStaticProps({params, locale}) {
             props: {
                 initialData: { 
                     surgeryBy: null,
+                },
+                seoData: {
+                    title: 'Хирургия',
+                    description: 'Клиника доктора Туницкого'
                 },
                 ...(await serverSideTranslations(locale, ['common'])),
             },
