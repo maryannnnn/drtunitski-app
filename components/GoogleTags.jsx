@@ -1,10 +1,68 @@
 // components/GoogleTags.jsx
+import { useEffect, useState } from 'react';
 import Script from 'next/script';
+import { CookieConsentManager } from '../shared/utils/cookie-consent-manager';
 
 const GoogleTags = () => {
+    const [consent, setConsent] = useState(null);
+    const [consentInitialized, setConsentInitialized] = useState(false);
+
+    useEffect(() => {
+        // Инициализировать Google Consent Mode v2 ДО загрузки тегов
+        if (typeof window !== 'undefined' && !consentInitialized) {
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){window.dataLayer.push(arguments);}
+            
+            // ⚠️ КРИТИЧЕСКИ ВАЖНО: установить default ПЕРЕД загрузкой тегов
+            gtag('consent', 'default', {
+                'ad_storage': 'denied',           // Google Ads cookies
+                'ad_user_data': 'denied',         // Данные пользователя для рекламы
+                'ad_personalization': 'denied',   // Персонализация рекламы
+                'analytics_storage': 'denied',    // Analytics cookies
+                'wait_for_update': 500            // Подождать 500мс обновления
+            });
+
+            setConsentInitialized(true);
+            console.log('🔒 Google Consent Mode v2 initialized (default: denied)');
+        }
+
+        // Загрузить сохраненное согласие
+        CookieConsentManager.getConsent().then(savedConsent => {
+            if (savedConsent) {
+                updateConsent(savedConsent);
+            }
+        });
+
+        // Слушать изменения согласия
+        const handleConsentChange = (e) => {
+            updateConsent(e.detail);
+        };
+        window.addEventListener('cookieConsentChanged', handleConsentChange);
+        return () => window.removeEventListener('cookieConsentChanged', handleConsentChange);
+    }, [consentInitialized]);
+
+    const updateConsent = (consentData) => {
+        setConsent(consentData);
+        
+        if (typeof window !== 'undefined' && window.gtag) {
+            // Обновить consent mode
+            window.gtag('consent', 'update', {
+                'ad_storage': consentData.marketing ? 'granted' : 'denied',
+                'ad_user_data': consentData.marketing ? 'granted' : 'denied',
+                'ad_personalization': consentData.marketing ? 'granted' : 'denied',
+                'analytics_storage': consentData.analytics ? 'granted' : 'denied'
+            });
+            
+            console.log('✅ Google Consent updated:', {
+                marketing: consentData.marketing ? 'granted' : 'denied',
+                analytics: consentData.analytics ? 'granted' : 'denied'
+            });
+        }
+    };
+
     return (
         <>
-            {/* Google Tags */}
+            {/* Google Tag Manager - ВСЕГДА загружать с Consent Mode */}
             <Script
                 id="google-tag-manager"
                 strategy="afterInteractive"
@@ -19,11 +77,19 @@ const GoogleTags = () => {
                         function gtag(){dataLayer.push(arguments);}
                         gtag('js', new Date());
                         
-                        // Конфигурация Google Analytics
-                        gtag('config', 'G-V6ZF4RL4ST');
+                        // Google Analytics - с Consent Mode
+                        gtag('config', 'G-V6ZF4RL4ST', {
+                            'anonymize_ip': true,
+                            'allow_google_signals': false,
+                            'allow_ad_personalization_signals': false
+                        });
                         
-                        // Конфигурация Google Ads
-                        gtag('config', 'AW-17706912095');
+                        // Google Ads - с Consent Mode
+                        gtag('config', 'AW-17706912095', {
+                            'allow_ad_personalization_signals': false
+                        });
+                        
+                        console.log('📊 Google Tags loaded with Consent Mode v2');
                     `,
                 }}
             />
