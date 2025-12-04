@@ -10,8 +10,9 @@ import MedreviewsBlock from "../../shared/medreviews-block/MedreviewsBlock";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import MainStories from "../../widgets/main-stories/MainStories";
 import MainLayout from "../../app/layouts/MainLayout";
+import { getSeoData } from '../../shared/utils/seo-translations';
 
-const SurgeryPlasticPage = () => {
+const SurgeryPlasticPage = ({ seoData }) => {
     const { t } = useSafeTranslation('common');
     const router = useRouter();
     const { locale } = router;
@@ -31,9 +32,10 @@ const SurgeryPlasticPage = () => {
     const isRTL = locale === 'he' || locale === 'ar';
     const dir = isRTL ? 'rtl' : 'ltr';
 
+    // ✅ SEO данные из getStaticProps (SSR-safe)
     const PageProps = {
-        title: safeT('surgeryPlastic.seoTitle'),
-        description: safeT('surgeryPlastic.seoDescription')
+        title: seoData?.title || safeT('surgeryPlastic.seoTitle'),
+        description: seoData?.description || safeT('surgeryPlastic.seoDescription')
     };
 
     // Plastic Surgery items
@@ -118,8 +120,12 @@ const SurgeryPlasticPage = () => {
 };
 
 export async function getStaticProps({ locale }) {
+    // ✅ SEO данные на сервере (для Googlebot)
+    const seoData = getSeoData('surgeryPlastic', locale);
+    
     return {
         props: {
+            seoData,
             ...(await serverSideTranslations(locale, ['common'])),
         },
     };

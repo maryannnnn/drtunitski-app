@@ -11,8 +11,9 @@ import Link from "next/link";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import MainStories from "../../widgets/main-stories/MainStories";
 import MainLayout from "../../app/layouts/MainLayout";
+import { getSeoData } from '../../shared/utils/seo-translations';
 
-const GynecologyPlannedPage = () => {
+const GynecologyPlannedPage = ({ seoData }) => {
     const {t} = useSafeTranslation('common');
     const router = useRouter();
     const {locale} = router;
@@ -32,9 +33,10 @@ const GynecologyPlannedPage = () => {
     const isRTL = locale === 'he' || locale === 'ar';
     const dir = isRTL ? 'rtl' : 'ltr';
 
+    // ✅ SEO данные из getStaticProps (SSR-safe)
     const PageProps = {
-        title: safeT('gynecologyPlanned.seoTitle'),
-        description: safeT('gynecologyPlanned.seoDescription')
+        title: seoData?.title || safeT('gynecologyPlanned.seoTitle'),
+        description: seoData?.description || safeT('gynecologyPlanned.seoDescription')
     };
 
     const getLocalizedUrl = (url) => {
@@ -231,8 +233,12 @@ const GynecologyPlannedPage = () => {
 };
 
 export async function getStaticProps({locale}) {
+    // ✅ SEO данные на сервере (для Googlebot)
+    const seoData = getSeoData('gynecologyPlanned', locale);
+    
     return {
         props: {
+            seoData,
             ...(await serverSideTranslations(locale, ['common'])),
         },
     };

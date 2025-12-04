@@ -2,6 +2,7 @@ import React from 'react';
 import '../scss/app.scss'
 import Head from "next/head";
 import { useRouter } from 'next/router';
+import getConfig from 'next/config';
 import Header from "../../widgets/header/Header";
 import Footer from "../../widgets/footer/Footer";
 import { isRTL } from "../../shared/utils/rtl-utils";
@@ -18,11 +19,22 @@ const LeftLayout = ({
                         ogImage,
                         schemaType = "Article"
                     }) => {
-    const BASIS_URL_MAIN = process.env.BASIS_URL_MAIN
+    // ✅ Получаем BASIS_URL_MAIN через publicRuntimeConfig (доступен на клиенте)
+    const { publicRuntimeConfig } = getConfig() || {};
+    const BASIS_URL_MAIN = publicRuntimeConfig?.BASIS_URL_MAIN || 'https://drtunitski.co.il';
+    
     const router = useRouter();
-    const { locale } = router;
+    const { locale, asPath } = router;
 
-    const canonicalUrl = `${BASIS_URL_MAIN}${router.asPath}`;
+    // ✅ С включенным i18n в next.config.mjs:
+    // - locale содержит текущий язык ('en', 'ru', 'he', и т.д.)
+    // - asPath содержит путь БЕЗ префикса локали
+    const cleanPath = asPath.split('?')[0].split('#')[0];
+    
+    // ✅ Canonical: английский БЕЗ префикса, остальные С префиксом
+    const canonicalUrl = locale === 'en' 
+        ? `${BASIS_URL_MAIN}${cleanPath}` 
+        : `${BASIS_URL_MAIN}/${locale}${cleanPath}`;
     const isRTLDirection = isRTL(locale);
 
     // Локали для разных языков
@@ -56,11 +68,11 @@ const LeftLayout = ({
                             key={lang}
                             rel="alternate"
                             hrefLang={lang}
-                            href={`${BASIS_URL_MAIN}${langPrefix}${router.pathname}`}
+                            href={`${BASIS_URL_MAIN}${langPrefix}${cleanPath}`}
                         />
                     );
                 })}
-                <link rel="alternate" hrefLang="x-default" href={`${BASIS_URL_MAIN}${router.pathname}`} />
+                <link rel="alternate" hrefLang="x-default" href={`${BASIS_URL_MAIN}${cleanPath}`} />
 
                 {/* Favicon */}
                 <link rel="icon" href={STsmall?.src || STsmall} />

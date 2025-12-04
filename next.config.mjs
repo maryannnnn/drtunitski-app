@@ -2,8 +2,13 @@
 import nextI18nextConfig from './next-i18next.config.js';
 
 const nextConfig = {
-    // ⚠️ ЗАКОММЕНТИРОВАНО: конфликтует с middleware локализацией
-    // i18n: nextI18nextConfig.i18n,
+    // ✅ ВКЛЮЧАЕМ i18n - нужно для правильных canonical URL
+    i18n: nextI18nextConfig.i18n,
+
+    // ✅ Делаем BASIS_URL_MAIN доступным на клиенте
+    publicRuntimeConfig: {
+        BASIS_URL_MAIN: process.env.BASIS_URL_MAIN || 'https://drtunitski.co.il',
+    },
 
     // 🚀 КРИТИЧЕСКИ ВАЖНЫЕ ОПТИМИЗАЦИИ:
     compress: true, // Включить GZIP сжатие

@@ -2,7 +2,6 @@ import React from 'react';
 import '../app/scss/app.scss';
 import {SpeedInsights} from "@vercel/speed-insights/next";
 import MainLayout from "../app/layouts/MainLayout";
-import { useSafeTranslation } from '@/shared/hooks/useSafeTranslation';
 import MainTitle from "@/widgets/main-title/MainTitle";
 import MainGynecology from "@/widgets/main-gynecology/MainGynecology";
 import MainStories from "@/widgets/main-stories/MainStories";
@@ -12,17 +11,11 @@ import FooterAssociations from "@/shared/footer-associations/FooterAssociations"
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import MainConsultation from "../widgets/main-consultation";
 import MedreviewsBlock from "../shared/medreviews-block/MedreviewsBlock";
+import { getSeoData } from '../shared/utils/seo-translations';
 
-const Index = () => {
-    const { t } = useSafeTranslation('common');
-    
-    const PageProps = {
-        title: t('common:navigation.home'),
-        description: t('common:navigation.home')
-    };
-
+const Index = ({ seoData }) => {
     return (
-        <MainLayout title={PageProps.title} description={PageProps.description}>
+        <MainLayout title={seoData?.title} description={seoData?.description}>
             <TrustCareBanner />
             <MainTitle/>
             <MainConsultation />
@@ -37,8 +30,12 @@ const Index = () => {
 };
 
 export async function getStaticProps({ locale }) {
+    // ✅ SEO данные на сервере (для Googlebot)
+    const seoData = getSeoData('homePage', locale);
+    
     return {
         props: {
+            seoData,
             ...(await serverSideTranslations(locale, ['common'])),
         },
     };

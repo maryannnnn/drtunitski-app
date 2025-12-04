@@ -15,10 +15,11 @@ import { cleanHtmlFull } from '../../shared/utils/utils-content';
 import { removeLanguageSuffix } from '../../shared/utils/utils-url';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import MainLayout from "../../app/layouts/MainLayout";
+import { getSeoData } from '../../shared/utils/seo-translations';
 
 const POSTS_PER_PAGE = 12;
 
-const StoryMainPage = ({ initialData }) => {
+const StoryMainPage = ({ initialData, seoData }) => {
     const { t } = useSafeTranslation('common');
     const router = useRouter();
     const { locale } = router;
@@ -97,9 +98,10 @@ const StoryMainPage = ({ initialData }) => {
     const isRTL = locale === 'he' || locale === 'ar';
     const dir = isRTL ? 'rtl' : 'ltr';
 
+    // ✅ SEO данные из getStaticProps (SSR-safe)
     const PageProps = {
-        title: t('storyMain.seoTitle') || 'Success Stories',
-        description: t('storyMain.seoDescription') || 'Read success stories from our patients'
+        title: seoData?.title || t('storyMain.seoTitle') || 'Success Stories',
+        description: seoData?.description || t('storyMain.seoDescription') || 'Read success stories from our patients'
     };
 
     // Breadcrumbs data
@@ -194,6 +196,9 @@ const StoryMainPage = ({ initialData }) => {
 };
 
 export async function getStaticProps({ locale }) {
+    // ✅ SEO данные на сервере (для Googlebot)
+    const seoData = getSeoData('storyMain', locale);
+    
     try {
         const { data } = await apolloClient.query({
             query: GET_STORY_ALL,
@@ -204,6 +209,7 @@ export async function getStaticProps({ locale }) {
                 initialData: data || {
                     stories: { edges: [] }
                 },
+                seoData,
                 ...(await serverSideTranslations(locale, ['common'])),
             },
             revalidate: 3600, // Revalidate every hour
@@ -213,6 +219,7 @@ export async function getStaticProps({ locale }) {
         return {
             props: {
                 initialData: { stories: { edges: [] } },
+                seoData,
                 ...(await serverSideTranslations(locale, ['common'])),
             },
             revalidate: 3600,

@@ -10,8 +10,9 @@ import MedreviewsBlock from "../../shared/medreviews-block/MedreviewsBlock";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import MainStories from "../../widgets/main-stories/MainStories";
 import MainLayout from "../../app/layouts/MainLayout";
+import { getSeoData } from '../../shared/utils/seo-translations';
 
-const SurgeryCancerPage = () => {
+const SurgeryCancerPage = ({ seoData }) => {
     const { t } = useSafeTranslation('common');
     const router = useRouter();
     const { locale } = router;
@@ -31,9 +32,10 @@ const SurgeryCancerPage = () => {
     const isRTL = locale === 'he' || locale === 'ar';
     const dir = isRTL ? 'rtl' : 'ltr';
 
+    // ✅ SEO данные из getStaticProps (SSR-safe)
     const PageProps = {
-        title: safeT('surgeryCancer.seoTitle'),
-        description: safeT('surgeryCancer.seoDescription')
+        title: seoData?.title || safeT('surgeryCancer.seoTitle'),
+        description: seoData?.description || safeT('surgeryCancer.seoDescription')
     };
 
     // Cancer types items
@@ -117,8 +119,12 @@ const SurgeryCancerPage = () => {
 };
 
 export async function getStaticProps({ locale }) {
+    // ✅ SEO данные на сервере (для Googlebot)
+    const seoData = getSeoData('surgeryCancer', locale);
+    
     return {
         props: {
+            seoData,
             ...(await serverSideTranslations(locale, ['common'])),
         },
     };

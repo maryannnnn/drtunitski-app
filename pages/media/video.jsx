@@ -15,10 +15,11 @@ import { cleanHtmlFull } from '../../shared/utils/utils-content';
 import { removeLanguageSuffix } from '../../shared/utils/utils-url';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import MainLayout from "../../app/layouts/MainLayout";
+import { getSeoData } from '../../shared/utils/seo-translations';
 
 const POSTS_PER_PAGE = 12;
 
-const MediaVideoPage = ({ initialData }) => {
+const MediaVideoPage = ({ initialData, seoData }) => {
     const { t } = useSafeTranslation('common');
     const router = useRouter();
     const { locale } = router;
@@ -94,9 +95,10 @@ const MediaVideoPage = ({ initialData }) => {
     const isRTL = locale === 'he' || locale === 'ar';
     const dir = isRTL ? 'rtl' : 'ltr';
 
+    // ✅ SEO данные из getStaticProps (SSR-safe)
     const PageProps = {
-        title: t('mediaVideo.seoTitle') || 'Video Gallery',
-        description: t('mediaVideo.seoDescription') || 'Educational medical videos and tutorials'
+        title: seoData?.title || t('mediaVideo.seoTitle') || 'Video Gallery',
+        description: seoData?.description || t('mediaVideo.seoDescription') || 'Educational medical videos and tutorials'
     };
 
     const breadcrumbsMaterial = {
@@ -207,6 +209,9 @@ const MediaVideoPage = ({ initialData }) => {
 };
 
 export async function getStaticProps({ locale }) {
+    // ✅ SEO данные на сервере (для Googlebot)
+    const seoData = getSeoData('mediaVideo', locale);
+    
     try {
         const { data } = await apolloClient.query({
             query: GET_MEDIA_ALL,
@@ -217,6 +222,7 @@ export async function getStaticProps({ locale }) {
                 initialData: data || {
                     medias: { edges: [] }
                 },
+                seoData,
                 ...(await serverSideTranslations(locale, ['common'])),
             },
             revalidate: 3600,
@@ -226,6 +232,7 @@ export async function getStaticProps({ locale }) {
         return {
             props: {
                 initialData: { medias: { edges: [] } },
+                seoData,
                 ...(await serverSideTranslations(locale, ['common'])),
             },
             revalidate: 3600,

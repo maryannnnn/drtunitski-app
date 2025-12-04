@@ -3,6 +3,7 @@ import React from 'react';
 import '../scss/app.scss';
 import Head from "next/head";
 import { useRouter } from 'next/router';
+import getConfig from 'next/config';
 import Header from "../../widgets/header/Header";
 import Footer from "../../widgets/footer/Footer";
 import LanguageDetectionBanner from "../../shared/language-detection-banner/LanguageDetectionBanner";
@@ -24,15 +25,22 @@ const MainLayout = ({
                         schemaType = "Website", // ← Гибкая настройка типа схемы
                         showLanguageBanner = true // ← Опционально показывать баннер
                     }) => {
-    const BASIS_URL_MAIN = process.env.BASIS_URL_MAIN
+    // ✅ Получаем BASIS_URL_MAIN через publicRuntimeConfig (доступен на клиенте)
+    const { publicRuntimeConfig } = getConfig() || {};
+    const BASIS_URL_MAIN = publicRuntimeConfig?.BASIS_URL_MAIN || 'https://drtunitski.co.il';
+    
     const router = useRouter();
     const { locale, pathname, asPath } = router;
     
-    // Убираем префикс локали из asPath для генерации правильных URL
-    const pathWithoutLocale = asPath.replace(/^\/(ru|he|de|fr|es|ar)/, '');
-    const cleanPath = pathWithoutLocale.split('?')[0].split('#')[0]; // Убираем query и hash
+    // ✅ С включенным i18n в next.config.mjs:
+    // - locale содержит текущий язык ('en', 'ru', 'he', и т.д.)
+    // - asPath содержит путь БЕЗ префикса локали
+    const cleanPath = asPath.split('?')[0].split('#')[0]; // Убираем query и hash
     
-    const canonicalUrl = `${BASIS_URL_MAIN}${asPath}`;
+    // ✅ Canonical: английский БЕЗ префикса, остальные С префиксом
+    const canonicalUrl = locale === 'en' 
+        ? `${BASIS_URL_MAIN}${cleanPath}` 
+        : `${BASIS_URL_MAIN}/${locale}${cleanPath}`;
     const isRTLDirection = isRTL(locale);
     const isHomePage = pathname === '/';
 
@@ -48,15 +56,13 @@ const MainLayout = ({
     const defaultOgImage = `${BASIS_URL_MAIN}/images/og-image.jpg`;
     const ogImageUrl = ogImage || defaultOgImage;
 
-    // Динамический title для главной страницы
-    const pageTitle = isHomePage
-        ? "Clinic of Dr. Serge Tunitski - Leading Gynecology and Surgery in Israel"
-        : `${title} | Clinic of Dr. Serge Tunitski in Israel`;
-
-    // Динамическое описание для главной
-    const pageDescription = isHomePage
-        ? "Expert medical care in gynecology and surgery by Dr. Serge Tunitski. Advanced treatments, personalized approach, modern clinic in Israel."
-        : description;
+    // Title и Description (для главной и внутренних страниц)
+    // На главной: title/description приходят из getStaticProps через seoData
+    // На внутренних: title приходит как prop, добавляем суффикс клиники
+    const pageTitle = isHomePage 
+        ? (title || "Clinic of Dr. Serge Tunitski - Leading Gynecology and Surgery in Israel")
+        : `${title} | Clinic of Dr. Serge Tunitski`;
+    const pageDescription = description || "Expert medical care in gynecology and surgery in Israel.";
 
     return (
         <div className="wrapper" dir={isRTLDirection ? 'rtl' : 'ltr'}>

@@ -3,15 +3,16 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useSafeTranslation } from '../shared/hooks/useSafeTranslation';
 import MainLayout from '../app/layouts/MainLayout';
 import { Box, Typography, Container, Paper, Divider, List, ListItem, ListItemText } from '@mui/material';
+import { getSeoData } from '../shared/utils/seo-translations';
 import './privacy-policy.scss';
 
-const PrivacyPolicy = () => {
+const PrivacyPolicy = ({ seoData }) => {
     const { t } = useSafeTranslation('privacyPolicy');
 
     return (
         <MainLayout
-            title={t('title')}
-            description={t('description')}
+            title={seoData?.title || t('title')}
+            description={seoData?.description || t('description')}
         >
             <Container maxWidth="lg" className="privacy-policy-container">
                 <Paper elevation={3} className="privacy-policy-paper">
@@ -625,8 +626,12 @@ const PrivacyPolicy = () => {
 };
 
 export async function getStaticProps({ locale }) {
+    // ✅ SEO данные на сервере - читаем title/description из privacyPolicy.json
+    const seoData = getSeoData('', locale, 'privacyPolicy');
+    
     return {
         props: {
+            seoData,
             ...(await serverSideTranslations(locale, ['common', 'privacyPolicy'])),
         },
     };

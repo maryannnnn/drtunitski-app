@@ -3,8 +3,9 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useSafeTranslation } from '../shared/hooks/useSafeTranslation';
 import MainLayout from '../app/layouts/MainLayout';
 import { Box, Typography, Container, Paper, List, ListItem, ListItemText } from '@mui/material';
+import { getSeoData } from '../shared/utils/seo-translations';
 
-const AccessibilityStatement = () => {
+const AccessibilityStatement = ({ seoData }) => {
     const { t } = useSafeTranslation('accessibilityStatement');
 
     const renderList = (items) => {
@@ -27,8 +28,8 @@ const AccessibilityStatement = () => {
 
     return (
         <MainLayout
-            title={t('title')}
-            description={t('description')}
+            title={seoData?.title || t('title')}
+            description={seoData?.description || t('description')}
         >
             <Container maxWidth="md" sx={{ py: 4 }}>
                 <Paper elevation={3} sx={{ p: { xs: 2, md: 4 } }}>
@@ -238,8 +239,12 @@ const AccessibilityStatement = () => {
 };
 
 export async function getStaticProps({ locale }) {
+    // ✅ SEO данные на сервере - читаем title/description из accessibilityStatement.json
+    const seoData = getSeoData('', locale, 'accessibilityStatement');
+    
     return {
         props: {
+            seoData,
             ...(await serverSideTranslations(locale, ['common', 'accessibilityStatement'])),
         },
     };

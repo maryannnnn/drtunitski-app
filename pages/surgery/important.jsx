@@ -10,8 +10,9 @@ import MedreviewsBlock from "../../shared/medreviews-block/MedreviewsBlock";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import MainStories from "../../widgets/main-stories/MainStories";
 import MainLayout from "../../app/layouts/MainLayout";
+import { getSeoData } from '../../shared/utils/seo-translations';
 
-const SurgeryImportantPage = () => {
+const SurgeryImportantPage = ({ seoData }) => {
     const { t } = useSafeTranslation('common');
     const router = useRouter();
     const { locale } = router;
@@ -24,9 +25,10 @@ const SurgeryImportantPage = () => {
     const isRTL = locale === 'he' || locale === 'ar';
     const dir = isRTL ? 'rtl' : 'ltr';
 
+    // ✅ SEO данные из getStaticProps (SSR-safe)
     const PageProps = {
-        title: safeT('surgeryImportant.seoTitle'),
-        description: safeT('surgeryImportant.seoDescription')
+        title: seoData?.title || safeT('surgeryImportant.seoTitle'),
+        description: seoData?.description || safeT('surgeryImportant.seoDescription')
     };
 
     // Important Surgeries items
@@ -253,8 +255,12 @@ const SurgeryImportantPage = () => {
 };
 
 export async function getStaticProps({ locale }) {
+    // ✅ SEO данные на сервере (для Googlebot)
+    const seoData = getSeoData('surgeryImportant', locale);
+    
     return {
         props: {
+            seoData,
             ...(await serverSideTranslations(locale, ['common'])),
         },
     };

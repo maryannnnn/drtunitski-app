@@ -15,10 +15,11 @@ import { cleanHtmlFull } from '../../shared/utils/utils-content';
 import { removeLanguageSuffix } from '../../shared/utils/utils-url';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import MainLayout from "../../app/layouts/MainLayout";
+import { getSeoData } from '../../shared/utils/seo-translations';
 
 const POSTS_PER_PAGE = 12;
 
-const MediaBlogPage = ({ initialData }) => {
+const MediaBlogPage = ({ initialData, seoData }) => {
     const { t } = useSafeTranslation('common');
     const router = useRouter();
     const { locale } = router;
@@ -138,9 +139,10 @@ const MediaBlogPage = ({ initialData }) => {
     const isRTL = locale === 'he' || locale === 'ar';
     const dir = isRTL ? 'rtl' : 'ltr';
 
+    // ✅ SEO данные из getStaticProps (SSR-safe)
     const PageProps = {
-        title: t('mediaBlog.seoTitle'),
-        description: t('mediaBlog.seoDescription')
+        title: seoData?.title || t('mediaBlog.seoTitle'),
+        description: seoData?.description || t('mediaBlog.seoDescription')
     };
 
     // Breadcrumbs data
@@ -274,6 +276,9 @@ const MediaBlogPage = ({ initialData }) => {
 };
 
 export async function getStaticProps({ locale }) {
+    // ✅ SEO данные на сервере (для Googlebot)
+    const seoData = getSeoData('mediaBlog', locale);
+    
     try {
         const { data } = await apolloClient.query({
             query: GET_MEDIA_ALL,
@@ -284,6 +289,7 @@ export async function getStaticProps({ locale }) {
                 initialData: data || {
                     medias: { edges: [] }
                 },
+                seoData,
                 ...(await serverSideTranslations(locale, ['common'])),
             },
             revalidate: 3600, // Revalidate every hour
@@ -293,6 +299,7 @@ export async function getStaticProps({ locale }) {
         return {
             props: {
                 initialData: { medias: { edges: [] } },
+                seoData,
                 ...(await serverSideTranslations(locale, ['common'])),
             },
             revalidate: 3600,
