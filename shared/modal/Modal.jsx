@@ -16,6 +16,13 @@ const Modal = ({active, setActive, children, title}) => {
                     event_label: 'booking_appointment',
                     modal_title: title
                 });
+                
+                // Google Ads конверсия Book Appointment Modal
+                window.gtag('event', 'conversion', {
+                    'send_to': 'AW-17706912095/eA9dCJK-8s4bEN-SqPtB',
+                    'value': 5.0,
+                    'currency': 'ILS'
+                });
             }
 
             // Telegram уведомление

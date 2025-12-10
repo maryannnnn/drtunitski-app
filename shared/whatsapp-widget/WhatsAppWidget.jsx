@@ -19,6 +19,13 @@ const WhatsAppWidget = () => {
                 event_label: source,
                 phone_number: PHONE_NUMBER
             });
+            
+            // Google Ads конверсия WhatsApp Click
+            window.gtag('event', 'conversion', {
+                'send_to': 'AW-17706912095/oQ8aCJiD984bEN-SqPtB',
+                'value': 10.0,
+                'currency': 'ILS'
+            });
         }
 
         // Отправка уведомления в Telegram бот

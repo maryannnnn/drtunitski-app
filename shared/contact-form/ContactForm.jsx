@@ -28,6 +28,22 @@ const ContactForm = () => {
                 event_label: 'contact_form',
                 url: url
             });
+            
+            // Google Ads конверсии
+            if (type === 'whatsapp') {
+                window.gtag('event', 'conversion', {
+                    'send_to': 'AW-17706912095/oQ8aCJiD984bEN-SqPtB',
+                    'value': 10.0,
+                    'currency': 'ILS'
+                });
+            }
+            if (type === 'telegram') {
+                window.gtag('event', 'conversion', {
+                    'send_to': 'AW-17706912095/9J74CN-f8s4bEN-SqPtB',
+                    'value': 10.0,
+                    'currency': 'ILS'
+                });
+            }
         }
 
         // Telegram уведомление

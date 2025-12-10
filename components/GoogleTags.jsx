@@ -89,6 +89,11 @@ const GoogleTags = () => {
                             'allow_ad_personalization_signals': false
                         });
                         
+                        // Google Ads конверсия - Просмотр страницы
+                        gtag('event', 'conversion', {
+                            'send_to': 'AW-17706912095/SX8nCIWOzbobEN-SqPtB'
+                        });
+                        
                         console.log('📊 Google Tags loaded with Consent Mode v2');
                     `,
                 }}
