@@ -46,12 +46,6 @@ const MainLayout = ({
 
     useLanguageUrl();
 
-    const localeMap = {
-        en: 'en_US', ru: 'ru_RU', he: 'he_IL', de: 'de_DE', fr: 'fr_FR', es: 'es_ES', ar: 'ar_SA'
-    };
-
-    const languages = ['en', 'ru', 'he', 'de', 'fr', 'es', 'ar'];
-
     // Open Graph изображение
     const defaultOgImage = `${BASIS_URL_MAIN}/images/og-image.jpg`;
     const ogImageUrl = ogImage || defaultOgImage;
@@ -71,20 +65,9 @@ const MainLayout = ({
                 <meta name="description" content={pageDescription} />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
 
-                {/* Canonical и hreflang */}
+                {/* Canonical */}
                 <link rel="canonical" href={canonicalUrl} />
-                {languages.map(lang => {
-                    const langPrefix = lang === 'en' ? '' : `/${lang}`;
-                    return (
-                        <link
-                            key={lang}
-                            rel="alternate"
-                            hrefLang={lang}
-                            href={`${BASIS_URL_MAIN}${langPrefix}${cleanPath}`}
-                        />
-                    );
-                })}
-                <link rel="alternate" hrefLang="x-default" href={`${BASIS_URL_MAIN}${cleanPath}`} />
+                {/* hreflang временно отключен */}
 
                 {/* Favicon */}
                 <link rel="icon" href={STsmall?.src || STsmall} />
