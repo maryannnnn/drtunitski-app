@@ -16,6 +16,7 @@ import WhatsAppWidget from "../../shared/whatsapp-widget/WhatsAppWidget";
 import logoImage from "../../app/assets/images/logo/logo_3.png";
 import STsmall from "../assets/images/logo/st_small.png";
 import GoogleTags from '../../components/GoogleTags';
+import MetaPixel from '../../components/MetaPixel';
 
 const MainLayout = ({
                         children,
@@ -130,6 +131,7 @@ const MainLayout = ({
             {/* Условный баннер */}
             {showLanguageBanner && <LanguageDetectionBanner />}
             <GoogleTags />
+            <MetaPixel />
             <Header />
             <div className="main">
                 {children}
