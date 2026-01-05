@@ -12,42 +12,8 @@ const TrustCareBanner = () => {
     const { t, isLoading } = useSafeTranslation();
     const [isModalActive, setIsModalActive] = useState(false);
 
-    // Показываем скелетон во время загрузки переводов
-    if (isLoading) {
-        return (
-            <div className="trust-care-banner">
-                <div className="container">
-                    <div className="trust-care-banner__content">
-                        <div className="trust-care-banner__left">
-                            <div className="trust-care-banner__logo">
-                                <Image
-                                    src={logoBigImage}
-                                    alt="Dr. Serge Tunitski Logo"
-                                    width={400}
-                                    height={160}
-                                    priority
-                                />
-                            </div>
-                            <div style={{ width: '100%', height: '60px', background: 'rgba(139, 69, 19, 0.1)', borderRadius: '4px' }} />
-                        </div>
-                        <div className="trust-care-banner__right">
-                            <div className="trust-care-banner__doctor-image">
-                                <Image
-                                    src={doctorTopImage}
-                                    alt="Dr. Serge Tunitski"
-                                    width={518}
-                                    height={700}
-                                    style={{ objectFit: 'cover' }}
-                                    priority
-                                />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        );
-    }
-
+    // ✅ ОПТИМИЗИРОВАНО: изображения рендерятся сразу, текст показывается когда готов
+    // Это улучшает LCP — изображения не ждут загрузки переводов
 
     return (
         <div className="trust-care-banner">
@@ -61,10 +27,12 @@ const TrustCareBanner = () => {
                                 width={400}
                                 height={160}
                                 priority
+                                sizes="(max-width: 768px) 280px, 400px"
                             />
                         </div>
                         <div className="trust-care-banner__title">
-                            {t('common:trustCareBanner.title')}
+                            {/* Показываем текст или пустую строку пока загружается */}
+                            {isLoading ? '\u00A0' : t('common:trustCareBanner.title')}
                         </div>
                         <div className="trust-care-banner__associations">
                             <AssociationIcons variant="banner" />
@@ -84,6 +52,7 @@ const TrustCareBanner = () => {
                                 height={700}
                                 style={{ objectFit: 'cover' }}
                                 priority
+                                sizes="(max-width: 768px) 300px, (max-width: 1024px) 400px, 518px"
                             />
                         </div>
                     </div>
