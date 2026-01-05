@@ -1,13 +1,19 @@
 import './important.scss';
 import React, { useState } from 'react';
+import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { useSafeTranslation } from '../../shared/hooks/useSafeTranslation';
 import LeftLayout from '../../app/layouts/LeftLayout';
 import ButtonBrown from '../../shared/button-brown/ButtonBrown';
 import Modal from '../../shared/modal/Modal';
 import MainConsultation from "../../widgets/main-consultation";
-import MedreviewsBlock from "../../shared/medreviews-block/MedreviewsBlock";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+
+// ✅ Ленивая загрузка блока отзывов
+const MedreviewsBlock = dynamic(
+    () => import("../../shared/medreviews-block/MedreviewsBlock"),
+    { ssr: false }
+);
 import MainStories from "../../widgets/main-stories/MainStories";
 import MainLayout from "../../app/layouts/MainLayout";
 import { getSeoData } from '../../shared/utils/seo-translations';

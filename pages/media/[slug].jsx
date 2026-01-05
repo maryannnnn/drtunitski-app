@@ -30,8 +30,13 @@ import "lightgallery/css/lightgallery.css";
 import "lightgallery/css/lg-zoom.css";
 import "lightgallery/css/lg-share.css";
 import MainConsultation from "../../widgets/main-consultation";
-import MedreviewsBlock from "../../shared/medreviews-block/MedreviewsBlock";
 import MainStories from "../../widgets/main-stories/MainStories";
+
+// ✅ Ленивая загрузка блока отзывов
+const MedreviewsBlock = dynamic(
+    () => import("../../shared/medreviews-block/MedreviewsBlock"),
+    { ssr: false }
+);
 import MainLayout from "../../app/layouts/MainLayout";
 
 const MediaPage = ({initialData, seoData}) => {

@@ -1,4 +1,5 @@
 import React from 'react';
+import dynamic from 'next/dynamic';
 import '../app/scss/app.scss';
 import {SpeedInsights} from "@vercel/speed-insights/next";
 import MainLayout from "../app/layouts/MainLayout";
@@ -10,10 +11,18 @@ import TrustCareBanner from "@/shared/trust-care-banner/TrustCareBanner";
 import FooterAssociations from "@/shared/footer-associations/FooterAssociations";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import MainConsultation from "../widgets/main-consultation";
-import MedreviewsBlock from "../shared/medreviews-block/MedreviewsBlock";
 import { getSeoData } from '../shared/utils/seo-translations';
+import useIsMobile from "../shared/hooks/useIsMobile";
+
+// ✅ Ленивая загрузка блока отзывов (не критичен для первого экрана)
+const MedreviewsBlock = dynamic(
+    () => import("../shared/medreviews-block/MedreviewsBlock"),
+    { ssr: false }
+);
 
 const Index = ({ seoData }) => {
+    const isMobile = useIsMobile();
+
     return (
         <MainLayout title={seoData?.title} description={seoData?.description}>
             <TrustCareBanner />
@@ -23,7 +32,8 @@ const Index = ({ seoData }) => {
             <MainGynecology />
             <MainStories />
             {/*<MainVideoTestimonials />*/}
-            <FooterAssociations />
+            {/* FooterAssociations скрыт на мобильном для оптимизации */}
+            {!isMobile && <FooterAssociations />}
             <SpeedInsights/>
         </MainLayout>
     );
