@@ -1,22 +1,47 @@
 // layouts/MainLayout.jsx - ЕДИНЫЙ ДЛЯ ВСЕХ СТРАНИЦ
 import React from 'react';
+import dynamic from 'next/dynamic';
 import '../scss/app.scss';
 import Head from "next/head";
 import { useRouter } from 'next/router';
 import getConfig from 'next/config';
 import Header from "../../widgets/header/Header";
 import Footer from "../../widgets/footer/Footer";
-import LanguageDetectionBanner from "../../shared/language-detection-banner/LanguageDetectionBanner";
 import { isRTL } from "../../shared/utils/rtl-utils";
 import { useLanguageUrl } from "../../shared/hooks/useLanguageUrl";
-import ContactUsBlock from "../../shared/contact-us-block/ContactUsBlock";
-import AccessibilityWidget from "../../shared/accessibility-widget/AccessibilityWidget";
-import CookieConsentBanner from "../../shared/cookie-consent-banner/CookieConsentBanner";
-import WhatsAppWidget from "../../shared/whatsapp-widget/WhatsAppWidget";
 import logoImage from "../../app/assets/images/logo/logo_3.png";
 import STsmall from "../assets/images/logo/st_small.png";
-import GoogleTags from '../../components/GoogleTags';
-import MetaPixel from '../../components/MetaPixel';
+
+// ✅ ЛЕНИВАЯ ЗАГРУЗКА — эти компоненты НЕ блокируют First Paint
+// Трекинг-скрипты (Google Analytics, Meta Pixel, Yandex)
+const GoogleTags = dynamic(() => import('../../components/GoogleTags'), { ssr: false });
+const MetaPixel = dynamic(() => import('../../components/MetaPixel'), { ssr: false });
+
+// Баннеры и виджеты
+const LanguageDetectionBanner = dynamic(
+    () => import('../../shared/language-detection-banner/LanguageDetectionBanner'), 
+    { ssr: false }
+);
+const CookieConsentBanner = dynamic(
+    () => import('../../shared/cookie-consent-banner/CookieConsentBanner'), 
+    { ssr: false }
+);
+
+// Виджеты (WhatsApp, Accessibility) — показываются с задержкой
+const WhatsAppWidget = dynamic(
+    () => import('../../shared/whatsapp-widget/WhatsAppWidget'), 
+    { ssr: false }
+);
+const AccessibilityWidget = dynamic(
+    () => import('../../shared/accessibility-widget/AccessibilityWidget'), 
+    { ssr: false }
+);
+
+// Блок контактов — обычно внизу страницы
+const ContactUsBlock = dynamic(
+    () => import('../../shared/contact-us-block/ContactUsBlock'), 
+    { ssr: false }
+);
 
 const MainLayout = ({
                         children,

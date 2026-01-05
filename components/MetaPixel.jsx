@@ -1,4 +1,5 @@
 // components/MetaPixel.jsx
+// ✅ ОПТИМИЗИРОВАНО: загрузка скриптов после взаимодействия пользователя
 import { useEffect, useState } from 'react';
 import Script from 'next/script';
 import { useRouter } from 'next/router';
@@ -30,11 +31,47 @@ const getPixelIdByLocale = (locale) => {
 const MetaPixel = () => {
     const [consent, setConsent] = useState(null);
     const [pixelInitialized, setPixelInitialized] = useState(false);
+    const [shouldLoadScripts, setShouldLoadScripts] = useState(false);
     const router = useRouter();
     const { locale } = router;
     
     // Выбираем нужный пиксель на основе текущего языка
     const pixelId = getPixelIdByLocale(locale);
+
+    // ✅ ОТЛОЖЕННАЯ ЗАГРУЗКА: загружаем скрипты после взаимодействия или через 3 сек
+    useEffect(() => {
+        if (typeof window === 'undefined') return;
+
+        const interactionEvents = ['scroll', 'click', 'touchstart', 'keydown', 'mousemove'];
+        
+        const handleInteraction = () => {
+            setShouldLoadScripts(true);
+            // Удаляем все слушатели после первого взаимодействия
+            interactionEvents.forEach(event => {
+                window.removeEventListener(event, handleInteraction);
+            });
+        };
+
+        // Добавляем слушатели на взаимодействие (passive для производительности)
+        interactionEvents.forEach(event => {
+            window.addEventListener(event, handleInteraction, { once: true, passive: true });
+        });
+
+        // Fallback: загрузить через 3 секунды если нет взаимодействия
+        const timer = setTimeout(() => {
+            setShouldLoadScripts(true);
+            interactionEvents.forEach(event => {
+                window.removeEventListener(event, handleInteraction);
+            });
+        }, 3000);
+
+        return () => {
+            clearTimeout(timer);
+            interactionEvents.forEach(event => {
+                window.removeEventListener(event, handleInteraction);
+            });
+        };
+    }, []);
 
     useEffect(() => {
         // Загрузить сохраненное согласие
@@ -91,17 +128,18 @@ const MetaPixel = () => {
         }
     };
 
-    // Не загружать пиксель если для языка нет настроенного ID
-    if (!pixelId) {
+    // ✅ Не загружаем пиксель если для языка нет настроенного ID
+    // или если пользователь ещё не взаимодействовал со страницей
+    if (!pixelId || !shouldLoadScripts) {
         return null;
     }
 
     return (
         <>
-            {/* Meta Pixel Base Code */}
+            {/* Meta Pixel Base Code - загружается после взаимодействия */}
             <Script
                 id="meta-pixel-base"
-                strategy="afterInteractive"
+                strategy="lazyOnload"
                 onLoad={handlePixelLoad}
                 dangerouslySetInnerHTML={{
                     __html: `

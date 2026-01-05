@@ -1,11 +1,48 @@
 // components/GoogleTags.jsx
-import { useEffect, useState } from 'react';
+// ✅ ОПТИМИЗИРОВАНО: загрузка скриптов после взаимодействия пользователя
+import { useEffect, useState, useCallback } from 'react';
 import Script from 'next/script';
 import { CookieConsentManager } from '../shared/utils/cookie-consent-manager';
 
 const GoogleTags = () => {
     const [consent, setConsent] = useState(null);
     const [consentInitialized, setConsentInitialized] = useState(false);
+    const [shouldLoadScripts, setShouldLoadScripts] = useState(false);
+
+    // ✅ ОТЛОЖЕННАЯ ЗАГРУЗКА: загружаем скрипты после взаимодействия или через 3 сек
+    useEffect(() => {
+        if (typeof window === 'undefined') return;
+
+        const interactionEvents = ['scroll', 'click', 'touchstart', 'keydown', 'mousemove'];
+        
+        const handleInteraction = () => {
+            setShouldLoadScripts(true);
+            // Удаляем все слушатели после первого взаимодействия
+            interactionEvents.forEach(event => {
+                window.removeEventListener(event, handleInteraction);
+            });
+        };
+
+        // Добавляем слушатели на взаимодействие (passive для производительности)
+        interactionEvents.forEach(event => {
+            window.addEventListener(event, handleInteraction, { once: true, passive: true });
+        });
+
+        // Fallback: загрузить через 3 секунды если нет взаимодействия
+        const timer = setTimeout(() => {
+            setShouldLoadScripts(true);
+            interactionEvents.forEach(event => {
+                window.removeEventListener(event, handleInteraction);
+            });
+        }, 3000);
+
+        return () => {
+            clearTimeout(timer);
+            interactionEvents.forEach(event => {
+                window.removeEventListener(event, handleInteraction);
+            });
+        };
+    }, []);
 
     useEffect(() => {
         // Инициализировать Google Consent Mode v2 ДО загрузки тегов
@@ -60,17 +97,22 @@ const GoogleTags = () => {
         }
     };
 
+    // ✅ Не загружаем скрипты пока пользователь не взаимодействовал со страницей
+    if (!shouldLoadScripts) {
+        return null;
+    }
+
     return (
         <>
-            {/* Google Tag Manager - ВСЕГДА загружать с Consent Mode */}
+            {/* Google Tag Manager - загружается после взаимодействия */}
             <Script
                 id="google-tag-manager"
-                strategy="afterInteractive"
+                strategy="lazyOnload"
                 src="https://www.googletagmanager.com/gtag/js?id=G-V6ZF4RL4ST"
             />
             <Script
                 id="google-tags-config"
-                strategy="afterInteractive"
+                strategy="lazyOnload"
                 dangerouslySetInnerHTML={{
                     __html: `
                         window.dataLayer = window.dataLayer || [];
@@ -99,10 +141,10 @@ const GoogleTags = () => {
                 }}
             />
 
-            {/* Yandex.Metrika */}
+            {/* Yandex.Metrika - загружается после взаимодействия */}
             <Script
                 id="yandex-metrika"
-                strategy="afterInteractive"
+                strategy="lazyOnload"
                 dangerouslySetInnerHTML={{
                     __html: `
                         (function(m,e,t,r,i,k,a){
