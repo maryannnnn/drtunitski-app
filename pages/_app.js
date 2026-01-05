@@ -58,7 +58,7 @@ function MyApp({Component, pageProps}) {
     }, [router]);
 
     return (
-        <SafeReCaptchaProvider locale={router.locale}>
+        // <SafeReCaptchaProvider locale={router.locale}>
             <ErrorBoundary>
                 <ApolloProvider client={client}>
                     <ThemeProvider theme={theme}>
@@ -66,7 +66,7 @@ function MyApp({Component, pageProps}) {
                     </ThemeProvider>
                 </ApolloProvider>
             </ErrorBoundary>
-        </SafeReCaptchaProvider>
+        // </SafeReCaptchaProvider>
     );
 }
 

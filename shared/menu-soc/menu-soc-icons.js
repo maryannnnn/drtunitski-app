@@ -22,4 +22,3 @@ export const menuSocIcons = [
     {label: 13, value: 'Email', url: 'mailto:', component: <FiMail />},
     {label: 14, value: 'Mobile', url: 'tel:', component: <FiPhone />},
 ]
-

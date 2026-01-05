@@ -175,14 +175,14 @@ const ContactForm = () => {
                     <FaTelegram />
                     Telegram
                 </button>
-                <button
-                    type="button" 
-                    onClick={() => setShowEmailForm(!showEmailForm)} 
-                    className="contact-form__messenger contact-form__messenger--email"
-                >
-                    <FiMail />
-                    E-mail
-                </button>
+                {/*<button*/}
+                {/*    type="button" */}
+                {/*    onClick={() => setShowEmailForm(!showEmailForm)} */}
+                {/*    className="contact-form__messenger contact-form__messenger--email"*/}
+                {/*>*/}
+                {/*    <FiMail />*/}
+                {/*    E-mail*/}
+                {/*</button>*/}
             </div>
 
             {showEmailForm && (
@@ -286,5 +286,3 @@ const ContactForm = () => {
 };
 
 export default ContactForm;
-
-
