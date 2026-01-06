@@ -28,11 +28,14 @@ import "lightgallery/css/lightgallery.css";
 import "lightgallery/css/lg-zoom.css";
 import "lightgallery/css/lg-share.css";
 import MainConsultation from "../../widgets/main-consultation";
-import MainStories from "../../widgets/main-stories/MainStories";
 
-// ✅ Ленивая загрузка блока отзывов
+// ✅ Ленивая загрузка (не критичны для первого экрана)
 const MedreviewsBlock = dynamic(
     () => import("../../shared/medreviews-block/MedreviewsBlock"),
+    { ssr: false }
+);
+const MainStories = dynamic(
+    () => import("../../widgets/main-stories/MainStories"),
     { ssr: false }
 );
 import MainLayout from "../../app/layouts/MainLayout";

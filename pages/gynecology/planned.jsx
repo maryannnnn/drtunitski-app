@@ -10,12 +10,15 @@ import MainConsultation from "../../widgets/main-consultation";
 import Link from "next/link";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
-// ✅ Ленивая загрузка блока отзывов
+// ✅ Ленивая загрузка (не критичны для первого экрана)
 const MedreviewsBlock = dynamic(
     () => import("../../shared/medreviews-block/MedreviewsBlock"),
     { ssr: false }
 );
-import MainStories from "../../widgets/main-stories/MainStories";
+const MainStories = dynamic(
+    () => import("../../widgets/main-stories/MainStories"),
+    { ssr: false }
+);
 import MainLayout from "../../app/layouts/MainLayout";
 import { getSeoData } from '../../shared/utils/seo-translations';
 

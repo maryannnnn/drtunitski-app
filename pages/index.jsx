@@ -5,18 +5,24 @@ import {SpeedInsights} from "@vercel/speed-insights/next";
 import MainLayout from "../app/layouts/MainLayout";
 import MainTitle from "@/widgets/main-title/MainTitle";
 import MainGynecology from "@/widgets/main-gynecology/MainGynecology";
-import MainStories from "@/widgets/main-stories/MainStories";
 import MainVideoTestimonials from "@/widgets/main-video-testimonials/MainVideoTestimonials";
 import TrustCareBanner from "@/shared/trust-care-banner/TrustCareBanner";
-import FooterAssociations from "@/shared/footer-associations/FooterAssociations";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import MainConsultation from "../widgets/main-consultation";
 import { getSeoData } from '../shared/utils/seo-translations';
 import useIsMobile from "../shared/hooks/useIsMobile";
 
-// ✅ Ленивая загрузка блока отзывов (не критичен для первого экрана)
+// ✅ Ленивая загрузка (не критичны для первого экрана)
 const MedreviewsBlock = dynamic(
     () => import("../shared/medreviews-block/MedreviewsBlock"),
+    { ssr: false }
+);
+const MainStories = dynamic(
+    () => import("@/widgets/main-stories/MainStories"),
+    { ssr: false }
+);
+const FooterAssociations = dynamic(
+    () => import("@/shared/footer-associations/FooterAssociations"),
     { ssr: false }
 );
 

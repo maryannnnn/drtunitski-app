@@ -6,7 +6,6 @@ import Head from "next/head";
 import { useRouter } from 'next/router';
 import getConfig from 'next/config';
 import Header from "../../widgets/header/Header";
-import Footer from "../../widgets/footer/Footer";
 import { isRTL } from "../../shared/utils/rtl-utils";
 import { useLanguageUrl } from "../../shared/hooks/useLanguageUrl";
 import logoImage from "../../app/assets/images/logo/logo_3.png";
@@ -40,6 +39,12 @@ const AccessibilityWidget = dynamic(
 // Блок контактов — обычно внизу страницы
 const ContactUsBlock = dynamic(
     () => import('../../shared/contact-us-block/ContactUsBlock'), 
+    { ssr: false }
+);
+
+// Footer — внизу страницы, не критичен для первого экрана
+const Footer = dynamic(
+    () => import('../../widgets/footer/Footer'), 
     { ssr: false }
 );
 
