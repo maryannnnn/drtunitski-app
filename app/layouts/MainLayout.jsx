@@ -10,10 +10,11 @@ import { isRTL } from "../../shared/utils/rtl-utils";
 import { useLanguageUrl } from "../../shared/hooks/useLanguageUrl";
 import logoImage from "../../app/assets/images/logo/logo_3.png";
 import STsmall from "../assets/images/logo/st_small.png";
+import GoogleTags from "../../components/GoogleTags";
 
 // ✅ ЛЕНИВАЯ ЗАГРУЗКА — эти компоненты НЕ блокируют First Paint
 // Трекинг-скрипты (Google Analytics, Meta Pixel, Yandex)
-const GoogleTags = dynamic(() => import('../../components/GoogleTags'), { ssr: false });
+//const GoogleTags = dynamic(() => import('../../components/GoogleTags'), { ssr: false });
 const MetaPixel = dynamic(() => import('../../components/MetaPixel'), { ssr: false });
 
 // Баннеры и виджеты
@@ -160,12 +161,12 @@ const MainLayout = ({
 
             {/* Условный баннер */}
             {showLanguageBanner && <LanguageDetectionBanner />}
-            <GoogleTags />
             <MetaPixel />
             <Header />
             <div className="main">
                 {children}
             </div>
+            <GoogleTags />
             <ContactUsBlock />
             <CookieConsentBanner />
             <Footer />
