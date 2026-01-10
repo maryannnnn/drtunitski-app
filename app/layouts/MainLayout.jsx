@@ -161,12 +161,12 @@ const MainLayout = ({
 
             {/* Условный баннер */}
             {showLanguageBanner && <LanguageDetectionBanner />}
+            <GoogleTags />
             <MetaPixel />
             <Header />
             <div className="main">
                 {children}
             </div>
-            <GoogleTags />
             <ContactUsBlock />
             <CookieConsentBanner />
             <Footer />
